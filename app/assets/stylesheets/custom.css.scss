@@ -8,6 +8,14 @@ $gray:#c9d1d3;
 $beige:#cad1d3;
 $purple:#424155;
 
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body{
 	background-color:#f7f7f7;
 }
@@ -30,7 +38,6 @@ header{
 	float:left;
 		a{	
 			margin-left:30px;
-			font-family:'HelveticaNeueW01-67MdCn 692710';
 			font-weight:normal;
 			text-transform:uppercase;
 			color:$dark;
@@ -44,4 +51,82 @@ header{
 			}
 		}
 	}
+}
+
+/* miscellaneous */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/* forms */
+
+#new_user{
+	width: 220px;
+	margin: 0 auto;
+	padding: 20px;
+	position: relative;
+	background: white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAECAMAAAB883U1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAlQTFRF7+/v7u7u////REBVnAAAAAN0Uk5T//8A18oNQQAAABZJREFUeNpiYGJiYmBiYgRiBhAGCDAAALsAFJhiJ+UAAAAASUVORK5CYII=);
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	margin-bottom:10px;
+
+	label{
+		
+	}
+}
+
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+.button{
+	font-size:17px;
+	background:$red;
+	-webkit-box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
+	box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
+	color:white;
+	font-weight:normal;
+	text-transform:uppercase;
+	text-shadow:none;
+	padding:13px 19px;
+	border:none;
+	@include transition(background 1s ease);
+
+	&:hover{
+		background:#762019;
+		-webkit-box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
+		box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
+	}
+}
+
+.button_black{
+	@include transition(all 1s ease);
+	background:$dark;
+	-webkit-box-shadow: inset 1px 1px 17px 1px #444;
+	box-shadow: inset 1px 1px 17px 1px #444;
 }
