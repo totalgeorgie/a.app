@@ -1,5 +1,5 @@
 @import "bootstrap";
-
+@import "bootstrap-responsive";
 $dark:#3b3737;
 $red:#951a12;
 $gray_rgba:rgba(201,209,211,0.9);
@@ -20,4 +20,28 @@ h1, h2, h3, h4, p, li, span, a, input {
 header{
 	float:left;
 	margin-top:16px;
+}
+
+#main-menu, #footer-menu{
+	margin-top:25px;
+ 	list-style-type:none;
+ 	float:right;
+	li{
+	float:left;
+		a{	
+			margin-left:30px;
+			font-family:'HelveticaNeueW01-67MdCn 692710';
+			font-weight:normal;
+			text-transform:uppercase;
+			color:$dark;
+			font-size:15px;
+			line-height:1.5;
+			@include transition(color 1s ease);
+
+			&:hover{
+				color:$red;
+				background:none;
+			}
+		}
+	}
 }

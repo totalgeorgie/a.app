@@ -3,8 +3,7 @@
         <div class="row">
             <div class="span3">
                 <div id="logo">
-                    <a class="brand" href="#" title="<%= full_title(yield(:title)) %>" rel="home">
-                     <img src="#" alt="Atlas China"/></a>
+                     <%= link_to image_tag("logo.png", alt: full_title(yield(:title)) ), root_path, class: "brand" %>
                 </div>
             </div><!--span3-->
         </div><!--row-fluid header-->
