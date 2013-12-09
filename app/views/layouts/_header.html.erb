@@ -8,9 +8,9 @@
             </div><!--span3-->
             <div class="span9">
               <% if signed_in? %>
-                <h1>Signed in</h1>
+                <%= link_to "Sign out", signout_path, method: "delete" %>
               <% else %>
-                <h1>Not signed in</h1>
+                <li><%= link_to "Sign in", signin_path %></li>
               <% end %>
             </div>
         </div><!--row-fluid header-->
