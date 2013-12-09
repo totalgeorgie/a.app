@@ -64,7 +64,7 @@ header{
 
 /* forms */
 
-#new_user{
+#new_user, #signin_form{
 	width: 220px;
 	margin: 0 auto;
 	padding: 20px;
@@ -77,6 +77,11 @@ header{
 	label{
 		
 	}
+
+	.button{
+		width:100%;
+	}
+	
 }
 
 
