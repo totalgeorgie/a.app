@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Atlas::Application.config.secret_key_base = 'c189ffd2071759213bd54dca7b481a1d73ef01ffd848a8b13b33871949c686fab05b2adeafaa328906331191d61ab843ed82ff4087b15e1e045bd567b194528a'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Atlas::Application.config.secret_key_base = secure_token
+
