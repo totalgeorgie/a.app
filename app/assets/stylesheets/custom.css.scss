@@ -1,1 +1,23 @@
 @import "bootstrap";
+
+$dark:#3b3737;
+$red:#951a12;
+$gray_rgba:rgba(201,209,211,0.9);
+$gray_hex:#9ca1a2;
+$gray:#c9d1d3;
+$beige:#cad1d3;
+$purple:#424155;
+
+body{
+	background-color:#f7f7f7;
+}
+
+
+h1, h2, h3, h4, p, li, span, a, input {
+	-webkit-font-smoothing: antialiased;
+}
+
+header{
+	float:left;
+	margin-top:16px;
+}
