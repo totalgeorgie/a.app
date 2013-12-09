@@ -1,7 +1,8 @@
 Atlas::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  root  "users#new"
+  
+   root  "users#new"
 
    match '/signup',  to: 'users#new',            via: 'get'
    match '/signin',  to: 'sessions#new',         via: 'get'
