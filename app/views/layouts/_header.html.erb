@@ -8,10 +8,12 @@
             </div><!--span3-->
             <div class="span9">
               <% if signed_in? %>
-                <%= link_to "Sign out", signout_path, method: "delete" %>
+                <%= link_to "All Users", users_path %>
+                <%= link_to "Profile", current_user %>
                 <%= link_to "Settings", edit_user_path(current_user) %>
+                <%= link_to "Sign out", signout_path, method: "delete" %>
               <% else %>
-                <li><%= link_to "Sign in", signin_path %></li>
+                <%= link_to "Sign in", signin_path %>
               <% end %>
             </div>
         </div><!--row-fluid header-->
