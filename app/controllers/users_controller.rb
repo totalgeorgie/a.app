@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
+  before_action :admin_user, only: [:index, :destroy] # only admins can see admin dashboard
 
-  before_action :signed_in_user, only: [:index, :edit, :update, :show] # makes sure that the user is signed in to access these pages
+  before_action :signed_in_user, only: [:index, :edit, :update, :show, :destroy] # makes sure that the user is signed in to access these pages
   before_action :correct_user, only: [:edit, :update, :show] # makes sure that the user can only edit and see their own info
 
   def new
@@ -55,5 +56,11 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(current_user) unless current_user?(@user)
+    end
+
+    def admin_user 
+      unless current_user.admin?
+        redirect_to(current_user)
+      end
     end
 end
