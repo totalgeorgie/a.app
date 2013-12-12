@@ -1,14 +1,10 @@
 class UsersController < ApplicationController
 
-  before_action :signed_in_user, only: [:edit, :update, :show] # makes sure that the user is signed in to access these pages
+  before_action :signed_in_user, only: [:index, :edit, :update, :show] # makes sure that the user is signed in to access these pages
   before_action :correct_user, only: [:edit, :update, :show] # makes sure that the user can only edit and see their own info
 
   def new
   	@user = User.new
-  end
-
-  def show 
-  	@user = User.find(params[:id])
   end
 
   def create 
@@ -34,6 +30,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show 
+  end
+
+  def index 
+  end
   private
 
     def user_params # this is used in order to restrict what params a person can pass to the controller. i.e otherwise people might pass a parameter for admin=1
