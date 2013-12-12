@@ -16,6 +16,19 @@ Currently at 8.7 Code for the signin
 
 == To do
 
+Make a "Common App Model", with all fields. 
+On signup, redirect us to the "Common App"
+Connect User info to the common app
+If the common app is not filled, ask them to complete it. 
+
+Make a "Video Model"
+On finishing common app, ask user to fill in video 
+Connect User info to video
+If the video is not filled, ask them to complete it. 
+
+
+
+
 Convert whatever I have so far into slim
 Make whatever I have so far designed in a nice manner, as soon as the flow is done enough
 
