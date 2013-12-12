@@ -2,6 +2,18 @@
 
 Currently at 8.7 Code for the signin
 
+
+== What has been done 
+
+- Set up users
+- Users can sign up
+- Users can sign in and sign out
+- Users can update their login info 
+- Certain users can be admins
+- Only Admin can see all users
+- Only Admin can destroy all users
+
+
 == To do
 
 Convert whatever I have so far into slim
