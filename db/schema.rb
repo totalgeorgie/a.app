@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212080744) do
+ActiveRecord::Schema.define(version: 20131213105941) do
+
+  create_table "common_apps", force: true do |t|
+    t.integer  "user_id"
+    t.string   "current_city"
+    t.integer  "grad_year"
+    t.string   "read_type"
+    t.string   "listen_speak"
+    t.integer  "time_in_china"
+    t.string   "cover_letter"
+    t.string   "resume"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
