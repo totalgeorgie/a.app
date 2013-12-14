@@ -1,0 +1,2 @@
+class CommonAppsController < ApplicationController
+end

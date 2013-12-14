@@ -6,6 +6,9 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+
+
+
 gem 'carrierwave' # for resume upload http://railscasts.com/episodes/253-carrierwave-file-uploads
 gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel
 
@@ -13,6 +16,7 @@ gem 'sunspot_rails' # one field search -- http://railscasts.com/episodes/278-sea
 
 # for advanced search, try http://railscasts.com/episodes/111-advanced-search-form-revised  // very cool way to filter
 
+gem 'annotate', '2.5.0', group: :development
 
 
 
