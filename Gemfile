@@ -9,6 +9,13 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'carrierwave' # for resume upload http://railscasts.com/episodes/253-carrierwave-file-uploads
 gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel
 
+gem 'sunspot_rails' # one field search -- http://railscasts.com/episodes/278-search-with-sunspot
+
+# for advanced search, try http://railscasts.com/episodes/111-advanced-search-form-revised  // very cool way to filter
+
+
+
+
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
