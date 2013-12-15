@@ -37,7 +37,7 @@ class CommonAppsController < ApplicationController
   end
 
   private
-
+  
     def common_app_params
       params.require(:common_app).permit(:current_city,:grad_year,:read_type,
       									  :listen_speak,:time_in_china,
