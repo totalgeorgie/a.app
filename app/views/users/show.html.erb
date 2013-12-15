@@ -5,7 +5,7 @@
 <%if @user.common_app.any? %>
 	<h4>The status of common app coming soon</h4>
 <% else %>
-	<h4> It looks like you haven't filled in your common application. Click the button below to get started</h4> 
+	<h4> It looks like you haven't filled in your common application. Click the button below to get started <br/> &nbsp; </h4> 
 	<%= link_to "Get Started", new_common_app_path, :class => "button" %>
 <% end %>
 <hr />
