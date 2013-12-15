@@ -2,9 +2,9 @@
 <h1><%= current_user.name %></h1>
 
 
-<%if current_user.common_app.any? %>
+<%if current_user.common_app.present? %>
 	<ul>
-		<%= render @common_apps %>
+		<%= render @common_app %>
 	</ul>
 <% else %>
 	<h4> It looks like you haven't filled in your common application. Click the button below to get started <br/> &nbsp; </h4> 
