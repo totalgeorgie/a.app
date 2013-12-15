@@ -8,7 +8,9 @@
             </div><!--span3-->
             <div class="span9">
               <% if signed_in? %>
+                <% if current_user.admin? %>
                 <%= link_to "All Users", users_path %>
+                <% end %>
                 <%= link_to "Profile", current_user %>
                 <%= link_to "Settings", edit_user_path(current_user) %>
                 <%= link_to "Sign out", signout_path, method: "delete" %>
