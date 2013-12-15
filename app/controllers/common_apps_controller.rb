@@ -20,6 +20,7 @@ class CommonAppsController < ApplicationController
   end
 
   def show
+    @common_apps = current_user.common_app
   end
   private
 
