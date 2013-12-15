@@ -123,6 +123,7 @@ input {
 	@include transition(background 1s ease);
 
 	&:hover{
+		color:white;
 		background:#762019;
 		-webkit-box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
 		box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);

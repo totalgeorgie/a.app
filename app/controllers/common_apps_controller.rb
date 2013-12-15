@@ -2,7 +2,11 @@ class CommonAppsController < ApplicationController
   before_action :signed_in_user
 
   def new
+    if current_user.common_app.any?
+      redirect_to current_user
+    else
   		@common_app = current_user.common_app.new 
+    end
   end
 
   def create 
