@@ -1,28 +1,5 @@
 <% provide(:title, "Sign up!") %>
 <%= form_for(@common_app) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-<%= f.label :cover_letter %>
-<%= f.text_area :cover_letter %>
-
-<%= f.label :current_city %>
-<%= f.text_field :current_city %>
-
-<%= f.label :grad_year %>
-<%= f.text_field :grad_year %>
-
-<%= f.label :read_type %>
-<%= f.text_field :read_type %>
-
-<%= f.label :listen_speak %>
-<%= f.text_field :listen_speak %>
-
-<%= f.label :time_in_china %>
-<%= f.text_field :time_in_china %>
-
-<%= f.label :resume %>
-<p>Attachment coming soon</p>
-
-  </div>
+ <%= render 'fields', f: f %>
   <%= f.submit "Submit the application", class: "button" %>
 <% end %>

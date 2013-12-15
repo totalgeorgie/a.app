@@ -22,6 +22,9 @@ class CommonAppsController < ApplicationController
   def show
     @common_apps = current_user.common_app
   end
+
+  #for show, edit, we need to make sure that they can only see 1 common_app 
+
   private
 
     def common_app_params
