@@ -11,12 +11,10 @@ class CommonAppsController < ApplicationController
   		flash[:success] = "Common App Created!"
   		redirect_to root_url
   	else
-  		redirect_to 'new'
+  		redirect_to 'common_apps/new'
   	end
   end
 
-  def create
-  end
   def show
   end
   private

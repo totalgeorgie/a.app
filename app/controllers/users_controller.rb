@@ -5,7 +5,11 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :show] # makes sure that the user can only edit and see their own info
 
   def new
-  	@user = User.new
+    if current_user
+      redirect_to current_user
+    else
+    	@user = User.new
+    end
   end
 
   def create 
