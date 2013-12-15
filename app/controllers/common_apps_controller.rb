@@ -2,8 +2,7 @@ class CommonAppsController < ApplicationController
   before_action :signed_in_user
 
   def new
-  	@common_app = current_user.common_app.new ## not working, why?
-
+  		@common_app = current_user.common_app.new 
   end
 
   def create 
@@ -18,7 +17,8 @@ class CommonAppsController < ApplicationController
 
   def create
   end
-
+  def show
+  end
   private
 
     def common_app_params
