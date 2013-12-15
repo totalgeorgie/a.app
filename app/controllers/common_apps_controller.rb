@@ -19,7 +19,20 @@ class CommonAppsController < ApplicationController
   	end
   end
 
+  def update
+    if current_user.common_app.update_attributes(common_app_params)
+      flash[:success] = "Common App Updated"
+      redirect_to root_url
+    else
+      render 'common_apps/edit'
+    end
+  end
+
   def show
+    @common_app = current_user.common_app
+  end
+
+  def edit
     @common_app = current_user.common_app
   end
 
@@ -31,4 +44,5 @@ class CommonAppsController < ApplicationController
       									  :cover_letter,:resume) ####fill in the correct ones here
     end
 
+    # is correct_user necessary?
 end
