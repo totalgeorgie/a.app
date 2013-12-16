@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213105941) do
+ActiveRecord::Schema.define(version: 20131216022546) do
 
   create_table "common_apps", force: true do |t|
     t.integer  "user_id"
@@ -38,5 +38,13 @@ ActiveRecord::Schema.define(version: 20131213105941) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "videos", force: true do |t|
+    t.integer  "user_id"
+    t.string   "video_cid"
+    t.string   "question"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
