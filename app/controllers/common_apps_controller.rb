@@ -44,5 +44,4 @@ class CommonAppsController < ApplicationController
       									  :cover_letter,:resume) ####fill in the correct ones here
     end
 
-    # is correct_user necessary?
 end

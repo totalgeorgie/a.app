@@ -6,6 +6,7 @@
 </strong></p>
 
 <%= form_for @video do |f| %>
+ <%= render 'shared/error_messages', object: f.object %>
  <%= f.label :question %>
  <%= select(:video, :question, 
  				[
@@ -16,18 +17,8 @@
  					 ['How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad?',
  					 	'How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad? ']
  				]) %>
- 				
+
  <%= render 'nimbb' %>
+ <%= f.hidden_field :video_cid, value: "" %>
  <%= f.submit "Submit the Video", class: "button" %>
 <% end %>
-
-
-
-                                                  margin-bottom: 10px;">
-<option value="Why would you be effective in a sales/business development role in China?">Why would you be effective in a sales/business development role in China? </option>
-<option value="Why would you be a valuable addition to an international team in China? ">Why would you be a valuable addition to an international team in China? </option>
-<option value="How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad? ">How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad? </option>
-<option value="What is your most significant accomplishment or the best example of your leadership skills in China?">What is your most significant accomplishment or the best example of your leadership skills in China?</option>
-<option value="How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad? ">Talk about the industry you have passion for and why you want to be in China.</option>
-</select>
-<br/>

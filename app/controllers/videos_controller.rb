@@ -9,4 +9,20 @@ class VideosController < ApplicationController
     end
   end
 
+  def create 
+  	@video = current_user.build_video(video_params)
+  	if @video.save
+  		flash[:success] = "Video Created!"
+  		redirect_to root_url
+  	else
+  		redirect_to new_video_path
+  	end
+  end
+
+
+  private
+  
+    def video_params
+      params.require(:video).permit(:video_cid,:question)
+    end
 end

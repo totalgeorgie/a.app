@@ -12,8 +12,10 @@
 
 class Video < ActiveRecord::Base
  belongs_to :user
- validates :user_id, presence: true
- # must create validates for the other form stuff. 
- 
+
+ validates  :user_id, presence: true
+ validates  :question, presence: true
+ validates  :video_cid, presence: true
+
 end
 
