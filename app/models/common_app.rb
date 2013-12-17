@@ -18,7 +18,6 @@
 class CommonApp < ActiveRecord::Base
  belongs_to :user
  validates :user_id, presence: true
- default_scope -> { order('created_at DESC') }
  mount_uploader :resume, ResumeUploader
  # must create validates for the other form stuff. 
 

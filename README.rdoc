@@ -31,6 +31,8 @@ If the video is not filled, ask them to complete it.
 
 Make a status bar type thing for the common app 
 
+-for the register, see common app, and the video view, add a 1, 2, 3 steps thing
+
 
 
 

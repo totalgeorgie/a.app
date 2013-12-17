@@ -26,6 +26,9 @@ class User < ActiveRecord::Base
 
   has_one :common_app, dependent: :destroy
 
+
+  has_one :video, dependent: :destroy
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
