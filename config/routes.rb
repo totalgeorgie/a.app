@@ -1,7 +1,7 @@
 Atlas::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :common_apps, [:new, :create, :update, :show, :edit, :destroy]
+  resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy]
   resources :videos
   
    root  "users#new"

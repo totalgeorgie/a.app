@@ -1,0 +1,33 @@
+<% provide(:title, "Final step, Record a video of yourself") %>
+
+<p>As part of our application process, we invite candidates to record a video that demonstrates their Mandarin skills directly to hiring managers and leads to getting job offers much faster.</p>
+
+<p><strong>Please select a question prompt below and record your answer in Chinese in a casual, conversational 60-90 second video.
+</strong></p>
+
+<%= form_for @video do |f| %>
+ <%= f.label :question %>
+ <%= select(:video, :question, 
+ 				[
+ 					['Why would you be effective in a sales/business development role in China?', 
+ 						'Why would you be a valuable addition to an international team in China? '], 
+ 					['What is your most significant accomplishment or the best example of your leadership skills in China?', 
+ 						'What is your most significant accomplishment or the best example of your leadership skills in China?'],
+ 					 ['How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad?',
+ 					 	'How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad? ']
+ 				]) %>
+ 				
+ <%= render 'nimbb' %>
+ <%= f.submit "Submit the Video", class: "button" %>
+<% end %>
+
+
+
+                                                  margin-bottom: 10px;">
+<option value="Why would you be effective in a sales/business development role in China?">Why would you be effective in a sales/business development role in China? </option>
+<option value="Why would you be a valuable addition to an international team in China? ">Why would you be a valuable addition to an international team in China? </option>
+<option value="How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad? ">How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad? </option>
+<option value="What is your most significant accomplishment or the best example of your leadership skills in China?">What is your most significant accomplishment or the best example of your leadership skills in China?</option>
+<option value="How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad? ">Talk about the industry you have passion for and why you want to be in China.</option>
+</select>
+<br/>

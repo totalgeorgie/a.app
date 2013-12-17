@@ -18,7 +18,6 @@ gem 'sunspot_rails' # one field search -- http://railscasts.com/episodes/278-sea
 
 gem 'annotate', '2.5.0', group: :development
 
-# let's take down plans and pricing for the moment
 
 
 group :development, :test do
