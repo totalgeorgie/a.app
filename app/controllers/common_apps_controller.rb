@@ -30,7 +30,8 @@ class CommonAppsController < ApplicationController
 
   def show
     @common_app = current_user.common_app
-  end
+    redirect_to new_common_app_path, notice: "Looks like you haven't made your common application. Fill it in below." unless @common_app.present?
+  end    
 
   def edit
     @common_app = current_user.common_app

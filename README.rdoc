@@ -1,6 +1,7 @@
 == README
 
-Currently at 8.7 Code for the signin
+Currently at Common/apps show. Trying to make redirect work. Afterwards, will go to video and make the show/edit/update 
+
 
 
 == What has been done 
@@ -18,16 +19,16 @@ Currently at 8.7 Code for the signin
 - Make a "Common App Model", with all fields. 
 - Connect User info to the common app
 - If the common app is not filled, ask them to complete it. 
-
-
+- On signup, redirect us to the "Common App"
+- Make a "Video Model"
+-If the video is not filled, ask them to complete it. 
 == To do
 
 
-On signup, redirect us to the "Common App"
-Make a "Video Model"
+Make a show video page
+Make an edit video page
 On finishing common app, ask user to fill in video 
-Connect User info to video
-If the video is not filled, ask them to complete it. 
+
 
 Make a status bar type thing for the common app 
 

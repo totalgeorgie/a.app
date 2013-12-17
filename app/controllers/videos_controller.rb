@@ -19,6 +19,11 @@ class VideosController < ApplicationController
     end
   end
 
+  def show
+    @video = current_user.video
+  end
+
+
   private
   
     def video_params
