@@ -1,12 +1,13 @@
-<% provide(:title, "Edit Common App") %>
-<h1>Edit Your Common App</h1>
+<% provide(:title, "Edit Video App") %>
+<h1>Edit Your Video App</h1>
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@common_app) do |f| %>
+    <%= form_for(@video) do |f| %>
+    
       <%= render 'fields', f: f %>
 
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save changes", class: "button" %>
     <% end %>
   </div>
 </div>

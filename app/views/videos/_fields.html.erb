@@ -1,0 +1,14 @@
+ <%= render 'shared/error_messages', object: f.object %>
+ <%= f.label :question %>
+ <%= select(:video, :question, 
+ 				[
+ 					['Why would you be effective in a sales/business development role in China?', 
+ 						'Why would you be a valuable addition to an international team in China? '], 
+ 					['What is your most significant accomplishment or the best example of your leadership skills in China?', 
+ 						'What is your most significant accomplishment or the best example of your leadership skills in China?'],
+ 					 ['How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad?',
+ 					 	'How would you help solve the biggest challenges Chinese companies and investors face when doing business abroad? ']
+ 				]) %>
+
+ <%= render 'nimbb' %>
+ <%= f.hidden_field :video_cid, value: "" %>

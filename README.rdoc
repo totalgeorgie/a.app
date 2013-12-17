@@ -1,8 +1,6 @@
 == README
 
-Currently at Common/apps show. Trying to make redirect work. Afterwards, will go to video and make the show/edit/update 
-
-
+Currently at Videos/show. Having trouble with rendering the form if there's an error. Afterwards
 
 == What has been done 
 
@@ -22,10 +20,11 @@ Currently at Common/apps show. Trying to make redirect work. Afterwards, will go
 - On signup, redirect us to the "Common App"
 - Make a "Video Model"
 -If the video is not filled, ask them to complete it. 
+-Make a show video page
+
 == To do
 
 
-Make a show video page
 Make an edit video page
 On finishing common app, ask user to fill in video 
 
