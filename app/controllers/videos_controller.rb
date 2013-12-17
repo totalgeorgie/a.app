@@ -21,8 +21,8 @@ class VideosController < ApplicationController
 
   def show
     @video = current_user.video
-  end
-
+    redirect_to new_video_path, notice: "Looks like you haven't made your video yet! Fill it in below." unless @video.present?
+  end   
 
   private
   
