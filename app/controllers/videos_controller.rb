@@ -10,15 +10,14 @@ class VideosController < ApplicationController
   end
 
   def create 
-  	@video = current_user.build_video(video_params)
-  	if @video.save
-  		flash[:success] = "Video Created!"
-  		redirect_to root_url
-  	else
-  		redirect_to new_video_path
-  	end
+    @video = current_user.build_video(video_params)
+    if @video.save
+        flash[:success] = "Video Created!"
+        redirect_to root_url
+    else
+        render :new
+    end
   end
-
 
   private
   

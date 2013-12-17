@@ -6,9 +6,21 @@
 	<h4>The status of common app coming soon</h4>
 	<%= link_to "Show Common App", common_app_path %><span>, </span>
 	<%= link_to "Edit Common App", edit_common_app_path %>
+	<% if @user.video.present? %>
+		<%= link_to "See my video", video_path %>
+	<%else%>
+		<h5> It looks like you haven't made a video. Click <%= link_to 'Create Video', new_video_path %> to make one</h5>
+	<% end %>
 <% else %>
 	<h4> It looks like you haven't filled in your common application. Click the button below to get started <br/> &nbsp; </h4> 
 	<%= link_to "Get Started", new_common_app_path, :class => "button" %>
+	
+	<% if @user.video.present? %>
+		<%= link_to "See my video", video_path %>
+	<%else%>
+		<h5> It looks like you haven't made a video. Click <%= link_to 'Create Video', new_video_path %> to make one</h5>
+	<% end %>
+
 <% end %>
 <hr />
 <p><em>Job applications coming soon</em></p>

@@ -15,7 +15,8 @@ class Video < ActiveRecord::Base
 
  validates  :user_id, presence: true
  validates  :question, presence: true
- validates  :video_cid, presence: true
+ validates  :video_cid, :presence => {:message => "does not look to be saved. Please record and save your video."}
+
 
 end
 
