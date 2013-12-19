@@ -13,17 +13,40 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
-      redirect_to @survey, :notice => "Successfully created survey."
+      redirect_to @job, :notice => "Successfully created job."
     else
       render :action => 'new'
     end
   end
+
+  def edit 
+   @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    if @job.update_attributes(job_params)
+      flash[:notice] = "Successfully updated Job."
+      redirect_to root_url
+    else
+      render :action => 'edit'
+    end
+  end
+
+  def show 
+    @job = Job.find(params[:id])
+  end
+
+
+ private
 
   def job_params 
     params.require(:job).permit(:id, :job_title, :job_summary, :qualifications,
                                  bullets_attributes: [:id, :bullet, :_destroy],
                                  roles_attributes: [:id, :role_title,:role_desc, :_destroy])
   end
+
+
 
 end
 

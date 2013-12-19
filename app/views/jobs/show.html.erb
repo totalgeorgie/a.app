@@ -1,0 +1,11 @@
+<ul>
+
+<li> Job Title: <%= @job.job_title %></li>
+
+<li> Job Summary: <%= @job.job_summary %></li>
+
+<li><%= "Bullets:" unless @job.bullets.nil? %></li>
+
+<% @job.bullets.each do |bullet| %>
+	<li> <%= bullet.bullet %>
+<% end %>

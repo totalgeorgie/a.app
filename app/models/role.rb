@@ -13,7 +13,6 @@
 class Role < ActiveRecord::Base
 	belongs_to :job
 
-	validates :job_id, presence: true
 	validates :role_title, presence: true
 	validates :role_desc,  presence: true
 end
