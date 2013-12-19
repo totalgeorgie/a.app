@@ -12,8 +12,8 @@ class CommonAppsController < ApplicationController
   def create 
   	@common_app = current_user.build_common_app(common_app_params)
   	if @common_app.save
-  		flash[:success] = "Common App Created!"
-  		redirect_to root_url
+  		flash[:success] = "Common App Created. For the final step, record a video about one of the topics below"
+  		redirect_to new_video_path
   	else
   		redirect_to 'common_apps/new'
   	end

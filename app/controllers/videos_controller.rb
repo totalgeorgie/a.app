@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :signed_in_user
   
   def new
-    if current_user.video.present?
+    if current_user.video
       redirect_to current_user
     else
       @video = current_user.build_video

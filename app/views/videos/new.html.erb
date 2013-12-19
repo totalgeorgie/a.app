@@ -6,6 +6,6 @@
 </strong></p>
 
 <%= form_for @video do |f| %>
-	<%= render 'fields' %>
+ <%= render 'fields', f: f %>
  <%= f.submit "Submit the Video", class: "button" %>
 <% end %>

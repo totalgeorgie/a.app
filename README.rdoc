@@ -19,14 +19,29 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - If the common app is not filled, ask them to complete it. 
 - On signup, redirect us to the "Common App"
 - Make a "Video Model"
--If the video is not filled, ask them to complete it. 
--Make a show video page
+- If the video is not filled, ask them to complete it. 
+- Make a show video page
+- Make an Edit Video Page
+- Make an edit video page
+- On finishing common app, ask user to fill in video 
+- Make a Job Model, Bullet Model, and Roles Model 
 
 == To do
 
+-Create validations for jobs
+-Add resources for jobs
+-Create ability for an admin to create a job
+-Connect bullets to jobs
+-Connect Roles to jobs
+-Make necessary connections
+-Make nested form in Rails
+-Make Edit view on jobs
+-Make New View on jobs
+-Make show view on jobs
+-Make index view on jobs 
 
-Make an edit video page
-On finishing common app, ask user to fill in video 
+
+----- 
 
 
 Make a status bar type thing for the common app 
@@ -35,11 +50,98 @@ Make a status bar type thing for the common app
 
 Before going live, change the nimbb code to live version 
 
-
-
-
-
-
 Convert whatever I have so far into slim
 Make whatever I have so far designed in a nice manner, as soon as the flow is done enough
+
+
+
+
+=== The Database Schema 
+
+User
+    name:string
+    email:string
+    password_digest
+
+    has_one :common_app
+    has_one :video
+    has_many :Industry through :UserIndustry
+    has_many :city through :UserCity 
+
+    has_many jobs through: application
+
+Video 
+    user_id:integer
+    video_cid:string
+    video_question:string
+    belongs_to :user
+
+Common_App
+    user_id:integer
+    current_city:string
+    grad_year:integer
+    read_type:string
+    listen_speak:string
+    time_in_china:integer
+    general_cover_letter:string
+
+#Note that I'm moving out the desired industries and preferred cities from the common_app model, because they are multi-select, and are shared amongst jobs and users)*
+
+Industry
+    has_many :users through :UserIndustry
+    has_many :jobs through :JobIndustry
+
+City
+    has_many :users through :UserCity
+    has_many :jobs through :JobCity
+
+UserIndustry
+    belongs_to :user
+    belongs_to :industry
+
+UserCity
+    belongs_to :user
+    belongs_to :city
+
+Job
+    has_many :users, through :application
+    has_many :questions
+    has_many :industry through :JobsIndustry
+    has_many :city through :JobsCity
+
+Application
+    belongs_to :user
+    belongs_to :job
+    has_many :answers
+
+Question
+    belongs_to :job
+    has_one :answer
+
+Answer
+    belongs_to :application
+    belongs_to :question
+
+JobIndustry
+    belongs_to :job
+    belongs_to :industry
+
+JobCity
+    belongs_to :job
+    belongs_to :city
+
+
+-------
+
+Test Procedure
+
+User able to sign up
+On sign up, user redirected to make profile
+On make profile, User able to see video
+User able to update sign up info
+User able to update profile info
+On update of profile info, redirected to root
+User able to update video, on update video, redirect to root
+If used does not do video, it is prompted on the home page
+
 
