@@ -1,8 +1,9 @@
 Atlas::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy]
-  resources :videos
+  resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy] #no index
+  resources :videos, only: [:new, :create, :update, :show, :edit, :destroy] #no index
+  resources :jobs
   
    root  "users#new"
 

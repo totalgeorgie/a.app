@@ -25,20 +25,27 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Make an edit video page
 - On finishing common app, ask user to fill in video 
 - Make a Job Model, Bullet Model, and Roles Model 
+- Create validations for jobs
+- Connect bullets to jobs
+- Connect Roles to jobs
 
 == To do
 
--Create validations for jobs
+
 -Add resources for jobs
 -Create ability for an admin to create a job
--Connect bullets to jobs
--Connect Roles to jobs
--Make necessary connections
 -Make nested form in Rails
 -Make Edit view on jobs
 -Make New View on jobs
 -Make show view on jobs
 -Make index view on jobs 
+
+AFTERWARDS - 
+Figure out the type of categories etc that have has_many relationships.
+
+First, set up the nested form for making a new common app
+Second, set up the nested form for jobs 
+
 
 
 ----- 
