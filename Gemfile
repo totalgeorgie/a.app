@@ -10,6 +10,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 #get people able to come in 
 
 gem 'carrierwave' # for resume upload http://railscasts.com/episodes/253-carrierwave-file-uploads
+gem "nested_form" # added to assets pipeline
+
 gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel
 
 gem 'sunspot_rails' # one field search -- http://railscasts.com/episodes/278-search-with-sunspot

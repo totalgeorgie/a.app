@@ -28,12 +28,14 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Create validations for jobs
 - Connect bullets to jobs
 - Connect Roles to jobs
+- Add resources for jobs
+- Create ability for an admin to create a job
 
 == To do
 
 
--Add resources for jobs
--Create ability for an admin to create a job
+
+
 -Make nested form in Rails
 -Make Edit view on jobs
 -Make New View on jobs

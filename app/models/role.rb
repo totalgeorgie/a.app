@@ -15,5 +15,5 @@ class Role < ActiveRecord::Base
 
 	validates :job_id, presence: true
 	validates :role_title, presence: true
-	validates :role_desc, :presence: true
+	validates :role_desc,  presence: true
 end
