@@ -9,3 +9,9 @@
 <% @job.bullets.each do |bullet| %>
 	<li> <%= bullet.bullet %>
 <% end %>
+
+<li><%= "Jobs:" unless @job.bullets.nil? %></li>
+
+<% @job.bullets.each do |bullet| %>
+	<li> <%= bullet.bullet %>
+<% end %>

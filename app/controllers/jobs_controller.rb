@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create, :update, :show, :edit, :destroy] # index, at least partially is available to all viewers
+  before_action :signed_in_user, only: [:new, :create, :update, :edit, :destroy] # index, show, at least partially is available to all viewers
   before_action :admin_user, only: [:new, :edit, :update, :create, :destroy] # only admins can make jobs
 
   def new
@@ -27,7 +27,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     if @job.update_attributes(job_params)
       flash[:notice] = "Successfully updated Job."
-      redirect_to root_url
+      redirect_to @job, :notice => "Successfully updated job"
     else
       render :action => 'edit'
     end
@@ -37,7 +37,9 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
-
+  def index 
+    @jobs = Job.paginate(page: params[:page])
+  end
  private
 
   def job_params 

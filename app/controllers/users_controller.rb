@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def show 
-  
+    redirect_to users_path if current_user.admin?
   end
 
   def index 
