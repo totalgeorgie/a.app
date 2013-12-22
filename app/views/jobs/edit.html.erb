@@ -1,4 +1,3 @@
-
 <%= nested_form_for @job do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
@@ -31,8 +30,6 @@
 	  <% end %>
 	  <p><%= f.link_to_add "Add a Role", :roles %></p>
   </div>
-
-
-
+  
   <%= f.submit "Publish the Job", class: "button" %>
 <% end %>

@@ -30,28 +30,61 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Connect Roles to jobs
 - Add resources for jobs
 - Create ability for an admin to create a job
+- Make nested form in Rails
+- Make Edit view on jobs
+- Make New View on jobs
+- Make show view on jobs
+- Make index view on jobs 
 
 == To do
 
+Make Industries
+Make Cities
+Make Positions
+
+Connect to jobs via 
+
+Make JobsIndustries
+Make JobsCities
+Make JobsPositions
+
+Add to the making form
+
+connect to users via 
+
+Make UserIndustries
+Make UserCities
+Make UserPositions
+
+Add to the common_app 
+
+--
+
+Make Applications
+
+Make Questions
+
+Make Answers
+
+Connect all of that through Applications 
 
 
 
--Make nested form in Rails
--Make Edit view on jobs
--Make New View on jobs
--Make show view on jobs
--Make index view on jobs 
+================
 
-AFTERWARDS - 
+Design area. 
+
+List out all resources
+
+Design each one in the proccess 
+
+--
+
+On Show view for jobs, make a non-user able to see only a bit
+
 Figure out the type of categories etc that have has_many relationships.
-
 First, set up the nested form for making a new common app
 Second, set up the nested form for jobs 
-
-
-
------ 
-
 
 Make a status bar type thing for the common app 
 
