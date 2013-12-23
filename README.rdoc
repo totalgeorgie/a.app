@@ -99,6 +99,9 @@ Convert whatever I have so far into slim
 Make whatever I have so far designed in a nice manner, as soon as the flow is done enough
 
 
+At the end, change action mailer default url to final domain, in environment/production
+
+
 
 
 === The Database Schema 
