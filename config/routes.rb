@@ -1,4 +1,5 @@
 Atlas::Application.routes.draw do
+  get "password_resets/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy] #no index
