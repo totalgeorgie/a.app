@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223101127) do
+ActiveRecord::Schema.define(version: 20131224132452) do
 
   create_table "bullets", force: true do |t|
     t.integer  "job_id"
     t.string   "bullet"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +35,12 @@ ActiveRecord::Schema.define(version: 20131223101127) do
     t.integer  "time_in_china"
     t.string   "cover_letter"
     t.string   "resume"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "industries", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
