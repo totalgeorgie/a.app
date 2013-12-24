@@ -30,15 +30,17 @@ class User < ActiveRecord::Base
   has_one :common_app, dependent: :destroy
 
   has_one :video, dependent: :destroy
- 
+
+  #
+
   has_many :user_city_relations 
   has_many :cities, :through => :user_city_relations
 
   has_many :user_industry_relations 
   has_many :industries, :through => :user_industry_relations
 
-  has_many :user_role_relations 
-  has_many :roles, :through => :user_role_relations
+  has_many :user_position_relations 
+  has_many :positions, :through => :user_position_relations
 
 
   def User.new_remember_token

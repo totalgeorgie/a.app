@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: cities
+# Table name: positions
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,7 +8,8 @@
 #  updated_at :datetime
 #
 
-class City < ActiveRecord::Base
-  has_many :user_city_relations 
-  has_many :users, :through => :user_city_relations
+require 'spec_helper'
+
+describe Position do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: cities
+# Table name: positions
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,7 +8,7 @@
 #  updated_at :datetime
 #
 
-class City < ActiveRecord::Base
-  has_many :user_city_relations 
-  has_many :users, :through => :user_city_relations
+class Position < ActiveRecord::Base
+  has_many :user_position_relations 
+  has_many :users, :through => :user_position_relations
 end
