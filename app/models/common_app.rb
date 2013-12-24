@@ -29,6 +29,4 @@ class CommonApp < ActiveRecord::Base
 
   has_many :common_app_position_relations 
   has_many :positions, :through => :common_app_position_relations
-
-
 end
