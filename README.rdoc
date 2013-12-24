@@ -35,12 +35,23 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Make New View on jobs
 - Make show view on jobs
 - Make index view on jobs 
+-
+- Make a Password Reset
+- Make a Password Reset Email 
+-Make Industries
+-Make Cities
+-Make Roles
+-Connect Industries, cities, roles with users
+
+
 
 == To do
 
-Make Industries
-Make Cities
-Make Positions
+-Connect to industries, cities, roles with jobs
+
+
+
+
 
 Connect to jobs via 
 
