@@ -22,4 +22,6 @@
 	<%= f.label :resume %>
 	<%= f.file_field :resume %>
 
+	<%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+
   </div>

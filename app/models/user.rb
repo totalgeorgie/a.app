@@ -31,18 +31,6 @@ class User < ActiveRecord::Base
 
   has_one :video, dependent: :destroy
 
-  #
-
-  has_many :user_city_relations 
-  has_many :cities, :through => :user_city_relations
-
-  has_many :user_industry_relations 
-  has_many :industries, :through => :user_industry_relations
-
-  has_many :user_position_relations 
-  has_many :positions, :through => :user_position_relations
-
-
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

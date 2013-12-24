@@ -35,37 +35,28 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Make New View on jobs
 - Make show view on jobs
 - Make index view on jobs 
--
+
 - Make a Password Reset
 - Make a Password Reset Email 
--Make Industries
--Make Cities
--Make Roles
--Connect Industries, cities, roles with users
-
+- Make Industries
+- Make Cities
+- Make Roles
+- Connect Industries, cities, roles with common apps
+- Connect industries, cities, roles with jobs
 
 
 == To do
 
--Connect to industries, cities, roles with jobs
 
-
-
-
+Make JobsPositions
 
 Connect to jobs via 
 
 Make JobsIndustries
 Make JobsCities
-Make JobsPositions
 
 Add to the making form
 
-connect to users via 
-
-Make UserIndustries
-Make UserCities
-Make UserPositions
 
 Add to the common_app 
 
@@ -78,9 +69,6 @@ Make Questions
 Make Answers
 
 Connect all of that through Applications 
-
-Make passwords_reset 
-
 
 
 
