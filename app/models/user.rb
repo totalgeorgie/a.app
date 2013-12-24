@@ -25,11 +25,21 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }, on: :create
-  #ask at one point, wherther I can continue to validate password and password_confirmation, on update, but allow password_reset to work
+
+  #!ask at one point, wherther I can continue to validate password and password_confirmation, on update, but allow password_reset to work
   has_one :common_app, dependent: :destroy
 
-
   has_one :video, dependent: :destroy
+ 
+  has_many :user_city_relations 
+  has_many :cities, :through => :user_city_relations
+
+  has_many :user_industry_relations 
+  has_many :industries, :through => :user_industry_relations
+
+  has_many :user_role_relations 
+  has_many :roles, :through => :user_role_relations
+
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

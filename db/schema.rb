@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131224132452) do
+ActiveRecord::Schema.define(version: 20131224133219) do
 
   create_table "bullets", force: true do |t|
     t.integer  "job_id"
@@ -57,6 +57,27 @@ ActiveRecord::Schema.define(version: 20131224132452) do
     t.integer  "job_id"
     t.string   "role_title"
     t.string   "role_desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_city_relations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "city_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_industry_relations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "industry_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_role_relations", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

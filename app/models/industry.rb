@@ -9,4 +9,6 @@
 #
 
 class Industry < ActiveRecord::Base
+  has_many :user_industry_relations 
+  has_many :users, :through => :user_industry_relations
 end
