@@ -9,8 +9,8 @@
 #
 
 class Industry < ActiveRecord::Base
-  has_many :user_industry_relations 
-  has_many :users, :through => :user_industry_relations
+  has_many :common_app_industry_relations 
+  has_many :common_apps, :through => :common_app_industry_relations
 
   has_many :job_industry_relations 
   has_many :jobs, :through => :job_industry_relations
