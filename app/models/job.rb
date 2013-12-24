@@ -22,4 +22,12 @@ class Job < ActiveRecord::Base
     accepts_nested_attributes_for :roles, :reject_if => lambda { |a| a[:role_title].blank? || a[:role_desc].blank? }, :allow_destroy => true
     	#lambda { |a| a[:bullet].blank? } makes sure that on edit, if a value is left blank, then it doesn't save it
 
+	has_many :job_city_relations 
+	has_many :cities, :through => :job_city_relations
+
+	has_many :job_industry_relations 
+	has_many :industries, :through => :job_industry_relations
+
+	has_many :job_position_relations 
+	has_many :positions, :through => :job_position_relations
 end

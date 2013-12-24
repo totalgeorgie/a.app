@@ -11,4 +11,7 @@
 class Position < ActiveRecord::Base
   has_many :user_position_relations 
   has_many :users, :through => :user_position_relations
+
+  has_many :job_position_relations 
+  has_many :jobs, :through => :job_position_relations
 end
