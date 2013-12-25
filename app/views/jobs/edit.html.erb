@@ -30,6 +30,18 @@
 	  <% end %>
 	  <p><%= f.link_to_add "Add a Role", :roles %></p>
   </div>
-  
+	<%= f.label "Choose which industries the job is in" %>
+
+	<%= f.select :industry_ids, Industry.all.collect {|industry| [industry.name, industry.id]}, {}, :multiple => true, :class => "chosen-select" %>
+
+	<%= f.label "Choose which cities you like" %>
+
+	<%= f.select :city_ids, City.all.collect {|city| [city.name, city.id]}, {}, :multiple => true, :class => "chosen-select" %>
+
+	<%= f.label "Choose which roles you like" %>
+
+	<%= f.select :position_ids, Position.all.collect {|city| [city.name, city.id]}, {}, :multiple => true, :class => "chosen-select" %>
+
+
   <%= f.submit "Publish the Job", class: "button" %>
 <% end %>

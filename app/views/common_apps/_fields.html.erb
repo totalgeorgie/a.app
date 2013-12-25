@@ -22,6 +22,17 @@
 	<%= f.label :resume %>
 	<%= f.file_field :resume %>
 
-	<%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+	<%= f.label "Choose which industries you like" %>
+
+	<%= f.select :industry_ids, Industry.all.collect {|industry| [industry.name, industry.id]}, {}, :multiple => true, :class => "chosen-select" %>
+
+	<%= f.label "Choose which cities you like" %>
+
+	<%= f.select :city_ids, City.all.collect {|city| [city.name, city.id]}, {}, :multiple => true, :class => "chosen-select" %>
+
+	<%= f.label "Choose which roles you like" %>
+
+	<%= f.select :position_ids, Position.all.collect {|city| [city.name, city.id]}, {}, :multiple => true, :class => "chosen-select" %>
+
 
   </div>

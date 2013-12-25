@@ -42,7 +42,6 @@ class CommonAppsController < ApplicationController
     def common_app_params
       params.require(:common_app).permit(:current_city,:grad_year,:read_type,
       									  :listen_speak,:time_in_china,
-      									  :cover_letter,:resume) ####fill in the correct ones here
+      									  :cover_letter,:resume, industry_ids: [], city_ids: [], position_ids: [])
     end
-
 end

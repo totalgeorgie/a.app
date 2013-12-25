@@ -43,22 +43,12 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Make Roles
 - Connect Industries, cities, roles with common apps
 - Connect industries, cities, roles with jobs
+- Added ability to multiselect on common app
+- Added ability to multiselect on jobs
+
 
 
 == To do
-
-
-Make JobsPositions
-
-Connect to jobs via 
-
-Make JobsIndustries
-Make JobsCities
-
-Add to the making form
-
-
-Add to the common_app 
 
 --
 

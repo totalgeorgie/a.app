@@ -8,3 +8,11 @@
 <li>Cover Letter: <%= common_app.cover_letter %></li>
 <li>Resume: <%= link_to "Link to Resume", common_app.resume_url %></li>
 <li>-------</li>
+<li>
+	<span>Industries:</span>
+	<ul>
+	<% common_app.industries do |industry| %> 
+		<li><%= industry %></li>
+	<% end %>
+	</ul>
+</li>

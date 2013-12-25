@@ -9,9 +9,6 @@
 #
 
 class Position < ActiveRecord::Base
-  has_many :common_app_position_relations 
-  has_many :common_apps, :through => :common_app_position_relations
-
-  has_many :job_position_relations 
-  has_many :jobs, :through => :job_position_relations
+ has_many :common_app_positions_relations
+ has_many :common_apps, :through => :common_app_position_relations
 end

@@ -19,14 +19,15 @@ class CommonApp < ActiveRecord::Base
  belongs_to :user
  validates :user_id, presence: true
  mount_uploader :resume, ResumeUploader
- # must create validates for the other form stuff. 
+ 
+ has_many :common_app_industry_relations
+ has_many :industries, :through => :common_app_industry_relations
 
-  has_many :common_app_city_relations 
-  has_many :cities, :through => :common_app_city_relations
+ has_many :common_app_city_relations
+ has_many :cities, :through => :common_app_city_relations
 
-  has_many :common_app_industry_relations 
-  has_many :industries, :through => :common_app_industry_relations
+ has_many :common_app_position_relations
+ has_many :positions, :through => :common_app_position_relations
 
-  has_many :common_app_position_relations 
-  has_many :positions, :through => :common_app_position_relations
 end
+

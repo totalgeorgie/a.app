@@ -1,4 +1,7 @@
 <ul>
+    <% if  current_user && current_user.admin? %>
+      | <%= link_to "Edit job", edit_job_path %>
+  	<% end %>
 
 <li> Job Title: <%= @job.job_title %></li>
 
@@ -15,3 +18,4 @@
 <% @job.bullets.each do |bullet| %>
 	<li> <%= bullet.bullet %>
 <% end %>
+
