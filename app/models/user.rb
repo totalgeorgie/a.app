@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
 
   has_one :video, dependent: :destroy
 
+  has_many :applications
+  has_many :jobs, :through => :applications
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

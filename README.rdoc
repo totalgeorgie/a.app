@@ -47,7 +47,6 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Added ability for admin to see and edit other people's common_apps and videos 
 - Added ability to make custom questions for jobs 
 
-
 - Users can reset forgotten passwords
 - People can multiselect their roles, cities, and industries
 - Jobs can also have multiple roles, cities, and industries

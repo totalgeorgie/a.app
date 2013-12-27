@@ -34,5 +34,7 @@ class Job < ActiveRecord::Base
 	has_many :job_position_relations 
 	has_many :positions, :through => :job_position_relations
 
+    has_many :applications
+    has_many :users, :through => :applications
 
 end

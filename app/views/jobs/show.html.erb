@@ -43,3 +43,9 @@
 <% @job.positions.each do |position| %>
 	<li> <%= position.name %>
 <% end %>
+
+<hr/>
+<%= link_to "Apply To The Job", new_application_path, :class => "button" %>
+
+
+

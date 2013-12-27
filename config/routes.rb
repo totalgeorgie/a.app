@@ -5,6 +5,7 @@ Atlas::Application.routes.draw do
   resources :videos, only: [:new, :create, :update, :show, :edit, :destroy] #no index
   resources :jobs
   resources :password_resets
+  resources :applications
   
    root  "users#new"
 
