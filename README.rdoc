@@ -46,6 +46,10 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Added ability to multiselect on common app
 - Added ability to multiselect on jobs
 - Added ability for admin to see and edit other people's common_apps and videos 
+- Added ability to make custom questions for jobs 
+
+
+
 
 
 
@@ -103,7 +107,7 @@ At the end, change action mailer default url to final domain, in environment/pro
 
 job 
 has many users through application
-has many questions 
+xhas many questions 
 
 users
 has_many jobs through application 
