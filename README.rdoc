@@ -35,7 +35,6 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Make New View on jobs
 - Make show view on jobs
 - Make index view on jobs 
-
 - Make a Password Reset
 - Make a Password Reset Email 
 - Make Industries
@@ -47,6 +46,15 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Added ability to multiselect on jobs
 - Added ability for admin to see and edit other people's common_apps and videos 
 - Added ability to make custom questions for jobs 
+
+
+- Users can reset forgotten passwords
+- People can multiselect their roles, cities, and industries
+- Jobs can also have multiple roles, cities, and industries
+- Admin can see and edit other people's common appls, videos 
+- When creating a new job, you can create custom questions for the job
+
+
 
 
 
@@ -122,17 +130,19 @@ Application
     has_many :answers
 
 Question
-    job_id
+    Xjob_id
+    Xcontent
 
-    belongs_to :job
-    has_one :answer
+
+    Xbelongs_to :job
+    Xhas_one :answer
 
 Answer
     application_id
     question_id 
 
     belongs_to :application
-    belongs_to :question
+    Xbelongs_to :question
 
 
 
