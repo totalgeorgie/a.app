@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_action :signed_in_user
+  before_action :correct_user, only: [:edit, :update, :show]
   
   def new
     if current_user.video
@@ -20,14 +21,16 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video = current_user.video
+    @user = User.find(params[:id])
+    @video = @user.video
     redirect_to new_video_path, notice: "Looks like you haven't made your video yet! Fill it in below." unless @video.present?
   end   
 
 
   def update
-    @video = current_user.video
-    if current_user.video.update_attributes(video_params)
+    @user = User.find(params[:id])
+    @video = @user.video
+    if @user.video.update_attributes(video_params)
       flash[:success] = "Video App Updated!"
       redirect_to video_url
     else
@@ -44,4 +47,5 @@ class VideosController < ApplicationController
     def video_params
       params.require(:video).permit(:video_cid,:question)
     end
+
 end

@@ -45,6 +45,7 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Connect industries, cities, roles with jobs
 - Added ability to multiselect on common app
 - Added ability to multiselect on jobs
+- Added ability for admin to see and edit other people's common_apps and videos 
 
 
 
@@ -58,7 +59,11 @@ Make Questions
 
 Make Answers
 
-Connect all of that through Applications 
+Make each user viewable
+
+Make an algorithm for match 
+
+---
 
 
 
@@ -95,77 +100,36 @@ At the end, change action mailer default url to final domain, in environment/pro
 
 === The Database Schema 
 
-User
-    name:string
-    email:string
-    password_digest
 
-    has_one :common_app
-    has_one :video
-    has_many :Industry through :UserIndustry
-    has_many :city through :UserCity 
+job 
+has many users through application
+has many questions 
 
-    has_many jobs through: application
+users
+has_many jobs through application 
 
-Video 
-    user_id:integer
-    video_cid:string
-    video_question:string
-    belongs_to :user
-
-Common_App
-    user_id:integer
-    current_city:string
-    grad_year:integer
-    read_type:string
-    listen_speak:string
-    time_in_china:integer
-    general_cover_letter:string
-
-#Note that I'm moving out the desired industries and preferred cities from the common_app model, because they are multi-select, and are shared amongst jobs and users)*
-
-Industry
-    has_many :users through :UserIndustry
-    has_many :jobs through :JobIndustry
-
-City
-    has_many :users through :UserCity
-    has_many :jobs through :JobCity
-
-UserIndustry
-    belongs_to :user
-    belongs_to :industry
-
-UserCity
-    belongs_to :user
-    belongs_to :city
-
-Job
-    has_many :users, through :application
-    has_many :questions
-    has_many :industry through :JobsIndustry
-    has_many :city through :JobsCity
 
 Application
+    user_id
+    job_id
+
     belongs_to :user
     belongs_to :job
     has_many :answers
 
 Question
+    job_id
+
     belongs_to :job
     has_one :answer
 
 Answer
+    application_id
+    question_id 
+
     belongs_to :application
     belongs_to :question
 
-JobIndustry
-    belongs_to :job
-    belongs_to :industry
-
-JobCity
-    belongs_to :job
-    belongs_to :city
 
 
 -------

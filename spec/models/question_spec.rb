@@ -6,6 +6,7 @@
 #  job_id     :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  content    :string(255)
 #
 
 require 'spec_helper'

@@ -8,11 +8,22 @@
 <li>Cover Letter: <%= common_app.cover_letter %></li>
 <li>Resume: <%= link_to "Link to Resume", common_app.resume_url %></li>
 <li>-------</li>
-<li>
-	<span>Industries:</span>
-	<ul>
-	<% common_app.industries do |industry| %> 
-		<li><%= industry %></li>
-	<% end %>
-	</ul>
-</li>
+
+
+<li><%= "Industries:" unless common_app.industries.nil? %></li>
+
+<% common_app.industries.each do |industry| %>
+	<li> <%= industry.name %>
+<% end %>
+
+<li><%= "Preferrd Cities:" unless common_app.cities.nil? %></li>
+
+<% common_app.cities.each do |city| %>
+	<li> <%= city.name %>
+<% end %>
+
+<li><%= "Preferrd Roles:" unless common_app.positions.nil? %></li>
+
+<% common_app.positions.each do |position| %>
+	<li> <%= position.name %>
+<% end %>

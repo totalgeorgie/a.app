@@ -19,3 +19,27 @@
 	<li> <%= bullet.bullet %>
 <% end %>
 
+<li><%= "Questions:" unless @job.questions.nil? %></li>
+
+<% @job.questions.each do |question| %>
+	<li> <%= question.content %>
+<% end %>
+
+
+<li><%= "Industries:" unless @job.industries.nil? %></li>
+
+<% @job.industries.each do |industry| %>
+	<li> <%= industry.name %>
+<% end %>
+
+<li><%= "Preferrd Cities:" unless @job.cities.nil? %></li>
+
+<% @job.cities.each do |city| %>
+	<li> <%= city.name %>
+<% end %>
+
+<li><%= "Preferrd Roles:" unless @job.positions.nil? %></li>
+
+<% @job.positions.each do |position| %>
+	<li> <%= position.name %>
+<% end %>

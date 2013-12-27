@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
-    3.times {
+    2.times {
       @job.bullets.build
       @job.roles.build
     }
@@ -47,7 +47,8 @@ class JobsController < ApplicationController
     params.require(:job).permit(:id, :job_title, :job_summary, :qualifications,
                                  bullets_attributes: [:id, :bullet, :_destroy],
                                  roles_attributes: [:id, :role_title,:role_desc, :_destroy],
-                                 industry_ids: [], city_ids: [], position_ids: [])
+                                 industry_ids: [], city_ids: [], position_ids: [],
+                                 questions_attributes: [:id, :content, :_destroy])
   end
 
 

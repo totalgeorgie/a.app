@@ -56,14 +56,4 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
     
-    def correct_user
-      @user = User.find(params[:id])
-      unless current_user?(@user)
-         if current_user.admin?
-
-         else
-          redirect_to current_user 
-        end
-      end
-    end
 end

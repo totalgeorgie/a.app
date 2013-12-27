@@ -48,14 +48,5 @@ class CommonAppsController < ApplicationController
       									  :listen_speak,:time_in_china,
       									  :cover_letter,:resume, industry_ids: [], city_ids: [], position_ids: [])
     end
-    def correct_user
-      @user = User.find(params[:id])
-      unless current_user?(@user)
-         if current_user.admin?
 
-         else
-          redirect_to current_user 
-        end
-      end
-    end
 end
