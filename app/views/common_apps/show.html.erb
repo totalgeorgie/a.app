@@ -1,5 +1,5 @@
-<% provide(:title, current_user.name) %>
-<h1><%= current_user.name %></h1>
+<% provide(:title, @user.name) %>
+<h1><%= @user.name %></h1>
 
 	<ul>
 		<%= render @common_app %>

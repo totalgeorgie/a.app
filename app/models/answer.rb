@@ -1,2 +1,13 @@
+# == Schema Information
+#
+# Table name: answers
+#
+#  id             :integer          not null, primary key
+#  application_id :integer
+#  question_id    :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
 class Answer < ActiveRecord::Base
 end

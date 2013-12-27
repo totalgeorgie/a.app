@@ -1,5 +1,6 @@
 class CommonAppsController < ApplicationController
   before_action :signed_in_user
+  before_action :correct_user, only: [:edit, :update, :show]
 
   def new
     if current_user.common_app.present?
@@ -20,7 +21,8 @@ class CommonAppsController < ApplicationController
   end
 
   def update
-    if current_user.common_app.update_attributes(common_app_params)
+    @user = User.find(params[:id])
+    if @user.common_app.update_attributes(common_app_params)
       flash[:success] = "Common App Updated"
       redirect_to root_url
     else
@@ -29,12 +31,14 @@ class CommonAppsController < ApplicationController
   end
 
   def show
-    @common_app = current_user.common_app
+    @user = User.find(params[:id])
+    @common_app = CommonApp.find(params[:id])
     redirect_to new_common_app_path, notice: "Looks like you haven't made your common application. Fill it in below." unless @common_app.present?
   end    
 
   def edit
-    @common_app = current_user.common_app
+    @user = User.find(params[:id])
+    @common_app = @user.common_app
   end
 
   private
@@ -43,5 +47,15 @@ class CommonAppsController < ApplicationController
       params.require(:common_app).permit(:current_city,:grad_year,:read_type,
       									  :listen_speak,:time_in_china,
       									  :cover_letter,:resume, industry_ids: [], city_ids: [], position_ids: [])
+    end
+    def correct_user
+      @user = User.find(params[:id])
+      unless current_user?(@user)
+         if current_user.admin?
+
+         else
+          redirect_to current_user 
+        end
+      end
     end
 end
