@@ -3,9 +3,11 @@ Atlas::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy] #no index
   resources :videos, only: [:new, :create, :update, :show, :edit, :destroy] #no index
-  resources :jobs
-  resources :password_resets
+  resources :jobs do 
+    resources :applications
+  end
   resources :applications
+  resources :password_resets
   
    root  "users#new"
 

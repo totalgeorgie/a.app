@@ -1,1 +1,31 @@
 <% provide(:title, " Apply to this job") %>
+
+  <div class="row">
+	  <div class="span6">
+	  	<h2> Job: <%= @job.job_title  %></h2>
+	  	<p> <%= @job.job_summary %> </p>
+	  </div>
+	  <div class="span6">
+	  	<h2> Applicant: <%= @user.name  %></h2>
+	  </div>
+
+	  <div class="span12">
+	  	<h3>You're almost done! Answer the questions below and you'll be applied to the job.</h3>
+	  </div>
+  </div>
+
+
+<%= form_for @application do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+ 
+     <% @job.questions.each_with_index do |question| %>
+         <%= f.fields_for :answers, question do |question_field| %>
+              <%= question_field.label :answer, question.content %>
+              <%= question_field.text_field :answer %>
+              <%= question_field.hidden_field :question_id,  :value => question.id  %>
+         <% end %>
+    <% end %>
+
+
+   <%= f.submit "Submit the application", class: "button" %>
+<% end %>

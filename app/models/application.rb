@@ -14,4 +14,6 @@ class Application < ActiveRecord::Base
 	belongs_to :user
 	validates :job_id, presence: true 
 	validates :user_id, presence: true 
+	has_many :answers
+	accepts_nested_attributes_for :answers, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 end
