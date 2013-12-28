@@ -6,7 +6,6 @@ Atlas::Application.routes.draw do
   resources :jobs do 
     resources :applications
   end
-  resources :applications
   resources :password_resets
   
    root  "users#new"

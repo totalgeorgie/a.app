@@ -15,13 +15,13 @@
   </div>
 
 
-<%= form_for @application do |f| %>
+<%= form_for [@job, @application] do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
  
      <% @job.questions.each_with_index do |question| %>
          <%= f.fields_for :answers, question do |question_field| %>
-              <%= question_field.label :answer, question.content %>
-              <%= question_field.text_field :answer %>
+              <%= question_field.label :content, question.content %>
+              <%= question_field.text_field :content, :value => "" %>
               <%= question_field.hidden_field :question_id,  :value => question.id  %>
          <% end %>
     <% end %>

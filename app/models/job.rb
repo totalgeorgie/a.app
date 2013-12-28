@@ -18,7 +18,7 @@ class Job < ActiveRecord::Base
     has_many :bullets, :dependent => :destroy
     has_many :roles, :dependent => :destroy
 
-	has_many :questions
+	has_many :questions, :dependent => :destroy
 	
     accepts_nested_attributes_for :bullets, :reject_if => lambda { |a| a[:bullet].blank? }, :allow_destroy => true
     accepts_nested_attributes_for :roles, :reject_if => lambda { |a| a[:role_title].blank? || a[:role_desc].blank? }, :allow_destroy => true
