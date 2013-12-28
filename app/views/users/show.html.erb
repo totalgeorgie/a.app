@@ -26,5 +26,20 @@
 
 <% end %>
 <hr />
-<p><em>Job applications coming soon</em></p>
+<% if @user.applications.present? %>
+	<h4>You have applied to <%= pluralize(@user.applications.count, "job") %></h4>
+	<ul>
+	<% @user.applications.each do |application| %>
+		<li> <%= link_to application.job.job_title, job_application_path(:id => application.id, :job_id => application.job_id) %>  
+			/  <%= link_to "Edit", edit_job_application_path(:id => application.id, :job_id => application.job_id) %>  
+		 </li>
+	<% end %>
+	</ul>
+	<br/>
+	<%= link_to "Apply to more jobs!", jobs_path, :class => "button" %>
+<% else %>
+	<h4> It looks like you haven't applied to any jobs, click the button below to get started! </h4>
+	<hr>
+	<%= link_to "Apply to more jobs!", jobs_path, :class => "button" %>
+<% end %>
 

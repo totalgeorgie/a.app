@@ -1,5 +1,8 @@
 class ApplicationsController < ApplicationController
 
+	#need sign in user, and correct user on this. 
+
+
   def new 
  	@job = Job.find(params[:job_id])
  	@user = current_user 
@@ -10,6 +13,19 @@ class ApplicationsController < ApplicationController
  		 @application.answers.build 
  	end 
 
+  end
+
+  def edit 
+ 	@job = Job.find(params[:job_id])
+ 	@user = current_user 
+ 	@application = Application.find(params[:id])
+ 	
+  end
+
+  def show 
+ 	@job = Job.find(params[:job_id])
+ 	@user = current_user 
+ 	@application = Application.find(params[:id])
   end
 
   def create

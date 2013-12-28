@@ -1,0 +1,27 @@
+<% provide(:title, " Application") %>
+
+  <div class="row">
+	  <div class="span6">
+	  	<h2> Job: <%= @job.job_title  %></h2>
+	  	<p> <%= @job.job_summary %> </p>
+	  </div>
+	  <div class="span6">
+	  	<h2> Applicant: <%= @user.name  %></h2>
+	  </div>
+
+    <hr />
+
+	  <div class="span12">
+     <% @job.questions.each_with_index do |question| %>
+        <% @application.answers.each do |answer| %>
+			<h3> Q: <%= question.content %> </h3>
+       		 <h5>A: <%= answer.content %></h5>
+       	<% end %>
+    <% end %>
+
+
+    	  </div>
+  </div>
+
+
+<%= link_to "Edit Job Application", edit_job_application_path(:id => @application.id, :job_id => @application.job_id), :class => "button" %>  
