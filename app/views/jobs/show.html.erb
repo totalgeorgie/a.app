@@ -7,38 +7,33 @@
 
 <li> Job Summary: <%= @job.job_summary %></li>
 
-<li><%= "Bullets:" unless @job.bullets.nil? %></li>
+<li><%= "Bullets:" unless @job.bullets.blank? %></li>
 
 <% @job.bullets.each do |bullet| %>
 	<li> <%= bullet.bullet %>
 <% end %>
 
-<li><%= "Jobs:" unless @job.bullets.nil? %></li>
 
-<% @job.bullets.each do |bullet| %>
-	<li> <%= bullet.bullet %>
-<% end %>
-
-<li><%= "Questions:" unless @job.questions.nil? %></li>
+<li><%= "Questions:" unless @job.questions.blank? %></li>
 
 <% @job.questions.each do |question| %>
 	<li> <%= question.content %>
 <% end %>
 
 
-<li><%= "Industries:" unless @job.industries.nil? %></li>
+<li><%= "Industries:" unless @job.industries.blank? %></li>
 
 <% @job.industries.each do |industry| %>
 	<li> <%= industry.name %>
 <% end %>
 
-<li><%= "Preferrd Cities:" unless @job.cities.nil? %></li>
+<li><%= "Preferrd Cities:" unless @job.cities.blank? %></li>
 
 <% @job.cities.each do |city| %>
 	<li> <%= city.name %>
 <% end %>
 
-<li><%= "Preferrd Roles:" unless @job.positions.nil? %></li>
+<li><%= "Preferrd Roles:" unless @job.positions.blank? %></li>
 
 <% @job.positions.each do |position| %>
 	<li> <%= position.name %>

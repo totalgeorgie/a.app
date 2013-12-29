@@ -9,11 +9,26 @@ class ApplicationsController < ApplicationController
 
  	@application = Application.new() 
  	
- 	@job.questions.count.times do 
- 		 @application.answers.build 
- 	end 
+   	@job.questions.count.times do 
+   		 @application.answers.build 
+   	end 
 
   end
+
+  def create
+    @user = current_user 
+    @job = Job.find(params[:job_id])
+
+    @application = Application.create(application_params)
+    @application.job_id = @job.id
+    
+    if @application.save
+      redirect_to root_url, :notice => "You have now applied!"
+    else
+      render :action => 'new'
+    end
+  end
+
 
   def edit 
  	@job = Job.find(params[:job_id])
@@ -35,7 +50,7 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
 
     if @application.update_attributes(application_params)
-      redirect_to root_url, :notice => "You have update your application!"
+      redirect_to root_url, :notice => "You have updated your application!"
     else
       render :action => 'new'
     end
@@ -43,12 +58,16 @@ class ApplicationsController < ApplicationController
 
   #Updated doesn't work. It doesn't actually get the correct update 
 
-
+  def destroy
+    Application.find(params[:id]).destroy
+    flash[:success] = "Application Deleted."
+    redirect_to root_url 
+  end 
 
   def show 
- 	  @job = Job.find(params[:job_id])
- 	  @user = current_user 
- 	  @application = Application.find(params[:id])
+    @job = Job.find(params[:job_id])
+    @user = current_user 
+    @application = Application.find(params[:id])
     
     @answers = []
 
@@ -60,31 +79,10 @@ class ApplicationsController < ApplicationController
   
   end
 
-
-
-  def create
-  	@user = current_user 
-  	@job = Job.find(params[:job_id])
-    @application = Application.new(application_params)
-    @application.job_id = @job.id
-    if @application.save
-    	redirect_to root_url, :notice => "You have now applied!"
-    else
-    	render :action => 'new'
-    end
-  end
-
-  def destroy
-    Application.find(params[:id]).destroy
-    flash[:success] = "Application Deleted."
-    redirect_to root_url 
-  end 
-
-
 private
 
   def application_params
-    params.require(:application).permit(:job_id, :user_id, answers_attributes:[:content, :question_id]).merge(user_id: current_user.id)
+    params.require(:application).permit(:id, :job_id, :user_id, answers_attributes:[:content, :question_id, :id]).merge(user_id: current_user.id)
   end
 
 end

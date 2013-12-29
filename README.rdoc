@@ -53,7 +53,10 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Admin can see and edit other people's common appls, videos 
 - When creating a new job, you can create custom questions for the job
 
-
+- Users can Apply to Jobs
+- Users can see their applications
+- If/then statement on home page 
+- A user can delete their application
 
 
 
@@ -62,7 +65,16 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 
 == To do
 
+
+Make an edit view for each application
+Make each application deletable
+
+Make sure only the correct user can see their own application 
+
+Make it possible to see all applicants for a job with admin
+
 --
+
 
 Make Applications
 
