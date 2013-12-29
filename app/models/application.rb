@@ -16,4 +16,17 @@ class Application < ActiveRecord::Base
 	validates :user_id, presence: true 
 	has_many :answers
 	accepts_nested_attributes_for :answers, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+
+    
+    def self.build(job_id) 
+        application = self.new
+
+        job = Job.find(job_id)
+        job.questions.count.times do
+         application.answers.build
+        end
+
+    application
+    end
+
 end
