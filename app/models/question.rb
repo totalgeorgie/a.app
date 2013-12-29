@@ -11,6 +11,6 @@
 
 class Question < ActiveRecord::Base
 	belongs_to :job
-	has_one :answer
+	has_many :answers
 	validates :content, presence: true 
 end

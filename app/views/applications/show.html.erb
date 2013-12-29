@@ -12,12 +12,10 @@
     <hr />
 
 	  <div class="span12">
-     <% @job.questions.each_with_index do |question| %>
-        <% @application.answers.each do |answer| %>
-			<h3> Q: <%= question.content %> </h3>
-       		 <h5>A: <%= answer.content %></h5>
-       	<% end %>
-    <% end %>
+     <% @answers.each do |answer| %>
+ 		<h2><%= answer.question.content %></h2>
+ 		<p><%= answer.content %></p>
+     <% end %>
 
 
     	  </div>

@@ -19,14 +19,48 @@ class ApplicationsController < ApplicationController
  	@job = Job.find(params[:job_id])
  	@user = current_user 
  	@application = Application.find(params[:id])
- 	
+    @answers = []
+
+    @job.questions.each do |question|
+      @application.answers.each do |answer|
+        @answers << answer if answer.question_id == question.id
+      end
+    end
+
   end
 
-  def show 
- 	@job = Job.find(params[:job_id])
- 	@user = current_user 
- 	@application = Application.find(params[:id])
+  def update
+    @job = Job.find(params[:job_id])
+    @user = current_user 
+    @application = Application.find(params[:id])
+
+    if @application.update_attributes(application_params)
+      redirect_to root_url, :notice => "You have update your application!"
+    else
+      render :action => 'new'
+    end
   end
+
+  #Updated doesn't work. It doesn't actually get the correct update 
+
+
+
+  def show 
+ 	  @job = Job.find(params[:job_id])
+ 	  @user = current_user 
+ 	  @application = Application.find(params[:id])
+    
+    @answers = []
+
+    @job.questions.each do |question|
+      @application.answers.each do |answer|
+        @answers << answer if answer.question_id == question.id
+      end
+    end
+  
+  end
+
+
 
   def create
   	@user = current_user 

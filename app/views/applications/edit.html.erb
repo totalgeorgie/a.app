@@ -18,13 +18,11 @@
 <%= form_for [@job, @application] do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
  
-     <% @job.questions.each_with_index do |question| %>
-         <%= f.fields_for :answers, question do |question_field| %>
-              <%= question_field.label :content, question.content %>
-              <%= question_field.text_area :content, :value => "" %>
-              <%= question_field.hidden_field :question_id,  :value => question.id  %>
-         <% end %>
-    <% end %>
+
+   <%= f.fields_for :answers do |question_field| %>
+        <%= question_field.label question_field %>
+        <%= question_field.text_area :content  %>
+   <% end %>
 
 
    <%= f.submit "Submit the application", class: "button" %>
