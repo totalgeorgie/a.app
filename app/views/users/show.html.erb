@@ -32,6 +32,8 @@
 	<% @user.applications.each do |application| %>
 		<li> <%= link_to application.job.job_title, job_application_path(:id => application.id, :job_id => application.job_id) %>  
 			/  <%= link_to "Edit", edit_job_application_path(:id => application.id, :job_id => application.job_id) %>  
+			/  <%= link_to "delete", job_application_path(:id => application, :job_id => application.job_id), method: :delete,
+                                  data: { confirm: "Are you sure you would like to delete your application?" } %>
 		 </li>
 	<% end %>
 	</ul>

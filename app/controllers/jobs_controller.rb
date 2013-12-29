@@ -41,6 +41,12 @@ class JobsController < ApplicationController
     @jobs = Job.paginate(page: params[:page])
   end
   
+  def destroy
+    Job.find(params[:id]).destroy
+    flash[:success] = "Job Deleted."
+    redirect_to jobs_path 
+  end 
+
  private
 
   def job_params 

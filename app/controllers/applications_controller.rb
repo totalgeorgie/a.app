@@ -74,6 +74,12 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def destroy
+    Application.find(params[:id]).destroy
+    flash[:success] = "Application Deleted."
+    redirect_to root_url 
+  end 
+
 
 private
 
