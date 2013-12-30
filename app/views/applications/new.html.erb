@@ -14,18 +14,18 @@
 	  </div>
   </div>
 
-
 <%= form_for [@job, @application]  do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
- 
-     <% @job.questions.each_with_index do |question| %>
-         <%= f.fields_for :answers, question do |question_field| %>
-              <%= question_field.label :content, question.content %>
-              <%= question_field.text_area :content, :value => "" %>
-              <%= question_field.hidden_field :question_id,  :value => question.id  %>
-         <% end %>
-    <% end %>
-
-
-   <%= f.submit "Submit the application", class: "button" %>
+     <%= f.fields_for :questions do |q| %>
+           <%= q.label :content %>
+           
+           <%= q.fields_for :answer do |a| %>
+                    <%= a.text_area :content %>
+           <% end %>
+     <% end %>
+      <%= f.submit "Submit the application", class: "button" %>
 <% end %>
+
+
+
+

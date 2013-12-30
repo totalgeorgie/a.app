@@ -14,19 +14,22 @@ class Application < ActiveRecord::Base
 	belongs_to :user
 	validates :job_id, presence: true 
 	validates :user_id, presence: true 
-	has_many :answers
-	accepts_nested_attributes_for :answers, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+    
+  has_many :questions, :through => :job
+	has_many :answers, :through => :questions 
+
+	accepts_nested_attributes_for :questions, :allow_destroy => true
 
     
-    def self.build(job_id) 
-        application = self.new
+   def self.build(job_id)
+       application = self.new
 
-        job = Job.find(job_id)
-        job.questions.count.times do
-         application.answers.build
-        end
+       job = Job.find(job_id)
+       job.questions.count.times do
+           application.questions.build.build_answer
+       end
 
-    application
+       application
     end
 
 end

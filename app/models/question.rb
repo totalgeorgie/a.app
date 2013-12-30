@@ -1,4 +1,3 @@
-# == Schema Information
 #
 # Table name: questions
 #
@@ -11,6 +10,7 @@
 
 class Question < ActiveRecord::Base
 	belongs_to :job
-	has_many :answers
-	validates :content, presence: true 
+	has_one :answer
+	
+	accepts_nested_attributes_for :answer, :allow_destroy => true 
 end
