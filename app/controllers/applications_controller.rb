@@ -7,7 +7,7 @@ class ApplicationsController < ApplicationController
   def new 
    job = params[:job_id]
    @application = Application.build(job)
-
+   redirect_to jobs_path, :notice => "You've already applied to this job! Check out some more" if has_job(current_user,@job)
   end
 
   def create

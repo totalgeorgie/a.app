@@ -55,8 +55,10 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 
 - Users can Apply to Jobs
 - Users can see their applications
-- If/then statement on home page 
+- Users can see which jobs they have applied to
 - A user can delete their application
+- A user can't apply to one job more then once 
+
 
 
 

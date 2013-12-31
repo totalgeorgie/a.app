@@ -40,9 +40,13 @@
 <% end %>
 
 <hr/>
-<%= link_to "Apply to the Job", 
-	new_job_application_path(@job), :class => "button"
-%>
- 
+<% if has_job(current_user, @job) %>
+	<p><strong> You've already applied to this job! <%= link_to "apply to more jobs!", jobs_path %> </p>
+<% else %>
+	<%= link_to "Apply to the Job", 
+		new_job_application_path(@job), :class => "button" 
+	%>
+<% end %>
+	 
 
 

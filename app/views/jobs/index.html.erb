@@ -1,5 +1,8 @@
 <% provide(:title, 'All Jobs') %>
 
+<div class="row">
+	<div class="span12">
+
 <% if current_user && current_user.admin? %>
 	<%= render 'shared/dashboard_header'  %>
 <% end %>
@@ -11,3 +14,6 @@
 </ul>
 
 <%= will_paginate %>
+
+</div>
+</div>

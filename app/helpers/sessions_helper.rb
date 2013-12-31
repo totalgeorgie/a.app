@@ -53,7 +53,13 @@ module SessionsHelper
       end
     end
   end
-    
+  
+  def has_job(user,current_job)
+    user.jobs.each do |job|
+      return true if job.id = current_job.id 
+    end
+  end  
+  
   def admin_user 
     redirect_to(current_user) unless current_user.admin? 
   end
