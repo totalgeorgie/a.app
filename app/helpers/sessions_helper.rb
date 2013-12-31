@@ -55,9 +55,12 @@ module SessionsHelper
   end
   
   def has_job(user,current_job)
-    user.jobs.each do |job|
-      return true if job.id = current_job.id 
+    if user.applications.any?
+      user.applications.each do |application|
+        return true if application.job_id = current_job.id 
+      end
     end
+    false
   end  
   
   def admin_user 
