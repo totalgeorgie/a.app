@@ -12,6 +12,7 @@ class VideosController < ApplicationController
 
   def create 
     @video = current_user.build_video(video_params)
+    @video.video_cid = params[:AtlasApp][:video_uuid]
     if @video.save
         flash[:success] = "Video Created!"
         redirect_to root_url
@@ -45,7 +46,7 @@ class VideosController < ApplicationController
   private
   
     def video_params
-      params.require(:video).permit(:video_cid,:question)
+      params.require(:video).permit(:video_cid,:question, :AtlasApp => [:video_uuid])
     end
 
 end

@@ -2,11 +2,6 @@
 <li>Email : <%= current_user.email %></li>
 <li>Video Question : <%= video.question %> </li>
 <li>Video: 
-	<object id="nimbb" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="320" height="240" codebase= "http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab"> 
-	<param name="movie" value="http://player.nimbb.com/nimbb.swf?guid=<%= video.video_cid %> &lang=en" /> 
-	<param name="allowScriptAccess" value="always" /> 
-	<embed name="nimbb" src="http://player.nimbb.com/nimbb.swf?guid=<%= video.video_cid %> &lang=en" width="320" height="240" allowScriptAccess="always" pluginspage="http://www.adobe.com/go/getflashplayer" type="application/x-shockwave-flash"> 
-	</embed> 
-	</object>
+	<video id='PlayVideo' data-uuid='<%= video.video_cid %>'></video>
  </li>
 <li>-------</li>

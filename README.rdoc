@@ -58,7 +58,7 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Users can see which jobs they have applied to
 - A user can delete their application
 - A user can't apply to one job more then once 
-
+- Videos work fully 
 
 
 
