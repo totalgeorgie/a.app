@@ -15,10 +15,10 @@ class Application < ActiveRecord::Base
 	validates :job_id, presence: true 
 	validates :user_id, presence: true 
     
-  has_many :questions, :through => :job
-	has_many :answers, :through => :questions 
-
-	accepts_nested_attributes_for :questions, :allow_destroy => true
+  has_many :questions, through: :job
+  has_many :answers, dependent: :destroy
+  
+  accepts_nested_attributes_for :answers, allow_destroy: true
 
     
    def self.build(job_id)
@@ -26,7 +26,7 @@ class Application < ActiveRecord::Base
 
        job = Job.find(job_id)
        job.questions.count.times do
-           application.questions.build.build_answer
+           application.answers.build
        end
 
        application

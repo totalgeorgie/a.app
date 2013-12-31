@@ -7,8 +7,6 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
-#get people able to come in 
-
 gem 'carrierwave' # for resume upload http://railscasts.com/episodes/253-carrierwave-file-uploads
 gem "nested_form" # added to assets pipeline
 
@@ -72,14 +70,13 @@ end
 # Use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'
 
-#!!! On Admin page, make them easy to associate to jobs!!! based on key words 
-
-#!!  [2013-12-15 2:37:20 PM] Abraham Sorock: let's just take it down temporarily
-#!!  [2013-12-15 2:37:21 PM] Abraham Sorock: http://www.atlas-china.com/plans-and-pricing/
-
+#!!On Admin page, make them easy to associate to jobs!!! based on key words 
+#!![2013-12-15 2:37:20 PM] Abraham Sorock: let's just take it down temporarily
+#!![2013-12-15 2:37:21 PM] Abraham Sorock: http://www.atlas-china.com/plans-and-pricing/
 #!![2013-12-15 2:29:47 PM] Stepan Parunashvili: -resume attachment work
 #!![2013-12-15 2:29:54 PM] Stepan Parunashvili: - Industries and Pref city works
 #!![2013-12-15 2:30:00 PM] Stepan Parunashvili: Common app sign up validates
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
