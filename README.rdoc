@@ -68,8 +68,6 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 == To do
 
 
-Make an edit view for each application
-Make each application deletable
 
 Make sure only the correct user can see their own application 
 

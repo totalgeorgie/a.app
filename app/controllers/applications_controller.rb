@@ -1,9 +1,11 @@
 class ApplicationsController < ApplicationController
 
-	#need sign in user, and correct user on this. 
-  before_filter :set_user_and_job
+  before_action :set_user_and_job
+  before_action :signed_in_user
+  before_action :correct_applicant, only: [:show]  
 
-
+  # Test the correct applicant
+  
   def new 
    job = params[:job_id]
    @application = Application.build(job)
@@ -69,5 +71,16 @@ private
      params.require(:application).permit(:id, :job_id, :user_id, answers_attributes:[:question_id, :content]).merge(user_id: current_user.id, job_id: params[:job_id]) 
   end
 
+   def correct_applicant
+    @user = @application.user
+    unless current_user?(@user)
+       if current_user.admin?
+
+       else
+        redirect_to current_user 
+      end
+    end
+  end
+   
 end
 
