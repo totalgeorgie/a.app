@@ -4,7 +4,7 @@
   <title><%= full_title(yield(:title)) %></title> <!-- provide(:title, 'Home') %>-->
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <script src="//cameratag.com/1.9/cameratag.js" type="text/javascript"></script> <!-- CameraTag -->
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
   <%= render 'layouts/shim' %>

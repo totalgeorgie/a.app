@@ -51,7 +51,7 @@ gem 'chosen-rails' #http://harvesthq.github.io/chosen/ https://github.com/tsechi
 gem 'formtastic'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks' Removed turbolinks, because problems loading camera and common app js http://stackoverflow.com/questions/20662426/rails-not-loading-js-in-chome-from-link-to
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'

@@ -31,11 +31,13 @@ class VideosController < ApplicationController
   def update
     @user = User.find(params[:id])
     @video = @user.video
-    if @user.video.update_attributes(video_params)
-      flash[:success] = "Video App Updated!"
-      redirect_to video_url
+
+    @video.video_cid = params[:AtlasApp][:video_uuid]
+    if @video.update_attributes(video_params)
+        flash[:success] = "Video Updated!"
+        redirect_to root_url
     else
-      render :edit
+        render :new
     end
   end
 
