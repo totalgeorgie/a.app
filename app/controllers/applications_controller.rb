@@ -2,7 +2,7 @@ class ApplicationsController < ApplicationController
 
   before_action :set_user_and_job
   before_action :signed_in_user
-  before_action :correct_applicant, only: [:show]  
+  before_action :correct_applicant, only: [:show, :edit, :update]  
 
   # Test the correct applicant
   
@@ -24,13 +24,10 @@ class ApplicationsController < ApplicationController
 
 
   def edit 
-  	@application = Application.find(params[:id])
-
   end
 
   def update
-    @application = Application.find(params[:id])
-    if @application.update(update_application_params)
+    if @application.update(application_params)
       redirect_to root_url, :notice => "You have updated your application!"
     else
       render :action => 'new'
@@ -44,7 +41,6 @@ class ApplicationsController < ApplicationController
   end 
 
   def show 
-    @application = Application.find(params[:id])
     
     @answers = []
 
@@ -63,23 +59,14 @@ private
       @job = Job.find(params[:job_id])
   end
 
-  def update_application_params 
-     params.require(:application).permit(answers_attributes:[:id, :question_id, :content]) 
-  end
-
   def application_params 
-     params.require(:application).permit(:id, :job_id, :user_id, answers_attributes:[:question_id, :content]).merge(user_id: current_user.id, job_id: params[:job_id]) 
+     params.require(:application).permit(:id, :job_id, :user_id, answers_attributes:[:question_id, :content, :id]).merge(user_id: current_user.id, job_id: params[:job_id]) 
   end
 
    def correct_applicant
+    @application = Application.find(params[:id])
     @user = @application.user
-    unless current_user?(@user)
-       if current_user.admin?
-
-       else
-        redirect_to current_user 
-      end
-    end
+    redirect_to current_user unless current_user?(@user) || current_user.admin? 
   end
    
 end

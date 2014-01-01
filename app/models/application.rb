@@ -14,8 +14,7 @@ class Application < ActiveRecord::Base
 	belongs_to :user
 	validates :job_id, presence: true 
 	validates :user_id, presence: true 
-    
-  has_many :questions, through: :job
+
   has_many :answers, dependent: :destroy
   
   accepts_nested_attributes_for :answers, allow_destroy: true
@@ -25,8 +24,9 @@ class Application < ActiveRecord::Base
        application = self.new
 
        job = Job.find(job_id)
-       job.questions.count.times do
-           application.answers.build
+
+       job.questions.each do |question|
+         application.answers.build(question_id: question.id)
        end
 
        application

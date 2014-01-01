@@ -102,10 +102,6 @@ Design each one in the proccess
 
 On Show view for jobs, make a non-user able to see only a bit
 
-Figure out the type of categories etc that have has_many relationships.
-First, set up the nested form for making a new common app
-Second, set up the nested form for jobs 
-
 Make a status bar type thing for the common app 
 
 -for the register, see common app, and the video view, add a 1, 2, 3 steps thing
