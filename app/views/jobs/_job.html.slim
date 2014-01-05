@@ -6,17 +6,15 @@
           h4 == job.industries.first.name if job.industries.any?
         .location
           ul.opp_location
-            - if job.positions.any?
-              - job.positions.each do | position |
-               li == position.name
+            - if job.cities.any?
+              - job.cities.each do | city |
+               li == city.name
 
     .span6
       .main_info
         h2 == link_to job.job_title, job   
-        span.cities
-          - if job.cities.any?
-            - job.cities.each do | city |
-              == city.name + " "
+        / span.positions
+
 
 		p == job.job_summary 
 	    - if  current_user && current_user.admin? 

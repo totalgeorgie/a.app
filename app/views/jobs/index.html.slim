@@ -7,30 +7,34 @@
   	    .span10.offset1
   	      .jobs_header
   	        .row
-  	          .span5
-  	  	        h2 All Jobs
-  	  	      .span5
+  	          .span7
+  	  	        h2 All #{@city.name if @city} #{@position.name if @position} Jobs
+  	  	      .span3
   	  	        == link_to "Sign up for Job Alerts!", "#", :class => "button"
 
- 
+- if current_user && current_user.admin? 
+  == render 'shared/dashboard_header' 
+
 .container
   .row
     .span10.offset1
-      - if current_user && current_user.admin? 
-      	- render 'shared/dashboard_header'
-	
 	  .job_search
 		== form_tag jobs_path, :method => 'get', :id => "jobs_filter" do
 	      h2 I'd like jobs in
 	      .filter_sect
-	      	== select_tag :city_id, options_from_collection_for_select(@cities, "id", "name"), :class => "basic" 
+	      	== select_tag :city_id, content_tag(:option,'all cities...', :value=>"0") + options_from_collection_for_select(@cities, "id", "name"), :class => "basic" 
 		  .filter_sect
-		  	== select_tag :position_id, options_from_collection_for_select(@positions, "id", "name"), :class => "basic" 		    
+		  	== select_tag :position_id, content_tag(:option,'all roles...',:value=>"0") + options_from_collection_for_select(@positions, "id", "name"), :class => "basic" 		    
 		  .filter_sect.filter_search
-		  	== submit_tag "Search", :class => "button search_button"
+		  	== submit_tag "Search", :class => "button search_button button_black"
 
       ul.jobs
-        == render @jobs
+        - if @jobs.any?
+          == render @jobs
+        - else
+          li.non_founds
+            h2 No jobs founds.
+            p There are currently no jobs founds for these combinations. Sign up to requests
 
       == will_paginate
 

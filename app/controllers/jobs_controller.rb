@@ -39,9 +39,17 @@ class JobsController < ApplicationController
   end
 
   def index 
-    @jobs = Job.paginate(page: params[:page])
     @cities = City.all
     @positions = Position.all
+    
+    @city = City.find(params[:city_id]) if params[:city_id] && params[:city_id] != "0"
+    @position = Position.find(params[:position_id]) if (params[:position_id] && params[:position_id] != "0")
+    
+    @jobs = Job.all
+    @jobs = @jobs.includes(:cities).where(cities: { id: @city }) if @city
+    @jobs = @jobs.includes(:positions).where(positions: { id: @position }) if @position
+    @jobs = @jobs.paginate(page: params[:page], per_page: 5)
+
   end
   
   def destroy

@@ -186,6 +186,22 @@ header{
 	margin:0;
 }
 
+.admin_dashboard{
+	background-color: white;
+	padding: 5px 0;
+	h4{
+		text-align:center;
+		font-weight:normal;
+		font-family:'HelveticaNeueW01-67MdCn 692710';
+		a{
+			color:$purple;
+			&:hover{
+				color:$green;
+			}
+		}
+	}
+}
+
 .opp{
 	margin:15px 0;
 	border-bottom:2px dotted $gray;
@@ -231,12 +247,13 @@ header{
 	}
 	.main_info{
 		h2{
+			font-family:'HelveticaNeueW01-77BdCn 692722';
 			margin-top:0px;
-			font-size:26px;}
+			font-size:24px;}
 		p{
 			font-size:15px;
 		}
-		.cities{
+		.positions{
 			float: left;
 			font-style: italic;
 			margin-bottom: 10px;
@@ -266,7 +283,9 @@ header{
 	}
 }
 
-
+.pagination{
+	text-align: center;
+}
 
 /* Fancy Select */
 
