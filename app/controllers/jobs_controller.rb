@@ -8,6 +8,7 @@ class JobsController < ApplicationController
       @job.bullets.build
       @job.roles.build
     }
+
   end
 
   def create
@@ -39,6 +40,8 @@ class JobsController < ApplicationController
 
   def index 
     @jobs = Job.paginate(page: params[:page])
+    @cities = City.all
+    @positions = Position.all
   end
   
   def destroy

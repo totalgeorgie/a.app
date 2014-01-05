@@ -76,21 +76,16 @@ Make it possible to see all applicants for a job with admin
 --
 
 
-Make Applications
-
-Make Questions
-
-Make Answers
-
-Make each user viewable
-
-Make an algorithm for match 
-
 ---
 
 
 
 ================
+
+
+Make Sign up for Job alerts actually work
+Make Sign up for Job Alerts title change based on what the query is 
+
 
 Design area. 
 

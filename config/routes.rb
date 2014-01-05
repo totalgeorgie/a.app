@@ -8,7 +8,7 @@ Atlas::Application.routes.draw do
   end
   resources :password_resets
   
-   root  "users#new"
+   root  "jobs#index"
 
    match '/signup',  to: 'users#new',            via: 'get'
    match '/signin',  to: 'sessions#new',         via: 'get'

@@ -1,14 +1,16 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
-$dark:#3b3737;
-$red:#951a12;
-$gray_rgba:rgba(201,209,211,0.9);
-$gray_hex:#9ca1a2;
-$gray:#c9d1d3;
-$beige:#cad1d3;
-$purple:#424155;
 
-$grayMediumLight: #eaeaea;
+/*
+font-family:'HelveticaNeueW01-45Ligh';
+font-family:'HelveticaNeueW01-55Roma';
+font-family:'HelveticaNeueW01-56It';
+font-family:'HelveticaNeueW01-65Medi';
+font-family:'HelveticaNeueW01-75Bold';
+font-family:'HelveticaNeueW01-67MdCn 692710';
+font-family:'HelveticaNeueW01-77BdCn 692722';
+font-family:HelveticaNeueW01-57Cn';
+*/
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -16,21 +18,91 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+$dark:#3b3737;
+$red:#951a12;
+$gray_rgba:rgba(201,209,211,0.9);
+$gray_hex:#9ca1a2;
+$gray:#c9d1d3;
+$beige:#cad1d3;
+$purple:#424155;
+$green:#669089;
 body{
 	background-color:#f7f7f7;
 }
-
 
 h1, h2, h3, h4, p, li, span, a, input {
 	-webkit-font-smoothing: antialiased;
 }
 
-header{
-	float:left;
-	margin-top:16px;
+
+h2,h3{
+	font-family:'HelveticaNeueW01-57Cn';
+	font-weight:normal;
 }
 
-#main-menu, #footer-menu{
+a{
+	color:$red;
+	&:hover{
+		text-decoration:none;
+	}
+}
+
+p{
+	font-size:16px;
+	color:$dark;
+	line-height:1.6;
+	margin-bottom:20px;
+}
+
+.notice{
+	background-color: white;
+	padding: 10px;
+	color:$purple;
+	p{
+		font-family: 'HelveticaNeueW01-67MdCn 692710';
+		font-size: 16px;
+		margin-bottom:0px;
+	}
+}
+/*  */ 
+
+.button{
+	font-size:17px;
+	background:$red;
+	-webkit-box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
+	box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
+	color:white;
+	font-weight:normal;
+	text-transform:uppercase;
+	text-shadow:none;
+	padding:13px 19px;
+	border:none;
+	@include transition(background 1s ease);
+
+	&:hover{
+		color:white;
+		background:#762019;
+		-webkit-box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
+		box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
+	}
+}
+
+.button_black{
+	@include transition(all 1s ease);
+	background:$dark;
+	-webkit-box-shadow: inset 1px 1px 17px 1px #444;
+	box-shadow: inset 1px 1px 17px 1px #444;
+}
+
+/*  */ 
+
+
+header{
+	margin:16px 0;
+
+}
+
+.menu{
 	margin-top:25px;
  	list-style-type:none;
  	float:right;
@@ -38,12 +110,13 @@ header{
 	float:left;
 		a{	
 			margin-left:30px;
+			font-family:'HelveticaNeueW01-67MdCn 692710';
 			font-weight:normal;
 			text-transform:uppercase;
 			color:$dark;
 			font-size:15px;
 			line-height:1.5;
-			@include transition(color 1s ease);
+			@include transition(color 2s ease);
 
 			&:hover{
 				color:$red;
@@ -52,6 +125,288 @@ header{
 		}
 	}
 }
+
+
+.thinstripe_career{
+	width:100%;
+	height:145px;
+	background: url(career_header.jpg) no-repeat center; 
+    @include background-size(cover);
+}
+
+
+.darken{
+	width:100%;
+	height:145px;
+	background-color:rgb(0,0,0);
+	background-color:rgba(0,0,0,0.7);
+	.jobs_header{
+		float:left;
+		width:100%;
+		padding-top:42px;
+		border-bottom:1px solid white;
+		h2{
+			color:white;
+			font-size:38px;
+		}
+		.button{
+			float:right;
+			text-transform: none;
+			font-family:'HelveticaNeueW01-77BdCn 692722';
+			font-size:22px;
+		}
+	}
+}
+.job_search{
+	float:left;
+	width:100%;
+	margin:20px 0;
+	padding-bottom:20px;
+	border-bottom:2px dotted $gray;
+	#jobs_filter{
+		h2{
+			float:left;
+		}
+		.filter_sect{
+			margin-top:10px;
+			float:left;
+			width:240px;
+			margin-left:30px;
+		}
+		.filter_search{
+			width:120px;
+		}
+	}
+	.basic, .search_button{
+		float:left;
+	}
+}
+
+.jobs{
+	margin:0;
+}
+
+.opp{
+	margin:15px 0;
+	border-bottom:2px dotted $gray;
+	.side_info{
+		.side_title{
+			float:left;
+			width:100%;
+			background:url(pin.png) no-repeat right center;
+
+			h4{
+				font-family:'HelveticaNeueW01-57Cn';
+				color:$dark;
+				text-transform:uppercase;
+				font-weight:normal;
+				font-size:17px;
+			}
+		}
+		.location{
+			float:left;
+			width:100%;
+			.opp_location{
+				margin-top:-20px;
+				list-style-type:none;
+				margin:0;
+
+				li{
+					font-family:'HelveticaNeueW01-57Cn';
+					background-color:$dark;
+					color:white;
+					padding:4px;
+					a{
+						color:white;
+
+					}
+				}
+				.alternate{
+					background-color:$purple;
+					color:white;
+				}
+			}
+
+		}
+	}
+	.main_info{
+		h2{
+			margin-top:0px;
+			font-size:26px;}
+		p{
+			font-size:15px;
+		}
+		.cities{
+			float: left;
+			font-style: italic;
+			margin-bottom: 10px;
+			width: 100%;
+			color:$purple;
+		}
+	}
+	.apply{
+		.search_button{
+			font-size:22px;
+			padding:15px 0;
+			text-transform: none;
+		}
+		.full_desc{
+			margin: 10px 0;
+			text-align: center;
+			float: left;
+			width: 100%;
+	 		a {
+				color:$green;
+				font-family:'HelveticaNeueW01-67MdCn 692710';
+				&:hover{
+					color:$purple;
+				}
+			}
+		}
+	}
+}
+
+
+
+/* Fancy Select */
+
+div.fancy-select {
+	position: relative;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 13px;
+	color: #46565D;
+}
+
+div.fancy-select.disabled {
+	opacity: 0.5;
+}
+
+div.fancy-select select:focus + div.trigger {
+	
+}
+
+div.fancy-select select:focus + div.trigger.open {
+	box-shadow: none;
+}
+
+div.fancy-select div.trigger {
+	cursor: pointer;
+	padding: 12px 24px 11px 9px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-family:'HelveticaNeueW01-65Medi';
+	position: relative;
+	background: white;
+	color: $dark;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	width: 200px;
+	transition: all 240ms ease-out;
+	-webkit-transition: all 240ms ease-out;
+	-moz-transition: all 240ms ease-out;
+	-ms-transition: all 240ms ease-out;
+	-o-transition: all 240ms ease-out;
+}
+
+div.fancy-select div.trigger:after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-top-color: #4B5468;
+	top: 20px;
+	right: 9px;
+}
+
+div.fancy-select div.trigger.open {
+	color:$red;
+}
+
+div.fancy-select div.trigger.open:after {
+	border-top-color: #7A8498;
+}
+
+div.fancy-select ul.options {
+	list-style: none;
+	margin: 0;
+	position: absolute;
+	top: 0px;
+	left:0px;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 50;
+	max-height: 200px;
+	overflow: auto;
+	background: white;
+	border-radius: 0px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	width: 233px;
+	padding: 6px 0;
+
+	transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-webkit-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-moz-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-ms-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+	-o-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out;
+}
+
+div.fancy-select ul.options.open {
+	visibility: visible;
+	top: 50px;
+	opacity: 1;
+
+	/* have to use a non-visibility transition to prevent this iOS issue (bug?): */
+	/*http://stackoverflow.com/questions/10736478/css-animation-visibility-visible-works-on-chrome-and-safari-but-not-on-ios*/
+	transition: opacity 300ms ease-out, top 300ms ease-out;
+	-webkit-transition: opacity 300ms ease-out, top 300ms ease-out;
+	-moz-transition: opacity 300ms ease-out, top 300ms ease-out;
+	-ms-transition: opacity 300ms ease-out, top 300ms ease-out;
+	-o-transition: opacity 300ms ease-out, top 300ms ease-out;
+}
+
+div.fancy-select ul.options.overflowing {
+	top: auto;
+	bottom: 40px;
+
+	transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-webkit-transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-moz-transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-ms-transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+	-o-transition: opacity 300ms ease-out, bottom 300ms ease-out, visibility 300ms ease-out;
+}
+
+div.fancy-select ul.options.overflowing.open {
+	top: auto;
+	bottom: 50px;
+
+	transition: opacity 300ms ease-out, bottom 300ms ease-out;
+	-webkit-transition: opacity 300ms ease-out, bottom 300ms ease-out;
+	-moz-transition: opacity 300ms ease-out, bottom 300ms ease-out;
+	-ms-transition: opacity 300ms ease-out, bottom 300ms ease-out;
+	-o-transition: opacity 300ms ease-out, bottom 300ms ease-out;
+}
+
+div.fancy-select ul.options li {
+	padding: 6px 12px;
+	color: $dark;
+	font-family:'HelveticaNeueW01-65Medi';
+	cursor: pointer;
+	white-space: nowrap;
+	transition: all 150ms ease-out;
+	-webkit-transition: all 150ms ease-out;
+	-moz-transition: all 150ms ease-out;
+	-ms-transition: all 150ms ease-out;
+	-o-transition: all 150ms ease-out;
+}
+
+div.fancy-select ul.options li.hover {
+	color: $red;
+	background-color:$gray;
+}
+
 
 /* miscellaneous */
 .debug_dump {
@@ -109,34 +464,17 @@ input {
   @extend .error;
 }
 
-.button{
-	font-size:17px;
-	background:$red;
-	-webkit-box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
-	box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
-	color:white;
-	font-weight:normal;
-	text-transform:uppercase;
-	text-shadow:none;
-	padding:13px 19px;
-	border:none;
-	@include transition(background 1s ease);
-
-	&:hover{
-		color:white;
-		background:#762019;
-		-webkit-box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
-		box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
-	}
+.search_button{
+	float:left;
+	width:100%;
+	font-family:'HelveticaNeueW01-77BdCn 692722';
+	text-decoration:none;
+	padding: 11px 0;
+	text-align:center;
 }
-
-.button_black{
-	@include transition(all 1s ease);
-	background:$dark;
-	-webkit-box-shadow: inset 1px 1px 17px 1px #444;
-	box-shadow: inset 1px 1px 17px 1px #444;
+input[type="submit"]{
+	width:100%;
 }
-
 /* Users index */
 
 .users {
@@ -151,3 +489,5 @@ input {
     }
   }
 }
+
+

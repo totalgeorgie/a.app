@@ -1,0 +1,40 @@
+- provide(:title, 'All Jobs')
+
+.thinstripe_career
+  .darken
+  	.container
+  	  .row
+  	    .span10.offset1
+  	      .jobs_header
+  	        .row
+  	          .span5
+  	  	        h2 All Jobs
+  	  	      .span5
+  	  	        == link_to "Sign up for Job Alerts!", "#", :class => "button"
+
+ 
+.container
+  .row
+    .span10.offset1
+      - if current_user && current_user.admin? 
+      	- render 'shared/dashboard_header'
+	
+	  .job_search
+		== form_tag jobs_path, :method => 'get', :id => "jobs_filter" do
+	      h2 I'd like jobs in
+	      .filter_sect
+	      	== select_tag :city_id, options_from_collection_for_select(@cities, "id", "name"), :class => "basic" 
+		  .filter_sect
+		  	== select_tag :position_id, options_from_collection_for_select(@positions, "id", "name"), :class => "basic" 		    
+		  .filter_sect.filter_search
+		  	== submit_tag "Search", :class => "button search_button"
+
+      ul.jobs
+        == render @jobs
+
+      == will_paginate
+
+
+
+
+

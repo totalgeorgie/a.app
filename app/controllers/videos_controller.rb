@@ -12,7 +12,7 @@ class VideosController < ApplicationController
 
   def create 
     @video = current_user.build_video(video_params)
-    @video.video_cid = params[:AtlasApp][:video_uuid]
+    @video.video_cid = params[:AtlasApp][:video_uuid] 
     if @video.save
         flash[:success] = "Video Created!"
         redirect_to root_url
