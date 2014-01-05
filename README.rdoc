@@ -60,7 +60,9 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - A user can't apply to one job more then once 
 - Videos work fully 
 
-
+- Coded in header
+- Coded in Jobs Page
+- Made it possible to filter through jobs page
 
 
 
@@ -69,7 +71,8 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 
 
 
-Make sure only the correct user can see their own application 
+
+
 
 Make it possible to see all applicants for a job with admin
 
