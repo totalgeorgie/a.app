@@ -22,11 +22,11 @@
 		== form_tag jobs_path, :method => 'get', :id => "jobs_filter" do
 	      h2 I'd like jobs in
 	      .filter_sect
-	      	== select_tag :city_id, content_tag(:option,'all cities...', :value=>"0") + options_from_collection_for_select(@cities, "id", "name"), :class => "basic" 
+	      	== select_tag :city_id, content_tag(:option,'all cities...', :value=>"0") + options_from_collection_for_select(@cities, "id", "name", params[:city_id].to_i  ), :class => "basic" 
 		  .filter_sect
-		  	== select_tag :position_id, content_tag(:option,'all roles...',:value=>"0") + options_from_collection_for_select(@positions, "id", "name"), :class => "basic" 		    
+		  	== select_tag :position_id, content_tag(:option,'all roles...',:value=>"0") + options_from_collection_for_select(@positions, "id", "name", params[:position_id].to_i ), :class => "basic" 		    
 		  .filter_sect.filter_search
-		  	== submit_tag "Search", :class => "button search_button button_black"
+		  	== submit_tag "Search", :class => "button search_button button_black", :name => nil
 
       ul.jobs
         - if @jobs.any?
