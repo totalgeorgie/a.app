@@ -1,0 +1,39 @@
+/ might want to change thinstripe_career with thinstripe_jobs_show or something like that
+.thinstripe_career 
+  .darken
+  	.container
+  	  .row
+  	    .span12
+  	      .jobs_header
+  	  	        h2
+  	  	          == @job.job_title
+
+== render "job_dashboard"
+
+.container
+  .row
+    .span6
+	  == render "single_opp"
+	.span6
+	  .apply_now
+	  	/If user is logged in 
+	    h2 Apply to #{ @job.job_title }
+
+	    h2 Applicant : #{ @user.name }
+
+	    h2 Answer the questions below to apply instantly!
+
+	    == form_for [@job, @application]  do |f|
+	      == render 'shared/error_messages', object: f.object
+          == f.fields_for :answers do |a|
+            - question = a.object.question
+		    == a.label :content, question.content
+		    == a.text_area :content
+		    == a.hidden_field :question_id, value: question.id
+
+		  == f.submit "Submit the application", class: "button" 
+
+
+
+
+

@@ -283,9 +283,97 @@ header{
 	}
 }
 
+.single_opp{
+	float:left;
+	width:100%;
+	.single_cover{
+		float:left;
+		width:100%;
+		border-bottom:2px dotted $gray;
+		margin-bottom:15px;
+		padding-bottom:15px;
+	}
+	p{
+		font-size:16px;
+	}
+	.resp{
+		list-style-type:none;
+		margin-left:30px;
+		li{
+			margin-bottom:10px;
+			font-weight:normal;
+			font-family:'HelveticaNeueW01-65Medi';
+			background:url(arrow.png) left center no-repeat;
+			padding-left:20px;
+			font-size:16px;
+		}
+	}
+
+	.opp_header{
+		h2{
+			font-weight:normal;
+			font-family:'HelveticaNeueW01-65Medi';
+			font-size:18px;
+			color:$purple;
+			margin-bottom:0px;
+			padding:0;
+		}
+		float:left;
+		width:100%;
+		border-bottom:2px solid $purple;
+		padding-bottom:10px;
+		padding-top:20px;
+		margin-bottom:20px;
+
+	}
+
+	h4{
+		font-weight:normal;
+		font-family:'HelveticaNeueW01-65Medi';
+		font-size:17px;
+		color:$purple;
+	}
+	.main_resp{
+		list-style-type:none;
+		margin-left:30px;
+		margin-bottom:20px;
+
+		li{
+			margin-bottom:10px;
+			font-weight:normal;
+			background:url(arrow.png) left center no-repeat;
+			padding-left:20px;
+			font-size:16px;			
+		}
+	}
+
+	.apply{
+		float:left;
+		width:100%;
+		text-align:center;
+		margin-top:20px;
+		margin-bottom:20px;
+		a{
+			float:left;
+			width:90%;
+			background-color:$red;
+			padding:10px 5%;
+			font-family:'HelveticaNeueW01-65Medi';
+			color:white;
+			font-size:20px;
+			@include transition(all 2s ease);
+			&:hover{
+				background-color:$purple;
+			}
+		}
+	}
+
+}
+
 .pagination{
 	text-align: center;
 }
+
 
 /* Fancy Select */
 

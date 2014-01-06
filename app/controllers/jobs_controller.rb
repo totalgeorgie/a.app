@@ -7,6 +7,7 @@ class JobsController < ApplicationController
     2.times {
       @job.bullets.build
       @job.roles.build
+      @job.questions.build
     }
 
   end
@@ -35,7 +36,9 @@ class JobsController < ApplicationController
   end
 
   def show 
+    @user = current_user if current_user
     @job = Job.find(params[:id])
+    @application = Application.build(@job)
   end
 
   def index 
