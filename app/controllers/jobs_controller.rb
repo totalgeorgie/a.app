@@ -35,9 +35,13 @@ class JobsController < ApplicationController
   end
 
   def show 
-    @user = current_user if current_user
     @job = Job.find(params[:id])
-    @application = Application.build(@job)
+    if signed_in?
+      @user = current_user
+      @application = Application.build(@job)
+    else
+      @user = User.new 
+    end
   end
 
   def index 

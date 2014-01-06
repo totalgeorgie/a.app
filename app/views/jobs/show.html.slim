@@ -17,21 +17,11 @@
 	.span6
 	  .apply_now
 	    .apply_padding
-	  	  /If user is logged in 
-	      h2 Apply Now #{ @user.name }
-
-	      h3 Answer the questions below to apply instantly!
-
-	      == form_for [@job, @application]  do |f|
-	        == render 'shared/error_messages', object: f.object
-            == f.fields_for :answers do |a|
-              - question = a.object.question
-		      == a.label :content, question.content
-		      == a.text_area :content, :rows => "3"
-		      == a.hidden_field :question_id, value: question.id
-		    == f.submit "Create My Application!", class: "button" 
-
-
-
-
+	  	  - if signed_in? 
+	  	    - unless has_job(@user, @job)
+	  	      == render "jobs/apply_to_job"
+            - else 
+              == render "jobs/already_applied"
+          - else
+          	  == render "new_user"
 

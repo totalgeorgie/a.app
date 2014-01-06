@@ -1,0 +1,5 @@
+h2 Sign up to apply now!
+
+== form_for @user, :html => { id: "new_user_at_job_show" } do |f|
+  == render 'users/fields', f: f
+  == f.submit "Create my account", class: "button" 
