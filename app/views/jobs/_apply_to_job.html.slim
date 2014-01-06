@@ -3,10 +3,10 @@ h2 Apply Now #{ @user.name }
 h3 Answer the questions below to apply instantly!
 
 == form_for [@job, @application]  do |f|
-== render 'shared/error_messages', object: f.object
-== f.fields_for :answers do |a|
-  - question = a.object.question
-  == a.label :content, question.content
-  == a.text_area :content, :rows => "3"
-  == a.hidden_field :question_id, value: question.id
-== f.submit "Create My Application!", class: "button" 
+  == render 'shared/error_messages', object: f.object
+  == f.fields_for :answers do |a|
+    - question = a.object.question
+    == a.label :content, question.content
+    == a.text_area :content, :rows => "3"
+    == a.hidden_field :question_id, value: question.id
+  == f.submit "Create My Application!", class: "button" 

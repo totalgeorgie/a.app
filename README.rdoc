@@ -1,7 +1,5 @@
 == README
 
-Currently at Videos/show. Having trouble with rendering the form if there's an error. Afterwards
-
 == What has been done 
 
 - Set up users
@@ -63,7 +61,11 @@ Currently at Videos/show. Having trouble with rendering the form if there's an e
 - Coded in header
 - Coded in Jobs Page
 - Made it possible to filter through jobs page
-
+- Designed and Coded in Individual Job Page
+- On the individual Job Page, 
+    if the user is not signed up, they see a form to sign up
+    if the user is signed up, but has not applied, they see a form to apply
+    if a user has signed up and already applied, they see information about applying to more jobs 
 
 
 
@@ -101,6 +103,10 @@ Design each one in the proccess
 On Show view for jobs, make a non-user able to see only a bit
 
 Make a status bar type thing for the common app 
+
+On No Jobs Found, make a register appear 
+
+--
 
 -for the register, see common app, and the video view, add a 1, 2, 3 steps thing
 

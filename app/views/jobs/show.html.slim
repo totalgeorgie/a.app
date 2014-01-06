@@ -18,10 +18,10 @@
 	  .apply_now
 	    .apply_padding
 	  	  - if signed_in? 
-	  	    - unless has_job(@user, @job)
-	  	      == render "jobs/apply_to_job"
+	  	    - if has_job(@user, @job)
+            == render "jobs/already_applied"
             - else 
-              == render "jobs/already_applied"
+              == render "jobs/apply_to_job"
           - else
           	  == render "new_user"
 

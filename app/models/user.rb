@@ -23,10 +23,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, 
   			format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, length: { minimum: 6 }, on: :create
+  
+  has_secure_password validations: false
+  validates :password, length: { minimum: 6 }, allow_blank: true
+  validates :password, presence: true, on: :create
 
-  #!ask at one point, wherther I can continue to validate password and password_confirmation, on update, but allow password_reset to work
   has_one :common_app, dependent: :destroy
 
   has_one :video, dependent: :destroy

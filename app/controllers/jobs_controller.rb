@@ -73,9 +73,6 @@ class JobsController < ApplicationController
                                  industry_ids: [], city_ids: [], position_ids: [],
                                  questions_attributes: [:id, :content, :_destroy])
   end
-
-
-
 end
 
 #https://github.com/ryanb/nested_form refer to accepting params
