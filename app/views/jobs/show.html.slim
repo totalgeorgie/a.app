@@ -1,3 +1,4 @@
+- provide(:title, "#{@job.job_title}") 
 / might want to change thinstripe_career with thinstripe_jobs_show or something like that
 .thinstripe_career 
   .darken
@@ -5,8 +6,7 @@
   	  .row
   	    .span12
   	      .jobs_header
-  	  	        h2
-  	  	          == @job.job_title
+  	  	        h2 Apply to #{ @job.job_title }
 
 == render "jobs/job_dashboard"
 
