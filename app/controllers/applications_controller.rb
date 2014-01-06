@@ -11,13 +11,14 @@ class ApplicationsController < ApplicationController
    @application = Application.build(job)
    redirect_to jobs_path, :notice => "You've already applied to this job! Check out some more" if has_job(current_user,@job)
   end
+  # New Action might just be obsolete! 
 
   def create
     @application = Application.new(application_params)
     if @application.save
       redirect_to root_url, :notice =>"You have now applied!"
     else
-      render :action => 'new'
+      render 'jobs/show'
     end
 
   end
@@ -55,7 +56,7 @@ class ApplicationsController < ApplicationController
 private
 
   def set_user_and_job
-      @user = current_user
+      @user = current_user if current_user
       @job = Job.find(params[:job_id])
   end
 

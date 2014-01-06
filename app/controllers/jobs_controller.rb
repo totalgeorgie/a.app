@@ -9,7 +9,6 @@ class JobsController < ApplicationController
       @job.roles.build
       @job.questions.build
     }
-
   end
 
   def create
