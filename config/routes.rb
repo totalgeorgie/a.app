@@ -1,11 +1,12 @@
 Atlas::Application.routes.draw do
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy] #no index
-  resources :videos, only: [:new, :create, :update, :show, :edit, :destroy] #no index
+  resources :users do 
+    resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy] #no index
+    resources :videos, only: [:new, :create, :update, :show, :edit, :destroy] #no index
+  end
   resources :jobs do 
     resources :applications
   end
+  resources :sessions, only: [:new, :create, :destroy]
   resources :password_resets
   
    root  "jobs#index"
