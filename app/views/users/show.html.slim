@@ -22,12 +22,13 @@
                 - if @user.common_app
                   / View for when a user has filled out their common_app
                 - else 
-                  .step.fill_profile
-                    .icon
-                      == image_tag("profile_icon.png", :alt => "fill out your profile")
-                    .content
-                      h3 Fill out your profile
-                      p Complete your details to show companies the experience and track record you’ve been up to
+                  == link_to new_user_common_app_path(@user) do               
+                    .step.fill_profile
+                      .icon
+                        == image_tag("profile_icon.png", :alt => "fill out your profile")
+                      .content
+                        h3 Fill out your profile
+                        p Complete your details to show companies the experience and track record you’ve been up to
 
                 - if !@user.video
                   .step.create_video
@@ -45,5 +46,4 @@
                     .content
                       h3 Apply to jobs
                       p Pick the the jobs you’d be interested in, and apply. It's that easy!
-
 

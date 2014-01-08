@@ -49,7 +49,14 @@ module SessionsHelper
     redirect_to current_user unless current_user?(@user) || current_user.admin? 
   end
 
-
+  def root_path_helper
+    if signed_in? 
+      current_user
+    else
+      root_path
+    end
+  end
+  
   def has_job(user,current_job)
     if user.applications.any?
       user.applications.each do |application|

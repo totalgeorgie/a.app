@@ -2,7 +2,7 @@ header
   .container
     .row
       .span3
-        == link_to image_tag("logo.png", alt: full_title(yield(:title))), root_path, class: "brand"
+        == link_to image_tag("logo.png", alt: full_title(yield(:title))), root_path_helper, class: "brand"
       .span9
         nav.menu
           - if signed_in?
