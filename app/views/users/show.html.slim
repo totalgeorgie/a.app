@@ -22,28 +22,30 @@
                 - if @user.common_app
                   / View for when a user has filled out their common_app
                 - else 
-                  == link_to new_user_common_app_path(@user) do               
-                    .step.fill_profile
-                      .icon
+                  == link_to new_user_common_app_path(@user) do
+                    span.step
+                      span.icon
                         == image_tag("profile_icon.png", :alt => "fill out your profile")
-                      .content
-                        h3 Fill out your profile
-                        p Complete your details to show companies the experience and track record you’ve been up to
+                      span.content
+                        span.h3 Fill out your profile
+                        span.p Complete your details to show companies the experience and track record you’ve been up to
 
                 - if !@user.video
-                  .step.create_video
-                    .icon
-                      == image_tag("video_icon.png", :alt => "fill out your video")
-                    .content
-                      h3 Create your video
-                      p Create a 2 minute video to show companies your mastery of mandarin and what makes you unique
+                  == link_to new_user_video_path(@user) do
+                    span.step
+                      span.icon
+                        == image_tag("video_icon.png", :alt => "fill out your video")
+                      span.content
+                        span.h3 Create your video
+                        span.p Create a 2 minute video to show companies your mastery of mandarin and what makes you unique
 
 
                 - if !@user.jobs.any?
-                  .step.create_video
-                    .icon
-                      == image_tag("jobs_icon.png", :alt => "apply to jobs")
-                    .content
-                      h3 Apply to jobs
-                      p Pick the the jobs you’d be interested in, and apply. It's that easy!
+                  == link_to jobs_path do
+                    span.step
+                      span.icon
+                        == image_tag("jobs_icon.png", :alt => "apply to jobs")
+                      span.content
+                        span.h3 Apply to jobs
+                        span.p Pick the the jobs you’d be interested in, and apply. It's that easy!
 
