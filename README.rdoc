@@ -67,18 +67,22 @@
     if the user is signed up, but has not applied, they see a form to apply
     if a user has signed up and already applied, they see information about applying to more jobs 
 - Made it so that an admin can create or edit other user's applications, videos, etc.
+- Designed and Coded The User Profile Page if the user has not filled anything in yet 
+- Made an automatic way to count the total number of questions  
 
 
 == To do
 
+/ Ask why @common_app.progress is returning no method error 
 
-/ might want to change thinstripe_career with thinstripe_jobs_show or something like that
-/ Need to make the buttons linkable 
+/ Make an automatic way to count the total number of questions  
+
+/ change thinstripe_career for jobs and users 
+
 / Need to make the option of if the user has a common app
 / Need to make the option of if the user has a video 
 / Need to make the option of if the user has applied to jobs 
 / # TEST VIDEO CREATE AND UPDATE ACTIONS
-  
 
 
 
