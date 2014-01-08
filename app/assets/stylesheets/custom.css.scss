@@ -26,6 +26,7 @@ $gray:#c9d1d3;
 $beige:#cad1d3;
 $purple:#424155;
 $green:#669089;
+$lightgray:rgb(247, 247, 247);
 body{
 	background-color:#f7f7f7;
 }
@@ -521,8 +522,11 @@ div.fancy-select ul.options li.hover {
 
 
 .apply_now{
-	background-color:white;
+	float:left;
+	width:100%;
+	background-color:$lightgray;
 	margin-top:10px;
+	padding-bottom:10px;
 	.apply_padding{
 		padding:5px 10px;
 	}
@@ -547,6 +551,24 @@ div.fancy-select ul.options li.hover {
 		text-transform: none;
 	}
 }
+.blog_container{
+	float:left;
+	width:100%;
+	background-color:white;
+	border:1px solid $gray;
+	border-top:none;
+	margin-top:-10px;
+}
+.profile_header{
+		float:left;
+		width:100%;
+		padding-top:42px;
+		h2{
+			text-align:center;
+			color:white;
+			font-size:38px;
+		}
+}
 /* miscellaneous */
 .debug_dump {
   clear: both;
@@ -556,6 +578,17 @@ div.fancy-select ul.options li.hover {
   @include box_sizing;
 }
 
+.guide{
+	margin-top:10px;
+	.guide_header{
+		margin-top:30px;
+		text-align:center;
+		h2{ 
+			color:$purple;
+			font-family:'HelveticaNeueW01-65Medi';
+		}
+	}
+}
 /* forms */
 
 #new_user, #signin_form, #new_common_app{

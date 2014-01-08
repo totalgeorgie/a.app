@@ -12,16 +12,17 @@
 
 .container
   .row
-    .span6
-	  == render "jobs/single_opp"
-	.span6
-	  .apply_now
-	    .apply_padding
-	  	  - if signed_in? 
-	  	    - if has_job(@user, @job)
-            == render "jobs/already_applied"
-            - else 
-              == render "jobs/apply_to_job"
-          - else
+    .blog_container
+      .span6
+	    == render "jobs/single_opp"
+	  .span6
+	    .apply_now
+	      .apply_padding
+	  	    - if signed_in? 
+	  	      - if has_job(@user, @job)
+              == render "jobs/already_applied"
+              - else 
+                == render "jobs/apply_to_job"
+            - else
           	  == render "new_user"
 
