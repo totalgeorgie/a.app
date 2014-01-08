@@ -6,7 +6,7 @@
 <p><strong>Please select a question prompt below and record your answer in Chinese in a casual, conversational 60-90 second video.
 </strong></p>
 
-<%= form_for @video do |f| %>
+<%= form_for [@user, @video] do |f| %>
  <%= render 'fields', f: f %>
  <%= f.submit "Submit the Video", class: "button", :style => "width:100%" %>
 <% end %>

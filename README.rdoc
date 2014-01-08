@@ -77,7 +77,8 @@
 / Need to make the option of if the user has a common app
 / Need to make the option of if the user has a video 
 / Need to make the option of if the user has applied to jobs 
-/ Ask if a has_one connection will always have the same id as the parent. If so, won't need to do the nested routes for common apps and videos
+/ # TEST VIDEO CREATE AND UPDATE ACTIONS
+  
 
 
 
