@@ -66,13 +66,18 @@
     if the user is not signed up, they see a form to sign up
     if the user is signed up, but has not applied, they see a form to apply
     if a user has signed up and already applied, they see information about applying to more jobs 
-
+- Made it so that an admin can create or edit other user's applications, videos, etc.
 
 
 == To do
 
 
-
+/ might want to change thinstripe_career with thinstripe_jobs_show or something like that
+/ Need to make the buttons linkable 
+/ Need to make the option of if the user has a common app
+/ Need to make the option of if the user has a video 
+/ Need to make the option of if the user has applied to jobs 
+/ Ask if a has_one connection will always have the same id as the parent. If so, won't need to do the nested routes for common apps and videos
 
 
 

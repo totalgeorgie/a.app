@@ -2,8 +2,7 @@ class CommonAppsController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
   
-  # NOTE TEST EVERY SINGLE ACTION HERE! JUST MADE AN UPDATE THAT SHOULD FIX ANY ADMIN ISSUES
-  
+
   def new
     if @user.common_app
       redirect_to @user
@@ -16,7 +15,7 @@ class CommonAppsController < ApplicationController
   	@common_app = @user.build_common_app(common_app_params)
   	if @common_app.save
   		flash[:success] = "Common App Created. For the final step, record a video about one of the topics below"
-  		redirect_to new_video_path
+  		redirect_to new_user_video_path(@user)
   	else
   		render :action => 'new'
   	end
@@ -38,7 +37,7 @@ class CommonAppsController < ApplicationController
 
   def show
     @common_app = @user.common_app
-    redirect_to new_common_app_path, notice: "Looks like you haven't made your common application. Fill it in below." unless @common_app.present?
+    redirect_to new_user_common_app_path(@user), notice: "Looks like you haven't made your common application. Fill it in below." unless @common_app.present?
   end    
 
   private

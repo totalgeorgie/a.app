@@ -1,6 +1,5 @@
 == provide(:title, @user.name)
 
-/ might want to change thinstripe_career with thinstripe_jobs_show or something like that
 .thinstripe_career 
   .darken
   	.container
@@ -30,16 +29,17 @@
                       h3 Fill out your profile
                       p Complete your details to show companies the experience and track record you’ve been up to
 
-                .step.create_video
-                  .icon
-                    == image_tag("video_icon.png", :alt => "fill out your video")
-                  .content
-                    h3 Create your video
-                    p Create a 2 minute video to show companies your mastery of mandarin and what makes you unique
+                - if !@user.video
+                  .step.create_video
+                    .icon
+                      == image_tag("video_icon.png", :alt => "fill out your video")
+                    .content
+                      h3 Create your video
+                      p Create a 2 minute video to show companies your mastery of mandarin and what makes you unique
 
 
                 - if !@user.jobs.any?
-                  .create_video
+                  .step.create_video
                     .icon
                       == image_tag("jobs_icon.png", :alt => "apply to jobs")
                     .content
