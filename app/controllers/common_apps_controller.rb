@@ -1,7 +1,7 @@
 class CommonAppsController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
-  before_action :correct_common_app, only: [ :show]
+  before_action :correct_common_app, only: [:show]
 
   def new
     if @user.common_app
@@ -40,10 +40,10 @@ class CommonAppsController < ApplicationController
   end    
 
   private
-  
+
     def correct_common_app
       @common_app = CommonApp.find(params[:id])
-      redirect_to current_user unless current_user.common_app == @common_app || current_user.admin? 
+      redirect_to user_common_app_path(current_user, current_user.common_app) unless current_user.common_app == @common_app || current_user.admin? 
     end
     
     def common_app_params

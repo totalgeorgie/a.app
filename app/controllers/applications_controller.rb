@@ -16,7 +16,7 @@ class ApplicationsController < ApplicationController
   def create
     @application = Application.new(application_params)
     if @application.save
-      redirect_to root_url, :notice =>"You have now applied!"
+      redirect_to @user, :notice =>"You have now applied!"
     else
       render 'jobs/show'
     end
@@ -29,7 +29,7 @@ class ApplicationsController < ApplicationController
 
   def update
     if @application.update(application_params)
-      redirect_to root_url, :notice => "You have updated your application!"
+      redirect_to @user, :notice => "You have updated your application!"
     else
       render :action => 'new'
     end
@@ -38,7 +38,7 @@ class ApplicationsController < ApplicationController
   def destroy
     Application.find(params[:id]).destroy
     flash[:success] = "Application Deleted."
-    redirect_to root_url 
+    redirect_to @user 
   end 
 
   def show 

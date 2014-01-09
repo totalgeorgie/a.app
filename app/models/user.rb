@@ -56,7 +56,14 @@ class User < ActiveRecord::Base
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
   end
+  
+  def beginner? 
+    false if self.common_app || self.video || self.jobs.any?
+  end
 
+  def first_name
+    self.name.split(' ')[0]
+  end
 
   private
 

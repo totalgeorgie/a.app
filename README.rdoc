@@ -68,12 +68,12 @@
     if a user has signed up and already applied, they see information about applying to more jobs 
 - Made it so that an admin can create or edit other user's applications, videos, etc.
 - Designed and Coded The User Profile Page if the user has not filled anything in yet 
-- Made an automatic way to count the total number of questions  
+- Made an automatic way to see the progress a user has with a common app  
+- Allow Admin to see other people's common_apps and videos
 
 == To do
 
-/ Allow Admin to see other people's common_apps and videos
-/ Ask why @common_app.progress is returning no method error 
+
 
 / Make an automatic way to count the total number of questions  
 

@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
-
+  before_action :correct_video, only: [:show]
 
   def new
     if @user.video
@@ -23,7 +23,6 @@ class VideosController < ApplicationController
   end
 
   def show
-    @video = @user.video
     redirect_to new_user_video_path(@user), notice: "Looks like you haven't made your video yet! Fill it in below." unless @video.present?
   end   
 
@@ -45,7 +44,11 @@ class VideosController < ApplicationController
   end
 
   private
-  
+    def correct_video
+      @video = Video.find(params[:id])
+      redirect_to user_video_path(current_user, current_user.video) unless current_user.video == @video || current_user.admin? 
+    end
+
     def video_params
       params.require(:video).permit(:video_cid,:question, :AtlasApp => [:video_uuid])
     end

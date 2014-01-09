@@ -1,0 +1,17 @@
+- if @user.video
+  == link_to user_video_path(@user, @user.video) do
+    span.step.filled.completed
+      span.icon
+        == image_tag("video_icon.png", :alt => "fill out your video")
+      span.content
+        span.h3 You've completed your video!
+        span.p We have received your personal introduction video. If you'd like to update it, click here.
+- else
+  == link_to new_user_video_path(@user) do
+    span.step
+      span.icon
+        == image_tag("video_icon.png", :alt => "fill out your video")
+      span.content
+        span.h3 Create your video
+        span.p Create a 2 minute video to show companies your mastery of mandarin and what makes you unique
+

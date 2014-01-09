@@ -45,7 +45,7 @@ module SessionsHelper
   
   def correct_user
     @user = User.find(params[:user_id]) if params[:user_id] # For nested association
-    @user = User.find(params[:id]) if @user.nil?  # For the rest 
+    @user ||= User.find(params[:id])
     redirect_to current_user unless current_user?(@user) || current_user.admin? 
   end
 
@@ -58,9 +58,9 @@ module SessionsHelper
   end
   
   def has_job(user,current_job)
-    if user.applications.any?
-      user.applications.each do |application|
-        return true if application.job_id = current_job.id 
+    if user.jobs.any?
+      user.jobs.each do |job|
+        return true if job == current_job
       end
     end
     false

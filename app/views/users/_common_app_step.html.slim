@@ -1,0 +1,29 @@
+- if @user.common_app
+  == link_to edit_user_common_app_path(@user, @user.common_app) do
+    - if @user.common_app.progress < 80   
+      span.step.filled
+        span.icon
+          == image_tag("profile_icon.png", :alt => "fill out your profile") 
+        span.content 
+          span.h3 Complete your profile
+          span.progress 
+            span.bar style="width:#{@user.common_app.progress}%"
+            span.bar_percent == @user.common_app.progress.to_s + '%'
+          span.p The most successful candidates have their profiles more than 80% complete. Fill yours out now!
+    - else 
+      span.step.filled.completed
+        span.icon
+          == image_tag("profile_icon.png", :alt => "fill out your profile") 
+        span.content 
+          span.h3 You've completed your profile!
+          span.progress 
+            span.bar style="width:#{@user.common_app.progress}%"
+          span.p You have filled in your profile. Click here if you'd like to update anything.       
+- else 
+  == link_to new_user_common_app_path(@user) do
+    span.step
+      span.icon
+        == image_tag("profile_icon.png", :alt => "fill out your profile")
+      span.content
+        span.h3 Fill out your profile
+        span.p Complete your details to show companies the experience and track record you’ve been up to

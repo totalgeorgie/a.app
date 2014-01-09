@@ -1,12 +1,12 @@
 == provide(:title, @user.name)
-
+/Needs work on responsiveness
 .thinstripe_career 
   .darken
   	.container
   	  .row
   	    .span10.offset1
   	    	.profile_header
-  	  	        h2 Welcome to Atlas China
+  	  	        h2 Welcome to Atlas China, #{@user.first_name}
 
 .container
   .row
@@ -14,38 +14,11 @@
       .span12
         .blog_container
           .guide_header
-            h2 The Get Started Guide
+            h2 3 Steps to a Successful Application
             p Follow the quick guide to help us find the best matches for you
           .row
-            .span6.offset3
+            .span12
               .steps
-                - if @user.common_app
-                  / View for when a user has filled out their common_app
-                - else 
-                  == link_to new_user_common_app_path(@user) do
-                    span.step
-                      span.icon
-                        == image_tag("profile_icon.png", :alt => "fill out your profile")
-                      span.content
-                        span.h3 Fill out your profile
-                        span.p Complete your details to show companies the experience and track record you’ve been up to
-
-                - if !@user.video
-                  == link_to new_user_video_path(@user) do
-                    span.step
-                      span.icon
-                        == image_tag("video_icon.png", :alt => "fill out your video")
-                      span.content
-                        span.h3 Create your video
-                        span.p Create a 2 minute video to show companies your mastery of mandarin and what makes you unique
-
-
-                - if !@user.jobs.any?
-                  == link_to jobs_path do
-                    span.step
-                      span.icon
-                        == image_tag("jobs_icon.png", :alt => "apply to jobs")
-                      span.content
-                        span.h3 Apply to jobs
-                        span.p Pick the the jobs you’d be interested in, and apply. It's that easy!
-
+                == render 'users/common_app_step'
+                == render 'users/video_step'
+                == render 'apply_step'

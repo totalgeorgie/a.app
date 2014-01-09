@@ -45,7 +45,7 @@ class CommonApp < ActiveRecord::Base
   total_completed += 1 if self.positions.any?
   total_completed += 1 if self.industries.any?
   
-  100.0*total_completed/total_questions
+  (100.0*total_completed/total_questions).round
 
  end
 
