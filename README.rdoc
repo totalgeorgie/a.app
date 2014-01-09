@@ -70,9 +70,9 @@
 - Designed and Coded The User Profile Page if the user has not filled anything in yet 
 - Made an automatic way to count the total number of questions  
 
-
 == To do
 
+/ Allow Admin to see other people's common_apps and videos
 / Ask why @common_app.progress is returning no method error 
 
 / Make an automatic way to count the total number of questions  

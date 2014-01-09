@@ -1,7 +1,7 @@
 class CommonAppsController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
-  
+  before_action :correct_common_app, only: [ :show]
 
   def new
     if @user.common_app
@@ -36,12 +36,16 @@ class CommonAppsController < ApplicationController
   end
 
   def show
-    @common_app = @user.common_app
     redirect_to new_user_common_app_path(@user), notice: "Looks like you haven't made your common application. Fill it in below." unless @common_app.present?
   end    
 
   private
-
+  
+    def correct_common_app
+      @common_app = CommonApp.find(params[:id])
+      redirect_to current_user unless current_user.common_app == @common_app || current_user.admin? 
+    end
+    
     def common_app_params
       params.require(:common_app).permit(:current_city,:grad_year,:read_type,
       									  :listen_speak,:time_in_china,
