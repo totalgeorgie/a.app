@@ -5,8 +5,7 @@
   	  .row
   	    .span10.offset1
   	      .profile_header
-      	    h2 #{@user.first_name}, show your mastery of Mandarin
-
+      	    h2 Update Your Video
 .container
   .row
     .guide
@@ -19,6 +18,4 @@
 
             == form_for [@user, @video] do |f| 
               == render 'fields', f: f 
-              == f.submit "Finish the application!", class: "button"
-
-   
+              == f.submit "Update your application!", class: "button"
