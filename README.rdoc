@@ -73,7 +73,7 @@
 - make the option of if the user has a common app
 - make the option of if the user has a video 
 - make the option of if the user has applied to jobs 
-- Designed Video Page 
+- Designed New/Edit Video Page 
 
 == To do
 
@@ -83,6 +83,9 @@
 
 / Make sure Users#show is responsive
 
+/ Make Video#Show
+/ Make CommonApp#New#Edit#Show 
+/ Make 
 
 Make it possible to see all applicants for a job with admin
 
