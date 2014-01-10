@@ -85,8 +85,9 @@
 
 / Make Video#Show
 / Make CommonApp#New#Edit#Show 
-/ Make 
-/ Refer a friend
+/ Make Admin Dashboard for users
+/ Make Notes section for users
+/ Make labels for users (i.e hot, warm, etc)
 
 Make it possible to see all applicants for a job with admin
 
@@ -161,8 +162,30 @@ i don't really understand how this process works, so let me just leave my email 
 [2014-01-09 9:45:19 PM] Abraham Sorock: have the tutorials sent to people as drip emails
 [2014-01-09 9:45:29 PM] Abraham Sorock: but also have them online on the back end to get people to write what we need
         --So on front-end, also have testimonials, couple of key things on good application etc, that'll let us know. 
-        
+
 [2014-01-09 9:45:56 PM] Abraham Sorock: and then if its apparent that someone has already gone through and done the whole application, we can just skip to the job tips email
+
+----- 
+For Admin Dashboard ->
+Have a 'hot' button, essentially signfying which users need to be acted on. 
+Notes on Each candidate 
+
+goal: get people to start thinking and talking about themselves in a way that makes it easier for us to sell them.
+
+[2014-01-09 10:19:20 PM] Abraham Sorock: 1. Thanks for entering your email, why you should continue. 
+--here's what we believe: foreigners who speak chinese are an underrated asset in the marketplace and can do the kinds of things that companies look for in the modern globalized economy. working with companies from china and the west in all different industries, we bust our ass to get people into awesome jobs that set them up for success with their language skills. 
+[2014-01-09 10:19:50 PM] Abraham Sorock: companies aren't used to working with chinese speaking foreigners and don't know how to judge you based off of a resume. through our questions and video platform, we get you understood and we get you hired.
+
+
+How does your language ability 
+
+Here's where I want to be 
+
+This will never be shown to anyone 
+
+We'll 
+
+
 
 
 
