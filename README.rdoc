@@ -86,6 +86,7 @@
 / Make Video#Show
 / Make CommonApp#New#Edit#Show 
 / Make 
+/ Refer a friend
 
 Make it possible to see all applicants for a job with admin
 
@@ -133,6 +134,38 @@ Make whatever I have so far designed in a nice manner, as soon as the flow is do
 At the end, change action mailer default url to final domain, in environment/production
 
 Why did you withdrawal
+
+
+[2014-01-09 9:34:35 PM] Abraham Sorock: 1. Thanks for entering your email, why you should continue. 
+--here's what we believe: foreigners who speak chinese are an underrated asset in the marketplace and can do the kinds of things that companies look for in the modern globalized economy. working with companies from china and the west in all different industries, we bust our ass to get people into awesome jobs that set them up for success with their language skills. 
+[2014-01-09 9:35:21 PM] Abraham Sorock: 2. why you should create a profile / what it should say / how it helps
+[2014-01-09 9:35:25 PM] Abraham Sorock: 3. why you should create a video / how it helps.
+[2014-01-09 9:35:38 PM] Abraham Sorock: 4. interview prep and tips that get people hired.
+[2014-01-09 9:36:35 PM] Abraham Sorock: 5. thanks for using, share your story and refer a friend
+[2014-01-09 9:36:55 PM] Abraham Sorock: ->While going over our current process, if you have ideas to why a user is not doing x, let's write that in, and make sure it's addressed in the app
+
+------
+i am not comfortable making a video 
+i don't know what the video should say 
+i am not confident in my chinese 
+i'm not looking for a job yet or that actively, so i don't want to spend a lot of time signing up 
+i don't see any jobs i like 
+i don't have or want to take the time to fill out a profile 
+i don't feel the need to share any information besides a resume 
+i don't really understand how this process works, so let me just leave my email here
+------
+
+
+
+[2014-01-09 9:44:57 PM] Abraham Sorock: ok so what i was saying anyway
+[2014-01-09 9:45:19 PM] Abraham Sorock: have the tutorials sent to people as drip emails
+[2014-01-09 9:45:29 PM] Abraham Sorock: but also have them online on the back end to get people to write what we need
+        --So on front-end, also have testimonials, couple of key things on good application etc, that'll let us know. 
+        
+[2014-01-09 9:45:56 PM] Abraham Sorock: and then if its apparent that someone has already gone through and done the whole application, we can just skip to the job tips email
+
+
+
 
 
 
