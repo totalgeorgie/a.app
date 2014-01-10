@@ -212,7 +212,6 @@ DEPENDENCIES
   pg (= 0.15.1)
   rails (= 4.0.0.rc2)
   rails_12factor (= 0.0.2)
-  rails_serve_static_assets
   roo
   rspec-rails (= 2.13.1)
   sass-rails (~> 4.0.0.rc2)
