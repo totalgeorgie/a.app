@@ -70,20 +70,18 @@
 - Designed and Coded The User Profile Page if the user has not filled anything in yet 
 - Made an automatic way to see the progress a user has with a common app  
 - Allow Admin to see other people's common_apps and videos
+- make the option of if the user has a common app
+- make the option of if the user has a video 
+- make the option of if the user has applied to jobs 
+- Designed Video Page 
 
 == To do
 
 
 
-/ Make an automatic way to count the total number of questions  
-
 / change thinstripe_career for jobs and users 
 
-/ Need to make the option of if the user has a common app
-/ Need to make the option of if the user has a video 
-/ Need to make the option of if the user has applied to jobs 
-/ # TEST VIDEO CREATE AND UPDATE ACTIONS
-
+/ Make sure Users#show is responsive
 
 
 Make it possible to see all applicants for a job with admin

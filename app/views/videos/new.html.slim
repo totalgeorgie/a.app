@@ -1,0 +1,24 @@
+- provide(:title, "Final step, Record a video to show your master of Mandarin") 
+.thinstripe_career 
+  .darken
+  	.container
+  	  .row
+  	    .span10.offset1
+  	      .profile_header
+      	    h2 #{@user.first_name}, show your mastery of Mandarin
+
+.container
+  .row
+    .guide
+      .span10.offset1
+        .blog_container
+          .video_app
+      	    p As part of our application process, we invite candidates to record a video that demonstrates their Mandarin skills directly to hiring managers and leads to getting job offers much faster.
+			
+			p.highlight Please select a question prompt below and record your answer in Chinese in a casual, conversational 60-90 second.  video.
+
+			== form_for [@user, @video] do |f| 
+                 == render 'fields', f: f 
+                 == f.submit "Finish the application!", class: "button"
+
+   
