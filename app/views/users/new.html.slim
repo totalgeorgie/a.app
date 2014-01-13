@@ -1,0 +1,46 @@
+== provide(:title, "Get Started on your career in China")
+.thinstripe_career 
+  .darken
+  	.container
+  	  .row
+  	    .span12
+  	    	.profile_header
+  	  	        h2 Companies in China are looking for you. Why haven’t they found you?
+
+.container
+  .row
+    .span12
+      .blog_container.sign_up_page
+        .sign_up_box
+          h2 Get Started Now 
+          == form_for(@user) do |f| 
+            == render 'fields', f: f
+            #submit
+              == f.submit "Create my account", class: "button"
+          span.guarantee All information that you send us is secured, and will not be shared with third party advertisers. We value your trust in us.
+        .how_it_works
+          h2 How it Works
+          .circle_container
+            .circle
+          .steps
+            .step
+              .step_text
+                h3 1. Fill out an application
+              .step_img 
+               	== image_tag("step1.jpg", alt: "Atlas China Step 1")
+            .step  
+              .step_text
+                h3 2. Create a video that demonstrates your bilingual skills
+              .step_img 
+                == image_tag("step2.jpg", alt: "Atlas China Step 2")
+            .step
+              .step_text
+                h3 3. Apply to Jobs!
+              .step_img 
+                == image_tag("step3.jpg", alt: "Atlas China Step 3")
+            
+        .explanation
+          
+          p At Atlas-China, you tell us who you are, Companies tell us who they’re looking for, and we match the best Chinese companies with the best multi-lingual professionals for the job. 
+
+          p There are no ‘connections’, we’re your connection. No etiquette mistakes to fear, we teach you what to do to impress. And hiring managers know they can trust you, because they’ve seen you demonstrate your skill in Mandarin through your Multi-Lingual Video instead of having to rely on words on paper.

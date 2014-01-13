@@ -82,6 +82,9 @@
 / change thinstripe_career for jobs and users 
 
 / Make sure Users#show is responsive
+/ Make sure Users#New is responsive
+/ Make sure step1 and step2 image for Users#New is good 
+
 
 / Make Video#Show
 / Make CommonApp#New#Edit#Show 
@@ -104,9 +107,6 @@ Make it possible to see all applicants for a job with admin
 Make Sign up for Job alerts actually work
 Make Sign up for Job Alerts title change based on what the query is 
 
-Make sure that now the root_url is changed to job lists, on all controllers where that's happening, if it should go to a user profile, make it do that. 
-
-
 
 Design area. 
 
@@ -116,9 +116,6 @@ Design each one in the proccess
 
 --
 
-On Show view for jobs, make a non-user able to see only a bit
-
-Make a status bar type thing for the common app 
 
 On No Jobs Found, make a register appear 
 

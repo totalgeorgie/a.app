@@ -551,6 +551,25 @@ div.fancy-select ul.options li.hover {
 		font-size: 22px;
 		text-transform: none;
 	}
+  #full_name,#email,#pass,#submit{
+  	input{
+  		padding:11px;
+  	}
+  }
+  #full_name,#email {
+  	float:left;
+  	width:49%;
+  	margin-right:2%;
+  }
+  #email{
+  	margin-right:0;
+  }
+  #pass{
+  	float:left;
+  	width:100%;
+  	margin:10px 0;
+  }
+
 }
 .blog_container{
 	float:left;
@@ -754,9 +773,115 @@ div.fancy-select ul.options li.hover {
 	}
 
 }
+.sign_up_page{
+margin-top:0px;
+
+	.how_it_works{
+		float: left;
+		width: 90%;
+		margin: 0 5%;
+		border-bottom: 1px solid $lightgray;
+		margin-bottom: 5px;
+		.circle_container{
+			float:left;
+			width:50%;
+			.circle{
+			width: 35px;
+			height: 35px;
+			margin: 0 auto;
+			background: $lightgray;
+			border-radius: 35px;
+			}
+		}
+		h2{
+			float: left;
+			width: 100%;
+			text-align: center;
+			border-top: 1px solid $lightgray;
+			border-bottom: 1px solid $lightgray;
+			padding: 12px 0px;
+		}
+		.steps{
+			float: left;
+			width: 100%;
+			background: image-url("line-below.jpg") 25% 0% repeat-y;
+			padding-bottom: 10px;
+		}
+		.step{
+			margin: 20px 0;
+			float:left;
+			width:100%;
+			border-bottom:$lightgray;
+			.step_text{
+				float: left;
+				width: 50%;
+				h3{
+					background-color: #f7f7f7;
+					border: 5px solid $lightgray;
+					margin: 0% 12%;
+					text-align: center;
+					padding: 10% 5px;
+				}
+			}
+			.step_img {
+				float: left;
+				width:50%;
+				img{
+					width: 80%;
+					margin: 0 5%;
+					border: 5px solid $lightgray;
+				}
+			}
+		}
+
+	}
+
+	.explanation{
+		margin-top:20px;
+		float:left;
+		width:90%;
+		margin:0 5%;
+	}
+}
+.sign_up_box {
+  float: left;
+  width:86%;
+  background-color: $lightgray;
+  margin: 40px 5%;
+  padding:10px 2%;
+  
+  h2 {
+    text-align: center;
+    font-size: 24px;
+	margin-bottom:20px;
+	}
+
+  #full_name,#email,#pass,#submit{
+  	float:left;
+  	width:23%;
+  	margin-right:2%;
+  	input{
+  		padding:11px;
+  	}
+  }
+  .button{
+  	font-family: 'HelveticaNeueW01-77BdCn 692722';
+	font-size: 22px;
+	text-transform: none;
+  }
+
+}
+
+.guarantee {
+  text-align: center;
+  padding: 10px 30px;
+  font-size: 12px;
+  float: left;
+  width: 100%; }
+
 /* forms */
 
-#new_user, #signin_form, #new_common_app{
+#signin_form, #new_common_app{
 	width: 420px;
 	margin: 0 auto;
 	padding: 20px;
