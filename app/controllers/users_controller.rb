@@ -12,8 +12,8 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to Atlas China, You're almost there, fill in your general application!"
-      redirect_to new_user_common_app_path(@user)
+      flash[:success] = "Welcome to Atlas China! See the quick started guide to launch your career in China"
+      redirect_to @user
     else
       render 'new'
     end
