@@ -1,0 +1,12 @@
+<% provide(:title, "Edit Common App") %>
+<h1>Edit Your Common App</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [@user, @common_app] do |f| %>
+      <%= render 'fields', f: f %>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

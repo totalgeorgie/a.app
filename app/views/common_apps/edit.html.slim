@@ -1,0 +1,23 @@
+== provide(:title, "Edit My Profile")
+.thinstripe_career 
+  .darken
+    .edit_profile
+	  .container
+	  	  .row
+	  	    .span12
+	  	      .profile_header
+	  	        h2 Your profile is #{@user.common_app.progress}% completed
+		        span.progress 
+		          span.bar style="width:#{@user.common_app.progress}%"
+		          span.bar_percent 
+
+.container
+  .row
+    .guide
+      .span12
+        .blog_container
+          .row
+            .span6    
+	          == best_in_place @common_app, :cover_letter, :path => user_common_app_path(@user,@common_app),  :type => :textarea
+
+
