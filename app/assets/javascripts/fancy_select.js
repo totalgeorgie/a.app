@@ -195,3 +195,4 @@
 jQuery(document).ready(function ($) {
 	$('.basic').fancySelect();
 });
+

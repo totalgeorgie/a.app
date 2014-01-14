@@ -86,7 +86,9 @@
 / Make sure step1 and step2 image for Users#New is good 
 
 
-/ Make Video#Show
+/ Make sure common apps are automatically created when a user signs up 
+/ Integrate Videos#show with common_app#edit 
+
 / Make CommonApp#New#Edit#Show 
 / Make Admin Dashboard for users
 / Make Notes section for users

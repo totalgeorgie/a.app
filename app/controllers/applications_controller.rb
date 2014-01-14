@@ -5,7 +5,6 @@ class ApplicationsController < ApplicationController
   before_action :correct_applicant, only: [:show, :edit, :update]  
 
   # Test the correct applicant
-  
   def new 
    job = params[:job_id]
    @application = Application.build(job)
@@ -42,15 +41,12 @@ class ApplicationsController < ApplicationController
   end 
 
   def show 
-    
     @answers = []
-
     @job.questions.each do |question|
       @application.answers.each do |answer|
         @answers << answer if answer.question_id == question.id
       end
     end
-  
   end
 
 private
