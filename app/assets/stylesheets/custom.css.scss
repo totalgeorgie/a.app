@@ -1,6 +1,5 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 @import "editable/bootstrap-editable";
 
 /*
@@ -313,6 +312,7 @@ header{
 .single_opp{
 	float:left;
 	width:100%;
+	padding:20px;
 	.single_cover{
 		float:left;
 		width:100%;
@@ -908,7 +908,7 @@ margin-top:0px;
 
 /* forms */
 
-#signin_form, #reset, .edit_user{
+#signin_form, #reset, .edit_user, .edit_application{
 	margin:25px;
 	padding:25px;
 	background-color:$lightgray;
