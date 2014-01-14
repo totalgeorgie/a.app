@@ -14,6 +14,9 @@
 //= require chosen-jquery
 //= require jquery_ujs
 //= require jquery_nested_form
+//= require bootstrap
 //= require editable/bootstrap-editable
-//= require editable/rails
+//= require editable/rails/editable_form
+//= require editable/rails/data_classes
 //= require_tree .
+

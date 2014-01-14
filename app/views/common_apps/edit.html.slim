@@ -18,4 +18,4 @@
         .blog_container
           .row
             .span6   
-                a href="#" id="coverletter" data-type="text" data-resource="common_app" data-url="/users/#{@user.id}/common_apps/#{@common_app.id}" data-name="cover_letter" data-original-title="#{@common_app.cover_letter}" class="editable editable-click" #{@common_app.cover_letter}
+                == editable @common_app, :cover_letter, type: :textarea, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter

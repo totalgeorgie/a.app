@@ -1,4 +1,5 @@
 class CommonAppsController < ApplicationController
+  respond_to :html, :json
   before_action :signed_in_user
   before_action :correct_user
   before_action :correct_common_app, only: [:show]
@@ -27,11 +28,10 @@ class CommonAppsController < ApplicationController
 
   def update
     @common_app = CommonApp.find(params[:id])
-    if @user.common_app.update_attributes(common_app_params)
-      flash[:success] = "Common App Updated"
-      redirect_to @user
+    if @common_app.update_attributes(common_app_params)
+       render json: {success: true}
     else
-      render 'common_apps/edit'
+       render json: {errors: @common_app.errors}, status: 400
     end
   end
 
