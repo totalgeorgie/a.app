@@ -14,7 +14,7 @@ gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing
 
 gem 'sunspot_rails' # one field search -- http://railscasts.com/episodes/278-search-with-sunspot
 
-gem 'best_in_place', github: "bernat/best_in_place" # For cool profile edit http://railscasts.com/episodes/302-in-place-editing
+gem 'best_in_place', github: "stopachka/best_in_place" # For cool profile edit http://railscasts.com/episodes/302-in-place-editing
 
 # for advanced search, try http://railscasts.com/episodes/111-advanced-search-form-revised  // very cool way to filter
 
