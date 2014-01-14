@@ -1,0 +1,18 @@
+- provide(:title, "Reset Your Password")
+.thinstripe_career 
+  .darken
+    .container
+      .row
+        .span10.offset1
+          .profile_header
+                h2 Reset Your Password
+
+.container
+  .row
+    .guide
+      .span6.offset3
+        .blog_container
+          == form_tag password_resets_path, :method => :post, :id => "reset" do
+          	#email
+          	  == text_field_tag :email, params[:email], placeholder: "Your Email Address" 
+			== submit_tag "Reset Password", :class => "button" 

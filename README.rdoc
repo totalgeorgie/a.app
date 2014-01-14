@@ -75,6 +75,11 @@
 - make the option of if the user has applied to jobs 
 - Designed New/Edit Video Page 
 
+- Designed the Signup Page
+- Designed the signin page
+- Designed the reset password page
+
+
 == To do
 
 
@@ -95,6 +100,9 @@
 / Make labels for users (i.e hot, warm, etc)
 
 Make it possible to see all applicants for a job with admin
+
+Figure out password reset password validations
+
 
 --
 

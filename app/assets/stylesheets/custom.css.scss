@@ -905,7 +905,27 @@ margin-top:0px;
 }
 /* forms */
 
-#signin_form, #new_common_app{
+#signin_form, #reset, .edit_user{
+	margin:25px;
+	padding:25px;
+	background-color:$lightgray;
+	input{
+		padding:11px;
+	}
+	.options{
+		float:left;
+		width:100%;
+		text-align:center;
+	}
+  .button{
+  	font-family: 'HelveticaNeueW01-77BdCn 692722';
+	font-size: 22px;
+	text-transform:none;
+	font-weight:normal;
+	}
+}
+
+ #new_common_app{
 	width: 420px;
 	margin: 0 auto;
 	padding: 20px;

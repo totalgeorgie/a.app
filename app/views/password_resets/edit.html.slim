@@ -1,0 +1,18 @@
+- provide(:title, "Create Your New Password #{@user.first_name}") 
+.thinstripe_career 
+  .darken
+    .container
+      .row
+        .span10.offset1
+          .profile_header
+                h2 Hi #{@user.first_name}, Create Your New Password 
+
+.container
+  .row
+    .guide
+      .span6.offset3
+        .blog_container
+          == form_for @user, :url => password_reset_path(params[:id]) do |f|
+            == render 'shared/error_messages', object: f.object
+            == f.password_field :password, placeholder: "Enter Your New Password"
+ 			== f.submit "Update Password", class: "button"

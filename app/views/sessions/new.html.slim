@@ -1,0 +1,19 @@
+- provide(:title, "Sign Into Your Atlas Dashboard")
+.thinstripe_career 
+  .darken
+    .container
+      .row
+        .span10.offset1
+          .profile_header
+                h2 Sign Into Your Atlas Dashboard
+
+.container
+  .row
+    .guide
+      .span6.offset3
+        .blog_container
+          == form_for(:session, url: sessions_path, html: { id: "signin_form"}) do |f|
+            == render 'fields', f: f
+            == f.submit "Sign in", class: "button" 
+
+            span.options #{link_to "Sign up now!", signup_path} or #{link_to "Forgotten Password?", new_password_reset_path }
