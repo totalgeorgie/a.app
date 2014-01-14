@@ -20,6 +20,6 @@
             .span6   
               .profile_view
                 h3 How do you see your language ability playing a role in your career over the next five years?
-	            == editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter ||= "Your cover letter hasn't been filled in yet, click here to fill it out!", type: "textarea"
+	            == editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter, defaultValue: "Your cover letter hasn't been filled in yet, click here to fill it out!", type: "textarea"
 
 	            h3 Your preferred cities
