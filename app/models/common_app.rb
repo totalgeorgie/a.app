@@ -18,7 +18,6 @@
 class CommonApp < ActiveRecord::Base
  belongs_to :user
  validates :user_id, presence: true
- validates :resume, presence: true
  mount_uploader :resume, ResumeUploader
  
  has_many :common_app_industry_relations, :dependent => :destroy 

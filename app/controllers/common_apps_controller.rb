@@ -5,21 +5,9 @@ class CommonAppsController < ApplicationController
   before_action :correct_common_app, only: [:show]
 
   def new
-    if @user.common_app
-      redirect_to @user
-    else
-      @common_app = @user.build_common_app
-    end
   end
 
   def create 
-  	@common_app = @user.build_common_app(common_app_params)
-  	if @common_app.save
-  		flash[:success] = "Common App Created. For the final step, record a video about one of the topics below"
-  		redirect_to new_user_video_path(@user)
-  	else
-  		render :action => 'new'
-  	end
   end
 
   def edit
