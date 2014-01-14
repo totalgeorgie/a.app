@@ -31,19 +31,19 @@ class CommonApp < ActiveRecord::Base
 
 
  def progress
-  total_questions = self.attribute_names.count - 1 # -4 for id, user_id, created_at, updated at + 3 for associations: cities,industries,positions
+  total_questions = self.attribute_names.count + 3 # -4 for id, user_id, created_at, updated at + 4 name, for associations: cities,industries,positions, + 3 for movies 
   total_completed = 0 
   
   self.attribute_names.each do |attr|
    total_completed += 1 unless self[attr].blank?
   end
   
-  total_completed = total_completed - 4 # id, user_id, created_at, updated at
+  total_completed = total_completed - 3  #  -4 id, user_id, created_at, updated at + 1 name
   
   total_completed += 1 if self.cities.any?
   total_completed += 1 if self.positions.any?
   total_completed += 1 if self.industries.any?
-  
+  total_completed += 3 if self.user.video
   (100.0*total_completed/total_questions).round
 
  end

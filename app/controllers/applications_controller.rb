@@ -4,6 +4,9 @@ class ApplicationsController < ApplicationController
   before_action :signed_in_user
   before_action :correct_applicant, only: [:show, :edit, :update]  
 
+  def new
+  end
+  
   def create
     @application = Application.new(application_params)
     if @application.save

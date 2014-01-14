@@ -99,6 +99,8 @@
 / Make Admin Dashboard for users
 / Make Notes section for users
 / Make labels for users (i.e hot, warm, etc)
+/ remove unecc views and actions 
+
 
 Make it possible to see all applicants for a job with admin
 
