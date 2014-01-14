@@ -14,7 +14,7 @@ gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing
 
 gem 'sunspot_rails' # one field search -- http://railscasts.com/episodes/278-search-with-sunspot
 
-gem 'best_in_place', github: "stopachka/best_in_place" # For cool profile edit http://railscasts.com/episodes/302-in-place-editing
+gem 'x-editable-rails' # For cool profile edit https://github.com/tkawa/bootstrap-editable-rails
 
 # for advanced search, try http://railscasts.com/episodes/111-advanced-search-form-revised  // very cool way to filter
 
@@ -47,6 +47,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem "jquery-ui-rails" #for bootstrap in-place styling
 
 gem 'chosen-rails' #http://harvesthq.github.io/chosen/ https://github.com/tsechingho/chosen-rails
 

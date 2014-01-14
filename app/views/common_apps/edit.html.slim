@@ -17,7 +17,5 @@
       .span12
         .blog_container
           .row
-            .span6    
-	          == best_in_place @common_app, :cover_letter, :path => user_common_app_path(@user,@common_app),  :nil => "Click me to add content!"
-
-
+            .span6   
+                a href="#" id="coverletter" data-type="text" data-resource="common_app" data-url="/users/#{@user.id}/common_apps/#{@common_app.id}" data-name="cover_letter" data-original-title="#{@common_app.cover_letter}" class="editable editable-click" #{@common_app.cover_letter}

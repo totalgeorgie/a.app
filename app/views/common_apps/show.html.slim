@@ -18,6 +18,6 @@
         .blog_container
           .row
             .span6    
-	          == best_in_place @common_app, :cover_letter, :path => user_common_app_path(@user,@common_app),  :type => :textarea, :nil => "Click me to add content!"
+	          == editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter
 
 
