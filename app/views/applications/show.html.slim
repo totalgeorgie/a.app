@@ -1,0 +1,22 @@
+- provide(:title, "Show My Application to #{@job.job_title}")
+.thinstripe_career 
+  .darken
+	  .container
+	  	  .row
+	  	    .span12
+	  	      .jobs_header
+	  	        h2 #{@user.first_name}'s application to #{@job.job_title}
+
+.container
+  .row
+    .guide
+      .span8.offset2
+        .blog_container 
+        	#show_application
+	          - @answers.each do |answer|
+	          	h3 #{answer.question.content} 
+	          	p 
+	          	  strong A: 
+	          	  | #{answer.content}
+
+		== link_to "Edit Job Application", edit_job_application_path(:id => @application.id, :job_id => @application.job_id), :class => "button button_show_application"  

@@ -1,4 +1,4 @@
-== provide(:title, "Edit My Application to #{@job.job_title}")
+- provide(:title, "Edit My Application to #{@job.job_title}")
 .thinstripe_career 
   .darken
 	  .container
@@ -10,7 +10,7 @@
 .container
   .row
     .guide
-      .span6.offset3
+      .span8.offset2
         .blog_container 
           == form_for [@job, @application] do |f|
 			== render 'shared/error_messages', object: f.object 
