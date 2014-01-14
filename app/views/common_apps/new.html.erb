@@ -1,5 +1,0 @@
-<% provide(:title, " Get common app up!") %>
-<%= form_for [@user, @common_app], :html => { :multipart => true } do |f| %>
- <%= render 'fields', f: f %>
-  <%= f.submit "Submit the application", class: "button" %>
-<% end %>
