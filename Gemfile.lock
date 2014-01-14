@@ -202,7 +202,7 @@ PLATFORMS
 DEPENDENCIES
   annotate (= 2.5.0)
   bcrypt-ruby (~> 3.0.0)
-  bootstrap-sass (= 2.3.2.0)
+  bootstrap-sass
   bootstrap-will_paginate (= 0.0.9)
   capybara (= 2.1.0)
   carrierwave
