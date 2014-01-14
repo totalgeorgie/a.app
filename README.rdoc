@@ -78,7 +78,8 @@
 - Designed the Signup Page
 - Designed the signin page
 - Designed the reset password page
-
+- Designed Application Edit and show views
+- Made it so someone can edit the application right on the page, one by one
 
 == To do
 
