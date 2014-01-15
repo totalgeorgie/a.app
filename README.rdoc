@@ -78,10 +78,13 @@
 - Designed the Signup Page
 - Designed the signin page
 - Designed the reset password page
-- Designed Application Edit and show views
-- Made it so someone can edit the application right on the page, one by one
+- Designed Apply Edit and Show
+- Made it so someone can edit their profile right on the page, asynchroniously 
+- Designed the edit user settings page 
+
 
 == To do
+
 
 
 
@@ -105,6 +108,14 @@
 Make it possible to see all applicants for a job with admin
 
 Figure out password reset password validations
+
+---
+
+To do 
+torial 
+
+
+
 
 
 --
