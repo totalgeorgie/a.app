@@ -959,7 +959,7 @@ margin-top:0px;
 	
 }
 
-.new_job{
+.new_job, .edit_job{
 	h3{
 		float:left;
 		width:100%;
@@ -1013,10 +1013,13 @@ margin-top:0px;
 		padding:10px 20px;
 	}
 	.button{
-  	font-family: 'HelveticaNeueW01-77BdCn 692722';
-	font-size: 22px;
-	text-transform:none;
-	font-weight:normal;
+	  	font-family: 'HelveticaNeueW01-77BdCn 692722';
+		font-size: 22px;
+		text-transform:none;
+		font-weight:normal;
+		margin-bottom: -20px;
+		padding: 20px 0;
+		margin-top: 20px;
 	}
 }
 

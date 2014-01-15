@@ -1,0 +1,22 @@
+.row
+  .span6
+    .job_step
+      h3
+        span 1
+        | Job Description
+      == render 'job_description_form', f: f
+      h3
+        span 2
+        | Roles
+      == render 'roles_form', f: f
+
+  .span6
+    .job_step
+      h3
+        span 3
+        | Categories
+      == render 'category_specific_forms', f: f
+      h3
+        span 4
+        | Application Questions
+      == render 'application_questions', f: f

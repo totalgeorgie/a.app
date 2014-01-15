@@ -1,17 +1,17 @@
-- provide(:title, "Create a New Job") 
+- provide(:title, "Edit #{@job.job_title}") 
 
 .thinstripe_career 
   .darken
   	.container
   	  .row
   	    .span12
-  	      .job_header
-  	  	        h2 Create a New Job
-  	  	        
+  	      .jobs_header
+  	  	        h2 Edit #{@job.job_title}
+
 .container
   .row
     .span12
       .blog_container
         == nested_form_for @job do |f| 
           == render 'fields', f: f
-          == f.submit "Publish the Job", class: "button"
+          == f.submit "Update the Job", class: "button"
