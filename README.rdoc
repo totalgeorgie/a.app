@@ -109,6 +109,12 @@ Make it possible to see all applicants for a job with admin
 
 Figure out password reset password validations
 
+Intro to community consulting 
+
+Intro to frontiers book 
+
+
+
 ---
 
 To do 
