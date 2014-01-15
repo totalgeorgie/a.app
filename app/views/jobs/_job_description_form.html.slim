@@ -1,0 +1,18 @@
+#job_title
+  == f.label :job_title 
+    == f.text_field :job_title, placeholder: "Enter the Job Title"
+
+#bullets
+  == label_tag "Bullet points about the job"
+  == f.fields_for :bullets do |bullet_form| 
+    == bullet_form.text_field :bullet, placeholder: "Write your bullet point here"
+    == bullet_form.link_to_remove "Remove this bullet"
+  == f.link_to_add "Add a Bullet", :bullets 
+  
+#job_summary
+  == f.label :job_summary
+  == f.text_area :job_summary, placeholder: "Write a one to two sentence job summary"
+
+#qualifications
+  == f.label :qualifications
+  == f.text_area :qualifications, placeholder: "Write a more in-depth description of the qualifacations necessary for this job"

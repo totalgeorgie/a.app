@@ -597,7 +597,6 @@ div.fancy-select ul.options li.hover {
 	background-color:white;
 	border:1px solid $gray;
 	border-top:none;
-	margin-top:-10px;
 }
 .profile_header{
 		float:left;
@@ -927,6 +926,7 @@ margin-top:0px;
 	font-weight:normal;
 	}
 }
+
 .button_show_application{
   	font-family: 'HelveticaNeueW01-77BdCn 692722';
 	font-size: 22px;
@@ -959,6 +959,66 @@ margin-top:0px;
 	
 }
 
+.new_job{
+	h3{
+		float:left;
+		width:100%;
+		color:$purple;
+		border-bottom:1px solid $gray;
+		padding-bottom:10px;
+		padding-top:10px;
+		margin-top:10px;
+		span{
+			line-height: 34px;
+			float: left;
+			width: 34px;
+			color:$white;
+			background-color: $purple;
+			border-radius: 100px;
+			text-align: center;
+			margin-right: 5px;
+		}
+	}
+	.remove_nested_fields{
+		text-align: right;
+		float: left;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.chosen-container-multi {
+		margin-bottom:20px;
+	}
+	.chosen-container-multi .chosen-choices {
+		padding:2px;
+	}
+
+	.add_nested_fields{
+		float: left;
+		width: 100%;
+		color: #0088cc;
+		margin-bottom: 10px;
+	}
+	label{
+		float: left;
+		width: 100%;
+		border-bottom: 1px solid $lightgray;
+		color: #555;
+		font-size: 16px;
+		padding-bottom:10px;
+	}
+	input, textarea {
+		padding:8px;
+	}
+	.job_step{
+		padding:10px 20px;
+	}
+	.button{
+  	font-family: 'HelveticaNeueW01-77BdCn 692722';
+	font-size: 22px;
+	text-transform:none;
+	font-weight:normal;
+	}
+}
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;

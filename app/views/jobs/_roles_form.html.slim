@@ -1,0 +1,12 @@
+#roles
+  == label_tag "Write 1 + Roles available for the job"
+  == f.fields_for :roles do |role_form| 
+    == role_form.label :role_title 
+    == role_form.text_field :role_title 
+  
+    == role_form.label :role_desc
+    == role_form.text_field :role_desc
+  
+    == role_form.link_to_remove "Remove this Role"
+
+  == f.link_to_add "Add a Role", :roles 
