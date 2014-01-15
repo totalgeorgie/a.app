@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131228124848) do
+ActiveRecord::Schema.define(version: 20140115214617) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -71,6 +71,12 @@ ActiveRecord::Schema.define(version: 20131228124848) do
     t.integer  "time_in_china"
     t.string   "cover_letter"
     t.string   "resume"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "heats", force: true do |t|
+    t.integer  "level"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

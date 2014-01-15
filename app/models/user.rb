@@ -29,11 +29,13 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, allow_blank: true
   validates :password, presence: true, on: :create
 
+  belongs_to :heat
+
   has_one :common_app, dependent: :destroy
 
   has_one :video, dependent: :destroy
 
-  has_many :applications
+  has_many :applications, dependent: :destroy
   has_many :jobs, :through => :applications
 
   def User.new_remember_token

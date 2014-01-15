@@ -34,7 +34,7 @@ class Job < ActiveRecord::Base
 	has_many :job_position_relations, :dependent => :destroy
 	has_many :positions, :through => :job_position_relations
 
-    has_many :applications, :dependent => :destroy
-    has_many :users, :through => :applications
+  has_many :applications, :dependent => :destroy
+  has_many :users, :through => :applications
 
 end
