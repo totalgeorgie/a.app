@@ -1,5 +1,6 @@
 Atlas::Application.routes.draw do
   
+  get "users/index"
   resources :users do 
     resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy] #no index
     resources :videos, only: [:new, :create, :update, :show, :edit, :destroy] #no index
@@ -11,11 +12,16 @@ Atlas::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :password_resets
   
-   root  "jobs#index"
+  namespace :admin do 
+    resources :users
+    get '', to: 'users#index', as: '/'
+  end
 
-   match '/signup',  to: 'users#new',            via: 'get'
-   match '/signin',  to: 'sessions#new',         via: 'get'
-   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  root  "jobs#index"
+
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :admin_user, only: [:index, :destroy] # only admins can see admin dashboard
   before_action :signed_in_user, only: [:index, :edit, :update, :show, :destroy] # makes sure that the user is signed in to access these pages
   before_action :correct_user, only: [:edit, :update, :show] # makes sure that the user can only edit and see their own info
-
+  before_action :admin_user, only: [:index, :destroy] # only admins can see admin dashboard
+  
   def new
     redirect_to current_user if current_user
     @user = User.new
