@@ -40,7 +40,11 @@ class User < ActiveRecord::Base
   has_many :jobs, :through => :applications
 
   searchable do 
-    text :name, :email
+    text :name, :boost => 5
+    text :email
+    text :common_app do
+      common_app.cover_letter if common_app
+    end
   end
   
   def User.new_remember_token
