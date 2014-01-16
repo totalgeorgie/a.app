@@ -1034,7 +1034,45 @@ margin-top:0px;
 		margin-top: 20px;
 	}
 }
+.search_header{
+	background-color:$lightgray;
+	float:left;
+	width:100%;
+	form{
+		margin:0px;
+	}
+	h2{
+		float:left;
+		width:100%;
+		border-bottom:1px solid gray;
+	}
+	input{
+		padding:11px;
+	}
+	#search{
+		float: left;
+		width: 68%;
+	}
+	#filter_search_button{
+		float: left;
+		width: 27%;
+		margin-left: 5%;
 
+	}
+	.filter_sect{
+		float:left;
+		width:240px;
+		margin-right:30px;
+	}
+	.filter_search{
+		width:120px;
+	}
+
+	.search_button{
+		float:left;
+	}
+
+}
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;

@@ -14,14 +14,19 @@
               .span2
                 == link_to "Create a Job", new_admin_job_path, :class => "button"
 
-.search
+.search_header
   .container
     .row
-      .span3
+      .span4
         #full_text
           == form_tag admin_users_path, :method => :get do
+            h2 Full Text Search
             == text_field_tag :search, params[:search]
-            == submit_tag "Search", :name => nil, class: "button"     
-      .span9
-        #categories
-
+            == submit_tag "Search", :name => nil, class: "button search_button", id: "filter_search_button"     
+      .span8
+        .user_search
+          == form_tag admin_users_path, :method => 'get', :id => "users_filter" do
+            h2 Filter Users by
+            == render 'shared/filter_cats'
+            .filter_sect.filter_search
+              == submit_tag "filter", :class => "button search_button button_black", :name => nil
