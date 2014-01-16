@@ -35,6 +35,9 @@ class Admin::JobsController < ApplicationController
   end
 
   def destroy
+    Job.find(params[:id]).destroy
+    flash[:success] = "Job Deleted."
+    redirect_to jobs_path 
   end
 
   def index

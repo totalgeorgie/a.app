@@ -12,6 +12,6 @@
   .row
     .span12
       .blog_container
-        == nested_form_for @job do |f| 
+        == nested_form_for [:admin, @job]  do |f| 
           == render 'fields', f: f
           == f.submit "Update the Job", class: "button"

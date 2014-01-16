@@ -14,6 +14,7 @@ class Job < ActiveRecord::Base
 	validates :job_title, presence: true 
 	validates :job_summary, presence: true
 	validates :qualifications, presence: true 
+  default_scope order('created_at DESC')
 
   has_many :bullets, :dependent => :destroy
   has_many :roles, :dependent => :destroy

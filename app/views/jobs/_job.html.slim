@@ -20,8 +20,8 @@
 	    - if  current_user && current_user.admin? 
 	      p 
 	        | Admin Options: 
-	        == link_to "Edit Job / ", edit_job_path(job) 
-	        == link_to "Delete Job", job, method: :delete, data: { confirm: "You sure?" }
+	        == link_to "Edit Job / ", edit_admin_job_path(job) 
+	        == link_to "Delete Job", admin_job_path(job), method: :delete, data: { confirm: "You sure?" }
 
 	.span2
 	  .apply
