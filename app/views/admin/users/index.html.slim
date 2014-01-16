@@ -20,7 +20,7 @@
       .span4
         #full_text
           == form_tag admin_users_path, :method => :get do
-            h2 Full Text Search
+            h2 User Search
             == hidden_field_tag :city_id, params[:city_id]
             == hidden_field_tag :position_id, params[:position_id]
             == text_field_tag :search, params[:search]
@@ -33,3 +33,9 @@
             == render 'shared/filter_cats'
             .filter_sect.filter_search
               == submit_tag "filter", :class => "button search_button button_black", :name => nil
+
+.container
+  .row
+    .span12
+      ul.users
+        == render @users

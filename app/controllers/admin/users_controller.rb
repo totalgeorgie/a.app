@@ -6,8 +6,10 @@ class Admin::UsersController < ApplicationController
   def index
     @cities = City.all
     @positions = Position.all
-    
-    @users = User.paginate(page: params[:page], per_page: 20)
+    @search = User.search do
+      fulltext params[:search]
+    end
+    @users = @search.results
     @jobs = Job.all
   end
 

@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
   has_many :applications, dependent: :destroy
   has_many :jobs, :through => :applications
 
+  searchable do 
+    text :name, :email
+  end
+  
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
