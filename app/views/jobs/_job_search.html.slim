@@ -1,0 +1,6 @@
+.job_search
+  == form_tag jobs_path, :method => 'get', :id => "jobs_filter" do
+    h2 I'd like jobs in
+    == render 'shared/filter_cats'
+    .filter_sect.filter_search
+  		== submit_tag "Search", :class => "button search_button button_black", :name => nil
