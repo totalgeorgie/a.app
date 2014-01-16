@@ -82,6 +82,8 @@
 - Made it so someone can edit their profile right on the page, asynchroniously 
 - Designed the edit user settings page 
 
+- Made Admin Page Work
+- Designed Create A Job, Edit A Job 
 
 == To do
 

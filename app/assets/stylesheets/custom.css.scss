@@ -165,6 +165,14 @@ header{
 		}
 	}
 	.admin_header{
+		h2{
+			a{
+				color:white;
+				&:hover{
+					color:white;
+				}
+			}
+		}
 		span{
 			font-size: 15px;
 			color: $gray;

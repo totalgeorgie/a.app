@@ -7,7 +7,7 @@
   	        .row
   	          .span8
   	  	        h2 
-                  | Welcome, #{current_user.first_name}
+                  == link_to "Welcome, #{current_user.first_name}", admin_path
                   span You are managing #{Job.all.length} jobs, and #{User.all.length} applicants
   	  	      .span2
   	  	        == link_to "Manage Jobs", admin_jobs_path, :class => "button"
@@ -39,3 +39,4 @@
     .span12
       ul.users
         == render @users
+        == will_paginate
