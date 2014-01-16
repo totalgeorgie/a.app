@@ -3,7 +3,7 @@
 # Table name: heats
 #
 #  id         :integer          not null, primary key
-#  level      :integer
+#  level      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #

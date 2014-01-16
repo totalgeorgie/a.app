@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116041635) do
+ActiveRecord::Schema.define(version: 20140116180840) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20140116041635) do
   end
 
   create_table "heats", force: true do |t|
-    t.integer  "level"
+    t.string   "level"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
