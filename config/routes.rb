@@ -1,6 +1,5 @@
 Atlas::Application.routes.draw do
   
-  get "users/index"
   resources :users do 
     resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy] #no index
     resources :videos, only: [:new, :create, :update, :show, :edit, :destroy] #no index
@@ -14,6 +13,7 @@ Atlas::Application.routes.draw do
   
   namespace :admin do 
     resources :users
+    resources :jobs
     get '', to: 'users#index', as: '/'
   end
 

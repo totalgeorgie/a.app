@@ -1,0 +1,15 @@
+.thinstripe_career
+  .darken.admin_darken
+  	.container
+  	  .row
+  	    .span12
+  	      .jobs_header.admin_header
+  	        .row
+  	          .span8
+  	  	        h2 
+                  | Welcome, #{current_user.first_name}
+                  span You are managing #{@jobs.length} jobs, and #{@users.length} applicants
+  	  	      .span2
+  	  	        == link_to "Manage Jobs", admin_jobs_path, :class => "button"
+              .span2
+                == link_to "Create a Job", new_admin_job_path, :class => "button"

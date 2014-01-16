@@ -1,4 +1,7 @@
 .row
+  .span12
+    #job_errors
+      == render 'shared/error_messages', object: f.object
   .span6
     .job_step
       h3

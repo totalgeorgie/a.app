@@ -17,9 +17,12 @@
   	    .apply_now
   	      .apply_padding
   	  	    - if signed_in? 
-  	  	      - if has_job(@user, @job)
-                == render "jobs/already_applied"
-              - else 
+              - if @user.admin?
+                == link_to "Edit this job", edit_admin_job_path(@job), :class => "button admin_edit_job"
+              - else
+                - if has_job(@user, @job)
+                  == render "jobs/already_applied"
+                - else 
                   == render "jobs/apply_to_job"
             - else
             	  == render "new_user"

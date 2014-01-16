@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   end
 
   def first_name
-    self.name.split(' ')[0]
+    self.name.split(' ')[0].capitalize
   end
 
   private

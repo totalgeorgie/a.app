@@ -73,14 +73,6 @@ end
 # Use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'
 
-#!!On Admin page, make them easy to associate to jobs!!! based on key words 
-#!![2013-12-15 2:37:20 PM] Abraham Sorock: let's just take it down temporarily
-#!![2013-12-15 2:37:21 PM] Abraham Sorock: http://www.atlas-china.com/plans-and-pricing/
-#!![2013-12-15 2:29:47 PM] Stepan Parunashvili: -resume attachment work
-#!![2013-12-15 2:29:54 PM] Stepan Parunashvili: - Industries and Pref city works
-#!![2013-12-15 2:30:00 PM] Stepan Parunashvili: Common app sign up validates
-
-
 # Use unicorn as the app server
 # gem 'unicorn'
 
