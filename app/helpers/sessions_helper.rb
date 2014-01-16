@@ -51,7 +51,7 @@ module SessionsHelper
 
   def root_path_helper
     if signed_in? 
-      current_user
+      current_user.admin ? admin_path : current_user
     else
       root_path
     end
