@@ -13,3 +13,15 @@
   	  	        == link_to "Manage Jobs", admin_jobs_path, :class => "button"
               .span2
                 == link_to "Create a Job", new_admin_job_path, :class => "button"
+
+.search
+  .container
+    .row
+      .span3
+        #full_text
+          == form_tag admin_users_path, :method => :get do
+            == text_field_tag :search, params[:search]
+            == submit_tag "Search", :name => nil, class: "button"     
+      .span9
+        #categories
+
