@@ -19,11 +19,11 @@
       ul.jobs
         - if @jobs.any?
           == render @jobs
+          == will_paginate
         - else
           li.not_found
             h2 No jobs founds.
             p There are currently no jobs for these combinations.
-      == will_paginate
 
 
 

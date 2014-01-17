@@ -271,3 +271,47 @@ User able to update video, on update video, redirect to root
 If used does not do video, it is prompted on the home page
 
 
+----
+
+For later, if want to use sunspot rails 
+  In users#index 
+
+  def index
+    @cities = City.all
+    @positions = Position.all
+
+    @search = User.search do
+      fulltext params[:search]
+      facet(:city_ids)
+      with(:city_ids, params[:city_id]) if params[:city_id].present? && params[:city_id] != "0"
+      facet(:position_ids)
+      with(:position_ids, params[:position_id]) if params[:position_id].present? && params[:position_id] != "0"
+      paginate(page: params[:page], per_page: 20)
+    end
+    @users = @search.results
+    @jobs = Job.all
+  end
+
+  In User model 
+
+  searchable do 
+    text :name, :boost => 5
+    text :email
+    
+    text :common_app do
+      common_app.cover_letter if common_app
+    end
+    
+    integer :city_ids, :multiple => true do
+      common_app.cities.map(&:id) if common_app && common_app.cities.any?
+    end
+
+    integer :position_ids, :multiple => true do
+      common_app.positions.map(&:id) if common_app && common_app.positions.any?
+    end
+  end
+
+  In gemfile 
+  
+  gem 'sunspot_rails' # one field search -- http://railscasts.com/episodes/278-search-with-sunspot
+  gem 'sunspot_solr' 

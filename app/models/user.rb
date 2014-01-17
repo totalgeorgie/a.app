@@ -33,28 +33,13 @@ class User < ActiveRecord::Base
   belongs_to :heat
 
   has_one :common_app, dependent: :destroy
+  has_many :cities, :through => :common_app
+  has_many :positions, :through => :common_app
 
   has_one :video, dependent: :destroy
 
   has_many :applications, dependent: :destroy
   has_many :jobs, :through => :applications
-
-  searchable do 
-    text :name, :boost => 5
-    text :email
-    
-    text :common_app do
-      common_app.cover_letter if common_app
-    end
-    
-    integer :city_ids, :multiple => true do
-      common_app.cities.map(&:id) if common_app && common_app.cities.any?
-    end
-
-    integer :position_ids, :multiple => true do
-      common_app.positions.map(&:id) if common_app && common_app.positions.any?
-    end
-  end
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64

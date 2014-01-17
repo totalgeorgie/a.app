@@ -38,5 +38,10 @@
   .row
     .span12
       ul.users
-        == render @users
-        == will_paginate
+        - if @users.any?
+          == render @users
+          == will_paginate
+        - else
+          li.not_found
+            h2 No Users founds.
+            p We found no users matching these combinations
