@@ -315,3 +315,8 @@ For later, if want to use sunspot rails
   
   gem 'sunspot_rails' # one field search -- http://railscasts.com/episodes/278-search-with-sunspot
   gem 'sunspot_solr' 
+
+  Things that must be seeded :
+
+  Positions, cities, industries, heats 
+
