@@ -14,7 +14,7 @@ class Job < ActiveRecord::Base
   validates :job_title, presence: true 
   validates :job_summary, presence: true
   validates :qualifications, presence: true 
-  default_scope {order('jobs.created_at DESC') }
+  default_scope { order('jobs.created_at DESC') }
 
   has_many :bullets, :dependent => :destroy
   has_many :roles, :dependent => :destroy
@@ -38,5 +38,15 @@ class Job < ActiveRecord::Base
   has_many :applications, :dependent => :destroy
   has_many :users, :through => :applications
 
+  def self.search(params)
+    city = City.find(params[:city_id]) if params[:city_id] && params[:city_id] != "0"
+    position = Position.find(params[:position_id]) if (params[:position_id] && params[:position_id] != "0")
+    
+    jobs = Job.all
+    jobs = jobs.includes(:cities).where(cities: { id: city }) if city
+    jobs = jobs.includes(:positions).where(positions: { id: position }) if position
+    jobs.paginate(page: params[:page], per_page: 5)
+
+  end
 
 end
