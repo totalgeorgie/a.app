@@ -1,7 +1,0 @@
-<li>
-    <%= link_to user.name, user %>
-    <% if !current_user?(user) %>
-      | <%= link_to "delete", admin_user_path(user), method: :delete,
-                                  data: { confirm: "You sure?" } %>
-  	<% end %>
-</li>

@@ -234,6 +234,11 @@ header{
 		float:left;
 	}
 }
+.table.users{
+	span.red{
+		color:$red;
+	}
+}
 
 .jobs{
 	margin:0;
@@ -633,6 +638,18 @@ div.fancy-select ul.options li.hover {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+.progress.blue{
+	background-color:$gray;
+	background-image:none;
+	.bar{
+		background-color: #0d90d1;
+		background-image: -moz-linear-gradient(top, #149bdf, #0480be);
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149bdf), to(#0480be));
+		background-image: -webkit-linear-gradient(top, #149bdf, #0480be);
+		background-image: -o-linear-gradient(top, #149bdf, #0480be);
+		background-image: linear-gradient(to bottom, #149bdf, #0480be);
+	}
 }
 .progress{
 	float: left;
@@ -1042,17 +1059,29 @@ margin-top:0px;
 		margin-top: 20px;
 	}
 }
-.search_header{
-	background-color:$lightgray;
+.search_results{
 	float:left;
 	width:100%;
+	a{
+		color:#0088cc;
+	}
+
+}
+.search_header{
+	float:left;
+	width:100%;
+	padding-bottom:10px;
+	padding-top:10px;
 	form{
 		margin:0px;
 	}
 	h2{
 		float:left;
 		width:100%;
-		border-bottom:1px solid gray;
+		border-bottom:1px solid $gray;
+		padding-bottom:5px;
+		margin-bottom:15px;
+		font-size:29px;
 	}
 	input{
 		padding:11px;

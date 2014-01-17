@@ -1,3 +1,5 @@
+- provide(:title, "Manage Users")
+
 .thinstripe_career
   .darken.admin_darken
   	.container
@@ -34,14 +36,13 @@
             .filter_sect.filter_search
               == submit_tag "filter", :class => "button search_button button_black", :name => nil
 
-.container
-  .row
-    .span12
-      ul.users
-        - if @users.any?
-          == render @users
-          == will_paginate
-        - else
-          li.not_found
-            h2 No Users founds.
-            p We found no users matching these combinations
+.search_results
+  .container
+    .row
+      .span12
+          - if @users.any?
+            == render 'users'
+          - else
+            .not_found
+              h2 No Users found.
+              p We found no users matching these combinations
