@@ -27,7 +27,7 @@ class JobsController < ApplicationController
   def index 
     @cities = City.all
     @positions = Position.all    
-    @jobs = Job.search(params)
+    @jobs = Job.search(params).paginate(page: params[:page], per_page: 5)
   end
   
   def destroy

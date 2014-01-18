@@ -71,8 +71,8 @@ class User < ActiveRecord::Base
   end
 
   def self.search(params)
-    city = City.find(params[:city_id]) if params[:city_id] && params[:city_id] != "0" 
-    position = Position.find(params[:position_id]) if params[:position_id] && params[:position_id] != "0"
+    city = City.find(params[:city_id]) if params[:city_id] && params[:city_id] != "0" && params[:city_id] != "" 
+    position = Position.find(params[:position_id]) if params[:position_id] && params[:position_id] != "0" && params[:position_id] != "" 
     users = User.all
     users = users.includes(:cities).where(cities: { id: city }) if city
     users = users.includes(:positions).where(positions: { id: position }) if position

@@ -1,0 +1,11 @@
+tr
+  td
+  td
+    == link_to job.job_title, admin_job_path(job)
+  td
+  td
+  td
+  td
+  td
+  td
+    == link_to "Delete", admin_job_path(job), method: :delete, data: { confirm: "You sure?" } 
