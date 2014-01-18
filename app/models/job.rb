@@ -42,8 +42,8 @@ class Job < ActiveRecord::Base
     city = City.find(params[:city_id]) if params[:city_id] && params[:city_id] != "0" && params[:city_id] != "" 
     position = Position.find(params[:position_id]) if params[:position_id] && params[:position_id] != "0" && params[:position_id] != "" 
     jobs = Job.all
-    jobs = jobs.includes(:cities).where(cities: { id: city }) unless city.blank?
-    jobs = jobs.includes(:positions).where(positions: { id: position }) unless position.blank?
+    jobs = jobs.includes(:cities).where(cities: { id: city }) if city
+    jobs = jobs.includes(:positions).where(positions: { id: position }) if position
     jobs = jobs.where('job_title LIKE ?', "%#{params[:search]}%") if params[:search]
     jobs
   end
