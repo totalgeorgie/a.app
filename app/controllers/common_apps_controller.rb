@@ -11,6 +11,7 @@ class CommonAppsController < ApplicationController
   end
 
   def edit
+    @industries = Industry.all
     @common_app = @user.common_app
   end
 

@@ -52,5 +52,4 @@ class VideosController < ApplicationController
     def video_params
       params.require(:video).permit(:video_cid,:question, :AtlasApp => [:video_uuid])
     end
-
 end

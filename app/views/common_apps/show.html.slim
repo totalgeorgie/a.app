@@ -19,7 +19,42 @@
           .row
             .span6   
               .profile_view
-                h3 How do you see your language ability playing a role in your career over the next five years?
-	            == editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter, defaultValue: "Your cover letter hasn't been filled in yet, click here to fill it out!", type: "textarea"
+                p
+                  strong Introduce yourself, your goals, and a bit about why and where you would like to work in China.
+	              
+                == editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter, type: "textarea"
 
-	            h3 Your preferred cities
+                p
+                  strong What is your current city?
+
+                == editable @common_app, :current_city, url: user_common_app_path(@user,@common_app), value: @common_app.current_city,type: "text"
+
+                p 
+                  strong When did you graduate?
+                == editable @common_app, :grad_year, url: user_common_app_path(@user,@common_app), value: @common_app.grad_year, type: "text"
+                p
+                  strong How long have you been in China?
+                == editable @common_app, :time_in_china, url: user_common_app_path(@user,@common_app), value: @common_app.time_in_china, type: "text"
+                p
+                  strong How would you rate your reading and writing in Mandarin?
+                == editable @common_app, :read_type, url: user_common_app_path(@user,@common_app), value: @common_app.read_type, type: "text"
+
+                p
+                  strong How would you speaking and listening in Mandarin?
+                == editable @common_app, :listen_speak, url: user_common_app_path(@user,@common_app), value: @common_app.listen_speak, type: "text"
+
+                p
+                  strong What are your preferred cities?
+
+                == editable @common_app, :city_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.cities.map{|city| city.name}, source: City.all.map{ | city | {value: city.id, text: city.name} }
+
+                p
+                  strong What are your roles?
+
+                == editable @common_app, :position_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.positions.map{|position| position.name}, source: Position.all.map{ | position | {value: position.id, text: position.name} }
+
+
+                p
+                  strong What are your preferred industries?
+
+                == editable @common_app, :industry_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.industries.map{|industry| industry.name}, source: Industry.all.map{ | industry | {value: industry.id, text: industry.name} }
