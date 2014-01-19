@@ -60,8 +60,16 @@
                 p
                   strong Upload your resume
                 - if @common_app.resume
-                  == link_to "Resume", @common_app.resume_url
+                  == link_to "See your Resume", @common_app.resume_url
                 - else
                   == form_for [@user, @common_app] do |f|
                     == f.file_field :resume 
                     == f.submit "Upload Resume", class: "button"
+                p 
+                  strong Video Step
+                - if @common_app.user.video
+                  p We have you're video! 
+                  p Video Question : #{@common_app.user.video.question }
+                  video id='PlayVideo' data-uuid="#{@common_app.user.video.video_cid}"
+                - else
+                  p You haven't made a video! #{ link_to "click here", new_user_video_path(@user)} to make one
