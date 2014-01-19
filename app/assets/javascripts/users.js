@@ -1,7 +1,55 @@
 jQuery(function($) {
 	$.fn.editable.defaults.mode = 'inline';
     $('.editable').editable();
+
+	$('.editCoverLetter').click(function(e){    
+	       e.stopPropagation();
+	       $('.coverLetter').editable('toggle');
+	});
+
+	$('.editCurrentCity').click(function(e){    
+	       e.stopPropagation();
+	       $('.currentCity').editable('toggle');
+	});
+
+	$('.editGradYear').click(function(e){    
+	       e.stopPropagation();
+	       $('.gradYear').editable('toggle');
+	});
+
+	$('.editTimeInChina').click(function(e){    
+	       e.stopPropagation();
+	       $('.timeInChina').editable('toggle');
+	});
+
+	$('.editReadType').click(function(e){    
+	       e.stopPropagation();
+	       $('.readType').editable('toggle');
+	});
+
+	$('.editListenSpeak').click(function(e){    
+	       e.stopPropagation();
+	       $('.listenSpeak').editable('toggle');
+	});
+
+	$('.editCity').click(function(e){    
+	       e.stopPropagation();
+	       $('.city').editable('toggle');
+	});
+
+	$('.editRole').click(function(e){    
+	       e.stopPropagation();
+	       $('.role').editable('toggle');
+	});
+
+	$('.editIndustry').click(function(e){    
+	       e.stopPropagation();
+	       $('.industry').editable('toggle');
+	});
+
 });
+
+
 
 //toggle	string	'click'	
 //How to toggle editable. Can be click|dblclick|mouseenter|manual.

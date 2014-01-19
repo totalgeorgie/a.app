@@ -21,42 +21,58 @@
               .profile_view
                 p
                   strong Introduce yourself, your goals, and a bit about why and where you would like to work in China.
-	              
-                == editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter, type: "textarea"
-
+                == link_to "Edit Cover Letter", "#", class: "editCoverLetter"
+                br 
+                == editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter, type: "textarea", class: "coverLetter"
+                //////////
                 p
                   strong What is your current city?
-
-                == editable @common_app, :current_city, url: user_common_app_path(@user,@common_app), value: @common_app.current_city,type: "text"
-
+                == link_to "Edit Current City", "#", class: "editCurrentCity"
+                br 
+                == editable @common_app, :current_city, url: user_common_app_path(@user,@common_app), value: @common_app.current_city,type: "text", class: "currentCity"
+                //////////
                 p 
                   strong When did you graduate?
-                == editable @common_app, :grad_year, url: user_common_app_path(@user,@common_app), value: @common_app.grad_year, type: "text"
+                == link_to "Edit Grad Year", "#", class: "editGradYear"
+                br 
+                == editable @common_app, :grad_year, url: user_common_app_path(@user,@common_app), value: @common_app.grad_year, type: "text", class: "gradYear"
+                /////////
                 p
                   strong How long have you been in China?
-                == editable @common_app, :time_in_china, url: user_common_app_path(@user,@common_app), value: @common_app.time_in_china, type: "text"
+                == link_to "Edit Time In China", "#", class: "editTimeInChina"
+                br 
+                == editable @common_app, :time_in_china, url: user_common_app_path(@user,@common_app), value: @common_app.time_in_china, type: "text", class: "timeInChina"
+                //////////
                 p
                   strong How would you rate your reading and writing in Mandarin?
-                == editable @common_app, :read_type, url: user_common_app_path(@user,@common_app), value: @common_app.read_type, type: "text"
-
+                == link_to "Edit Read Type", "#", class: "editReadType"
+                br
+                == editable @common_app, :read_type, url: user_common_app_path(@user,@common_app), value: @common_app.read_type, type: "text", class: "readType"
+                //////////
                 p
                   strong How would you speaking and listening in Mandarin?
-                == editable @common_app, :listen_speak, url: user_common_app_path(@user,@common_app), value: @common_app.listen_speak, type: "text"
-
+                == link_to "Edit Listen Speak", "#", class: "editListenSpeak"
+                br                  
+                == editable @common_app, :listen_speak, url: user_common_app_path(@user,@common_app), value: @common_app.listen_speak, type: "text", class: "listenSpeak"
+                //////////
                 p
                   strong What are your preferred cities?
-
-                == editable @common_app, :city_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.cities.map{|city| city.name}, source: City.all.map{ | city | {value: city.id, text: city.name} }
-
+                == link_to "Edit City", "#", class: "editCity"
+                br       
+                == editable @common_app, :city_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.cities.map{|city| city.name}, source: City.all.map{ | city | {value: city.id, text: city.name} }, class: "city"
+                //////////
                 p
                   strong What are your roles?
-
-                == editable @common_app, :position_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.positions.map{|position| position.name}, source: Position.all.map{ | position | {value: position.id, text: position.name} }
-
+                == link_to "Edit Role", "#", class: "editRole"
+                br      
+                == editable @common_app, :position_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.positions.map{|position| position.name}, source: Position.all.map{ | position | {value: position.id, text: position.name} }, class: "role"
+                //////////
                 p
                   strong What are your preferred industries?
-
-                == editable @common_app, :industry_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.industries.map{|industry| industry.name}, source: Industry.all.map{ | industry | {value: industry.id, text: industry.name} }
+                == link_to "Edit Industries", "#", class: "editIndustry"
+                br                     
+                == editable @common_app, :industry_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.industries.map{|industry| industry.name}, source: Industry.all.map{ | industry | {value: industry.id, text: industry.name} }, class: "industry"
+                //////////
                 p
                   strong Upload your resume
                 - if @common_app.resume
