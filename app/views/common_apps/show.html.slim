@@ -53,8 +53,15 @@
 
                 == editable @common_app, :position_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.positions.map{|position| position.name}, source: Position.all.map{ | position | {value: position.id, text: position.name} }
 
-
                 p
                   strong What are your preferred industries?
 
                 == editable @common_app, :industry_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.industries.map{|industry| industry.name}, source: Industry.all.map{ | industry | {value: industry.id, text: industry.name} }
+                p
+                  strong Upload your resume
+                - if @common_app.resume
+                  == link_to "Resume", @common_app.resume_url
+                - else
+                  == form_for [@user, @common_app] do |f|
+                    == f.file_field :resume 
+                    == f.submit "Upload Resume", class: "button"
