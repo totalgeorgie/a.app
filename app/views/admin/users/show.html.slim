@@ -16,6 +16,12 @@
             .profile_view 
               .span6
                 .user_step  
+                  h4 Name:
+                  == editable @user, :name, url: admin_user_path(@user), value: @user.name, type: "text", class: "name"
+                  h4 Email:
+                  == editable @user, :email, url: admin_user_path(@user), value: @user.email, type: "text", class: "email"
+                  span class="#{@user.heat.badge if @user.heat} heat_levels"
+                    == editable @user, :heat_id, url: admin_user_path(@user), type: "select", value: (@user.heat.level if @user.heat), source: Heat.all.map{ | heat | {value: heat.id, text: heat.level} }
               .span6
                 .user_step
                   == editable @user, :admin_note, url: admin_user_path(@user), value: @user.admin_note, type: "textarea", class: "adminNote"
