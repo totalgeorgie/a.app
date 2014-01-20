@@ -33,7 +33,7 @@ class Admin::UsersController < ApplicationController
 private
     def user_params # this is used in order to restrict what params a person can pass to the controller. i.e otherwise people might pass a parameter for admin=1
       params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation, :heat_id)
+                                   :password_confirmation, :heat_id, :admin_note)
     end  
 
 end
