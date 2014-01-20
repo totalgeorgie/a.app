@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   after_create :create_common_app
   after_create :set_heat_level
+  default_scope { order('users.created_at DESC') }
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

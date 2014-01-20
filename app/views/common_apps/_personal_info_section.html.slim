@@ -1,0 +1,37 @@
+h4 
+  | Introduce yourself, your goals, and a bit about why and where you would like to work in China.
+  == link_to "", "#", class: "editCoverLetter"
+== editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter, type: "textarea", class: "coverLetter"
+h4
+  | What is your current city?
+  == link_to "", "#", class: "editCurrentCity"
+== editable @common_app, :current_city, url: user_common_app_path(@user,@common_app), value: @common_app.current_city,type: "text", class: "currentCity"
+h4 
+  | When did you graduate?
+  == link_to "", "#", class: "editGradYear"
+== editable @common_app, :grad_year, url: user_common_app_path(@user,@common_app), value: @common_app.grad_year, type: "text", class: "gradYear"
+h4
+  | How would you rate your reading and writing in Mandarin?
+  == link_to "", "#", class: "editReadType"
+== editable @common_app, :read_type, url: user_common_app_path(@user,@common_app), value: @common_app.read_type, type: "text", class: "readType"
+h4
+  | How would you rate your speaking and listening in Mandarin?
+  == link_to "", "#", class: "editListenSpeak"                
+== editable @common_app, :listen_speak, url: user_common_app_path(@user,@common_app), value: @common_app.listen_speak, type: "text", class: "listenSpeak"
+
+hr
+
+- if @common_app.resume
+  h4 We have your resume on file!
+  == link_to "See your Resume", @common_app.resume_url
+  
+  h4 To update your resume, you can do so below
+  == form_for [@user, @common_app] do |f|
+    == f.file_field :resume 
+    == f.submit "Update Resume", class: "button"
+
+- else
+  h4 Upload your resume!
+  == form_for [@user, @common_app] do |f|
+    == f.file_field :resume 
+    == f.submit "Upload Resume", class: "button"

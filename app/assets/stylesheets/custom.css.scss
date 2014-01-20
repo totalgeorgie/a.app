@@ -1,6 +1,6 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
-@import "editable/bootstrap-editable";
+@import "editable/bootstrap2-editable";
 
 /*
 font-family:'HelveticaNeueW01-45Ligh';
@@ -667,7 +667,6 @@ div.fancy-select ul.options li.hover {
 	}
 }
 .guide{
-	margin-top:10px;
 	.guide_header{
 		float:left;
 		width:100%;
@@ -677,6 +676,9 @@ div.fancy-select ul.options li.hover {
 			color:$purple;
 			font-family:'HelveticaNeueW01-65Medi';
 		}
+	}
+	.user_header{
+		margin-bottom:0px;
 	}
 	.steps{
 		float:left;
@@ -1047,8 +1049,24 @@ margin-top:0px;
 	input, textarea {
 		padding:8px;
 	}
-	.job_step, .user_step{
+	.job_step{
 		padding:0px 20px;
+	}
+	.user_step{
+		padding:0 40px;
+		h4{
+			font-size:15px;
+			font-weight:normal;
+			font-family:'HelveticaNeueW01-65Medi';
+			a{
+				display:inline-block;
+				background: image-url("edit_icon.jpg");
+				width:23px;
+				height:23px;
+				margin-left: 10px;
+				margin-bottom: -7px;
+			}
+		}
 	}
 	.button{
 	  	font-family: 'HelveticaNeueW01-77BdCn 692722';

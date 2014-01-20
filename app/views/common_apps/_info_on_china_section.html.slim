@@ -1,0 +1,16 @@
+h4
+  | How long have you been in China?
+  == link_to "", "#", class: "editTimeInChina"
+== editable @common_app, :time_in_china, url: user_common_app_path(@user,@common_app), value: @common_app.time_in_china, type: "text", class: "timeInChina"
+h4
+  | What are your preferred cities?
+  == link_to "", "#", class: "editCity"      
+== editable @common_app, :city_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.cities.map{|city| city.name}, source: City.all.map{ | city | {value: city.id, text: city.name} }, class: "city"
+h4
+  | What are your roles?
+  == link_to "", "#", class: "editRole"   
+== editable @common_app, :position_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.positions.map{|position| position.name}, source: Position.all.map{ | position | {value: position.id, text: position.name} }, class: "role"
+h4
+  | What are your preferred industries?
+  == link_to "", "#", class: "editIndustry"                    
+== editable @common_app, :industry_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.industries.map{|industry| industry.name}, source: Industry.all.map{ | industry | {value: industry.id, text: industry.name} }, class: "industry"
