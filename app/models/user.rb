@@ -18,6 +18,8 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
+  after_create :create_common_app
+  after_create :set_heat_level
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -40,6 +42,16 @@ class User < ActiveRecord::Base
 
   has_many :applications, dependent: :destroy
   has_many :jobs, :through => :applications
+  
+  def create_common_app
+    common_app = self.build_common_app
+    common_app.save!
+  end
+
+  def set_heat_level
+    self.heat_id = 2 # Id of normal 
+    self.save!
+  end
   
   def User.new_remember_token
     SecureRandom.urlsafe_base64
