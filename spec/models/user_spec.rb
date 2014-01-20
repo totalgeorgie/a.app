@@ -13,6 +13,7 @@
 #  password_reset_token   :string(255)
 #  password_reset_sent_at :datetime
 #  heat_id                :integer
+#  admin_note             :string(255)
 #
 
 require 'spec_helper'

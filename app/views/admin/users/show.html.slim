@@ -12,5 +12,10 @@
     .guide
       .span12
         .blog_container
-          .guide_header
-            h2 
+          .row
+            .profile_view 
+              .span6
+                .user_step  
+              .span6
+                .user_step
+                  == editable @user, :admin_note, url: admin_user_path(@user), value: @user.admin_note, type: "textarea", class: "adminNote"
