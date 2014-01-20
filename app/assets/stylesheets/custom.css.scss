@@ -993,7 +993,7 @@ margin-top:0px;
 	
 }
 
-.new_job, .edit_job{
+.new_job, .edit_job, .profile_view{
 	#job_errors{
 		padding:10px;
 	}
@@ -1016,6 +1016,7 @@ margin-top:0px;
 			margin-right: 5px;
 		}
 	}
+	
 	.remove_nested_fields{
 		text-align: right;
 		float: left;
@@ -1046,7 +1047,7 @@ margin-top:0px;
 	input, textarea {
 		padding:8px;
 	}
-	.job_step{
+	.job_step, .user_step{
 		padding:0px 20px;
 	}
 	.button{

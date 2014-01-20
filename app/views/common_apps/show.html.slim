@@ -17,75 +17,86 @@
       .span12
         .blog_container
           .row
-            .span6   
-              .profile_view
-                p
-                  strong Introduce yourself, your goals, and a bit about why and where you would like to work in China.
-                == link_to "Edit Cover Letter", "#", class: "editCoverLetter"
-                br 
-                == editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter, type: "textarea", class: "coverLetter"
-                //////////
-                p
-                  strong What is your current city?
-                == link_to "Edit Current City", "#", class: "editCurrentCity"
-                br 
-                == editable @common_app, :current_city, url: user_common_app_path(@user,@common_app), value: @common_app.current_city,type: "text", class: "currentCity"
-                //////////
+            .span8.offset2
+              .guide_header
+                h2 Help us get to know you
                 p 
-                  strong When did you graduate?
-                == link_to "Edit Grad Year", "#", class: "editGradYear"
-                br 
-                == editable @common_app, :grad_year, url: user_common_app_path(@user,@common_app), value: @common_app.grad_year, type: "text", class: "gradYear"
-                /////////
-                p
-                  strong How long have you been in China?
-                == link_to "Edit Time In China", "#", class: "editTimeInChina"
-                br 
-                == editable @common_app, :time_in_china, url: user_common_app_path(@user,@common_app), value: @common_app.time_in_china, type: "text", class: "timeInChina"
-                //////////
-                p
-                  strong How would you rate your reading and writing in Mandarin?
-                == link_to "Edit Read Type", "#", class: "editReadType"
-                br
-                == editable @common_app, :read_type, url: user_common_app_path(@user,@common_app), value: @common_app.read_type, type: "text", class: "readType"
-                //////////
-                p
-                  strong How would you speaking and listening in Mandarin?
-                == link_to "Edit Listen Speak", "#", class: "editListenSpeak"
-                br                  
-                == editable @common_app, :listen_speak, url: user_common_app_path(@user,@common_app), value: @common_app.listen_speak, type: "text", class: "listenSpeak"
-                //////////
-                p
-                  strong What are your preferred cities?
-                == link_to "Edit City", "#", class: "editCity"
-                br       
-                == editable @common_app, :city_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.cities.map{|city| city.name}, source: City.all.map{ | city | {value: city.id, text: city.name} }, class: "city"
-                //////////
-                p
-                  strong What are your roles?
-                == link_to "Edit Role", "#", class: "editRole"
-                br      
-                == editable @common_app, :position_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.positions.map{|position| position.name}, source: Position.all.map{ | position | {value: position.id, text: position.name} }, class: "role"
-                //////////
-                p
-                  strong What are your preferred industries?
-                == link_to "Edit Industries", "#", class: "editIndustry"
-                br                     
-                == editable @common_app, :industry_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.industries.map{|industry| industry.name}, source: Industry.all.map{ | industry | {value: industry.id, text: industry.name} }, class: "industry"
-                //////////
-                p
-                  strong Upload your resume
-                - if @common_app.resume
-                  == link_to "See your Resume", @common_app.resume_url
-                - else
-                  == form_for [@user, @common_app] do |f|
-                    == f.file_field :resume 
-                    == f.submit "Upload Resume", class: "button"
-                p 
-                  strong Video Step
-                - if @common_app.user.video
-                  p We have you're video! 
-                  p Video Question : #{@common_app.user.video.question }
-                  video id='PlayVideo' data-uuid="#{@common_app.user.video.video_cid}"
-                - else
-                  p You haven't made a video! #{ link_to "click here", new_user_video_path(@user)} to make one
+                  | This profile is for us to get to know you better, hiring manager eyes will not be seeing it! 
+                  br
+                  | Please fill this in casually, and we'll get to work finding you the best offers.
+            .profile_view 
+              .span6
+                .user_step  
+                  h3
+                    span 1
+                    | Your background
+                  p
+                    strong Introduce yourself, your goals, and a bit about why and where you would like to work in China.
+                  == link_to "Edit Cover Letter", "#", class: "editCoverLetter"
+                  br 
+                  == editable @common_app, :cover_letter, url: user_common_app_path(@user,@common_app), value: @common_app.cover_letter, type: "textarea", class: "coverLetter"
+                  //////////
+                  p
+                    strong What is your current city?
+                  == link_to "Edit Current City", "#", class: "editCurrentCity"
+                  br 
+                  == editable @common_app, :current_city, url: user_common_app_path(@user,@common_app), value: @common_app.current_city,type: "text", class: "currentCity"
+                  //////////
+                  p 
+                    strong When did you graduate?
+                  == link_to "Edit Grad Year", "#", class: "editGradYear"
+                  br 
+                  == editable @common_app, :grad_year, url: user_common_app_path(@user,@common_app), value: @common_app.grad_year, type: "text", class: "gradYear"
+                  /////////
+                  p
+                    strong How long have you been in China?
+                  == link_to "Edit Time In China", "#", class: "editTimeInChina"
+                  br 
+                  == editable @common_app, :time_in_china, url: user_common_app_path(@user,@common_app), value: @common_app.time_in_china, type: "text", class: "timeInChina"
+                  //////////
+                  p
+                    strong How would you rate your reading and writing in Mandarin?
+                  == link_to "Edit Read Type", "#", class: "editReadType"
+                  br
+                  == editable @common_app, :read_type, url: user_common_app_path(@user,@common_app), value: @common_app.read_type, type: "text", class: "readType"
+                  //////////
+                  p
+                    strong How would you speaking and listening in Mandarin?
+                  == link_to "Edit Listen Speak", "#", class: "editListenSpeak"
+                  br                  
+                  == editable @common_app, :listen_speak, url: user_common_app_path(@user,@common_app), value: @common_app.listen_speak, type: "text", class: "listenSpeak"
+                  //////////
+                  p
+                    strong What are your preferred cities?
+                  == link_to "Edit City", "#", class: "editCity"
+                  br       
+                  == editable @common_app, :city_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.cities.map{|city| city.name}, source: City.all.map{ | city | {value: city.id, text: city.name} }, class: "city"
+                  //////////
+                  p
+                    strong What are your roles?
+                  == link_to "Edit Role", "#", class: "editRole"
+                  br      
+                  == editable @common_app, :position_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.positions.map{|position| position.name}, source: Position.all.map{ | position | {value: position.id, text: position.name} }, class: "role"
+                  //////////
+                  p
+                    strong What are your preferred industries?
+                  == link_to "Edit Industries", "#", class: "editIndustry"
+                  br                     
+                  == editable @common_app, :industry_ids, url: user_common_app_path(@user,@common_app), type: "checklist", value: @common_app.industries.map{|industry| industry.name}, source: Industry.all.map{ | industry | {value: industry.id, text: industry.name} }, class: "industry"
+                  //////////
+                  p
+                    strong Upload your resume
+                  - if @common_app.resume
+                    == link_to "See your Resume", @common_app.resume_url
+                  - else
+                    == form_for [@user, @common_app] do |f|
+                      == f.file_field :resume 
+                      == f.submit "Upload Resume", class: "button"
+                  p 
+                    strong Video Step
+                  - if @common_app.user.video
+                    p We have you're video! 
+                    p Video Question : #{@common_app.user.video.question }
+                    video id='PlayVideo' data-uuid="#{@common_app.user.video.video_cid}"
+                  - else
+                    p You haven't made a video! #{ link_to "click here", new_user_video_path(@user)} to make one
