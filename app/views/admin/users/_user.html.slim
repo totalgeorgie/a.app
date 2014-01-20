@@ -1,7 +1,7 @@
 tr
   td
     span class="#{user.heat.badge if user.heat} heat_levels"
-      == editable user, :heat_id, url: admin_user_path(user), type: "select", value: (user.heat.level if user.heat), source: Heat.all.map{ | heat | {value: heat.id, text: heat.level} }, mode: "popup", class: "right"
+      == editable user, :heat_id, url: admin_user_path(user), type: "select", value: (user.heat.level if user.heat), source: Heat.all.map{ | heat | {value: heat.id, text: heat.level} }, class: "right"
   td
     == link_to user.name, admin_user_path(user)
   td

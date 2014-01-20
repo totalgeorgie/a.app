@@ -40,12 +40,3 @@
                     | Info on China
                   
                   == render 'info_on_china_section'
-
-                  p 
-                    strong Video Step
-                  - if @common_app.user.video
-                    p We have you're video! 
-                    p Video Question : #{@common_app.user.video.question }
-                    video id='PlayVideo' data-uuid="#{@common_app.user.video.video_cid}"
-                  - else
-                    p You haven't made a video! #{ link_to "click here", new_user_video_path(@user)} to make one
