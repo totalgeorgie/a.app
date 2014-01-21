@@ -22,5 +22,5 @@ hr
   h4 Video Question : #{@common_app.user.video.question }
   video id='PlayVideo' data-uuid="#{@common_app.user.video.video_cid}"
 - else
-  h4 You haven't made a video! #{ link_to "click here", new_user_video_path(@user)} to make one
-  == link_to "click here", new_user_video_path(@user), class: "button"
+  h4 You haven't made a video! click below to make one
+  == link_to "Record a video", new_user_video_path(@user), class: "button button_video"

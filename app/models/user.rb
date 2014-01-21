@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
 
   def set_heat_level
-    self.heat_id = 2 # Id of normal 
+    self.heat_id = 3 # Id of normal 
     self.save!
   end
   

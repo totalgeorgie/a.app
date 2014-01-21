@@ -1,12 +1,27 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+
     Heat.create!(level: "High")
     Heat.create!(level: "Medium")
     Heat.create!(level: "Normal")
     Heat.create!(level: "Low")
     Heat.create!(level: "Very Low")
 
+    Industry.create!(name: "Law")
+    Industry.create!(name: "Architecture")
+    Industry.create!(name: "Manufacturing")
+
+    City.create!(name: "Beijing")
+    City.create!(name: "Shanghai")
+    City.create!(name: "Nanjing")
+    City.create!(name: "Guangzhou")
+
+    Position.create!(name: "Sales")
+    Position.create!(name: "I.T")
+    Position.create!(name: "Accounting")
+    Position.create!(name: "Management")
+    
     User.create!(name: "Example User",
                  email: "example@atlas-china.coom",
                  password: "foobar",
