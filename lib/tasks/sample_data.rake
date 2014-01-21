@@ -1,6 +1,12 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+    Heat.create!(level: "High")
+    Heat.create!(level: "Medium")
+    Heat.create!(level: "Normal")
+    Heat.create!(level: "Low")
+    Heat.create!(level: "Very Low")
+
     User.create!(name: "Example User",
                  email: "example@atlas-china.coom",
                  password: "foobar",
@@ -13,7 +19,8 @@ namespace :db do
       User.create!(name: name,
                    email: email,
                    password: password,
-                   password_confirmation: password)
+                   password_confirmation: password)    
     end
+  
   end
 end
