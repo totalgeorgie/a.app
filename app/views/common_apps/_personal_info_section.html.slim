@@ -21,7 +21,7 @@ h4
 
 hr
 
-- if @common_app.resume
+- unless @common_app.resume.blank?
   h4 We have your resume on file!
   == link_to "See your Resume", @common_app.resume_url
   
