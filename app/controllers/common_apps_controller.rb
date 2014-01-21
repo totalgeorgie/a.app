@@ -18,7 +18,10 @@ class CommonAppsController < ApplicationController
   def update
     @common_app = CommonApp.find(params[:id])
     if @common_app.update_attributes(common_app_params)
-       render json: {success: true}
+      respond_to do |format|
+        format.html { render :action => "show" }
+        format.json { render json: {success: true} }
+      end
     else
        render json: {errors: @common_app.errors}, status: 400
     end
