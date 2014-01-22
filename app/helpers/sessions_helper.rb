@@ -58,12 +58,7 @@ module SessionsHelper
   end
   
   def has_job(user,current_job)
-    if user.jobs.any?
-      user.jobs.each do |job|
-        return true if job == current_job
-      end
-    end
-    false
+    user.jobs.any? ? user.jobs.include?(current_job) : false
   end  
   
   def admin_user 
@@ -71,7 +66,8 @@ module SessionsHelper
   end
 
   def sort_column
-    User.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+    User.column_names.concat(["grad_year"]).include?(params[:sort]) ? params[:sort] : "created_at"
+
   end
   
   def sort_direction
@@ -81,7 +77,7 @@ module SessionsHelper
   def sortable(column, title = nil)
     title ||= column.titleize
     css_class = column == sort_column ? "current #{sort_direction}" : nil
-    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    direction = column == sort_column && sort_direction == "desc" ? "asc" : "desc"
     link_to title, {:sort => column, :direction => direction}, {:class => css_class}
   end
 

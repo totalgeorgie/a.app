@@ -14,6 +14,9 @@
 #  password_reset_sent_at :datetime
 #  heat_id                :integer
 #  admin_note             :string(255)
+#  progress               :integer
+#  applications_count     :integer
+#  has_video              :boolean
 #
 
 require 'spec_helper'

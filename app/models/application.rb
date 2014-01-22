@@ -11,7 +11,7 @@
 
 class Application < ActiveRecord::Base
 	belongs_to :job
-	belongs_to :user
+	belongs_to :user, counter_cache: true
 	validates :job_id, presence: true 
 	validates :user_id, presence: true 
 

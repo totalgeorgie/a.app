@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122172142) do
+ActiveRecord::Schema.define(version: 20140122202200) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -178,6 +178,8 @@ ActiveRecord::Schema.define(version: 20140122172142) do
     t.integer  "heat_id"
     t.string   "admin_note"
     t.integer  "progress"
+    t.integer  "applications_count"
+    t.boolean  "has_video"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

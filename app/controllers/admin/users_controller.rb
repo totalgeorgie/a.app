@@ -8,7 +8,11 @@ class Admin::UsersController < ApplicationController
     @cities = City.all
     @positions = Position.all
     @users = User.search(params)
-    @users = @users.order(sort_column + " " + sort_direction)
+    if sort_column == "grad_year"
+      @users = @users.where
+    else 
+      @users = @users.order(sort_column + " " + sort_direction)
+    end
     @users = @users.paginate(page: params[:page], per_page: 20)
   end
 

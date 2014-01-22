@@ -20,7 +20,7 @@ tr
     - if user.common_app
       == link_to user.common_app.grad_year.present? ? user.common_app.grad_year : '—' , admin_user_path(user)
   td
-    - if user.video
+    - if user.has_video
       == link_to admin_user_path(user) do
         i.glyphicon.glyphicon-ok
     - else
