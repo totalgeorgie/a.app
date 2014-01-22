@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
     users = users.includes(:cities).where(cities: { id: city }) if city
     users = users.includes(:positions).where(positions: { id: position }) if position
     users = users.where('users.name LIKE ?', "%#{params[:search]}%") if params[:search]
-    users.paginate(page: params[:page], per_page: 20)
+    users
   end
 
   private

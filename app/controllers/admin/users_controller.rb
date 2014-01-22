@@ -8,6 +8,8 @@ class Admin::UsersController < ApplicationController
     @cities = City.all
     @positions = Position.all
     @users = User.search(params)
+    @users = @users.order(sort_column + " " + sort_direction)
+    @users = @users.paginate(page: params[:page], per_page: 20)
   end
 
   def destroy

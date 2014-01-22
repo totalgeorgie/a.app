@@ -943,7 +943,7 @@ margin-top:0px;
 
 /* forms */
 
-#signin_form, #reset, .edit_user, .edit_application,#show_application{
+#signin_form, #reset, .edit_user, .edit_application,#show_application, .bottom_section{
 	margin:25px;
 	padding:25px;
 	background-color:$lightgray;
@@ -962,6 +962,7 @@ margin-top:0px;
 	font-weight:normal;
 	}
 }
+
 
 .button_show_application{
   	font-family: 'HelveticaNeueW01-77BdCn 692722';
@@ -1064,7 +1065,6 @@ margin-top:0px;
 				width:23px;
 				height:23px;
 				margin-left: 10px;
-				margin-bottom: -7px;
 			}
 		}
 
@@ -1094,6 +1094,18 @@ margin-top:0px;
 		margin-bottom: -20px;
 		padding: 20px 0;
 		margin-top: 20px;
+	}
+}
+.bottom_section{
+	margin:0;
+	float:left;
+	width:90%;
+	padding:5px 5%;
+	margin-bottom:20px;
+	h3{
+		margin-top: 0;
+		font-size: 20px;
+		padding-bottom: 0px;
 	}
 }
 .search_results{

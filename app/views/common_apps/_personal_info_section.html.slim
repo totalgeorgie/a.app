@@ -20,18 +20,18 @@ h4
 == editable @common_app, :listen_speak, url: user_common_app_path(@user,@common_app), value: @common_app.listen_speak, type: "text", class: "listenSpeak"
 
 hr
+.bottom_section
+  - unless @common_app.resume.blank?
+    h3 We have your resume on file!
+    == link_to "See your Resume", @common_app.resume_url
+    
+    h4 To update your resume, you can do so below
+    == form_for [@user, @common_app] do |f|
+      == f.file_field :resume 
+      == f.submit "Update Resume", class: "button"
 
-- unless @common_app.resume.blank?
-  h4 We have your resume on file!
-  == link_to "See your Resume", @common_app.resume_url
-  
-  h4 To update your resume, you can do so below
-  == form_for [@user, @common_app] do |f|
-    == f.file_field :resume 
-    == f.submit "Update Resume", class: "button"
-
-- else
-  h4 Upload your resume!
-  == form_for [@user, @common_app] do |f|
-    == f.file_field :resume 
-    == f.submit "Upload Resume", class: "button"
+  - else
+    h3 Upload your resume!
+    == form_for [@user, @common_app] do |f|
+      == f.file_field :resume 
+      == f.submit "Upload Resume", class: "button"

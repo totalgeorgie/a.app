@@ -2,17 +2,18 @@
 #
 # Table name: common_apps
 #
-#  id            :integer          not null, primary key
-#  user_id       :integer
-#  current_city  :string(255)
-#  grad_year     :integer
-#  read_type     :string(255)
-#  listen_speak  :string(255)
-#  time_in_china :integer
-#  cover_letter  :string(255)
-#  resume        :string(255)
-#  created_at    :datetime
-#  updated_at    :datetime
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  current_city   :string(255)
+#  grad_year      :integer
+#  read_type      :string(255)
+#  listen_speak   :string(255)
+#  time_in_china  :integer
+#  cover_letter   :string(255)
+#  resume         :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  progress_level :integer
 #
 
 class CommonApp < ActiveRecord::Base
@@ -51,6 +52,13 @@ class CommonApp < ActiveRecord::Base
   total_completed += 1 if self.positions.any?
   total_completed += 1 if self.industries.any?
   total_completed += 2 if self.user.video
+  
+  value = (100.0*total_completed/total_questions).round 
+
+  unless self.user.progress == value 
+    self.user.progress = value
+    self.user.save!
+  end
 
   (100.0*total_completed/total_questions).round
 
