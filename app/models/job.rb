@@ -2,12 +2,13 @@
 #
 # Table name: jobs
 #
-#  id             :integer          not null, primary key
-#  job_title      :string(255)
-#  job_summary    :string(255)
-#  qualifications :string(255)
-#  created_at     :datetime
-#  updated_at     :datetime
+#  id                 :integer          not null, primary key
+#  job_title          :string(255)
+#  job_summary        :string(255)
+#  qualifications     :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  applications_count :integer
 #
 
 class Job < ActiveRecord::Base

@@ -1,7 +1,6 @@
 tr
   td
-    span class="#{user.heat.badge if user.heat} heat_levels"
-      == editable user, :heat_id, url: admin_user_path(user), type: "select", value: (user.heat.level if user.heat), source: Heat.all.map{ | heat | {value: heat.id, text: heat.level} }, class: "right"
+    == editable user, :heat_id, url: admin_user_path(user), type: "select", value: (user.heat.level if user.heat), source: Heat.all.map{ | heat | {value: heat.id, text: heat.level} }, class: "#{user.heat.badge if user.heat}"
   td
     == link_to user.name, admin_user_path(user)
   td
@@ -32,4 +31,4 @@ tr
     - else 
       i.glyphicon.glyphicon-remove
   td
-    == link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "You sure?" } unless current_user?(user)
+    == link_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Are you sure you would like to delete this user?. This action can not be undone"} unless current_user?(user)

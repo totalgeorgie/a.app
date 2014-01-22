@@ -1,13 +1,9 @@
 table.jobs.table.table-hover.table-bordered
   thead
     tr
-      th Heat
-      th Name
-      th Progress
-      th Cities
-      th Grad Year
-      th Video?
-      th Jobs
+      th == sortable_job "job_title" , "Job Title"
+      th == sortable_job "applications_count" , "# of Applicants"
+      th Edit?
       th Delete?
   tbody
   == render @jobs

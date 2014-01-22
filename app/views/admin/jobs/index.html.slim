@@ -23,6 +23,8 @@
         #full_text
           == form_tag admin_jobs_path, :method => :get do
             h2 Search Jobs
+            == hidden_field_tag :sort, params[:sort]
+            == hidden_field_tag :direction, params[:direction]
             == hidden_field_tag :city_id, params[:city_id]
             == hidden_field_tag :position_id, params[:position_id]
             == text_field_tag :search, params[:search]
@@ -31,6 +33,8 @@
         .user_search
           == form_tag admin_jobs_path, :method => 'get', :id => "jobs_filter" do
             h2 Filter Jobs by
+            == hidden_field_tag :sort, params[:sort]
+            == hidden_field_tag :direction, params[:direction]
             == hidden_field_tag :search, params[:search]
             == render 'shared/filter_cats'
             .filter_sect.filter_search

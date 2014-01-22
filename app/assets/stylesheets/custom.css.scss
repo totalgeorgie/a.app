@@ -234,10 +234,18 @@ header{
 		float:left;
 	}
 }
-.table.users{
+.table.users, .table.jobs{
 	span.red{
 		color:$red;
 	}
+	.current {
+	  float:left;
+	}
+	.asc,.desc{
+
+	}
+	.asc:after{font-family:'Glyphicons Halflings';content:"\e133";padding-left:12px;float:right;}
+	.desc:after{font-family:'Glyphicons Halflings';content:"\e134";padding-left:12px;float:right;}
 }
 
 .jobs{

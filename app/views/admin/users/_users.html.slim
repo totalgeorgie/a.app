@@ -1,13 +1,13 @@
 table.users.table.table-hover.table-bordered
   thead
     tr
-      th == sortable "heat_id", "Heat"
-      th == sortable "name"
-      th == sortable "progress", "Progress"
+      th == sortable_user "heat_id", "Heat"
+      th == sortable_user "name"
+      th == sortable_user "progress", "Progress"
       th Cities
-      th == sortable "grad_year", "Grad Year"
-      th == sortable "has_video", "Video"
-      th == sortable "jobs_count", "Jobs"
+      th == sortable_user "grad_year", "Grad Year"
+      th == sortable_user "has_video", "Video"
+      th == sortable_user "jobs_count", "Jobs"
       th Delete?
   tbody
   == render @users
