@@ -1,7 +1,7 @@
 h4
   | How long have you been in China?
   == link_to "", "#", class: "editTimeInChina"
-== editable @common_app, :time_in_china, url: user_common_app_path(@user,@common_app), value: @common_app.time_in_china, type: "text", class: "timeInChina"
+== editable @common_app, :time_in_china, url: user_common_app_path(@user,@common_app), value: @common_app.time_in_china, type: "select2", source: (1..10).map { |i| {value: i, text:  pluralize(i,  'year') } }, class: "timeInChina"
 h4
   | What are your preferred cities?
   == link_to "", "#", class: "editCity"      

@@ -9,15 +9,15 @@ h4
 h4 
   | When did you graduate?
   == link_to "", "#", class: "editGradYear"
-== editable @common_app, :grad_year, url: user_common_app_path(@user,@common_app), value: @common_app.grad_year, type: "text", class: "gradYear"
+== editable @common_app, :grad_year, url: user_common_app_path(@user,@common_app), value: @common_app.grad_year, type: "select2", source: [value: 0, text: "Empty"].concat((1990..Time.now.year).map{ |i| {value: i, text: i.to_s} }), class: "gradYear"
 h4
   | How would you rate your reading and writing in Mandarin?
   == link_to "", "#", class: "editReadType"
-== editable @common_app, :read_type, url: user_common_app_path(@user,@common_app), value: @common_app.read_type, type: "text", class: "readType"
+== editable @common_app, :read_type, url: user_common_app_path(@user,@common_app), value: @common_app.read_type, type: "select2", source: [value: 0, text: "Empty"].concat((1..10).map{ |i| {value: i, text: i.to_s} }), class: "readType"
 h4
   | How would you rate your speaking and listening in Mandarin?
   == link_to "", "#", class: "editListenSpeak"                
-== editable @common_app, :listen_speak, url: user_common_app_path(@user,@common_app), value: @common_app.listen_speak, type: "text", class: "listenSpeak"
+== editable @common_app, :listen_speak, url: user_common_app_path(@user,@common_app), value: @common_app.listen_speak, type: "select2",source: [value: 0, text: "Empty"].concat((1..10).map{ |i| {value: i, text: i.to_s} }), class: "listenSpeak"
 
 hr
 .bottom_section

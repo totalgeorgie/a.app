@@ -8,6 +8,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'carrierwave' # for resume upload http://railscasts.com/episodes/253-carrierwave-file-uploads
 gem "nested_form" # added to assets pipeline
 gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel
+gem "select2-rails" # for x-editable select2
 gem 'x-editable-rails' # For cool profile edit https://github.com/tkawa/bootstrap-editable-rails
 gem 'annotate', '2.5.0', group: :development
 # for advanced search, try http://railscasts.com/episodes/111-advanced-search-form-revised  // very cool way to filter

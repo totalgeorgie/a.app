@@ -106,6 +106,7 @@
 / Make labels for users (i.e hot, warm, etc)
 / remove unecc views and actions 
 
+/ Make sure CommonApp is more easily filled in. i.e default for numbers with select is not 0
 
 Make it possible to see all applicants for a job with admin
 

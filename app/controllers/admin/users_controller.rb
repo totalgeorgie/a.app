@@ -25,15 +25,22 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-       render json: {success: true}
+      respond_to do |format|
+        format.html { redirect_to admin_user_path(@user), :notice => "Changes Updated" }
+        format.json { render json: {success: true} }
+      end
     else
-       render json: {errors: @user.errors}, status: 400
+      respond_to do |format|
+        format.html { render :action => "show", :notice => "There was an error, please try again" }
+        format.json {render json: {errors: @user.errors}, status: 400 }
+      end
     end
   end
 
 
   def show
     @user = User.find(params[:id])
+    @common_app = @user.common_app
   end
 
 private

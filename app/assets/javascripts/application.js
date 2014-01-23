@@ -15,8 +15,11 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require bootstrap
+//= require select2
 //= require editable/bootstrap2-editable
-//= require editable/rails/editable_form
-//= require editable/rails/data_classes
+//= require editable/inputs-ext/wysihtml5
+//= require editable/inputs-ext/bootstrap-wysihtml5
+//= require editable/inputs-ext/wysihtml5-editable
+//= require editable/rails
 //= require_tree .
 

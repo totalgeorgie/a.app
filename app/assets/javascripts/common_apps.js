@@ -56,5 +56,10 @@ jQuery(function($) {
 	       e.stopPropagation();
 	       $('.industry').editable('toggle');
 	});
+	$('.editAdminNote').click(function(e){    
+		   e.preventDefault();
+	       e.stopPropagation();
+	       $('.adminNote').editable('toggle');
+	});
 
 });

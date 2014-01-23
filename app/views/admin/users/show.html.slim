@@ -3,7 +3,7 @@
   .darken
     .container
       .row
-        .span10.offset1
+        .span12
           .jobs_header
                 h2  #{@user.name}
 
@@ -13,15 +13,46 @@
       .span12
         .blog_container
           .row
-            .profile_view 
+            .profile_view  
+              .guide_header.user_header
               .span6
                 .user_step  
-                  h4 Name:
-                  == editable @user, :name, url: admin_user_path(@user), value: @user.name, type: "text", class: "name"
-                  h4 Email:
-                  == editable @user, :email, url: admin_user_path(@user), value: @user.email, type: "text", class: "email"
-                  span class="#{@user.heat.badge if @user.heat} heat_levels"
-                    == editable @user, :heat_id, url: admin_user_path(@user), type: "select", value: (@user.heat.level if @user.heat), source: Heat.all.map{ | heat | {value: heat.id, text: heat.level} }
+                  == render 'general_info'
               .span6
                 .user_step
+                  h4
+                    | Admin Notes:
+                    == link_to "", "#", class: "editAdminNote" 
                   == editable @user, :admin_note, url: admin_user_path(@user), value: @user.admin_note, type: "textarea", class: "adminNote"
+              == render "common_app"
+              
+              .span12
+                .user_step
+                  - if @user.applications.any?
+                    span.step.apply_to_jobs.not_beginner
+                      span.icon
+                        == image_tag("jobs_icon.png", :alt => "apply to jobs")
+                      span.content
+                        span.h3 Your Job Applications
+                        span.p Manage the jobs you've applied to, and apply to some more!
+
+                      .ul.jobs_list
+                        .row
+                          .span12
+                            - @user.applications.each do |application| 
+                             li
+                               span#title == link_to application.job.job_title, job_application_path(:id => application.id, :job_id => application.job_id)
+                               span#edit_app == link_to "Edit Your Application", edit_job_application_path(:id => application.id, :job_id => application.job_id) 
+                               span#delete_app == link_to "Cancel Application", job_application_path(:id => application, :job_id => application.job_id), method: :delete, data: { confirm: "Are you sure you would like to delete your application?" }
+                            li
+                              == link_to "Apply to more jobs", jobs_path, :class => "button search_button"
+                  - else 
+                    == link_to jobs_path do
+                      span.step.apply_to_jobs
+                        span.icon
+                          == image_tag("jobs_icon.png", :alt => "apply to jobs")
+                        span.content
+                          span.h3 Apply to jobs
+                          span.p Pick the the jobs you’d be interested in, and apply. It's that easy!
+
+

@@ -1,6 +1,8 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 @import "editable/bootstrap2-editable";
+@import "editable/inputs-ext/bootstrap-wysihtml5";
+@import "editable/inputs-ext/wysiwyg-color";
 
 /*
 font-family:'HelveticaNeueW01-45Ligh';
@@ -50,6 +52,9 @@ a{
 	}
 }
 
+.editable{
+	word-break: break-word;
+}
 p, span.p{
 	font-size:16px;
 	color:$dark;
@@ -1027,7 +1032,13 @@ margin-top:0px;
 			margin-right: 5px;
 		}
 	}
-	
+	.popover-title{
+		float:none;
+		width:auto;
+		margin:0;
+		
+	}
+
 	.remove_nested_fields{
 		text-align: right;
 		float: left;
