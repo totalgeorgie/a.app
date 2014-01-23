@@ -1,11 +1,16 @@
 - provide(:title, @user.name)
 .thinstripe_career 
   .darken
-    .container
-      .row
-        .span12
-          .jobs_header
-                h2  #{@user.name}
+    .edit_profile
+      .container
+          .row
+            .span12
+              .profile_header
+                h2 #{@user.name}'s profile is #{@user.common_app.progress}% completed
+              span.progress 
+                span.bar style="width:#{@user.common_app.progress}%"
+                span.bar_percent 
+
 
 .container
   .row
@@ -25,7 +30,6 @@
                     == link_to "", "#", class: "editAdminNote" 
                   == editable @user, :admin_note, url: admin_user_path(@user), value: @user.admin_note, type: "textarea", class: "adminNote"
               == render "common_app"
-              
               .span12
                 == render 'associate_to_job'
               .span12  
