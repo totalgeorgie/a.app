@@ -1213,6 +1213,17 @@ input {
 input[type="submit"]{
 	width:100%;
 }
+#admin_user_application{
+	.chosen-container-single .chosen-single {
+		padding: 9px 0px 9px 9px;
+	}
+	.button{
+		float:left;
+		width:100%;
+		margin:0;
+		padding:12px 0;
+	}
+}
 /* Users index */
 
 .users {

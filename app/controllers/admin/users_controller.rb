@@ -41,6 +41,7 @@ class Admin::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @common_app = @user.common_app
+    @application = Application.new
   end
 
 private

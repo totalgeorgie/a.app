@@ -14,6 +14,7 @@ Atlas::Application.routes.draw do
   namespace :admin do 
     resources :users
     resources :jobs
+    resources :applications
     get '', to: 'users#index', as: '/'
   end
 

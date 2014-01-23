@@ -1,0 +1,15 @@
+.user_step
+  h3 Associate #{@user.first_name} to a job
+== form_for [:admin, @application], :html => {:id => "admin_user_application"}  do |f|
+  .row
+    .span12
+      .user_step
+        == render 'shared/error_messages', object: f.object                    
+  .row
+    .span6
+      .user_step
+        == f.hidden_field :user_id, value: @user.id
+        == f.select :job_id, Job.all.collect {|job| [job.job_title, job.id]}, {}, class: "chosen-select"
+    .span6
+      .user_step
+        == f.submit "Associate to Job", class: "button" 
