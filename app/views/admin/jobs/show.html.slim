@@ -1,0 +1,22 @@
+.thinstripe_career
+  .darken.admin_darken
+  	.container
+  	  .row
+  	    .span12
+  	      .jobs_header.admin_header
+  	        .row
+  	          .span10
+  	  	        h2 
+                  == link_to "#{@job.job_title}"
+                  span  == pluralize( @job.applications.length, "applicant" )
+              .span2
+                == link_to "Back to Jobs", admin_jobs_path, :class => "button"
+
+.container
+  .row
+    .guide
+      .span12
+        .blog_container
+          .row
+            .profile_view  
+              .guide_header.user_header
