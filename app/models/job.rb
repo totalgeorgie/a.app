@@ -12,9 +12,11 @@
 #
 
 class Job < ActiveRecord::Base
+  after_save :set_potential
   validates :job_title, presence: true 
   validates :job_summary, presence: true
   validates :qualifications, presence: true 
+
   default_scope { order('jobs.created_at DESC') }
 
   has_many :bullets, :dependent => :destroy
@@ -47,6 +49,17 @@ class Job < ActiveRecord::Base
     jobs = jobs.includes(:positions).where(positions: { id: position }) if position
     jobs = jobs.where('job_title LIKE ?', "%#{params[:search]}%") if params[:search]
     jobs
+  end
+
+ private
+ 
+  def set_potential
+    if self.applications.any?
+      self.applications.each do |application|
+        application.potential = application.find_potential
+        application.save!
+      end
+    end
   end
 
 end

@@ -1,6 +1,6 @@
 - if @user.common_app
   == link_to user_common_app_path(@user, @user.common_app) do
-    - if @user.common_app.progress < 80   
+    - if @user.progress < 80   
       span.step.filled
         span.icon
           == image_tag("profile_icon.png", :alt => "fill out your profile") 

@@ -21,12 +21,14 @@ namespace :db do
     Position.create!(name: "I.T")
     Position.create!(name: "Accounting")
     Position.create!(name: "Management")
-    
     User.create!(name: "Example User",
                  email: "example@atlas-china.coom",
                  password: "foobar",
                  password_confirmation: "foobar",
                  admin: true)
+    Video.create!(user_id: 1, 
+                  video_cid: "samplecid123",
+                  question: "SampleQuestion")
     50.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@atlasmail.org"

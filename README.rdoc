@@ -116,11 +116,14 @@ Intro to community consulting
 
 Intro to frontiers book 
 
+On Job, user can not be associated twice 
 
 
 ---
 
 To do 
+
+
 torial 
 
 
@@ -140,6 +143,7 @@ torial
 Make Sign up for Job alerts actually work
 Make Sign up for Job Alerts title change based on what the query is 
 
+Make
 
 Design area. 
 

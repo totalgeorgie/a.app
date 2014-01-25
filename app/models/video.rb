@@ -14,6 +14,7 @@ class Video < ActiveRecord::Base
  belongs_to :user
  after_create :user_has_video
  before_destroy :user_does_not_have_video
+ after_save :set_progress 
  validates  :user_id, presence: true
  validates  :question, presence: true
  validates  :video_cid, :presence => {:message => "does not look to be saved. Please record and save your video."}
@@ -30,6 +31,13 @@ class Video < ActiveRecord::Base
     self.user.save!
   end
 
+  def set_progress
+   current_progress = self.user.common_app.progress
+   unless self.user.progress == current_progress 
+      self.user.progress = current_progress
+      self.user.save!
+   end
+  end
 
 end
 

@@ -5,10 +5,12 @@
   	    .span12
   	      .jobs_header.admin_header
   	        .row
-  	          .span10
+  	          .span8
   	  	        h2 
                   == link_to "#{@job.job_title}"
                   span  == pluralize( @job.applications.length, "applicant" )
+              .span2
+                == link_to "Edit Job Details", edit_admin_job_path(@job), class: "button"
               .span2
                 == link_to "Back to Jobs", admin_jobs_path, :class => "button"
 
@@ -20,26 +22,25 @@
           .row
             .profile_view  
               .guide_header.user_header
-              .user_step
-                  h2 ==@job.job_title
+              .span12
+                .user_step
                   p  ==@job.job_summary
-                  == link_to "Edit Job Details", edit_admin_job_path(@job), class: "button"
-              == render 'associate_to_job'
-              .user_step
-                ul.nav.nav-tabs#tabs
-                  li class="active"
-                    a href="#applicants" data-toggle="tab" Applicants
-                  li
-                    a href="#potential" data-toggle="tab" Potential
+                == render 'associate_to_job'
+                .user_step
+                  ul.nav.nav-tabs#tabs
+                    li class="active"
+                      a href="#applicants" data-toggle="tab" Applicants
+                    li
+                      a href="#potential" data-toggle="tab" Potential
 
-                .tab-content
-                  .tab-pane.fade.in.active#applicants
-                    - if @job.applications.any?
-                      == render 'applicants'
-                      == will_paginate(@applications)
-                    - else 
-                      .not_found
-                        h2 No Applicants found.
-                        p There are currently no applicants for this job.
-                  .tab-pane.fade#potential
-                      h3 Coming Soon
+                  .tab-content
+                    .tab-pane.fade.in.active#applicants
+                      - if @job.applications.any?
+                        == render 'applicants'
+                        == will_paginate(@applications)
+                      - else 
+                        .not_found
+                          h2 No Applicants found.
+                          p There are currently no applicants for this job.
+                    .tab-pane.fade#potential
+                        h3 Coming Soon
