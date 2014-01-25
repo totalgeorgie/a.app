@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   after_create :create_common_app
   after_create :set_heat_level
-  after_save :set_potential
 
   default_scope { order('users.created_at DESC') }
 
@@ -101,14 +100,6 @@ class User < ActiveRecord::Base
   end
 
   private
-    def set_potential
-      if self.applications.any?
-        self.applications.each do |application|
-          application.potential = application.find_potential
-          application.save!
-        end
-      end
-    end
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end

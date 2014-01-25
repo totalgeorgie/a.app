@@ -19,7 +19,6 @@ class Application < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   
   accepts_nested_attributes_for :answers, allow_destroy: true
-  after_save :set_potential
 
     
   def self.build(job_id)
@@ -67,12 +66,5 @@ class Application < ActiveRecord::Base
 
   end
 
- private
-
-  def set_potential
-    current_potential = self.potential
-    self.potential = self.find_potential
-    self.save! unless current_potential == self.potential
-  end
 
 end
