@@ -1,6 +1,6 @@
 tr
   td
-    == editable user, :heat_id, url: admin_user_path(user), type: "select", value: (user.heat.level if user.heat), source: Heat.all.map{ | heat | {value: heat.id, text: heat.level} }, class: "#{user.heat.badge if user.heat}"
+    == editable user, :heat_id, url: admin_user_path(user), type: "select", value: (user.heat.level if user.heat), source: Heat.all.map{ | heat | {value: heat.id, text: heat.level} }, classes: Hash[Heat.all.map{ | heat | [heat.id, heat.badge]}], class: "#{user.heat.badge if user.heat}"
   td
     == link_to user.name, admin_user_path(user)
   td

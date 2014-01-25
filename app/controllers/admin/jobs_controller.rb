@@ -53,7 +53,7 @@ class Admin::JobsController < ApplicationController
     @application = Application.new
     @applications = @job.applications 
     @applications = @applications.joins(:user).order("users.#{sort_user_column}" + " " + sort_direction)
-    @applications = @applications.paginate(page: params[:page], per_page: 3)
+    @applications = @applications.paginate(page: params[:page], per_page: 10)
   end
 
  private

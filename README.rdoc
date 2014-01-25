@@ -85,6 +85,18 @@
 - Made Admin Page Work
 - Designed Create A Job, Edit A Job 
 
+
+/ Make sure common apps are automatically created when a user signs up 
+/ Integrate Videos#show with common_app#edit 
+
+/ Make CommonApp#New#Edit#Show 
+/ Make Admin Dashboard for users
+/ Make Notes section for users
+/ Make labels for users (i.e hot, warm, etc)
+/ remove unecc views and actions 
+
+/ 
+
 == To do
 
 
@@ -96,17 +108,7 @@
 / Make sure Users#New is responsive
 / Make sure step1 and step2 image for Users#New is good 
 
-
-/ Make sure common apps are automatically created when a user signs up 
-/ Integrate Videos#show with common_app#edit 
-
-/ Make CommonApp#New#Edit#Show 
-/ Make Admin Dashboard for users
-/ Make Notes section for users
-/ Make labels for users (i.e hot, warm, etc)
-/ remove unecc views and actions 
-
-/ Make sure CommonApp is more easily filled in. i.e default for numbers with select is not 0
+Make sure CommonApp is more easily filled in. i.e default for numbers with select is not 0
 
 Make it possible to see all applicants for a job with admin
 
