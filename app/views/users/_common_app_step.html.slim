@@ -7,8 +7,8 @@
         span.content 
           span.h3 Complete your profile
           span.progress 
-            span.bar style="width:#{@user.common_app.progress}%"
-            span.bar_percent == @user.common_app.progress.to_s + '%'
+            span.bar style="width:#{@user.progress}%"
+            span.bar_percent == @user.progress.to_s + '%'
           span.p The most successful candidates have their profiles more than 80% complete. Fill yours out now!
     - else 
       span.step.filled.completed
@@ -17,5 +17,5 @@
         span.content 
           span.h3 You've completed your profile!
           span.progress 
-            span.bar style="width:#{@user.common_app.progress}%"
+            span.bar style="width:#{@user.progress}%"
           span.p You have filled in your profile. Click here if you'd like to update anything.       
