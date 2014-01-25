@@ -62,4 +62,17 @@ jQuery(function($) {
 	       $('.adminNote').editable('toggle');
 	});
 
+	$('.profile_editable').on('save', function(e, params) {
+		var progress_value = params.response.progress_value
+		$('.progress_title').text("Your profile is " + progress_value + "% completed" )
+		$('.bar').css('width', progress_value + '%');
+	});
+
+	$('.admin_editable').on('save', function(e, params) {
+		var progress_value = params.response.progress_value
+		var user_name = params.response.user_name
+		$('.progress_title').text(user_name + "'s profile is " + progress_value + "% completed" )
+		$('.bar').css('width', progress_value + '%');
+	});
+
 });

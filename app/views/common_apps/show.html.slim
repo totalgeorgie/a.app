@@ -6,9 +6,8 @@
 	  	  .row
 	  	    .span12
 	  	      .profile_header
-	  	        h2 Your profile is #{@user.progress}% completed
-            #progress_div
-              == render 'shared/progress'
+                h2.progress_title Your profile is #{@user.progress}% completed
+                == render 'shared/progress'
 .container
   .row
     .guide

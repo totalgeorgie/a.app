@@ -20,7 +20,7 @@ class CommonAppsController < ApplicationController
     if @common_app.update_attributes(common_app_params)
       respond_to do |format|
         format.html { render :action => "show" }
-        format.json { render json: {success: true} }
+        format.json { render json: {success: true, progress_value: @common_app.user.progress, user_name: @common_app.user.name } }
       end
     else
        render json: {errors: @common_app.errors}, status: 400
