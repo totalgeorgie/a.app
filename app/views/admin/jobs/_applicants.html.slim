@@ -1,0 +1,55 @@
+table.users.table.table-hover.table-bordered
+  thead
+    tr
+      th Answers
+      th == sortable_user "heat_id", "Heat"
+      th == sortable_user "name"
+      th == sortable_user "progress", "Progress"
+      th Cities
+      th Grad Year
+      th == sortable_user "has_video", "Video"
+  tbody
+    - @applications.each do |application|
+      - user = application.user
+      tr
+        td
+          a href="#user_#{user.id}" data-toggle="modal"
+              i.glyphicon.icon-zoom-in
+          
+          div class="modal hide fade" id="user_#{user.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+            .modal-header
+              button type="button" class="close" data-dismiss="modal" aria-hidden="true" ×
+              h3 == user.name
+              .modal-body
+                - application.answers.each do |answer|
+                  p == answer.question.content
+                  p == answer.content
+
+              .modal-footer 
+                == link_to "More info", admin_user_path(user), class: "button"
+
+        td
+          == editable user, :heat_id, url: admin_user_path(user), type: "select", value: (user.heat.level if user.heat), source: Heat.all.map{ | heat | {value: heat.id, text: heat.level} }, class: "#{user.heat.badge if user.heat}"
+        td
+          == link_to user.name, admin_user_path(user)
+        td
+          - if user.common_app
+            == link_to admin_user_path(user) do
+              span.progress.blue
+                span.bar style="width:#{user.progress}%"
+        td
+          - if user.common_app
+            == link_to admin_user_path(user) do
+              - if user.common_app.current_city.present? 
+                span.red == "#{user.common_app.current_city}, "
+              == truncate( "#{user.common_app.cities.map {|city| city.name}.join(', ')}")
+
+        td
+          - if user.common_app
+            == link_to user.common_app.grad_year.present? ? user.common_app.grad_year : '—' , admin_user_path(user)
+        td
+          - if user.has_video
+            == link_to admin_user_path(user) do
+              i.glyphicon.glyphicon-ok
+          - else
+            i.glyphicon.glyphicon-remove

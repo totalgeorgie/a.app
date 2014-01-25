@@ -20,3 +20,26 @@
           .row
             .profile_view  
               .guide_header.user_header
+              .user_step
+                  h2 ==@job.job_title
+                  p  ==@job.job_summary
+                  == link_to "Edit Job Details", edit_admin_job_path(@job), class: "button"
+              == render 'associate_to_job'
+              .user_step
+                ul.nav.nav-tabs#tabs
+                  li class="active"
+                    a href="#applicants" data-toggle="tab" Applicants
+                  li
+                    a href="#potential" data-toggle="tab" Potential
+
+                .tab-content
+                  .tab-pane.fade.in.active#applicants
+                    - if @job.applications.any?
+                      == render 'applicants'
+                      == will_paginate(@applications)
+                    - else 
+                      .not_found
+                        h2 No Applicants found.
+                        p There are currently no applicants for this job.
+                  .tab-pane.fade#potential
+                      h3 Coming Soon

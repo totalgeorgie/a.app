@@ -10,7 +10,7 @@
   	          .span7
   	  	        h2 All #{@city.name if @city} #{@position.name if @position} Jobs
   	  	      .span3
-  	  	        == link_to "Sign up for Job Alerts!", "#", :class => "button"
+  	  	        == link_to("Sign up for Job Alerts!", signup_path, :class => "button") unless signed_in?
 
 .container
   .row

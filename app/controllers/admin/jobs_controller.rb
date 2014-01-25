@@ -50,6 +50,10 @@ class Admin::JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @application = Application.new
+    @applications = @job.applications 
+    @applications = @applications.joins(:user).order("users.#{sort_user_column}" + " " + sort_direction)
+    @applications = @applications.paginate(page: params[:page], per_page: 3)
   end
 
  private
