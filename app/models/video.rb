@@ -15,6 +15,9 @@ class Video < ActiveRecord::Base
  after_create :user_has_video
  before_destroy :user_does_not_have_video
  after_save :set_progress 
+ after_create :set_customerio
+ after_destroy :set_customerio
+
  validates  :user_id, presence: true
  validates  :question, presence: true
  validates  :video_cid, :presence => {:message => "does not look to be saved. Please record and save your video."}
@@ -37,6 +40,14 @@ class Video < ActiveRecord::Base
       self.user.progress = current_progress
       self.user.save!
    end
+  end
+  
+  def set_customerio
+    user = self.user
+    $customerio.identify(
+      id: user.id,
+      video: user.video.nil?,
+    )
   end
 
 end

@@ -13,8 +13,12 @@
 class Application < ActiveRecord::Base
 	belongs_to :job, counter_cache: true
 	belongs_to :user, counter_cache: true
-	validates :job_id, presence: true 
+
+  validates :job_id, presence: true 
 	validates :user_id, presence: true 
+
+  after_create :set_customerio
+  after_destroy :set_customerio
 
   has_many :answers, dependent: :destroy
   
@@ -66,5 +70,14 @@ class Application < ActiveRecord::Base
 
   end
 
+ private
+
+  def set_customerio
+    user = self.user
+    $customerio.identify(
+      id: user.id,
+      jobs_applied_to: user.applications.length
+    )
+  end
 
 end
