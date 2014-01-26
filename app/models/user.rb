@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
   after_create :set_heat_level
 
   after_save :set_customerio
-
   default_scope { order('users.created_at DESC') }
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -100,7 +99,6 @@ class User < ActiveRecord::Base
     users = users.where('users.name LIKE ?', "%#{params[:search]}%") if params[:search]
     users
   end
-
   
   private
 
