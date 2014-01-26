@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
   after_create :create_common_app
   after_create :set_heat_level
 
+  after_create :set_customerio
+
   default_scope { order('users.created_at DESC') }
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -100,6 +102,19 @@ class User < ActiveRecord::Base
   end
 
   private
+
+    def set_customerio 
+      customerio.identify(
+        id: self.id,
+        created_at: self.created_at,
+        email: self.email,
+        full_name: self.name,
+        progress: self.progress,
+        video: self.video.nil?,
+        jobs_applied_to: self.applications_count
+      )
+    end
+
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end
