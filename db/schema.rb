@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128033954) do
+ActiveRecord::Schema.define(version: 20140128035326) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 20140128033954) do
   end
 
   create_table "sources", force: true do |t|
-    t.string   "type"
+    t.string   "from"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, on: :create
 
   belongs_to :heat
+  belongs_to :source
 
   has_one :common_app, dependent: :destroy
   has_many :cities, :through => :common_app

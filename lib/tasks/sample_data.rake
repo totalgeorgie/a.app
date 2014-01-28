@@ -7,6 +7,9 @@ namespace :db do
     Heat.create!(level: "Normal")
     Heat.create!(level: "Low")
     Heat.create!(level: "Very Low")
+    
+    Source.create!(type: "Referral")
+    Source.create!(type: "Site")
 
     Industry.create!(name: "Law")
     Industry.create!(name: "Architecture")

@@ -61,7 +61,11 @@ jQuery(function($) {
 	       e.stopPropagation();
 	       $('.adminNote').editable('toggle');
 	});
-
+	$('.editSource').click(function(e){    
+		   e.preventDefault();
+	       e.stopPropagation();
+	       $('.source').editable('toggle');
+	});
 	$('.profile_editable').on('save', function(e, params) {
 		var progress_value = params.response.progress_value
 		$('.progress_title').text("Your profile is " + progress_value + "% completed" )

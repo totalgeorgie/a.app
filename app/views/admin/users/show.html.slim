@@ -26,9 +26,16 @@
               .span6
                 .user_step
                   h4
+                    | Source:
+                    == link_to "", "#", class: "editSource" 
+                  - sources = Source.all.map{ | source | {value: source.id, text: source.from} }
+                  - source_value = @user.source.blank? ? "Sources" : @user.source.from
+                  == editable @user, :source_id, url: admin_user_path(@user), type: "select", value: source_value, source: sources, class: "source"
+                  h4
                     | Admin Notes:
                     == link_to "", "#", class: "editAdminNote" 
                   == editable @user, :admin_note, url: admin_user_path(@user), value: @user.admin_note, type: "textarea", class: "adminNote"
+
               == render "common_app"
               .span12
                 == render 'associate_to_job'
