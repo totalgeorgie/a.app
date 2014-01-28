@@ -144,6 +144,10 @@ torial
 
 Make Sign up for Job alerts actually work
 Make Sign up for Job Alerts title change based on what the query is 
+Make sure Video is false in the beginning, and true after user has video 
+
+
+
 
 Make
 
@@ -276,6 +280,12 @@ User able to update profile info
 On update of profile info, redirected to root
 User able to update video, on update video, redirect to root
 If used does not do video, it is prompted on the home page
+
+----
+
+For setting up customerio with rails -- 
+
+heroku config:set CIO_SITE_ID= CIO_API_KEY=
 
 
 ----

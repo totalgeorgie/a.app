@@ -33,6 +33,15 @@ class JobsController < ApplicationController
   def destroy
   end 
 
+  def blurb 
+    @jobs = Job.all.take(5)
+    respond_to do |format|
+      format.json{
+        render :json => @jobs
+      }
+    end
+
+  end
 
 end
 

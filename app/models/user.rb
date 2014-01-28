@@ -110,7 +110,7 @@ class User < ActiveRecord::Base
         email: user.email,
         full_name: user.name,
         progress: user.progress,
-        video: user.video.nil?,
+        video: !user.video.nil?,
         jobs_applied_to: user.applications.length
       )
     end

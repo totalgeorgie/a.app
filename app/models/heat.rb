@@ -15,15 +15,15 @@ class Heat < ActiveRecord::Base
 
   def badge
     case self.id
-    when 1
+     when 1
       "badge badge-important"
-    when 2
+     when 2
       "badge badge-warning"
-    when 4
+     when 4
       "badge badge-info"
-    when 5
+     when 5
       "badge badge-inverse"
-    else
+     else
       "badge"
     end
   end

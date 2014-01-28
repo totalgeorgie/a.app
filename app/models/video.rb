@@ -46,7 +46,7 @@ class Video < ActiveRecord::Base
     user = self.user
     $customerio.identify(
       id: user.id,
-      video: user.video.nil?,
+      video: !user.video.nil?,
     )
   end
 
