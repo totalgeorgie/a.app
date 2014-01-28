@@ -1,15 +1,17 @@
 # == Schema Information
 #
-# Table name: sources
+# Table name: potentials
 #
 #  id         :integer          not null, primary key
-#  from       :string(255)
+#  level      :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer
+#  job_id     :integer
 #
 
 require 'spec_helper'
 
-describe Source do
+describe Potential do
   pending "add some examples to (or delete) #{__FILE__}"
 end

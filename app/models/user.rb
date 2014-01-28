@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   after_create :create_common_app
   after_create :set_heat_level
+  after_create :create_potentials
+  after_save :set_potentials
 
   after_save :set_customerio
   default_scope { order('users.created_at DESC') }
@@ -51,7 +53,9 @@ class User < ActiveRecord::Base
 
   has_many :applications, dependent: :destroy
   has_many :jobs, :through => :applications
-  
+
+  has_many :potentials, dependent: :destroy
+
   def create_common_app
     common_app = self.build_common_app
     common_app.save!
@@ -85,7 +89,7 @@ class User < ActiveRecord::Base
   end
   
   def beginner? 
-    false if self.common_app || self.video || self.jobs.any?
+    false if self.common_app || self.video || self.applications.any?
   end
 
   def first_name
@@ -103,7 +107,6 @@ class User < ActiveRecord::Base
   end
   
   private
-
     def set_customerio 
       user = self
       $customerio.identify(
@@ -115,6 +118,17 @@ class User < ActiveRecord::Base
         video: !user.video.nil?,
         jobs_applied_to: user.applications.length
       )
+    end
+
+    def create_potentials
+       Job.find_each { |job| job.potentials.create!(user_id: self.id) }
+    end
+    
+    def set_potentials 
+      self.potentials.each do |potential|
+        potential.level = potential.find_potential
+        potential.save!
+      end
     end
 
     def create_remember_token

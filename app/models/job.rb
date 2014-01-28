@@ -39,7 +39,7 @@ class Job < ActiveRecord::Base
 
   has_many :applications, :dependent => :destroy
   has_many :users, :through => :applications
-
+  has_many :potentials, :dependent => :destroy
   def self.search(params)
     city = City.find(params[:city_id]) if params[:city_id] && params[:city_id] != "0" && params[:city_id] != "" 
     position = Position.find(params[:position_id]) if params[:position_id] && params[:position_id] != "0" && params[:position_id] != "" 
