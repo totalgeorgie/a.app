@@ -17,6 +17,7 @@
 #  progress               :integer
 #  applications_count     :integer
 #  has_video              :boolean
+#  source_id              :integer
 #
 
 class User < ActiveRecord::Base

@@ -1,16 +1,15 @@
 # == Schema Information
 #
-# Table name: applications
+# Table name: sources
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  job_id     :integer
+#  type       :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require 'spec_helper'
 
-describe Application do
+describe Source do
   pending "add some examples to (or delete) #{__FILE__}"
 end

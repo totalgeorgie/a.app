@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122210903) do
+ActiveRecord::Schema.define(version: 20140128033954) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -138,6 +138,12 @@ ActiveRecord::Schema.define(version: 20140122210903) do
     t.datetime "updated_at"
   end
 
+  create_table "sources", force: true do |t|
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "user_city_relations", force: true do |t|
     t.integer  "user_id"
     t.integer  "city_id"
@@ -181,6 +187,7 @@ ActiveRecord::Schema.define(version: 20140122210903) do
     t.integer  "progress"
     t.integer  "applications_count"
     t.boolean  "has_video"
+    t.integer  "source_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
