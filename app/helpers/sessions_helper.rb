@@ -58,7 +58,7 @@ module SessionsHelper
   end
   
   def has_job(user,current_job)
-    user.jobs.any? ? user.jobs.include?(current_job) : false
+    user.applications.any? ? user.applications.any?{ |app| app.job == current_job } : false
   end  
   
   def admin_user 

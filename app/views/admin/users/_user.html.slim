@@ -28,8 +28,8 @@ tr
       i.glyphicon.glyphicon-remove
 
   td
-    - if user.jobs.any?
-      == select( "jobs", "job_id", user.jobs.collect {|p| [ p.job_title, p.id] })
+    - if user.applications.any?
+      == select( "jobs", "job_id", user.applications.collect {|p| [ p.job.job_title, p.job.id] })
     - else 
       i.glyphicon.glyphicon-remove
   td

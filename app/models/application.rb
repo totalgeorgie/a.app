@@ -32,7 +32,7 @@ class Application < ActiveRecord::Base
      job.questions.each do |question|
        application.answers.build(question_id: question.id)
      end
-
+     
      application
   end
 
@@ -64,9 +64,7 @@ class Application < ActiveRecord::Base
 
     potential += (3.0*user.common_app.progress/100)
 
-    (100.0 * potential / total).round
-
-
+    (100.0 * potential / total).round   
   end
 
  private
