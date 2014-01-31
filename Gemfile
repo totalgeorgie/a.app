@@ -73,6 +73,8 @@ end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+#For delayed job, and making this cheap for abe, use https://github.com/meskyanichi/hirefire
+
 # Use unicorn as the app server
 # gem 'unicorn'
 # Use Capistrano for deployment
