@@ -41,7 +41,7 @@ class Potential < ActiveRecord::Base
 
     potential += (3.0*user.common_app.progress/100)
 
-    (100.0 * potential / total).round
+    self.potential = (100.0 * potential / total).round
   end
 
 
