@@ -11,8 +11,8 @@
 #
 
 class Potential < ActiveRecord::Base
-  belongs_to :job
-  belongs_to :user
+#  belongs_to :job
+#  belongs_to :user
 
 
   def find_potential
@@ -41,7 +41,7 @@ class Potential < ActiveRecord::Base
 
     potential += (3.0*user.common_app.progress/100)
 
-    self.potential = (100.0 * potential / total).round
+    (100.0 * potential / total).round
   end
 
 
