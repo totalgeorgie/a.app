@@ -52,6 +52,7 @@ class User < ActiveRecord::Base
   has_many :applications, dependent: :destroy
   has_many :jobs, :through => :applications
 
+  has_many :potentials, :dependent => :destroy
 
   def create_common_app
     common_app = self.build_common_app

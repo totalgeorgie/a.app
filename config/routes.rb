@@ -1,5 +1,4 @@
 Atlas::Application.routes.draw do
-  resources :potentials
   
   resources :users do 
     resources :common_apps, only: [:new, :create, :update, :show, :edit, :destroy] #no index
