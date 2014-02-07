@@ -86,18 +86,18 @@ class User < ActiveRecord::Base
     users = users.where('users.name LIKE ?', "%#{params[:search]}%") if params[:search]
     users
   end
-  
+
   private
     def create_common_app
       common_app = self.build_common_app
       common_app.save!
     end
-    
+
     def set_heat_level
       self.heat_id = 3 # Id of normal 
       self.save!
     end
-    
+
     def set_customerio 
       user = self
       $customerio.identify(
@@ -110,7 +110,7 @@ class User < ActiveRecord::Base
         jobs_applied_to: user.applications.length
       )
     end
-    
+
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end
