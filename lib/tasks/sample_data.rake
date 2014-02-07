@@ -8,8 +8,8 @@ namespace :db do
     Heat.create!(level: "Low")
     Heat.create!(level: "Very Low")
     
-    Source.create!(type: "Referral")
-    Source.create!(type: "Site")
+    #Source.create!(type: "Referral")
+    #Source.create!(type: "Site")
 
     Industry.create!(name: "Law")
     Industry.create!(name: "Architecture")
@@ -25,7 +25,7 @@ namespace :db do
     Position.create!(name: "Accounting")
     Position.create!(name: "Management")
     User.create!(name: "Example User",
-                 email: "example@atlas-china.coom",
+                 email: "example@atlas-china.com",
                  password: "foobar",
                  password_confirmation: "foobar",
                  admin: true)
