@@ -69,6 +69,8 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
+gem "bootstrap-switch-rails" #to make it switchable with video
+
 # Use ActiveModel has_secure_password
 
 gem 'bcrypt-ruby', '~> 3.0.0'

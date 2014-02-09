@@ -17,9 +17,7 @@
 //= require bootstrap
 //= require select2
 //= require editable/bootstrap2-editable
-//= require editable/inputs-ext/wysihtml5
-//= require editable/inputs-ext/bootstrap-wysihtml5
-//= require editable/inputs-ext/wysihtml5-editable
 //= require editable/rails
+//= require bootstrap-switch
 //= require_tree .
 

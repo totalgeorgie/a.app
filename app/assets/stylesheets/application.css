@@ -11,5 +11,6 @@
  *= require_self
  *= require chosen
  *= require select2
+ *= require bootstrap2-switch
  *= require_tree .
  */
