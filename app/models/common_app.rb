@@ -60,15 +60,13 @@ class CommonApp < ActiveRecord::Base
 
    end
 
- private
-
+  private
   def set_progress
     current_progress = self.progress
-   unless self.user.progress == current_progress 
+    unless self.user.progress == current_progress 
       self.user.progress = current_progress
       self.user.save!
-   end
+    end
   end
-
 end
 

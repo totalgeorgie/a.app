@@ -28,7 +28,6 @@ class Application < ActiveRecord::Base
      application = self.new
 
      job = Job.find(job_id)
-
      job.questions.each do |question|
        application.answers.build(question_id: question.id)
      end
