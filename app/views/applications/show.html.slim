@@ -17,6 +17,8 @@
 	          	h3 #{answer.question.content} 
 	          	p 
 	          	  strong A: 
-	          	  | #{answer.content}
+	          	  | #{ answer.content unless answer.content.blank? }
+                - unless answer.video_uuid.blank? 
+                  video id='PlayVideo' data-uuid='#{ answer.video_uuid }'
 
 		== link_to "Edit Job Application", edit_job_application_path(:id => @application.id, :job_id => @application.job_id), :class => "button button_show_application"  
