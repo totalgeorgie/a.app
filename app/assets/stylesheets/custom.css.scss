@@ -827,12 +827,13 @@ div.fancy-select ul.options li.hover {
 	}
 }
 
+.highlight{
+	color:#08c;
+	font-weight:bold;
+}
+
 .video_app{
 	padding:30px 50px;
-	.highlight{
-		color:#08c;
-		font-weight:bold;
-	}
 	.button{
 		margin-top:10px;
 		text-transform:none;
@@ -973,6 +974,10 @@ margin-top:0px;
 	font-size: 22px;
 	text-transform:none;
 	font-weight:normal;
+	}
+	#PlayVideo{
+		margin: 0 auto;
+		margin-top: 61px;
 	}
 }
 

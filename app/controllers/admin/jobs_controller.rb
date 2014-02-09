@@ -7,8 +7,8 @@ class Admin::JobsController < ApplicationController
     2.times {
       @job.bullets.build
       @job.roles.build
-      @job.questions.build
     }  
+    @job.questions.build
   end
 
   def create

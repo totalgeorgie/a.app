@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
-#  video_cid  :string(255)
+#  video_uuid :string(255)
 #  question   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
@@ -19,7 +19,7 @@ class Video < ActiveRecord::Base
  after_destroy :set_customerio
 
  validates  :user_id, presence: true
- validates  :video_cid, :presence => {:message => "does not look to be saved. Please record and save your video."}
+ validates  :video_uuid, :presence => {:message => "does not look to be saved. Please record and save your video."}
 
  private
 

@@ -8,6 +8,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  content        :string(255)
+#  video_uuid     :string(255)
 #
 
 require 'spec_helper'

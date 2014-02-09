@@ -8,10 +8,16 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  content        :string(255)
+#  video_uuid     :string(255)
 #
 
 class Answer < ActiveRecord::Base
 	belongs_to :question
 	belongs_to :application
-	validates :content, presence: true
+  validate :video_or_answer
+
+  private
+  def video_or_answer
+    errors.add(:content, "You must either record a video or answer as text") if video_uuid.blank? && content.blank?
+  end
 end

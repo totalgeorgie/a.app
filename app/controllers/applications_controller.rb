@@ -9,6 +9,13 @@ class ApplicationsController < ApplicationController
   
   def create
     @application = Application.new(application_params)
+    i = 0
+    @application.answers.each do |answer| 
+      u = i.to_s.to_sym
+      answer.video_uuid = params[u][:video_uuid]
+      i += 1
+    end
+
     if @application.save
       redirect_to @user, :notice =>"You have now applied!"
     else
@@ -51,7 +58,9 @@ private
   end
 
   def application_params 
-     params.require(:application).permit(:id, :job_id, :user_id, answers_attributes:[:question_id, :content, :id]).merge(user_id: current_user.id, job_id: params[:job_id]) 
+     params.require(:application).permit(:id, :job_id, :user_id,
+                                        answers_attributes:[:question_id, :content, :id, :video_uuid]
+                                        ).merge(user_id: current_user.id, job_id: params[:job_id]) 
   end
 
    def correct_applicant

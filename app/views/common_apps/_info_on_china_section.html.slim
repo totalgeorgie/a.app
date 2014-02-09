@@ -19,8 +19,7 @@ hr
 .bottom_section
   - if @common_app.user.video
     h3 We have you're video! 
-    h4 Video Question : #{@common_app.user.video.question }
-    video id='PlayVideo' data-uuid="#{@common_app.user.video.video_cid}"
+    video id='PlayVideo' data-uuid="#{@common_app.user.video.video_uuid}"
   - else
     h3 You haven't made a video! click below to make one
     == link_to "Record a video", new_user_video_path(@user), class: "button button_video"

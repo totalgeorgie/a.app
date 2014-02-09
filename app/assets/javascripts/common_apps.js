@@ -78,5 +78,5 @@ jQuery(function($) {
 		$('.progress_title').text(user_name + "'s profile is " + progress_value + "% completed" )
 		$('.bar').css('width', progress_value + '%');
 	});
-
+	$('#video_yes_no').bootstrapSwitch('setSizeClass', 'switch-large');
 });

@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
-#  video_cid  :string(255)
+#  video_uuid :string(255)
 #  question   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
