@@ -19,7 +19,6 @@ class Video < ActiveRecord::Base
  after_destroy :set_customerio
 
  validates  :user_id, presence: true
- validates  :question, presence: true
  validates  :video_cid, :presence => {:message => "does not look to be saved. Please record and save your video."}
 
  private
