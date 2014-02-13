@@ -18,7 +18,7 @@
 class CommonApp < ActiveRecord::Base
   belongs_to :user
   validates :user_id, presence: true
-  after_save :set_progress 
+  after_update :set_progress 
 
   mount_uploader :resume, ResumeUploader
 
