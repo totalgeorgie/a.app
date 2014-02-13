@@ -67,7 +67,8 @@ module SessionsHelper
 
   #sorting
   def sort_user_column
-    User.column_names.concat(["grad_year"]).include?(params[:sort]) ? params[:sort] : "created_at"
+    all_columns = User.column_names + ["grad_year"]
+    all_columns.include?(params[:sort]) ? params[:sort] : "created_at"
   end
   
   def sort_job_column

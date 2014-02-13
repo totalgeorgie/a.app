@@ -12,9 +12,9 @@ class Admin::UsersController < ApplicationController
     if sort_user_column == "grad_year"
       @users = @users.joins(:common_app).order("common_apps.grad_year" + " " + sort_direction)
     else 
-      @users = @users.order( sort_user_column + " " + sort_direction)
+      @users = @users.order( "users." + sort_user_column + " " + sort_direction)
     end
-
+    
     @users = @users.paginate(page: params[:page], per_page: 20)
   end
 

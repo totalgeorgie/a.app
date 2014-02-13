@@ -43,7 +43,13 @@ class Job < ActiveRecord::Base
 
 
   def self.search(params)
-    jobs = Job.all
+    jobs = includes(:cities).includes(:positions)
+
+    city_id = params[:city_id].to_i if params[:city_id] && params[:city_id].to_i != 0 
+    position_id = params[:position_id].to_i if params[:position_id] && params[:position_id].to_i != 0 
+    
+    jobs = jobs.where("cities.id = ?", city_id).references(:cities) if city_id
+    jobs = jobs.where("positions.id = ?", position_id).references(:positions) if position_id
     jobs = jobs.where('job_title LIKE ?', "%#{params[:search]}%") if params[:search]
     jobs
   end

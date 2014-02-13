@@ -44,7 +44,7 @@ class Admin::JobsController < ApplicationController
     @cities = City.all
     @positions = Position.all
     @jobs = Job.search(params)
-    @jobs = @jobs.order(sort_job_column + " " + sort_direction)
+    @jobs = @jobs.order("jobs." + sort_job_column + " " + sort_direction)
     @jobs = @jobs.paginate(page: params[:page], per_page: 20)
   end
 
