@@ -10,7 +10,6 @@
 #
 
 class Bullet < ActiveRecord::Base
-	belongs_to :job
-	
+	belongs_to :job	
 	validates :bullet, presence: true
 end

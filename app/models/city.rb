@@ -14,5 +14,4 @@ class City < ActiveRecord::Base
 
  has_many :job_city_relations, :dependent => :destroy 
  has_many :jobs, :through => :job_city_relations
-
 end

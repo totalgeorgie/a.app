@@ -11,43 +11,16 @@
 #
 
 class Video < ActiveRecord::Base
- belongs_to :user
- after_create :user_has_video
- before_destroy :user_does_not_have_video
- after_save :set_progress 
- after_create :set_customerio
- after_destroy :set_customerio
+  after_create :user_video
+  before_destroy :user_video
+  belongs_to :user
+  validates  :user_id, presence: true
+  validates  :video_uuid, :presence => {:message => "does not look to be saved. Please record and save your video."}
 
- validates  :user_id, presence: true
- validates  :video_uuid, :presence => {:message => "does not look to be saved. Please record and save your video."}
-
- private
-
-  def user_has_video
-    self.user.has_video = true
-    self.user.save!
+  private
+  def user_video
+    user.toggle!(:has_video)
+    user.common_app.set_progress
   end
-
-  def user_does_not_have_video
-    self.user.has_video = false
-    self.user.save!
-  end
-
-  def set_progress
-   current_progress = self.user.common_app.progress
-   unless self.user.progress == current_progress 
-      self.user.progress = current_progress
-      self.user.save!
-   end
-  end
-  
-  def set_customerio
-    user = self.user
-    $customerio.identify(
-      id: user.id,
-      video: !user.video.nil?,
-    )
-  end
-
 end
 

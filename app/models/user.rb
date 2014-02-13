@@ -25,32 +25,29 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   after_create :create_common_app
   after_create :set_heat_level
-
   after_save :set_customerio
-  default_scope { order('users.created_at DESC') }
-
-  validates :name, presence: true, length: { maximum: 50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, 
-  			format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false }
-  
-  has_secure_password validations: false
-  
-  validates :password, length: { minimum: 6 }, allow_blank: true
-  validates :password, presence: true, on: :create
-
+ 
   belongs_to :heat
   belongs_to :source
 
   has_one :common_app, dependent: :destroy
+  
   has_many :cities, :through => :common_app
   has_many :positions, :through => :common_app
-
+  
   has_one :video, dependent: :destroy
-
+  
   has_many :applications, dependent: :destroy
   has_many :jobs, :through => :applications
+
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, 
+  			    format: { with: VALID_EMAIL_REGEX },
+            uniqueness: { case_sensitive: false } 
+  has_secure_password validations: false
+  validates :password, length: { minimum: 6 }, allow_blank: true
+  validates :password, presence: true, on: :create
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
@@ -78,41 +75,34 @@ class User < ActiveRecord::Base
   end
 
   def self.search(params)
-    city = City.find(params[:city_id]) if params[:city_id] && params[:city_id] != "0" && params[:city_id] != "" 
-    position = Position.find(params[:position_id]) if params[:position_id] && params[:position_id] != "0" && params[:position_id] != "" 
     users = User.all
-    users = users.includes(:cities).where(cities: { id: city }) if city
-    users = users.includes(:positions).where(positions: { id: position }) if position
     users = users.where('users.name LIKE ?', "%#{params[:search]}%") if params[:search]
     users
   end
 
-  private
-    def create_common_app
-      common_app = self.build_common_app
-      common_app.save!
-    end
+  private   
+  def create_common_app
+    CommonApp.create!(user_id: id)
+  end
 
-    def set_heat_level
-      self.heat_id = 3 # Id of normal 
-      self.save!
-    end
+  def set_heat_level
+    self.heat_id = 3 # Id of normal 
+    self.save!
+  end
 
-    def set_customerio 
-      user = self
-      $customerio.identify(
-        id: user.id,
-        created_at: user.created_at,
-        email: user.email,
-        full_name: user.name,
-        progress: user.progress,
-        video: !user.video.nil?,
-        jobs_applied_to: user.applications.length
-      )
-    end
+  def set_customerio 
+    $customerio.identify(id: id,
+                        created_at: created_at,
+                        email: email,
+                        full_name: name,
+                        progress:  progress,
+                        video: has_video,
+                        jobs_applied_to: applications_count
+                      )
+  end
 
-    def create_remember_token
-      self.remember_token = User.encrypt(User.new_remember_token)
-    end
+  def create_remember_token
+    self.remember_token = User.encrypt(User.new_remember_token)
+  end
 
 end

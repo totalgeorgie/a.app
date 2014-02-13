@@ -65,6 +65,7 @@ module SessionsHelper
     redirect_to root_path unless current_user.admin? 
   end
 
+  #sorting
   def sort_user_column
     User.column_names.concat(["grad_year"]).include?(params[:sort]) ? params[:sort] : "created_at"
   end

@@ -46,7 +46,7 @@
             h4 Video
           td  
             - if @common_app.user.video
-              video id='PlayVideo' data-uuid="#{@common_app.user.video.video_cid}"
+              video id='PlayVideo' data-uuid="#{@common_app.user.video.video_uuid}"
               p style="width:300px" #{@common_app.user.video.question }
             - else
               i class="icon-remove"

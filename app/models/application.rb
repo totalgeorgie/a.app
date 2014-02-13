@@ -10,39 +10,33 @@
 #
 
 class Application < ActiveRecord::Base
-	belongs_to :job, counter_cache: true
-	belongs_to :user, counter_cache: true
-
-  validates :job_id, presence: true 
-	validates :user_id, presence: true 
-
   after_create :set_customerio
   after_destroy :set_customerio
 
-  has_many :answers, dependent: :destroy
-  
-  accepts_nested_attributes_for :answers, allow_destroy: true
+  validates :job_id, presence: true 
+  validates :user_id, presence: true 
 
+	belongs_to :job, counter_cache: true
+	belongs_to :user, counter_cache: true
+  has_many :answers, dependent: :destroy
+  accepts_nested_attributes_for :answers, allow_destroy: true
     
   def self.build(job_id)
-     application = self.new
+    application = self.new
 
-     job = Job.find(job_id)
-     job.questions.each do |question|
-       application.answers.build(question_id: question.id)
-     end
+    job = Job.find(job_id)
+    job.questions.each do |question|
+      application.answers.build(question_id: question.id)
+    end
 
-     application
+    application
   end
 
- private
-
+  private
   def set_customerio
-    user = self.user
     $customerio.identify(
       id: user.id,
-      jobs_applied_to: user.applications.length
+      jobs_applied_to: user.applications_count
     )
   end
-
 end

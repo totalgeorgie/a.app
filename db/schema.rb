@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209065113) do
+ActiveRecord::Schema.define(version: 20140213044715) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.string   "video_uuid"
   end
 
+  add_index "answers", ["application_id", "question_id"], name: "answers_idx"
+
   create_table "applications", force: true do |t|
     t.integer  "user_id"
     t.integer  "job_id"
@@ -29,12 +31,16 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.datetime "updated_at"
   end
 
+  add_index "applications", ["user_id", "job_id"], name: "applications_idx"
+
   create_table "bullets", force: true do |t|
     t.integer  "job_id"
     t.string   "bullet"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "bullets", ["job_id"], name: "bullet_jobs_idx"
 
   create_table "cities", force: true do |t|
     t.string   "name"
@@ -49,6 +55,8 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.datetime "updated_at"
   end
 
+  add_index "common_app_city_relations", ["common_app_id", "city_id"], name: "app_city_idx"
+
   create_table "common_app_industry_relations", force: true do |t|
     t.integer  "common_app_id"
     t.integer  "industry_id"
@@ -56,12 +64,16 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.datetime "updated_at"
   end
 
+  add_index "common_app_industry_relations", ["common_app_id", "industry_id"], name: "app_industry_idx"
+
   create_table "common_app_position_relations", force: true do |t|
     t.integer  "common_app_id"
     t.integer  "position_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "common_app_position_relations", ["common_app_id", "position_id"], name: "app_pos_idx"
 
   create_table "common_apps", force: true do |t|
     t.integer  "user_id"
@@ -75,6 +87,8 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "common_apps", ["user_id"], name: "common_app_users_idx"
 
   create_table "heats", force: true do |t|
     t.string   "level"
@@ -95,6 +109,8 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.datetime "updated_at"
   end
 
+  add_index "job_city_relations", ["job_id", "city_id"], name: "job_city_idx"
+
   create_table "job_industry_relations", force: true do |t|
     t.integer  "job_id"
     t.integer  "industry_id"
@@ -102,12 +118,16 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.datetime "updated_at"
   end
 
+  add_index "job_industry_relations", ["job_id", "industry_id"], name: "job_industry_idx"
+
   create_table "job_position_relations", force: true do |t|
     t.integer  "job_id"
     t.integer  "position_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "job_position_relations", ["job_id", "position_id"], name: "job_pos_idx"
 
   create_table "jobs", force: true do |t|
     t.string   "job_title"
@@ -139,6 +159,8 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.string   "content"
   end
 
+  add_index "questions", ["job_id"], name: "questions_job_idx"
+
   create_table "roles", force: true do |t|
     t.integer  "job_id"
     t.string   "role_title"
@@ -147,36 +169,10 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.datetime "updated_at"
   end
 
+  add_index "roles", ["job_id"], name: "roles_job_idx"
+
   create_table "sources", force: true do |t|
     t.string   "from"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_city_relations", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "city_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_industry_relations", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "industry_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_position_relations", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "position_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_role_relations", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -195,11 +191,12 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.string   "admin_note"
     t.integer  "progress"
     t.integer  "applications_count"
-    t.boolean  "has_video"
+    t.boolean  "has_video",              default: false
     t.integer  "source_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["heat_id", "source_id"], name: "users_idx"
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "videos", force: true do |t|
@@ -209,5 +206,7 @@ ActiveRecord::Schema.define(version: 20140209065113) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "videos", ["user_id"], name: "videos_user_idx"
 
 end

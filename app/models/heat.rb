@@ -27,5 +27,4 @@ class Heat < ActiveRecord::Base
       "badge"
     end
   end
-
 end
