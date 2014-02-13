@@ -337,3 +337,26 @@ For later, if want to use sunspot rails
 
   Positions, cities, industries, heats 
 
+
+# 
+Things to test
+
+User signs up, and is created
+After a user is created, a common app is also created
+it should have a heat id of 2
+it should have a progress of 7
+
+Common App
+After a common app is updated, user.progress should update by x %
+
+Video
+A video is created
+After a video is created, it should update user.progress and has_video
+
+User
+Can apply to jobs
+can update job applications
+
+User can make video
+User can not apply to the same job
+

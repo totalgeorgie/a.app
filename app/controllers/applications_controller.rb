@@ -8,7 +8,8 @@ class ApplicationsController < ApplicationController
   end
   
   def create
-    set_video_uuid
+    @application = Application.new(application_params)
+    set_video_uuid(@application)
     if @application.save
       redirect_to @user, :notice =>"You have now applied!"
     else
@@ -21,7 +22,7 @@ class ApplicationsController < ApplicationController
   end
 
   def update
-    set_video_uuid
+    set_video_uuid(@application)
     if @application.update(application_params)
       redirect_to @user, :notice => "You have updated your application!"
     else
@@ -46,9 +47,9 @@ class ApplicationsController < ApplicationController
 
 private
   
-  def set_video_uuid
-     i = 0
-    @application.answers.each do |answer| 
+  def set_video_uuid(application)
+    i = 0
+    application.answers.each do |answer| 
       u = i.to_s.to_sym
       answer.video_uuid = params[u][:video_uuid] if params[u][:video_uuid].length > 1
       i += 1

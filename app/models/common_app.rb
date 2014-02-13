@@ -47,7 +47,7 @@ class CommonApp < ActiveRecord::Base
     total_completed += 1 if cities.any?
     total_completed += 1 if positions.any?
     total_completed += 1 if industries.any?
-    total_completed += 2 if user.video
+    total_completed += 2 if user.has_video
 
     (100.0*total_completed/total_questions).round
   end

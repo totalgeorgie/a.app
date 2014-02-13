@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   after_create :create_common_app
-  after_create :set_heat_level
   after_save :set_customerio
  
   belongs_to :heat
@@ -84,12 +83,7 @@ class User < ActiveRecord::Base
   def create_common_app
     CommonApp.create!(user_id: id)
   end
-
-  def set_heat_level
-    self.heat_id = 3 # Id of normal 
-    self.save!
-  end
-
+  
   def set_customerio 
     $customerio.identify(id: id,
                         created_at: created_at,
