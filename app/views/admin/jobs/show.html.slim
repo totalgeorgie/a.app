@@ -33,7 +33,7 @@
 
                   .tab-content
                     .tab-pane.fade.in.active#applicants
-                      - if @job.applications.any?
+                      - if @applications
                         == render 'applicants'
                         == will_paginate(@applications)
                       - else 

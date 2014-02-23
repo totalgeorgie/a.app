@@ -6,8 +6,7 @@
   	    .span12
   	    	.profile_header
   	  	        h2 Companies in China are looking for you. Why haven’t they found you?
-
-.container
+.container 
   .row
     .span12
       .blog_container.sign_up_page
@@ -17,6 +16,7 @@
             == render 'fields', f: f
             #submit
               == f.submit "Create my account", class: "button"
+              
           span.guarantee All information that you send us is secured, and will not be shared with third party advertisers. We value your trust in us.
         == render 'how_it_works'
             
