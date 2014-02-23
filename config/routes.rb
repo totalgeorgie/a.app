@@ -1,9 +1,9 @@
 Atlas::Application.routes.draw do
-  
   resources :users do 
     resources :common_apps, only: [:new, :create] 
     resources :videos, only: [:new, :create] 
   end
+
   resources :common_apps, except: [:new, :create, :index]
   resources :common_apps, except: [:new, :create, :index]
 
@@ -12,14 +12,12 @@ Atlas::Application.routes.draw do
   end
 
   resources :applications, except: [:new, :create, :index]
-
   resources :sessions, only: [:new, :create, :destroy]
-  resources :password_resets
+  resources :password_resets, only: [:new, :create, :edit, :update]
   
   namespace :admin do 
-    resources :users
-    resources :jobs
-    resources :applications
+    resources :users, only: :show
+    resources :jobs,  only: :show
     get '', to: 'users#index', as: '/'
   end
 
