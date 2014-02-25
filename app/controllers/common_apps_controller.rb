@@ -35,7 +35,7 @@ class CommonAppsController < ApplicationController
 
     def correct_common_app
       @common_app = CommonApp.find(params[:id])
-      redirect_to user_common_app_path(current_user, current_user.common_app) unless current_user.common_app == @common_app || current_user.admin? 
+      redirect_to common_app_path(current_user.common_app) unless current_user.common_app == @common_app || current_user.admin? 
     end
     
     def common_app_params
