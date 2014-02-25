@@ -5,6 +5,7 @@ module SessionsHelper
     user.update_attribute(:remember_token, User.encrypt(remember_token))
     self.current_user = user
   end
+
   def signed_in?
     !current_user.nil?
   end
@@ -14,7 +15,7 @@ module SessionsHelper
   end
 
   def current_user
-    remember_token = User.encrypt(cookies[:remember_token])
+    return nil unless cookies[:remember_token]
     @current_user ||= User.find_by(remember_token: remember_token)
   end
 
@@ -48,6 +49,10 @@ module SessionsHelper
     @user ||= User.find(params[:id])
     redirect_to current_user unless current_user?(@user) || current_user.admin? 
   end
+  
+  def admin_user 
+    redirect_to root_path unless (signed_in? && current_user.admin?)
+  end
 
   def root_path_helper
     if signed_in? 
@@ -57,12 +62,12 @@ module SessionsHelper
     end
   end
   
-  def has_job(user,current_job)
+  def has_job(user, current_job)
     user.applications.any? ? user.applications.any?{ |app| app.job == current_job } : false
   end  
-  
-  def admin_user 
-    redirect_to root_path unless current_user.admin? 
+
+  def cities
+    @cities ||= City.all
   end
 
   #sorting
@@ -91,5 +96,10 @@ module SessionsHelper
     css_class = column == sort_job_column ? "current #{sort_direction}" : nil
     direction = column == sort_job_column && sort_direction == "desc" ? "asc" : "desc"
     link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
+  end
+
+  private
+  def remember_token
+    User.encrypt(cookies[:remember_token])
   end
 end

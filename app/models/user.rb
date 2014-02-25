@@ -21,12 +21,22 @@
 #
 
 class User < ActiveRecord::Base
-  default_scope order('users.id DESC') 
+  default_scope { order('users.id DESC') } 
+
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, 
+    format: { with: VALID_EMAIL_REGEX },
+    uniqueness: { case_sensitive: false } 
+  has_secure_password validations: false
+  validates :password, length: { minimum: 6 }, allow_blank: true
+  validates :password, presence: true, on: :create
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   after_create :create_common_app
   after_save :set_customerio
-  
+
   belongs_to :heat
   belongs_to :source
 
@@ -39,15 +49,6 @@ class User < ActiveRecord::Base
   
   has_many :applications, dependent: :destroy
   has_many :jobs, :through => :applications
-
-  validates :name, presence: true, length: { maximum: 50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, 
-  			    format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false } 
-  has_secure_password validations: false
-  validates :password, length: { minimum: 6 }, allow_blank: true
-  validates :password, presence: true, on: :create
 
   def self.new_remember_token
     SecureRandom.urlsafe_base64

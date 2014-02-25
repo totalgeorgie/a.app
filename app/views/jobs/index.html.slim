@@ -1,29 +1,26 @@
 - provide(:title, 'All Jobs')
 
-.thinstripe_career
-  .darken
-  	.container
-  	  .row
-  	    .span10.offset1
-  	      .jobs_header
-  	        .row
-  	          .span7
-  	  	        h2 All #{@city.name if @city} #{@position.name if @position} Jobs
-  	  	      .span3
-  	  	        == link_to("Sign up for Job Alerts!", signup_path, :class => "button") unless signed_in?
+== thinstripe("thinstripe", "Obtain Your Dream Position With Atlas")
 
 .container
   .row
-    .span10.offset1
+    .span12
       == render 'job_search'
-      ul.jobs
-        - if @jobs.any?
-          == render @jobs
-          == will_paginate
-        - else
-          li.not_found
-            h2 No jobs found.
-            p There are currently no jobs for these combinations.
+
+.second_container
+  .container
+    .row
+      .span12
+        ul.jobs
+          - if @jobs.any?
+            == render @jobs
+            == will_paginate
+          - else
+            li.not_found
+              h2.container_header No jobs found.
+              p There are currently no jobs for these combinations.
+              .center_button
+                == link_to "Sign up to get updated when we get new jobs", signup_url, class: "atlas_button"
 
 
 

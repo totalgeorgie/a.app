@@ -3,27 +3,19 @@
     .span2
       .side_info
         .side_title
-          h4 == job.industries.first.name if job.industries.any?
+          h4 == job.industries.first.name
         .location
           ul.opp_location
             - if job.cities.any?
               - job.cities.each do | city |
                li == city.name
 
-    .span6
+    .span7
       .main_info
-        h2 == link_to job.job_title, job   
-        / span.positions
+        h3 == link_to job.job_title, job
+        p == job.job_summary
 
-
-		p == job.job_summary 
-	    - if  current_user && current_user.admin? 
-	      p 
-	        | Admin Options: 
-	        == link_to "Edit Job / ", edit_admin_job_path(job) 
-	        == link_to "Delete Job", admin_job_path(job), method: :delete, data: { confirm: "You sure?" }
-
-	.span2
-	  .apply
-	    == link_to "Apply Now", job, :class => "button search_button"
-	    p.full_desc == link_to "See full description", job
+  	.span3
+  	  .apply
+  	    == link_to "Apply Now", job, :class => "atlas_button light_gray"
+  	    p.full_desc == link_to "See full description", job

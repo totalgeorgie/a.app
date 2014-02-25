@@ -12,8 +12,8 @@
 	               li == city.name
 	    .span4
 	      .main_info 
-	        h2 == link_to @job.job_title, @job   
-
+	        h3 == link_to @job.job_title, @job   
+	
 	p == @job.job_summary
 	- if @job.bullets.any?
 	  p You will:

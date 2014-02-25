@@ -1,22 +1,15 @@
 - provide(:title, "#{@job.job_title}") 
-/ might want to change thinstripe_career with thinstripe_jobs_show or something like that
-.thinstripe_career 
-  .darken
-  	.container
-  	  .row
-  	    .span12
-  	      .jobs_header
-  	  	        h2 Apply to #{ @job.job_title }
+== thinstripe("thinstripe", "Apply to #{@job.job_title}")
 
 .container
   .blog_container
     .row
       .span6
 	      == render "jobs/single_opp"
-  	  .span6
-  	    .apply_now
-  	      .apply_padding
-  	  	    - if signed_in? 
+      .span6
+        .apply_now
+          .apply_padding
+            - if signed_in? 
               - if @user.admin?
                 == link_to "Edit this job", edit_admin_job_path(@job), :class => "button admin_edit_job"
               - else
@@ -25,5 +18,4 @@
                 - else 
                   == render "jobs/apply_to_job"
             - else
-            	  == render "new_user"
-
+                == render "new_user"
