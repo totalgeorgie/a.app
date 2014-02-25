@@ -1,7 +1,7 @@
 Atlas::Application.routes.draw do
   resources :users do 
-    resources :common_apps, only: [:new, :create] 
-    resources :videos, only: [:new, :create] 
+    resource :common_app, only: [:index, :new, :create] 
+    resources :videos, only: [:index, :new, :create] 
   end
 
   resources :common_apps, except: [:new, :create, :index]
