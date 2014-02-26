@@ -594,8 +594,9 @@ div.fancy-select ul.options li.hover {
 
 
 footer{
-  float:left;
+  position:absolute;
   width:100%;
+  bottom:0;
   background-color:$atlasblack;
   padding-top:30px;
   padding-bottom:20px;
