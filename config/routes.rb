@@ -26,5 +26,5 @@ Atlas::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
-  match '/blurb',  to: 'jobs#blurb',            via: 'get'
+  match '/blurb',   to: 'jobs#blurb',           via: 'get'
 end
