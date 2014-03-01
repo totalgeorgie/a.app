@@ -5,7 +5,8 @@ class VideosController < ApplicationController
 
   def new
     if @user.video
-      redirect_to edit_user_video_path(@user, @user.video), :notice => "You already created your video. Submit this form to replace your video"
+      redirect_to edit_user_video_path(@user, @user.video), 
+        :notice => "You already created your video. Submit this form to replace your video"
     else
       @video = @user.build_video
     end
@@ -22,7 +23,8 @@ class VideosController < ApplicationController
   end
 
   def show
-    redirect_to new_user_video_path(@user), notice: "Looks like you haven't made your video yet! Fill it in below." unless @video.present?
+    redirect_to new_user_video_path(@user), 
+      notice: "Looks like you haven't made your video yet! Fill it in below." unless @video.present?
   end   
 
 
@@ -43,7 +45,9 @@ class VideosController < ApplicationController
   private
     def correct_video
       @video = Video.find(params[:id])
-      redirect_to user_video_path(current_user, current_user.video) unless current_user.video == @video || current_user.admin? 
+      unless current_user.video == @video || current_user.admin? 
+        redirect_to user_video_path(current_user, current_user.video)
+      end
     end
 
     def video_params

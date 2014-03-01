@@ -1,4 +1,12 @@
 class JobsController < ApplicationController
+  before_action :load_data, only: :index
+
+  def index    
+    @jobs = Job
+      .with_cities(city)
+      .paginate(page: params[:page], per_page: 5)
+  end
+
   def show 
     @job = Job
       .includes(:industries)
@@ -10,10 +18,14 @@ class JobsController < ApplicationController
     @user = User.new 
   end
 
-  def index 
+  private
+  def load_data
     @cities = City.all
-    @positions = Position.all    
-    @jobs = Job.search(params)
-      .paginate(page: params[:page], per_page: 5)
+    @positions = Position.all
   end
+
+  def city
+    @city ||= City.find(params[:city_id]) unless params[:city_id].blank?
+  end
+
 end
