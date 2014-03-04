@@ -6,21 +6,21 @@ module SessionsHelper
     self.current_user = user
   end
 
-  def signed_in?
-    !current_user.nil?
+  def current_user
+    return nil unless cookies[:remember_token]
+    @current_user ||= User.find_by(remember_token: remember_token)
   end
 
   def current_user=(user)
     @current_user = user
   end
 
-  def current_user
-    return nil unless cookies[:remember_token]
-    @current_user ||= User.find_by(remember_token: remember_token)
-  end
-
   def current_user?(user)
     user == current_user
+  end
+
+  def signed_in?
+    !current_user.nil?
   end
 
   def sign_out
@@ -28,7 +28,7 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
   
-  def redirect_back_or(default) # this creates friendly forwarding for the app
+  def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     session.delete(:return_to)
   end
@@ -44,6 +44,15 @@ module SessionsHelper
     end
   end
   
+  def has_job?(user, current_job)
+    user.jobs.any? { |job| job == current_job }
+  end  
+
+
+
+
+
+
   def correct_user
     @user = User.find(params[:user_id]) if params[:user_id] # For nested association
     @user ||= User.find(params[:id])
@@ -61,10 +70,6 @@ module SessionsHelper
       root_path
     end
   end
-  
-  def has_job(user, current_job)
-    user.applications.any? ? user.applications.any?{ |app| app.job == current_job } : false
-  end  
 
   def cities
     @cities ||= City.all

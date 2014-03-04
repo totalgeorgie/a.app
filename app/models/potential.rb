@@ -43,6 +43,4 @@ class Potential < ActiveRecord::Base
 
     (100.0 * potential / total).round
   end
-
-
 end

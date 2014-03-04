@@ -1,34 +1,34 @@
 .opp.single_opp
-	.single_cover
-	  .row
-	    .span2
-	      .side_info
-	        .side_title
-	          h4 == @job.industries.first.name if @job.industries.any?
-	        .location
-	          ul.opp_location
-	            - if @job.cities.any?
-	              - @job.cities.each do | city |
-	               li == city.name
-	    .span4
-	      .main_info 
-	        h3 == link_to @job.job_title, @job   
-	
-	p == @job.job_summary
-	- if @job.bullets.any?
-	  p You will:
-	  ul.resp
-	   - @job.bullets.each do |point| 
-	    li == point.bullet
+  .single_cover
+    .title_header
+      .row
+        .span2
+          .side_info
+            .side_title
+              h4 == @job.industries.first.name
+            .location
+              ul.opp_location
+                - @job.cities.each do | city |
+                  li == city.name
+        .span4
+          .main_info 
+            p == @job.job_summary  
+    
+  	.opp_header
+    	h2 You will 
 
-	.opp_header
-	  h2 Qualifications
-	p == @job.qualifications
-
-	.opp_header
-	  h2 Roles
-	- if @job.roles.any?
-	  - @job.roles.each do | role | 
-	    h4 == role.role_title
-	    ul.main_resp
-	      li == role.role_desc
+    ul.resp
+    - @job.bullets.each do |point|
+      li == point.bullet
+    
+    .opp_header
+      h2 Qualifications
+    
+    p == @job.qualifications
+    .opp_header
+      h2 Roles
+    
+    - @job.roles.each do | role|
+        h4 == role.role_title
+        ul.resp
+          li == role.role_desc

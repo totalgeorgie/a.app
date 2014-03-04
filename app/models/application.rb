@@ -16,15 +16,16 @@ class Application < ActiveRecord::Base
   validates :job_id, presence: true 
   validates :user_id, presence: true 
 
-	belongs_to :job, counter_cache: true
-	belongs_to :user, counter_cache: true
+  belongs_to :job, counter_cache: true
+  belongs_to :user, counter_cache: true
   has_many :answers, dependent: :destroy
-  accepts_nested_attributes_for :answers, allow_destroy: true
+  
+  accepts_nested_attributes_for :answers,
+   allow_destroy: true
     
-  def self.build(job_id)
+  def self.build(job)
     application = self.new
 
-    job = Job.find(job_id)
     job.questions.each do |question|
       application.answers.build(question_id: question.id)
     end

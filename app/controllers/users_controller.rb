@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, except: [:new, :create]
-  before_action :correct_user,
+  before_action :correct_user,   except: [:new, :create]
   
   def new
     redirect_to current_user if current_user

@@ -4,18 +4,14 @@
 .container
   .blog_container
     .row
-      .span6
-	      == render "jobs/single_opp"
-      .span6
-        .apply_now
-          .apply_padding
-            - if signed_in? 
-              - if @user.admin?
-                == link_to "Edit this job", edit_admin_job_path(@job), :class => "button admin_edit_job"
-              - else
-                - if has_job(@user, @job)
-                  == render "jobs/already_applied"
-                - else 
-                  == render "jobs/apply_to_job"
+      .span7
+        == render "jobs/single_opp"
+      .span5
+        .apply_now.side_box.clearfix
+          - if signed_in? 
+            - if @user.admin?
+              == link_to "Edit this job", edit_admin_job_path(@job), :class => "atlas_button"
             - else
-                == render "new_user"
+                == render has_job?(@user, @job) ? "jobs/already_applied" : "jobs/apply_to_job"
+          - else
+              == render "new_user"

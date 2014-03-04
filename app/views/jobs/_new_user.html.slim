@@ -1,5 +1,9 @@
-h2 Sign up to apply now!
+.content-header
+  h3 Sign up to apply now
 
 == form_for @user, :html => { id: "new_user_at_job_show" } do |f|
-  == render 'users/fields', f: f
-  == f.submit "Create my account", class: "button" 
+  == render 'shared/error_messages', object: @user 
+  == f.text_field :name, placeholder: "Your Full Name", class: "name"
+  == f.text_field :email, placeholder: "Your Email Address", class: "email"
+  == f.password_field :password, placeholder: "Create Password", class: "pass"
+  == f.submit "Create my account", class: "atlas_button box_button"

@@ -50,6 +50,14 @@ class Job < ActiveRecord::Base
     allow_destroy:  true
 
   scope :with_cities, ->(city) do
-   includes(:cities).where(cities: { id: city })  if city 
+    job =  Job
+      .includes(:industries)
+      .includes(:cities)
+      .includes(:bullets)
+      .includes(:roles)
+    
+    job = job.where(cities: { id: city })  if city 
+
+    job
   end
 end

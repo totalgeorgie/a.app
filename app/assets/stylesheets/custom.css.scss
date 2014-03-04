@@ -34,17 +34,17 @@ $atlaslightblue:#f2f7fa;
 $atlassuperlightwhite: #f9f9f9;
 
 body{
-	background-color:$atlaswhite;
+  background-color:$atlaswhite;
   height:100%;
 }
 
 h1, h2, h3, h4, p, li, span, a, input {
-	-webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 h2,h3{
-	font-family:'HelveticaNeueW01-57Cn';
-	font-weight:normal;
+  font-family:'HelveticaNeueW01-57Cn';
+  font-weight:normal;
   a{
     &:hover{
       text-decoration:none;
@@ -53,19 +53,19 @@ h2,h3{
   }
 }
 a{
-	color:$atlasred;
+  color:$atlasred;
 }
 
 p{
-	font-size:16px;
-	color:$atlasblack;
-	line-height:1.6;
-	margin-bottom:20px;
+  font-size:16px;
+  color:$atlasblack;
+  line-height:1.6;
+  margin-bottom:20px;
 }
 
 
 header{
-	float:left;
+  float:left;
   .brand{
     float:left;
     width:100%;
@@ -510,7 +510,11 @@ div.fancy-select ul.options li.hover {
   list-style-type:none;
   margin:0;
 }
-
+/*.title_header{
+  border-bottom:2px dotted $atlasdarkerwhite;
+  padding-bottom:10px;
+  margin-bottom:10px;
+}*/
 .opp{
   margin:15px 0;
   border-bottom:2px dotted $atlasdarkerwhite;
@@ -617,13 +621,6 @@ footer{
   width:100%;
   padding:20px;
 
-  .single_cover{
-    float:left;
-    width:100%;
-    border-bottom:2px dotted $atlasdarkerwhite;
-    margin-bottom:15px;
-    padding-bottom:15px;
-  }
   p{
     font-size:16px;
   }
@@ -700,4 +697,45 @@ footer{
   }
 
 }
+input.name, input.email, input.pass{
+  float:left;
+  width:96%;
+  margin-bottom:20px;
+  padding:10px 2%;
 
+}
+
+.box_button{
+    font-family:$condensed;
+    float: left;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+}
+
+input[type="submit"] {
+  width:100%;
+}
+
+.apply_now{
+  textarea{
+    width:96%;
+  }
+  .tabe-pane{
+    float:left;
+    width:100%;
+  }
+}
+
+.side_box{
+  background-color:$purewhite;
+  padding:10px;
+  margin-bottom:20px;
+  .content-header{
+    margin-top:0;
+    h3{
+      color:$atlasred;
+      margin-top:0;
+    }
+  }
+}

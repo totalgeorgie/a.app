@@ -14,6 +14,7 @@ class JobsController < ApplicationController
       .includes(:bullets)
       .includes(:roles)
       .find(params[:id])
+
     @application = Application.build(@job)
     @user = User.new 
   end
@@ -27,5 +28,4 @@ class JobsController < ApplicationController
   def city
     @city ||= City.find(params[:city_id]) unless params[:city_id].blank?
   end
-
 end
