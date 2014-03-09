@@ -8,15 +8,11 @@ class JobsController < ApplicationController
   end
 
   def show 
-    @job = Job
-      .includes(:industries)
-      .includes(:cities)
-      .includes(:bullets)
-      .includes(:roles)
-      .find(params[:id])
-
+    @job = Job.with_info.find(params[:id])    
+    
+    @user = current_user || User.new
     @application = Application.build(@job)
-    @user = User.new 
+    
   end
 
   private

@@ -1,25 +1,21 @@
 .content-header
-  h3 Sign up to apply now
-
-== form_for [@job, @application]  do |f|
-  == render 'shared/error_messages', object: f.object
-  
-  == f.fields_for :answers do |a|
-    - question = a.object.question
-    
-    == a.label :content, question.content, class: "highlight"
-    ul.nav.nav-tabs#tabs
-      li class="active"
-        a href="#video-#{question.id}" data-toggle="tab" Answer With Video
-      li
-        a href="#text-#{question.id}" data-toggle="tab" Answer With Text
-    
-    .tab-content
-      .tab-pane.fade.in.active.pagination-centered id="video-#{question.id}"
-        camera id="AtlasApp-#{question.id}" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="AtlasApp-#{question.id}"
+  h3 Apply now #{current_user.name}!
+  == form_for [@job, @application]  do |f|
+    == render 'shared/error_messages', object: f.object
+    == f.fields_for :answers do |a|
+      - i = a.options[:child_index]
+      - question = a.object.question
+      == a.label :content, question.content, class: "question_label"
+      ul.nav.nav-tabs#tabs
+        li class="active"
+          a href="#video-#{i}" data-toggle="tab" Answer With Video
+        li
+          a href="#text-#{i}" data-toggle="tab" Answer With Text
       
-      .tab-pane.fade.in id="text-#{question.id}"
-        == a.text_area :content
+      .tab-content
+        .tab-pane.fade.in.active.pagination-centered id="video-#{i}"
+          camera id="AtlasApp-#{i}" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="#{i}" class="dataVid"
+        .tab-pane.fade.in id="text-#{i}"
+          == a.text_area :content, :rows => "3"
 
-    == a.hidden_field :question_id, value: question.id
-  == f.submit "Create My Application!", class: "atlas_button box_button" 
+    == f.submit "Create My Application!", class: "atlas_button box_button",  id: "video_submit"

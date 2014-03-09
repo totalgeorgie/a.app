@@ -14,10 +14,4 @@
 class Answer < ActiveRecord::Base
 	belongs_to :question
 	belongs_to :application
-  validate :video_or_answer
-
-  private
-  def video_or_answer
-    errors.add(:content, "You must either record a video or answer as text") if video_uuid.blank? && content.blank?
-  end
 end

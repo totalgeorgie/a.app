@@ -1,5 +1,14 @@
 == README
 
+What should be done
+
+A user is going to be able to sign up by applying. They will be able to enter their resume 
+
+This will automatically create their common app, and associate them to a job 
+
+
+
+
 == What has been done 
 
 - Set up users

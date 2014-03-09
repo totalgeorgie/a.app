@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Atlas China #{@user.name}!"
-      redirect_to @user
+      redirect_back_or @user
     else
       render :new
     end
@@ -34,6 +34,6 @@ class UsersController < ApplicationController
   def user_params
     params
       .require(:user)
-      .permit(:name, :email, :password, :password_confirmation)
+      .permit(:name, :email, :password)
   end
 end

@@ -1,0 +1,20 @@
+== form_for [@job, @application]  do |f|
+  == render 'shared/error_messages', object: f.object
+  - f.questions.each_with_index do |question, idx|
+  == f.fields_for :answers do |a|
+    - question = a.object.question
+    == a.label :content, question.content, class: "highlight"
+    ul.nav.nav-tabs#tabs
+      li class="active"
+        a href="#video-#{question.id}" data-toggle="tab" Answer With Video
+      li
+        a href="#text-#{question.id}" data-toggle="tab" Answer With Text
+    
+    .tab-content
+      .tab-pane.fade.in.active.pagination-centered id="video-#{question.id}"
+        camera id="AtlasApp-#{question.id}" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="#{i}"
+        - i += 1
+      .tab-pane.fade.in id="text-#{question.id}"
+        == a.text_area :content, :rows => "3"
+  == f.hidden_field :num_of_answers, value: i
+  == f.submit "Create My Application!", class: "atlas_button box_button" 

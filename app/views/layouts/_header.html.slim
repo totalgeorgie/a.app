@@ -11,6 +11,7 @@
               li == link_to "Admin Dashboard", admin_url
             - else
               li == link_to "Profile", current_user
+              li == link_to "Sign Out", signout_path, method: :delete
           - else
             li == link_to "Apply Now!", signup_url
           li == link_to "Jobs", root_url

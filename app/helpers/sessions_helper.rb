@@ -1,4 +1,5 @@
 module SessionsHelper
+  
   def sign_in(user)
     remember_token = User.new_remember_token
     cookies.permanent[:remember_token] = remember_token
@@ -20,7 +21,7 @@ module SessionsHelper
   end
 
   def signed_in?
-    !current_user.nil?
+    current_user.present?
   end
 
   def sign_out
@@ -44,8 +45,8 @@ module SessionsHelper
     end
   end
   
-  def has_job?(user, current_job)
-    user.jobs.any? { |job| job == current_job }
+  def has_job?(current_user, current_job)
+    current_job.users.any? { |user| user == current_user }
   end  
 
 

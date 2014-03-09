@@ -13,12 +13,12 @@ Atlas::Application.routes.draw do
 
   resources :applications, except: [:new, :create, :index]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :password_resets, except: [:show, :index]
   
   namespace :admin do 
-    resources :users, only: :show
-    resources :jobs,  only: :show
     get '', to: 'users#index', as: '/'
+    resources :users, only: :show
+    resources :jobs,  except: :show
   end
 
   root  "jobs#index"

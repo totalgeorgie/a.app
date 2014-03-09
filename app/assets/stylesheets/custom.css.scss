@@ -739,3 +739,17 @@ input[type="submit"] {
     }
   }
 }
+
+#error_explanation{
+  float:left;
+  width:100%;
+}
+
+.question_label{
+  float:left;
+  width:100%;
+  padding:10px 0;
+  color:$atlasblack;
+  font-size:18px;
+  font-family:$condensed;
+}

@@ -1,77 +1,53 @@
 class ApplicationsController < ApplicationController
-
-  before_action :set_user_and_job
   before_action :signed_in_user
-  before_action :correct_applicant, only: [:show, :edit, :update]  
+  # before_action :correct_applicant, only: [:show, :edit, :update]  
 
-  def new
-  end
-  
   def create
-    @application = Application.new(application_params)
-    set_video_uuid(@application)
+    @job = Job.with_info.find(params[:job_id])
+    @user = current_user
+    @application = @user.applications.new(application_params)
+    @application.job_id = @job.id
+
     if @application.save
-      redirect_to @user, :notice =>"You have now applied!"
+      flash[:success] = "You've Successfully applied!"
+      redirect_to @user
     else
+      update_answers
       render 'jobs/show'
     end
   end
 
+  # def edit 
+  # end
 
-  def edit 
-  end
+  # def update
+  #   if @application.update(application_params)
+  #     redirect_to @user, :notice => "You have updated your application!"
+  #   else
+  #     render :action => 'new'
+  #   end
+  # end
 
-  def update
-    set_video_uuid(@application)
-    if @application.update(application_params)
-      redirect_to @user, :notice => "You have updated your application!"
-    else
-      render :action => 'new'
-    end
-  end
+  # def destroy
+  #   Application.find(params[:id]).destroy
+  #   flash[:success] = "Application Deleted."
+  #   redirect_to @user 
+  # end 
 
-  def destroy
-    Application.find(params[:id]).destroy
-    flash[:success] = "Application Deleted."
-    redirect_to @user 
-  end 
-
-  def show 
-    @answers = []
-    @job.questions.each do |question|
-      @application.answers.each do |answer|
-        @answers << answer if answer.question_id == question.id
-      end
-    end
-  end
-
-private
-  
-  def set_video_uuid(application)
-    i = 0
-    application.answers.each do |answer| 
-      u = i.to_s.to_sym
-      answer.video_uuid = params[u][:video_uuid] if params[u][:video_uuid].length > 1
-      i += 1
-    end 
-  end
-
-  def set_user_and_job
-      @user = current_user if current_user
-      @job = Job.find(params[:job_id])
-  end
-
+  private
   def application_params 
-     params.require(:application).permit(:id, :job_id, :user_id,
-                                        answers_attributes:[:question_id, :content, :id, :video_uuid]
-                                        ).merge(user_id: current_user.id, job_id: params[:job_id]) 
+     params
+      .require(:application)
+      .permit(answers_attributes: [:question_id, :content, :id, :video_uuid])
   end
 
-   def correct_applicant
-    @application = Application.find(params[:id])
-    @user = @application.user
-    redirect_to current_user unless current_user?(@user) || current_user.admin? 
+  def update_answers
+    @application = Application.build(@job, @application) if @application.answers.empty?
   end
-   
+
+  # def correct_applicant
+  #   @application = Application.find(params[:id])
+  #   redirect_to current_user unless (current_user?(@application.user) || current_user.admin?)
+  # end  
 end
 
