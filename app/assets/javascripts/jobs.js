@@ -2,7 +2,7 @@ jQuery(function($){
 	$('#new_application').on('submit', function(event){
 		var $form = $(this);
 		var num_questions = parseInt($form.find('#questions_count').val());
-		debugger
+		
 		for (var i = 0; i < num_questions; i++) {
 			var video_uuid = $form.find('#' + i + "_video_uuid").val();
 			if (!!video_uuid) {
