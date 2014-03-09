@@ -33,7 +33,7 @@ $purewhite: #fff;
 $atlaslightblue:#f2f7fa;
 $atlassuperlightwhite: #f9f9f9;
 
-body{
+html, body{
   background-color:$atlaswhite;
   height:100%;
 }
@@ -597,13 +597,26 @@ div.fancy-select ul.options li.hover {
   }
 }
 
+#wrapper{
+    display: table;
+    height: 100%;
+    width: 100%;
+}
 
 footer{
-  background-color:$atlasblack;
-  padding-top:30px;
-  padding-bottom:20px;
-
+  display: table-row;
+  height: 1px;
+  background: image-url("footerbg.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  .overlay{
+    background-color:rgba(21, 21, 21, 0.85);
+  }
+  
   ul{
+    padding:30px 0;
     list-style-type:none;
   }
   a, p{
@@ -744,12 +757,16 @@ input[type="submit"] {
   float:left;
   width:100%;
 }
-
-.question_label{
-  float:left;
-  width:100%;
-  padding:10px 0;
-  color:$atlasblack;
-  font-size:18px;
-  font-family:$condensed;
+.question_fields{
+  .question_label{
+    float:left;
+    width:100%;
+    padding:10px 0;
+    color:$atlasblack;
+    font-size:18px;
+    font-family:$condensed;
+  }
+  .nav-tabs a{
+    border-radius:0;
+  }
 }

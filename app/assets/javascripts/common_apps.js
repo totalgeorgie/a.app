@@ -78,17 +78,4 @@ jQuery(function($) {
 		$('.progress_title').text(user_name + "'s profile is " + progress_value + "% completed" )
 		$('.bar').css('width', progress_value + '%');
 	});
-	
-	$('#video_yes_no').bootstrapSwitch('setSizeClass', 'switch-large');
-
-	$('#video_submit').on('click', function(e) {
-		debugger
-		e.preventDefault();
-		$('dataVid').each(function(i, vid){
-			var uuid = $(vid).find("." + vid.data('vid') + "_video_uuid").value;
-			if (!!uuid) {
-
-			};
-		});
-	});
 });

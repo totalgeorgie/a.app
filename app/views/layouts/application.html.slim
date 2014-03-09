@@ -10,12 +10,8 @@ html
     == render 'layouts/shim'
 
 body
-  #before_footer
+  #wrapper
     == render 'layouts/header'
     == render 'layouts/notice'
     == yield
-    
-    .container
-      == debug(params) if Rails.env.development? 
-    
-  == render 'layouts/footer'
+    == render 'layouts/footer'

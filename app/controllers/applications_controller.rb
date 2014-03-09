@@ -1,13 +1,8 @@
 class ApplicationsController < ApplicationController
   before_action :signed_in_user
-  # before_action :correct_applicant, only: [:show, :edit, :update]  
+  before_action :build_application, only: :create
 
   def create
-    @job = Job.with_info.find(params[:job_id])
-    @user = current_user
-    @application = @user.applications.new(application_params)
-    @application.job_id = @job.id
-
     if @application.save
       flash[:success] = "You've Successfully applied!"
       redirect_to @user
@@ -39,6 +34,13 @@ class ApplicationsController < ApplicationController
      params
       .require(:application)
       .permit(answers_attributes: [:question_id, :content, :id, :video_uuid])
+  end
+
+  def build_application
+    @job = Job.with_info.find(params[:job_id])
+    @user = current_user
+    @application = @user.applications.new(application_params)
+    @application.job_id = @job.id
   end
 
   def update_answers
