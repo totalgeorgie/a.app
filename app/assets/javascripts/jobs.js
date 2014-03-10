@@ -1,5 +1,6 @@
 jQuery(function($){
-	$('#new_application').on('submit', function(event){
+	$('.application_form').on('submit', function(event){
+		debugger
 		var $form = $(this);
 		var num_questions = parseInt($form.find('#questions_count').val());
 		

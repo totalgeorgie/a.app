@@ -23,6 +23,7 @@ font-family:HelveticaNeueW01-57Cn';
 
 $condensed: 'HelveticaNeueW01-57Cn';
 $medium-condensed: 'HelveticaNeueW01-67MdCn 692710';
+$light: 'HelveticaNeueW01-45Ligh';
 $atlaswhite: #f7f7f7;
 $atlasdarkerwhite:#c9d1d3;
 $atlasblack: #2b2b2b;
@@ -181,7 +182,7 @@ ul#main-menu li {
   -webkit-box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
   box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
   color:$purewhite;
-  font-family:'HelveticaNeueW01-77BdCn 692722';
+  font-family:$condensed;
   font-weight:normal;
   padding:13px 19px;
   @include transition(all 1s ease);
@@ -768,5 +769,50 @@ input[type="submit"] {
   }
   .nav-tabs a{
     border-radius:0;
+  }
+}
+.edit_appl{
+  .center_button{
+    margin-top:30px;
+    margin-bottom:30px;
+  }
+}
+.video-js{
+  float:left;
+}
+.user-show{
+  .center_button{
+    margin-top:30px;
+    margin-bottom:30px;
+  }
+  .link_to{
+    .arrow{
+      font-size:15px;
+      font-family: $light;
+    }
+  }
+  .common_app{
+    .progress{
+      float:left;
+      width:100%;
+    }
+  }
+
+  .table{
+    tr{
+      border-bottom:4px solid $atlasblack;
+      td {
+        border:none;
+      }
+    }
+    a{
+      font-family: $condensed;
+      color:$atlasblack;
+      font-size:18px;
+      &:hover{
+        color:$atlasred;
+        text-decoration: none;
+      }
+    }
   }
 }

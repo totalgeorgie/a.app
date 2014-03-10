@@ -1,15 +1,34 @@
-- provide(:title, "Edit My Application to #{@job.job_title}")
-.thinstripe_career 
-  .darken
-	  .container
-	  	  .row
-	  	    .span12
-	  	      .jobs_header
-	  	        h2 #{@user.first_name}'s application to #{@job.job_title}
+- provide(:title, "Edit My Application to #{@application.job.job_title}")
+== thinstripe("thinstripe", "#{current_user.name}'s application to #{@application.job.job_title}")
 
-.container
+.container.edit_appl.apply_now
   .row
-    .guide
-      .span8.offset2
-        .blog_container 
-          == render 'shared/apply_to_job'
+    == form_for @application, html: { class: "application_form" } do |f|
+      .span12
+        == render 'shared/error_messages', object: f.object
+        input type="hidden" name="questions_count" id="questions_count" value="#{@application.questions.length}"
+
+      .question_fields
+        == f.fields_for :answers do |a|
+          div class="#{ @application.answers.length > 1 ? "span6" : "span12" }"
+            - i = a.options[:child_index]
+            - question = @application.questions[i]
+            .content-header
+              h3 == question.content
+          
+            ul.nav.nav-tabs#tabs
+              li class="active"
+                a href="#video-#{i}" data-toggle="tab" Answer With Video
+              li
+                a href="#text-#{i}" data-toggle="tab" Answer With Text
+              
+            .tab-content
+              .tab-pane.fade.in.active.pagination-centered id="video-#{i}"
+                camera id="AtlasApp-#{i}" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="#{i}" class="dataVid"
+              .tab-pane.fade.in id="text-#{i}"
+                == a.text_area :content, :rows => "3"
+                == a.hidden_field :video_uuid
+
+      .span12
+        .center_button
+          == f.submit "Edit My Application", class: "atlas_button",  id: "video_submit"

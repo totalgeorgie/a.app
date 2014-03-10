@@ -19,36 +19,38 @@
 #  has_video              :boolean
 #  source_id              :integer
 #
-
 class User < ActiveRecord::Base
-  default_scope { order('users.id DESC') } 
-
-  validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, 
-    format: { with: VALID_EMAIL_REGEX },
-    uniqueness: { case_sensitive: false } 
-  has_secure_password validations: false
-  validates :password, length: { minimum: 6 }, allow_blank: true
-  validates :password, presence: true, on: :create
-
+  default_scope { order('users.id DESC') } 
+  
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   after_create :create_common_app
-  after_save :set_customerio
 
   belongs_to :heat
   belongs_to :source
-
   has_one :common_app, dependent: :destroy
-  
-  has_many :cities, :through => :common_app
-  has_many :positions, :through => :common_app
-  
+  has_many :cities, through: :common_app
+  has_many :positions, through: :common_app
   has_one :video, dependent: :destroy
-  
   has_many :applications, dependent: :destroy
-  has_many :jobs, :through => :applications
+  has_many :jobs, through: :applications
+
+  has_secure_password validations: false
+  validates :name, presence: true,
+   length: { maximum: 50 }
+  validates :email, presence: true, 
+    format: { with: VALID_EMAIL_REGEX },
+    uniqueness: { case_sensitive: false } 
+  validates :password, length: { minimum: 6 }, allow_blank: true
+  validates :password, presence: true, on: :create
+
+  scope :with_dependents, -> do
+    User.includes(:common_app)
+       .includes(:video)
+       .includes(:applications)
+       .includes(:jobs)
+  end 
 
   def self.new_remember_token
     SecureRandom.urlsafe_base64
@@ -71,40 +73,12 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
   
-  def first_name
-    self.name.split(' ')[0].capitalize
-  end
-
-  def self.search(params)
-    users = includes(:cities).includes(:positions)
-
-    city_id = params[:city_id].to_i if params[:city_id] && params[:city_id].to_i != 0 
-    position_id = params[:position_id].to_i if params[:position_id] && params[:position_id].to_i != 0 
-    
-    users = users.where("cities.id = ?", city_id).references(:cities) if city_id
-    users = users.where("positions.id = ?", position_id).references(:positions) if position_id
-    users = users.where('users.name LIKE ?', "%#{params[:search]}%") if params[:search]
-    users
-  end
-
   private   
   def create_common_app
-    CommonApp.create!(user_id: id)
+    self.common_app.create!
   end
   
-  def set_customerio 
-    $customerio.identify(id: id,
-                        created_at: created_at,
-                        email: email,
-                        full_name: name,
-                        progress:  progress,
-                        video: has_video,
-                        jobs_applied_to: applications_count
-                      )
-  end
-
   def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)
   end
-
 end

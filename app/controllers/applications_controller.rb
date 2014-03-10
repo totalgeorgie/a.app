@@ -1,33 +1,39 @@
 class ApplicationsController < ApplicationController
   before_action :signed_in_user
   before_action :build_application, only: :create
+  before_action :find_application, only: [:show, :edit, :update]
+  
+  def edit
+  end
+
+  def show
+  end
 
   def create
     if @application.save
       flash[:success] = "You've Successfully applied!"
-      redirect_to @user
+      redirect_to current_user
     else
       update_answers
       render 'jobs/show'
     end
   end
 
-  # def edit 
-  # end
+  def update
+    if @application.update(application_params)
+      flash[:success] = "You have updated your application!"
+      redirect_to current_user
+    else
+      render :edit
+    end   
+  end
 
-  # def update
-  #   if @application.update(application_params)
-  #     redirect_to @user, :notice => "You have updated your application!"
-  #   else
-  #     render :action => 'new'
-  #   end
-  # end
-
-  # def destroy
-  #   Application.find(params[:id]).destroy
-  #   flash[:success] = "Application Deleted."
-  #   redirect_to @user 
-  # end 
+  def destroy
+    application = current_user.applications.find(params[:id])
+    application.destroy
+    flash[:success] = "Your Application is removed"
+    redirect_to current_user
+  end
 
   private
   def application_params 
@@ -45,6 +51,10 @@ class ApplicationsController < ApplicationController
 
   def update_answers
     @application = Application.build(@job, @application) if @application.answers.empty?
+  end
+
+  def find_application
+    @application = current_user.applications.with_dependents.find(params[:id])
   end
 end
 

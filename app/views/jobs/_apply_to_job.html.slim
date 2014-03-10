@@ -1,6 +1,6 @@
 .content-header
   h3 Apply now #{current_user.name}!
-  == form_for [@job, @application]  do |f|
+  == form_for [@job, @application], html: { class: "application_form" }  do |f|
     == render 'shared/error_messages', object: f.object
     input type="hidden" name="questions_count" id="questions_count" value="#{@job.questions.length}"
 

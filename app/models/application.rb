@@ -21,7 +21,14 @@ class Application < ActiveRecord::Base
   
   accepts_nested_attributes_for :answers,
    allow_destroy: true, reject_if: :all_blank
-  
+
+  scope :with_dependents, -> do
+    Application
+       .includes(:job)
+       .includes(:questions)
+       .includes(:answers)
+  end 
+
   def self.build(job, appl = Application.new)
     job.questions.each do |question|
       appl.answers.build(question_id: question.id)

@@ -1,24 +1,19 @@
-- provide(:title, "Show My Application to #{@job.job_title}")
-.thinstripe_career 
-  .darken
-	  .container
-	  	  .row
-	  	    .span12
-	  	      .jobs_header
-	  	        h2 #{@user.first_name}'s application to #{@job.job_title}
+- provide(:title, "Show My Application to #{@application.job.job_title}")
+== thinstripe("thinstripe", "#{current_user.name}'s application to #{@application.job.job_title}")
 
-.container
+.container.edit_appl
   .row
-    .guide
-      .span8.offset2
-        .blog_container 
-        	#show_application
-	          - @answers.each do |answer|
-	          	h3 #{answer.question.content} 
-	          	p 
-	          	  strong A: 
-	          	  | #{ answer.content unless answer.content.blank? }
-                - unless answer.video_uuid.blank? 
-                  video id='PlayVideo' data-uuid='#{ answer.video_uuid }'
-
-		== link_to "Edit Job Application", edit_job_application_path(:id => @application.id, :job_id => @application.job_id), :class => "button button_show_application"  
+    - @application.questions.each_with_index do |question, index|
+      div class="#{ @application.questions.length > 1 ? "span6" : "span12" }"
+        .content-header
+          h3 == question.content
+        - answer = @application.answers[index]
+        p == answer.content unless answer.content.blank?
+        hr
+        - unless answer.video_uuid.blank?
+          video class="show_video" id='PlayVideo-#{index}' data-uuid='#{ answer.video_uuid }'
+  
+    .span12
+      hr
+      .center_button
+        == link_to "Edit My Application", edit_application_url(@application), class: "atlas_button"

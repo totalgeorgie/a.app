@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -16,9 +19,6 @@ class UsersController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update
@@ -32,8 +32,11 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params
-      .require(:user)
-      .permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password)
+  end
+
+  def correct_user 
+    @user = User.with_dependents.find(params[:id])
+    redirect_to current_user unless current_user?(@user) || current_user.admin?
   end
 end

@@ -54,11 +54,10 @@ module SessionsHelper
 
 
 
-  def correct_user
-    @user = User.find(params[:user_id]) if params[:user_id] # For nested association
-    @user ||= User.find(params[:id])
-    redirect_to current_user unless current_user?(@user) || current_user.admin? 
-  end
+
+
+
+  
   
   def admin_user 
     redirect_to root_path unless (signed_in? && current_user.admin?)

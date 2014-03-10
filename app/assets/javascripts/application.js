@@ -17,7 +17,6 @@
 //= require bootstrap
 //= require select2
 //= require editable/bootstrap2-editable
-//= require editable/rails
-//= require bootstrap-switch
+//= require editable/rails 
 //= require_tree .
 
