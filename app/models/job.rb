@@ -4,11 +4,12 @@
 #
 #  id                 :integer          not null, primary key
 #  job_title          :string(255)
-#  job_summary        :string(255)
-#  qualifications     :string(255)
+#  job_summary        :text(500)
+#  qualifications     :text(1000)
 #  created_at         :datetime
 #  updated_at         :datetime
 #  applications_count :integer
+#
 
 class Job < ActiveRecord::Base
   default_scope { order('jobs.created_at DESC') }

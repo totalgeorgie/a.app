@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213054127) do
+ActiveRecord::Schema.define(version: 20140310074753) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -131,8 +131,8 @@ ActiveRecord::Schema.define(version: 20140213054127) do
 
   create_table "jobs", force: true do |t|
     t.string   "job_title"
-    t.string   "job_summary"
-    t.string   "qualifications"
+    t.text     "job_summary",        limit: 500
+    t.text     "qualifications",     limit: 1000
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "applications_count"
