@@ -8,8 +8,8 @@ namespace :db do
     Heat.create!(level: "Low")
     Heat.create!(level: "Very Low")
     
-    #Source.create!(type: "Referral")
-    #Source.create!(type: "Site")
+    Source.create!(from: "Referral")
+    Source.create!(from: "Site")
 
     Industry.create!(name: "Law")
     Industry.create!(name: "Architecture")
@@ -30,8 +30,9 @@ namespace :db do
                  password_confirmation: "foobar",
                  admin: true)
     Video.create!(user_id: 1, 
-                  video_cid: "samplecid123",
+                  video_uuid: "samplecid123",
                   question: "SampleQuestion")
+
     50.times do |n|
       name  = Faker::Name.name
       email = "example-#{n+1}@atlasmail.org"
