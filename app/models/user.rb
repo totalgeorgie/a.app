@@ -75,7 +75,7 @@ class User < ActiveRecord::Base
   
   private   
   def create_common_app
-    self.common_app.create!
+    self.build_common_app
   end
   
   def create_remember_token
