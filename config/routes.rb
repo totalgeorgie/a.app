@@ -8,7 +8,7 @@ Atlas::Application.routes.draw do
   resources :common_apps, except: [:new, :create, :index]
 
   resources :jobs, only: [:index, :show] do 
-    resources :applications, only: [:new, :create]
+    resources :applications, only: [:create]
   end
 
   resources :applications, except: [:new, :create, :index]

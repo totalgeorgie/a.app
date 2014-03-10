@@ -46,10 +46,5 @@ class ApplicationsController < ApplicationController
   def update_answers
     @application = Application.build(@job, @application) if @application.answers.empty?
   end
-
-  # def correct_applicant
-  #   @application = Application.find(params[:id])
-  #   redirect_to current_user unless (current_user?(@application.user) || current_user.admin?)
-  # end  
 end
 
