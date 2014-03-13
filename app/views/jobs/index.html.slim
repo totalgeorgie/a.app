@@ -3,30 +3,30 @@
 == thinstripe("thinstripe", "Obtain Your Dream Position With Atlas")
 
 .container
-  .row
-    .span12
-      .job_search
-        == form_tag jobs_path, :method => 'get', :id => "jobs_filter" do
-          h3 I'd like jobs in
-          .filter_sect
-            == select_tag :city_id, \
-               options_from_collection_for_select(cities, "id", "name"), \
-               prompt: "All Cities",\
-               :class => "basic" 
-          .filter_sect.filter_search
-            == submit_tag "Search", :class => "atlas_button", :name => nil
+  .job_search
+    == form_tag jobs_path, :method => 'get', :id => "jobs_filter" do
+      h3 I'd like jobs in
+      .filter_sect
+        == select_tag :city_id, \
+           options_from_collection_for_select(cities, "id", "name"), \
+           prompt: "All Cities",\
+           :class => "basic" 
+      .filter_sect.filter_search
+        == submit_tag "Search", :class => "atlas_button", :name => nil
 
 .second_container
   .container
     .row
-      .span12
-        ul.jobs
-          - if @jobs.any?
-            == render @jobs
-            == will_paginate
-          - else
-            li.not_found
-              h2.container_header No jobs found.
-              p There are currently no jobs for these combinations.
+      ul.jobs
+        - if @jobs.any?
+          == render @jobs
+          == will_paginate
+        - else
+          li.not_found
+            h2.container_header No jobs found.
+            p There are currently no jobs for these combinations.
+            - if signed_in?
+              p If this is one of your preferred industries, mark it in your common application and we will notify you with new jobs!
+            - else
               .center_button
                 == link_to "Sign up to get updated when we get new jobs", signup_url, class: "atlas_button"

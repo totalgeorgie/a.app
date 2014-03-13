@@ -13,13 +13,9 @@ module ApplicationHelper
       <div class="#{stripe_class}">
         <div class="overlay">
           <div class="container">
-            <div class="row">
-              <div class="span12">
-                <div class="profile_header">
-                  <h2>#{text}</h2>
-                </div>
+              <div class="profile_header">
+                <h2>#{text}</h2>
               </div>
-            </div>
           </div>
         </div>
       </div>

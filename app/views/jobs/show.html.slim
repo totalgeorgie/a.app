@@ -2,16 +2,15 @@
 == thinstripe("thinstripe", "Apply to #{@job.job_title}")
 
 .container
-  .blog_container
-    .row
-      .span7
-        == render "jobs/single_opp"
-      .span5
-        .apply_now.side_box.clearfix
-          - if signed_in? 
-            - if @user.admin?
-              == link_to "Edit this job", edit_admin_job_path(@job), :class => "atlas_button"
-            - else
-                == render has_job?(@user, @job) ? "jobs/already_applied" : "jobs/apply_to_job"
+  .row
+    .col-sm-12.col-md-7
+      == render "jobs/single_opp"
+    .col-sm-12.col-md-5
+      .apply_now.clearfix
+        - if signed_in? 
+          - if @user.admin?
+            == link_to "Edit this job", edit_admin_job_path(@job), :class => "atlas_button"
           - else
-              == render "new_user"
+              == render has_job?(@user, @job) ? "jobs/already_applied" : "jobs/apply_to_job"
+        - else
+            == render "new_user"

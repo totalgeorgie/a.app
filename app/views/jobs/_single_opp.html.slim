@@ -2,7 +2,7 @@
   .single_cover
     .title_header
       .row
-        .span2
+        .col-sm-12.col-md-4
           .side_info
             .side_title
               h4 == @job.industries.first.name
@@ -10,7 +10,7 @@
               ul.opp_location
                 - @job.cities.each do | city |
                   li == city.name
-        .span4
+        .col-sm-12.col-md-8
           .main_info 
             p == @job.job_summary  
     

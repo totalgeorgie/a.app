@@ -1,22 +1,24 @@
-- signed_in = signed_in?
-.container
-  header
-    .row
-      .span3
-        == link_to image_tag("logo.png", alt: full_title(yield(:title))), root_path_helper, class: "brand"
-      .span9
-        nav#main-menu
-          - if signed_in
-            - if current_user.admin?
-              li == link_to "Admin Dashboard", admin_url
-            - else
-              li == link_to "Profile", current_user
-              li == link_to "Sign Out", signout_path, method: :delete
+header.navbar-static-top role="banner"
+  .container
+    .navbar-header
+      button.navbar-toggle data-toggle="collapse" data-target=".bs-navbar-collapse"
+        span.atlas_button Navigation
+      == link_to image_tag("logo.png", alt: "Atlas China"), root_url, class: "brand"
+
+    .nav.collapse.navbar-collapse.bs-navbar-collapse
+      ul#main-menu.navbar-right
+        - if signed_in?
+          - if current_user.admin?
+            li == link_to "Admin Dashboard", admin_url
           - else
-            li == link_to "Apply Now!", signup_url
-          li == link_to "Jobs", root_url
-          li == link_to "About", "#"
-          li == link_to "Board of Advisors", "#"
-          li == link_to "Blog"
-          - unless signed_in
-            li == link_to "For Employers" 
+            li == link_to "Profile", current_user
+        - else
+          li == link_to "Apply Now!", signup_url
+        li == link_to "Jobs", root_url
+        li == link_to "About", "#"
+        li == link_to "Board of Advisors", "#"
+        li == link_to "Blog"
+        - if signed_in?
+          li == link_to "Sign Out", signout_path, method: :delete
+        - else
+          li == link_to "For Employers"

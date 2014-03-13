@@ -42,7 +42,7 @@ h1, h2, h3, h4, p, li, span, a, input {
 
 h2,h3{
   font-family:'HelveticaNeueW01-57Cn';
-  font-weight:normal;
+  
   a{
     &:hover{
       text-decoration:none;
@@ -78,90 +78,6 @@ header{
   background-color:$atlasoverlay;
 }
 
-/*Initialize*/
-
-#main-menu {
-  padding: 0;
-  margin: 0;
-  li {
-    ul {
-      padding: 0;
-      margin: 0;
-      li {
-        list-style-type: none;
-        display: inline-block;
-      }
-    }
-    list-style-type: none;
-    display: inline-block;
-    a, ul li a {
-      text-decoration: none;
-      font-family: $medium-condensed;
-      color: $atlasblack;
-      font-size: 15px;
-      line-height: 1.6;
-      padding: 5px;
-      display: inline-block;
-    }
-    a {
-      margin-left: 30px;
-      @include transition(color 2s ease);
-      &:hover {
-        color: $atlasred;
-        background-color: transparent;
-      }
-    }
-    ul li {
-      float: left;
-      width: 100%;
-      a {
-        margin-left: 0;
-        text-align: center;
-        float: left;
-        width: 100%;
-        background-color: $atlaswhite;
-        border-bottom: 1px solid $atlasdarkerwhite;
-        &:hover {
-          background-color: $purewhite;
-        }
-      }
-    }
-  }
-  float: right;
-}
-
-
-/*Link Appearance*/
-
-/*Make the parent of sub-menu relative*/
-
-ul#main-menu li {
-  position: relative;
-  ul {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: -10px;
-    width: 120px;
-    background-color: white;
-  }
-}
-
-/*sub menu*/
-
-#main-menu li:hover ul {
-  display: block;
-}
-
-#main-menu li > a {
-  border-top:2px solid transparent;
-  padding-top:40px;
-  &:hover{
-    border-top:2px solid $atlasred;
-  }
-}
-
-/*  */ 
 
 .center_button{
   float: left;
@@ -180,7 +96,7 @@ ul#main-menu li {
   box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
   color:$purewhite;
   font-family:$condensed;
-  font-weight:normal;
+  
   padding:13px 19px;
   @include transition(all 1s ease);
   display:inline-block;
@@ -525,7 +441,7 @@ div.fancy-select ul.options li.hover {
       h4{
         font-family: $condensed;
         color:$atlasblack;
-        font-weight:normal;
+        
         font-size:17px;
       }
     }
@@ -640,7 +556,7 @@ footer{
     margin-left:30px;
     li{
       margin-bottom:10px;
-      font-weight:normal;
+      
       font-family:$condensed;
       background:image-url('arrow.png') left center no-repeat;
       padding-left:20px;
@@ -650,7 +566,7 @@ footer{
 
   .opp_header{
     h2{
-      font-weight:normal;
+      
       font-family:$condensed;
       font-size:18px;
       color:$atlasred;
@@ -667,7 +583,7 @@ footer{
   }
 
   h4{
-    font-weight:normal;
+    
     font-family:$condensed;
     font-size:17px;
     color:$atlasblack;
@@ -679,7 +595,7 @@ footer{
 
     li{
       margin-bottom:10px;
-      font-weight:normal;
+      
       background:image-url('arrow.png') left center no-repeat;
       padding-left:20px;
       font-size:16px;     

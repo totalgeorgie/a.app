@@ -1,6 +1,6 @@
 .opp
   .row
-    .span2
+    .col-sm-12.col-md-2
       .side_info
         .side_title
           h4 == job.industries.first.name
@@ -10,12 +10,12 @@
               - job.cities.each do | city |
                li == city.name
 
-    .span7
+    .col-sm-12.col-md-7
       .main_info
         h3 == link_to job.job_title, job
-        p == job.job_summary
+        p == job.job_summary  
 
-  	.span3
-  	  .apply
-  	    == link_to "Apply Now", job, :class => "atlas_button light_gray"
-  	    p.full_desc == link_to "See full description", job
+    .col-sm-12.col-md-3
+      .apply
+        == link_to "Apply Now", job, :class => "atlas_button light_gray"
+        p.full_desc == link_to "See full description", job
