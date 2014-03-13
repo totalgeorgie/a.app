@@ -24,8 +24,8 @@ group :test do
 end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'bootstrap-sass'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem "bootstrap-sass", "~> 3.1.1.0"
+gem "bootstrap-will_paginate", "~> 0.0.10"
 gem 'carrierwave' # for uploading 
 gem 'chosen-rails'
 gem 'coffee-rails', '~> 4.0.0'
