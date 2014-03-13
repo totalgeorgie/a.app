@@ -31,6 +31,7 @@ gem 'chosen-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'customerio', :git => 'https://github.com/customerio/customerio-ruby' # http://customer.io/docs/rails-customerio.html
 gem 'faker', '1.1.2'
+gem 'fancy_select-rails'
 gem 'jbuilder', '~> 1.2' # json apis https://github.com/rails/jbuilder
 gem 'jquery-rails'
 gem "jquery-ui-rails"

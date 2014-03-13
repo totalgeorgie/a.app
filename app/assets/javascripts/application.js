@@ -18,5 +18,6 @@
 //= require select2
 //= require editable/bootstrap2-editable
 //= require editable/rails 
+//= require fancy_select
 //= require_tree .
 
