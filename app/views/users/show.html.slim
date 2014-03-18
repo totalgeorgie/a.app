@@ -3,12 +3,12 @@
 
 .container.user-show
   .row
-    .span12
+    .col-sm-12
       .guide-header.pagination-centered
         h2.container_header 3 Steps to a Successful Application
         p Follow the quick guide to help us find the best matches for you
   
-    .span6
+    .col-sm-12.col-md-6
       .common_app
         .content-header
           h3 == link_to @user.common_app, class: "atlas_button light_gray" do
@@ -19,21 +19,20 @@
         - else 
           p You have filled in your profile. Click here if you'd like to update anything.
         == link_to @user.common_app do
-          .progress.progress-striped
-            .bar style="width: #{ @user.progress }%"
-
-    .span6
+          .progress
+            .progress-bar role="progressbar" style="width: #{ @user.progress }%"
+    .col-sm-12.col-md-6
       .video
         .content-header
           h3 == link_to (@user.video ? @user.video : new_user_video_url(@user)), class: "atlas_button light_gray" do
-            span Record your Video 
+            span == @user.video ? "Edit Your Video " : "Record Your Video "
             span.arrow &rarr;
         - if @user.video
           p You've made you're video! Click here if you'd like to update anything.
         - else 
           p Create a 30 second video to tell us a bit more about you. We'll use that to get you the most targeted jobs
 
-    .span12
+    .col-sm-12
       .applications
         .content-header
           h3 Your Job Applications

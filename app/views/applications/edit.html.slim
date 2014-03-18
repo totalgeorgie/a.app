@@ -4,13 +4,13 @@
 .container.edit_appl.apply_now
   .row
     == form_for @application, html: { class: "application_form" } do |f|
-      .span12
+      .col-sm-12
         == render 'shared/error_messages', object: f.object
         input type="hidden" name="questions_count" id="questions_count" value="#{@application.questions.length}"
 
       .question_fields
         == f.fields_for :answers do |a|
-          div class="#{ @application.answers.length > 1 ? "span6" : "span12" }"
+          div class="#{ @application.answers.length > 1 ? "col-sm-12 col-md-6" : "col-sm-12" }"
             - i = a.options[:child_index]
             - question = @application.questions[i]
             .content-header
@@ -29,6 +29,6 @@
                 == a.text_area :content, :rows => "3"
                 == a.hidden_field :video_uuid
 
-      .span12
+      .col-sm-12
         .center_button
           == f.submit "Edit My Application", class: "atlas_button",  id: "video_submit"

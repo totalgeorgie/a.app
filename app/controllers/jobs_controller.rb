@@ -11,8 +11,7 @@ class JobsController < ApplicationController
     @job = Job.with_info.find(params[:id])    
     
     @user = current_user || User.new
-    @application = Application.build(@job)
-    
+    @application = Application.build(@job) 
   end
 
   private

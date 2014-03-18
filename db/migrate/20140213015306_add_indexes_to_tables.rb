@@ -16,10 +16,7 @@ class AddIndexesToTables < ActiveRecord::Migration
     add_index :questions, :job_id, name: "questions_job_idx"
     add_index :roles, :job_id, name: "roles_job_idx"
 
-    #to do :potentials?
     add_index :users, [:heat_id, :source_id], name: "users_idx"
     add_index :videos, :user_id, name: "videos_user_idx"
   end
 end
-
-#to remove user_city_relations user_industry_relations user_position_relations user_role_relations

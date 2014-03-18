@@ -31,7 +31,7 @@ class ApplicationsController < ApplicationController
   def destroy
     application = current_user.applications.find(params[:id])
     application.destroy
-    flash[:success] = "Your Application is removed"
+    flash[:danger] = "Your Application is removed"
     redirect_to current_user
   end
 

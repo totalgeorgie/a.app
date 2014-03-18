@@ -1,24 +1,33 @@
 - provide(:title, "Final step, Record a video to show your mastery of Mandarin") 
-.thinstripe_career 
-  .darken
-  	.container
-  	  .row
-  	    .span10.offset1
-  	      .profile_header
-      	    h2 Hi #{@user.first_name}, introduce yourself
+== thinstripe("thinstripe", "Hi #{current_user.name}, introduce yourself")
 
 .container
   .row
-    .guide
-      .span10.offset1
-        .blog_container
-          .video_app
-      	    p As part of our application process, we invite candidates to show their mandarin speaking ability and share their career goals. This is casual, and will only be seen by us. We will use this to send you the the most targetted positions
+    .col-sm-12.col-md-8
+      .content-header
+        h3 Record a Video
+      p As part of our application process, we invite candidates to show their mandarin speaking ability and share their career goals. This is casual, and will only be seen by us. We will use this to send you the the most targetted positions
 
-            p.highlight For 30 Seconds, introduce yourself in Mandarin and let us know what your goals are.
+      p
+        strong For 30 Seconds, introduce yourself in Mandarin and let us know what your goals are.
+    
+    .col-sm-12.col-md-4
+      .apply_now.pagination-centered.side_box
+        == form_for [current_user, @video], url: user_video_path(current_user) do |f| 
+          == render 'fields', f: f 
+          == f.submit "Introduce Yourself!", class: "atlas_button"  
+/ .container
+/   .row
+/     .guide
+/       .span10.offset1
+/         .blog_container
+/           .video_app
+/       	    p As part of our application process, we invite candidates to show their mandarin speaking ability and share their career goals. This is casual, and will only be seen by us. We will use this to send you the the most targetted positions
 
-            == form_for [@user, @video] do |f| 
-              == render 'fields', f: f 
-              == f.submit "Finish the application!", class: "button"
+/             p.highlight For 30 Seconds, introduce yourself in Mandarin and let us know what your goals are.
+
+/             == form_for [@user, @video] do |f| 
+/               == render 'fields', f: f 
+/               == f.submit "Finish the application!", class: "button"
 
    

@@ -1,18 +1,13 @@
 - provide(:title, "Reset Your Password")
-.thinstripe_career 
-  .darken
-    .container
-      .row
-        .span10.offset1
-          .profile_header
-                h2 Reset Your Password
+== thinstripe("thinstripe", "Reset Your Password")
 
-.container
-  .row
-    .guide
-      .span6.offset3
-        .blog_container
-          == form_tag password_resets_path, :method => :post, :id => "reset" do
-          	#email
-          	  == text_field_tag :email, params[:email], placeholder: "Your Email Address" 
-			== submit_tag "Reset Password", :class => "button" 
+.first_container
+  .container
+    .row
+      == form_tag password_resets_path, :method => :post, :id => "reset" do
+      	.sign_up_box
+          .col-sm-12
+            h2.container_header Enter the email you signed up with
+          .col-sm-12.col-md-6.col-md-offset-3
+            == text_field_tag :email, params[:email], class: "email form-control", placeholder: "Your Email Address"
+            == submit_tag "Reset Password", :class => "atlas_button box_button" 

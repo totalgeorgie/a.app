@@ -1,56 +1,38 @@
+#todo : n + 1 queries
 class VideosController < ApplicationController
   before_action :signed_in_user
-  before_action :correct_user
-  before_action :correct_video, only: [:show]
 
   def new
-    if @user.video
-      redirect_to edit_user_video_path(@user, @user.video), 
-        :notice => "You already created your video. Submit this form to replace your video"
-    else
-      @video = @user.build_video
-    end
+    current_user.video ? redirect_to(current_user) : false
+    @video = current_user.build_video
   end
 
   def create 
-    @video = @user.build_video(video_params)
+    @video = current_user.build_video(video_params)
     if @video.save
-        flash[:success] = "Video Created!"
-        redirect_to @user
+      flash[:success] = "Video successfully added"
+      redirect_to current_user
     else
-        render :new
+      render :new
     end
   end
 
   def show
-    redirect_to new_user_video_path(@user), 
-      notice: "Looks like you haven't made your video yet! Fill it in below." unless @video.present?
+    current_user.video ? nil : redirect_to(new_user_video_url(current_user))
+    @video = current_user.video
   end   
 
-
   def update
-    @video = @user.video
-    if @video.update_attributes(video_params)
-        flash[:success] = "Video Updated!"
-        redirect_to @user
-    else
-        render :new
-    end
+    @video = current_user.video
+    respond_with @video
   end
 
   def edit
-    @video = @user.video
+    @video = current_user.video
   end
 
   private
-    def correct_video
-      @video = Video.find(params[:id])
-      unless current_user.video == @video || current_user.admin? 
-        redirect_to user_video_path(current_user, current_user.video)
-      end
-    end
-
-    def video_params
-      params.require(:video).permit(:video_uuid)
-    end
+  def video_params
+    params.require(:video).permit(:video_uuid)
+  end
 end

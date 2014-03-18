@@ -7,6 +7,7 @@ header.navbar-static-top role="banner"
 
     .nav.collapse.navbar-collapse.bs-navbar-collapse
       ul#main-menu.navbar-right
+        li == link_to "Jobs", root_url
         - if signed_in?
           - if current_user.admin?
             li == link_to "Admin Dashboard", admin_url
@@ -14,11 +15,11 @@ header.navbar-static-top role="banner"
             li == link_to "Profile", current_user
         - else
           li == link_to "Apply Now!", signup_url
-        li == link_to "Jobs", root_url
         li == link_to "About", "#"
         li == link_to "Board of Advisors", "#"
         li == link_to "Blog"
         - if signed_in?
-          li == link_to "Sign Out", signout_path, method: :delete
+          li == link_to "Sign Out", signout_url, method: :delete
         - else
+          li == link_to "Sign In", signin_url
           li == link_to "For Employers"

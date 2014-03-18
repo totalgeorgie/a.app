@@ -1,27 +1,39 @@
 - provide(:title, "Get Started on your career in China")
-.thinstripe_career 
-  .darken
-  	.container
-  	  .row
-  	    .span12
-  	    	.profile_header
-  	  	        h2 Companies in China are looking for you. Why haven’t they found you?
-.container 
-  .row
-    .span12
-      .blog_container.sign_up_page
-        .sign_up_box
-          h2 Get Started Now 
-          == form_for(@user) do |f| 
-            == render 'fields', f: f
-            #submit
-              == f.submit "Create my account", class: "button"
-              
-          span.guarantee All information that you send us is secured, and will not be shared with third party advertisers. We value your trust in us.
-        == render 'how_it_works'
+== thinstripe("thinstripe", "Companies in China are looking for you. Why haven’t they found you?")
+.second_container
+  .container 
+    .row
+      .col-sm-12
+        .blog_container.sign_up_page
+          .sign_up_box
+            h2.container_header Get Started Now 
             
-        .explanation
-          
-          p At Atlas-China, you tell us who you are, Companies tell us who they’re looking for, and we match the best Chinese companies with the best multi-lingual professionals for the job. 
+            == form_for(@user) do |f| 
+              == render 'shared/error_messages', object: f.object 
+              #full_name.col-sm-12.col-md-3
+                == f.text_field :name, placeholder: "John Doe", class: "form-control"
+              #email.col-sm-12.col-md-3
+                == f.text_field :email, placeholder: "johndoe@gmail.com", class: "form-control"
+              #pass.col-sm-12.col-md-3
+                == f.password_field :password, placeholder: "Password", class: "form-control"
+              #submit.col-sm-12.col-md-3
+                == f.submit "Create my account", class: "atlas_button box_button"
+            .pagination-centered
+              span.help-block == link_to "forgot your password?", new_password_reset_url         
 
-          p There are no ‘connections’, we’re your connection. No etiquette mistakes to fear, we teach you what to do to impress. And hiring managers know they can trust you, because they’ve seen you demonstrate your skill in Mandarin through your Multi-Lingual Video instead of having to rely on words on paper.
+.first_container
+  .container
+    .row
+      .col-sm-6
+        .quote
+          .qbody
+            p “ATLAS helped me significantly in transitioning to China. They helped me secure a great position in my chosen industry and meet new people and expand my network here."
+          .qauthor
+            p &mdash; Robert Butler
+      
+      .col-sm-6
+        .quote
+          .qbody
+            p “Abe knows this market better than anyone. In a few minutes he cleared up all of my questions and help explain to me how people are finding great opportunities here"
+          .qauthor
+            p &mdash; Kevin Dewal

@@ -26,9 +26,24 @@ $atlassuperlightwhite: #f9f9f9;
 $nav-link-hover-bg: transparent;
 $link-color: $atlasred;
 
+#error_explanation{
+  ul{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    margin-bottom:10px;
+
+  }
+  li {
+    color:$atlasred;
+  }
+}
 @import "bootstrap";
 @import "fancy-select";
 
+.alert-error {
+  @extend .alert-danger
+}
 html, body{
   background-color:$atlaswhite;
   height:100%;
@@ -705,5 +720,25 @@ input[type="submit"] {
   }
 }
 
+.pagination-centered {
+  text-align:center;
+}
 
-  
+.sign_up_box{
+  input[type="text"], input[type="password"] {
+    padding:20px 10px;
+  }
+  .help-block{
+    padding: 10px 0;
+    float: left;
+    width: 100%;
+  }
+}
+
+.quote{
+  padding: 14px;
+  background-color: $atlassuperlightwhite;
+  .qbody{ border-bottom:1px solid $atlaswhite; }
+  .qauthor{ p { margin-bottom: 1px; color:$atlasgray; } }
+  margin-bottom:20px;
+}
