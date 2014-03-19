@@ -1,18 +1,15 @@
-- provide(:title, "Create Your New Password #{@user.first_name}") 
-.thinstripe_career 
-  .darken
-    .container
-      .row
-        .span10.offset1
-          .profile_header
-                h2 Hi #{@user.first_name}, Create Your New Password 
+- provide(:title, "Update Your New Password #{@user.name}") 
+== thinstripe("thinstripe", "Update Your New Password #{@user.name}" )
 
-.container
-  .row
-    .guide
-      .span6.offset3
-        .blog_container
-          == form_for @user, :url => password_reset_path(params[:id]) do |f|
+.first_container
+  .container
+    .row
+      == form_for @user, :url => password_reset_path(params[:id]) do |f|
+        .sign_up_box
+          .col-sm-12
+            h2.container_header Choose your new password
+          .col-sm-12.col-md-6.col-md-offset-3
             == render 'shared/error_messages', object: f.object
-            == f.password_field :password, placeholder: "Enter Your New Password"
- 			== f.submit "Update Password", class: "button"
+            == f.text_field :email, placeholder: "#{@user.email}", class: "email form-control"
+            == f.password_field :password, placeholder: "Enter Your New Password", class: "email form-control"
+            == f.submit "Update Password", class: "atlas_button box_button"

@@ -1,23 +1,15 @@
 - provide(:title, "Sign Into Your Atlas Dashboard")
-.thinstripe_career 
-  .darken
-    .container
-      .row
-        .span10.offset1
-          .profile_header
-                h2 Sign Into Your Atlas Dashboard
+== thinstripe("thinstripe", "Sign In To Your Atlas Dashboard")
 
-.container
-  .row
-    .guide
-      .span6.offset3
-        .blog_container
-          == form_for(:session, url: sessions_path, html: { id: "signin_form"}) do |f|
-            #email
-              == f.text_field :email, placeholder: "Your Email Address"
-            #pass
-              == f.password_field :password, placeholder: "Your Password"
-
-            == f.submit "Sign in", class: "button" 
-
-            span.options #{link_to "Sign up now!", signup_path} or #{link_to "Forgotten Password?", new_password_reset_path }
+.first_container
+  .container
+    .row
+      == form_for(:session, url: sessions_path) do |f|
+        .sign_up_box
+          .col-sm-12
+            h2.container_header Enter your email and password
+          .col-sm-12.col-md-6.col-md-offset-3
+            == f.text_field :email, placeholder: "johndoe@gmail.com", class: "email form-control"
+            == f.password_field :password, placeholder: "Your Password", class: "email form-control"
+            == f.submit "Sign in", class: "atlas_button box_button" 
+            p.sign-up-options.top-buffer #{link_to "Sign up now!", signup_path} or #{link_to "Forgotten Password?", new_password_reset_path }
