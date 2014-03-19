@@ -45,5 +45,5 @@ gem 'uglifier', '>= 1.3.0' # compresses js
 gem 'will_paginate', '3.0.4'
 gem 'x-editable-rails'
 
-# For delayed job, and making this cheap for abe, use https://github.com/meskyanichi/hirefire
+# For delayed job, and making this cheaper for abe, use https://github.com/meskyanichi/hirefire
 # For advanced search, try http://railscasts.com/episodes/111-advanced-search-form-revised  // very cool way to filter
