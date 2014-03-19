@@ -1,7 +1,6 @@
 jQuery(function($) {
 	$.fn.editable.defaults.mode = 'inline';
-	
-    $('.editable').editable();
+  $('.editable').editable();
 
 	$('.editCoverLetter').click(function(e){    
 		   e.preventDefault();
