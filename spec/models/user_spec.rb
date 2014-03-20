@@ -16,7 +16,6 @@
 #  admin_note             :string(255)
 #  progress               :integer          default(5)
 #  applications_count     :integer
-#  has_video              :boolean          default(FALSE)
 #  source_id              :integer
 #
 

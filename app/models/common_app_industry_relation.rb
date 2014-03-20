@@ -10,6 +10,6 @@
 #
 
 class CommonAppIndustryRelation < ActiveRecord::Base
-  belongs_to :common_app
+  belongs_to :common_app, counter_cache: :industries_count
   belongs_to :industry
 end

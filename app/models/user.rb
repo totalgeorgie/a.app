@@ -16,10 +16,11 @@
 #  admin_note             :string(255)
 #  progress               :integer          default(5)
 #  applications_count     :integer
-#  has_video              :boolean          default(FALSE)
 #  source_id              :integer
 #
+
 class User < ActiveRecord::Base
+  #remove has_video
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   default_scope { order('users.id DESC') } 
   
@@ -29,10 +30,10 @@ class User < ActiveRecord::Base
 
   belongs_to :heat
   belongs_to :source
-  has_one :common_app, dependent: :destroy
+  has_one :common_app, dependent: :destroy, inverse_of: :user
   has_many :cities, through: :common_app
   has_many :positions, through: :common_app
-  has_one :video, dependent: :destroy
+  has_one :video, inverse_of: :user, dependent: :destroy
   has_many :applications, dependent: :destroy
   has_many :jobs, through: :applications
 
@@ -47,9 +48,9 @@ class User < ActiveRecord::Base
 
   scope :with_dependents, -> do
     User.includes(:common_app)
-       .includes(:video)
-       .includes(:applications)
-       .includes(:jobs)
+      .includes(:video)
+      .includes(:applications)
+      .includes(:jobs)
   end 
 
   def self.new_remember_token

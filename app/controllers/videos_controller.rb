@@ -1,4 +1,3 @@
-#todo : n + 1 queries
 class VideosController < ApplicationController
   before_action :signed_in_user
 
@@ -17,18 +16,18 @@ class VideosController < ApplicationController
     end
   end
 
-  def show
-    current_user.video ? nil : redirect_to(new_user_video_url(current_user))
-    @video = current_user.video
-  end   
-
-  def update
-    @video = current_user.video
-    respond_with @video
-  end
-
   def edit
     @video = current_user.video
+  end
+  
+  def update
+    @video = current_user.video
+    if @video.update_attributes(video_params)
+      flash[:success] = "Video successfully updated"
+      redirect_to current_user
+    else
+      render :edit
+    end
   end
 
   private

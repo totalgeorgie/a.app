@@ -10,6 +10,6 @@
 #
 
 class CommonAppCityRelation < ActiveRecord::Base
-  belongs_to :common_app
+  belongs_to :common_app, counter_cache: :cities_count
   belongs_to :city
 end

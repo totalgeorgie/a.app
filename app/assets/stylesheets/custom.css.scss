@@ -21,7 +21,8 @@ $atlasgray: #9ca1a2;
 $purewhite: #fff;
 $atlaslightblue:#f2f7fa;
 $atlassuperlightwhite: #f9f9f9;
-
+$atlassuccess: #2ecc71;
+$atlasappheaderwhite: #ecf0f1;
 
 $nav-link-hover-bg: transparent;
 $link-color: $atlasred;
@@ -227,10 +228,19 @@ footer{
   box-shadow: none;
   color:$atlasblack;
   &:hover{
+    background-color:darken($atlasdarkerwhite, 10%);
     color:$atlasblack;
     text-decoration: none;
-    background:$atlasgray;
     box-shadow:none;
+  }
+}
+
+.scful {
+  background-color:$atlassuccess;
+  color:$atlaswhite;
+  &:hover{
+    background-color:darken($atlassuccess, 10%);
+    color:$atlaswhite; 
   }
 }
 
@@ -264,6 +274,10 @@ footer{
         color:$atlaslightblue;
       }
     }
+  }
+  .no-border h2{
+    border-bottom: 0;
+    text-align: center;
   }
 }
 
@@ -694,12 +708,6 @@ input[type="submit"] {
       font-family: $light;
     }
   }
-  .common_app{
-    .progress{
-      float:left;
-      width:100%;
-    }
-  }
 
   .table{
     tr{
@@ -718,6 +726,11 @@ input[type="submit"] {
       }
     }
   }
+}
+
+.progress{
+  float:left;
+  width:100%;
 }
 
 .pagination-centered {
@@ -748,3 +761,27 @@ input[type="submit"] {
   text-align:center;
   width:100%;
 }
+
+.common-app-header{
+  background:$atlasappheaderwhite;
+  padding:30px 0;
+  width:100%;
+  .num{
+    border:1px solid $atlassuccess;
+    border-radius:100px;
+    min-width:60px;
+    min-height:60px;
+    line-height:60px;
+    font-family:$light;
+    font-size:25px;
+    margin: 0 auto;
+    text-align:center;
+  }
+  h2{
+    margin:0;
+    line-height:60px;
+    font-family:$light;
+  }
+}
+
+

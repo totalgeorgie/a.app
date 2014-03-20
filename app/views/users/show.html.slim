@@ -6,32 +6,39 @@
     .col-sm-12
       .guide-header.pagination-centered
         h2.container_header 3 Steps to a Successful Application
-        p Follow the quick guide to help us find the best matches for you
+        p Your #{@user.progress}% complete Follow the quick guide to help us find the best matches for you
   
     .col-sm-12.col-md-6
       .common_app
-        .content-header
-          h3 == link_to @user.common_app, class: "atlas_button light_gray" do
-            span Complete your Profile 
-            span.arrow &rarr;
-        - if @user.progress < 80
+        - if @user.progress < 80 
+          .content-header
+            h3 == link_to @user.common_app, class: "atlas_button light_gray" do
+              span Complete your Profile 
+              span.arrow &rarr;
           p The most successful candidates have their profiles more than 80% complete. Fill yours out now!
         - else 
-          p You have filled in your profile. Click here if you'd like to update anything.
+          .content-header
+            h3 == link_to @user.common_app, class: "atlas_button light_gray scful" do
+              span Done! See your Profile
+              span.arrow &rarr;        
+          p You profile is #{@user.progress}% complete. Click here if you'd like to update anything.
         == link_to @user.common_app do
           .progress
             .progress-bar role="progressbar" style="width: #{ @user.progress }%"
     .col-sm-12.col-md-6
       .video
-        .content-header
-          h3 == link_to (@user.video ? @user.video : new_user_video_url(@user)), class: "atlas_button light_gray" do
-            span == @user.video ? "Edit Your Video " : "Record Your Video "
-            span.arrow &rarr;
         - if @user.video
-          p You've made you're video! Click here if you'd like to update anything.
-        - else 
-          p Create a 30 second video to tell us a bit more about you. We'll use that to get you the most targeted jobs
-
+          .content-header
+            .h3 == link_to @user.common_app, class: "atlas_button light_gray scful" do
+              span Done! See Your Video
+              span.arrow &rarr;
+          p Congrats, you've made your video! Click #{link_to "here", edit_video_url(@user.video)} if you'd like to make a new one
+        - else
+          .content-header
+            .h3 == link_to new_user_video_url(@user), class: "atlas_button light_gray" do
+              span Record Your Video
+              span.arrow &rarr;
+          p Create a 30 second video to tell us a bit more about you. We'll use that to get you the most targeted job
     .col-sm-12
       .applications
         .content-header
@@ -42,12 +49,10 @@
               - @user.applications.each_with_index do |application, index|
                 td == link_to @user.jobs[index].job_title, application
                 td == link_to "Edit Your Application", edit_application_url(application)
-                td == link_to "Cancel Your Application", application_url(application), method: :delete
-
-             
+                td == link_to "Cancel Your Application", application_url(application), method: :delete       
         - else 
-          h3.pagination-centered You haven't made any applications
+          h3.pagination-centered You haven't applied to any jobs yet
         
         .center_button
-          == link_to "Apply to more jobs", jobs_url, :class => "atlas_button"
+          == link_to "Apply to more jobs!", jobs_url, :class => "atlas_button"
 

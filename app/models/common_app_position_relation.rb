@@ -10,6 +10,6 @@
 #
 
 class CommonAppPositionRelation < ActiveRecord::Base
-  belongs_to :common_app
+  belongs_to :common_app, counter_cache: :positions_count
   belongs_to :position
 end

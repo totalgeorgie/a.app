@@ -1,4 +1,0 @@
-.filter_sect
-  == select_tag :city_id, content_tag(:option,'any cities...', :value=>"0") + options_from_collection_for_select(@cities, "id", "name", params[:city_id].to_i  ), :class => "basic" 
-.filter_sect
-  == select_tag :position_id, content_tag(:option,'any roles...',:value=>"0") + options_from_collection_for_select(@positions, "id", "name", params[:position_id].to_i ), :class => "basic" 		    

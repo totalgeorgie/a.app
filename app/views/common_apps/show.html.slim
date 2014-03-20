@@ -1,39 +1,41 @@
 == provide(:title, "Edit My Profile")
-.thinstripe_career 
-  .darken
-    .edit_profile
-	  .container
-	  	  .row
-	  	    .span12
-	  	      .profile_header
-                h2.progress_title Your profile is #{@user.progress}% completed
-                == render 'shared/progress'
-.container
-  .row
-    .guide
-      .span12
-        .blog_container
-          .row
-            .span8.offset2
-              .guide_header.user_header
-                h2 Help us get to know you
-                p 
-                  | This profile is for us to get to know you better, hiring manager eyes will not be seeing it! 
-                  br
-                  | Please fill this in casually, and we'll get to work finding you the best offers.
-            .profile_view 
-              .span6
-                .user_step  
-                  h3
-                    span 1
-                    | Personal Info
+.thinstripe
+  .overlay
+    .container
+      .profile_header.no-border
+        h2 Your Profile is #{ @user.progress } % complete
+      .progress
+          .progress-bar role="progressbar" style="width: #{ @user.progress }%"
+
+.first_container
+  .container
+    .row
+      .col-sm-12.col-md-6.col-md-offset-3
+        .content-header
+          h2.container_header First, a bit about yourself
+      .col-sm-12.col-md-6.col-md-offset-3
+        == editable @common_app, :time_in_china, url: common_app_path(@common_app), value: @common_app.time_in_china, type: "select", source: (1..10).map { |i| {value: i, text:  pluralize(i,  'year') } }, class: "timeInChina profile_editable"
+        p How would your rate your chinese
+        p Which city do you live in currently?
+        p Your Graduation Info (University Name )
+        hr
+        p What are your preferreced cities? 
+        p What are your preferred industries? 
+        p What is your ideal salary? (Give optional ranges)
+        p What’s the biggest professional challenge they have successfully surmounted?
+/            .profile_view 
+/               .span6
+/                 .user_step  
+/                   h3
+/                     span 1
+/                     | Personal Info
                   
-                  == render 'personal_info_section'
-                  // Add resume to personal_info_section
-              .span6
-                .user_step
-                  h3
-                    span 2
-                    | Info on China
+/                   == render 'personal_info_section'
+/                   // Add resume to personal_info_section
+/               .span6
+/                 .user_step
+/                   h3
+/                     span 2
+/                     | Info on China
                   
-                  == render 'info_on_china_section'
+/                   == render 'info_on_china_section'
