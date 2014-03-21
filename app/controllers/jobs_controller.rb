@@ -8,8 +8,8 @@ class JobsController < ApplicationController
   end
 
   def show 
+    store_location
     @job = Job.with_info.find(params[:id])    
-    
     @user = current_user || User.new
     @application = Application.build(@job) 
   end

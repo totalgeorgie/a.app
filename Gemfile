@@ -23,6 +23,7 @@ group :test do
   gem 'capybara', '2.1.0'
 end
 
+gem 'backbone-on-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "bootstrap-will_paginate", "~> 0.0.10"
