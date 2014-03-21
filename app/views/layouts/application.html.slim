@@ -3,7 +3,6 @@ html
   head 
     title == full_title(yield(:title))
     == stylesheet_link_tag    "application", media: "all"
-    script src="//cameratag.com/2.0/cameratag.js" type="text/javascript"
     script src="//fast.fonts.net/jsapi/f8f1480d-1950-4ce9-a2d4-ceead4937a67.js"
     == javascript_include_tag "application"
     == csrf_meta_tags
@@ -15,3 +14,4 @@ body
     == render 'layouts/header'
     == yield
     == render 'layouts/footer'
+  script src="//cameratag.com/2.0/cameratag.js" type="text/javascript"

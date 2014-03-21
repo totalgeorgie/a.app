@@ -26,7 +26,7 @@ end
 gem 'backbone-on-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
-gem "bootstrap-will_paginate", "~> 0.0.10"
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'carrierwave' # for uploading 
 gem 'chosen-rails'
 gem 'coffee-rails', '~> 4.0.0'

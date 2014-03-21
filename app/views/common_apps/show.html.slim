@@ -1,4 +1,5 @@
 == provide(:title, "Edit My Profile")
+  
 .thinstripe
   .overlay
     .container
@@ -8,57 +9,11 @@
           .progress-bar role="progressbar" style="width: #{ @user.progress }%"
 
 .first_container
-  .top-navigation
-    .container 
-      .col-sm-12
-        ul
-          li.col-sm-12.col-md-4
-            a.active
-              i.glyphicon.glyphicon-user
-              | Personal Information
-          li.col-sm-12.col-md-4 
-            a
-              i.glyphicon.glyphicon-globe
-              | On China
-          li.col-sm-12.col-md-4 
-            a
-              i.glyphicon.glyphicon-facetime-video
-              | Introduce Yourself             
-  .col-sm-12
-    .container
-      .profile-body
-        .col-sm-3.col-sm-offset-1
-          .info
-            h2 A little about you
-            p Your name, where you're from, and when you graduated
-        .col-sm-7
-          .form_fields
-            .form-group
-              label for="full_name" Full Name
-              input id="full_name" class="form-control" type="text" name="user[name]" value="#{ @common_app.user.name }"
-            
-            .form-group
-              label for="nationality" Nationality
-              select id="nationality" class="form-control chosen-select"
-                option 
-                option value="Canadian" Canadian
-                option value="United States" United States
-                option value="Mexico" Mexico
-                option value="Germany" Germany
-            
-            .form-group
-              label for="current_city" Current City
-              input id="current_city" class="form-control" type="text" placeholder="e.g Toronto" name="common_app[current_city]" value=""
-            
-            .form-group
-              label for="graduation" Graduation Year
-              select id="nationality" class="form-control chosen-select"
-                option 
-                option value="2008" 2008
-                option value="2009" 2009
-                option value="2010" 2010
-                option value="2011" 2011
+  .top-navigation         
+  .common-app-container
 
-            .form-group
-              hr
-              a.btn.btn-primary Continue &rarr;
+javascript:
+  $(function(){
+    Atlas.url = "#{root_url}";
+    Atlas.initialize($('.common-app-container'));  
+  });

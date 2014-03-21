@@ -42,7 +42,7 @@ $link-color: $atlasred;
 }
 @import "bootstrap";
 @import "fancy-select";
-@import "chosen";
+@import "chosen-custom";
 
 .alert-error {
   @extend .alert-danger
