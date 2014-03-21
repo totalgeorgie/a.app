@@ -8,34 +8,57 @@
           .progress-bar role="progressbar" style="width: #{ @user.progress }%"
 
 .first_container
-  .container
-    .row
-      .col-sm-12.col-md-6.col-md-offset-3
-        .content-header
-          h2.container_header First, a bit about yourself
-      .col-sm-12.col-md-6.col-md-offset-3
-        == editable @common_app, :time_in_china, url: common_app_path(@common_app), value: @common_app.time_in_china, type: "select", source: (1..10).map { |i| {value: i, text:  pluralize(i,  'year') } }, class: "timeInChina profile_editable"
-        p How would your rate your chinese
-        p Which city do you live in currently?
-        p Your Graduation Info (University Name )
-        hr
-        p What are your preferreced cities? 
-        p What are your preferred industries? 
-        p What is your ideal salary? (Give optional ranges)
-        p What’s the biggest professional challenge they have successfully surmounted?
-/            .profile_view 
-/               .span6
-/                 .user_step  
-/                   h3
-/                     span 1
-/                     | Personal Info
-                  
-/                   == render 'personal_info_section'
-/                   // Add resume to personal_info_section
-/               .span6
-/                 .user_step
-/                   h3
-/                     span 2
-/                     | Info on China
-                  
-/                   == render 'info_on_china_section'
+  .top-navigation
+    .container 
+      .col-sm-12
+        ul
+          li.col-sm-12.col-md-4
+            a.active
+              i.glyphicon.glyphicon-user
+              | Personal Information
+          li.col-sm-12.col-md-4 
+            a
+              i.glyphicon.glyphicon-globe
+              | On China
+          li.col-sm-12.col-md-4 
+            a
+              i.glyphicon.glyphicon-facetime-video
+              | Introduce Yourself             
+  .col-sm-12
+    .container
+      .profile-body
+        .col-sm-3.col-sm-offset-1
+          .info
+            h2 A little about you
+            p Your name, where you're from, and when you graduated
+        .col-sm-7
+          .form_fields
+            .form-group
+              label for="full_name" Full Name
+              input id="full_name" class="form-control" type="text" name="user[name]" value="#{ @common_app.user.name }"
+            
+            .form-group
+              label for="nationality" Nationality
+              select id="nationality" class="form-control chosen-select"
+                option 
+                option value="Canadian" Canadian
+                option value="United States" United States
+                option value="Mexico" Mexico
+                option value="Germany" Germany
+            
+            .form-group
+              label for="current_city" Current City
+              input id="current_city" class="form-control" type="text" placeholder="e.g Toronto" name="common_app[current_city]" value=""
+            
+            .form-group
+              label for="graduation" Graduation Year
+              select id="nationality" class="form-control chosen-select"
+                option 
+                option value="2008" 2008
+                option value="2009" 2009
+                option value="2010" 2010
+                option value="2011" 2011
+
+            .form-group
+              hr
+              a.btn.btn-primary Continue &rarr;
