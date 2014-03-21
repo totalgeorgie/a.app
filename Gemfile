@@ -36,15 +36,11 @@ gem 'fancy_select-rails'
 gem 'figaro'
 gem 'jbuilder', '~> 1.2' # json apis https://github.com/rails/jbuilder
 gem 'jquery-rails'
-gem "jquery-ui-rails"
 gem "nested_form"
 gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel
 gem 'sass-rails', '~> 4.0.0.rc2'
-gem "select2-rails" # for x-editable select2
 gem 'slim'
 gem 'uglifier', '>= 1.3.0' # compresses js
 gem 'will_paginate', '3.0.4'
-gem 'x-editable-rails'
-
 # For delayed job, and making this cheaper for abe, use https://github.com/meskyanichi/hirefire
 # For advanced search, try http://railscasts.com/episodes/111-advanced-search-form-revised  // very cool way to filter
