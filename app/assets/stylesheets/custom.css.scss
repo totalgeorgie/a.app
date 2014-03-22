@@ -28,6 +28,11 @@ $atlasblue:#218ccb;
 $nav-link-hover-bg: transparent;
 $link-color: $atlasred;
 
+.camera_tag a:hover{
+  color:$atlaswhite;
+  text-decoration:none;
+}
+
 #error_explanation{
   ul{
     list-style-type:none;
@@ -647,10 +652,6 @@ input[type="submit"] {
     width:100%;
     border:1px solid $atlasdarkerwhite;
   }
-  .camera_tag a:hover{
-    color:$atlaswhite;
-    text-decoration:none;
-  }
   .tab-pane{
     float:left;
     width:100%;
@@ -710,7 +711,12 @@ input[type="submit"] {
       font-family: $light;
     }
   }
+}
 
+.applications{
+  .container_header{
+    color:$atlasblack;
+  }
   .table{
     tr{
       border-bottom:4px solid $atlasblack;
@@ -802,11 +808,18 @@ input[type="submit"] {
     label{
       font-weight:normal;
       color: lighten($atlasblack, 10%);
+      margin-bottom:10px;
     }
-    input{
+    textarea{
+      min-height:100px;
+    }
+    input[type="text"]{
       padding-top:15px;
       padding-bottom:15px;
       color:$atlasblack;
+    }
+    input[type="submit"] {
+      width:auto;
     }
   }
 }
@@ -815,8 +828,10 @@ input[type="submit"] {
   width:100%;
   ul{
     margin:0;
+    padding:0;
     list-style-type:none;
     li{
+      padding:0;
       margin:0;
       a{
         .glyphicon{

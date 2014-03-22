@@ -10,7 +10,7 @@ window.Atlas = {
   },
   initialize: function(rootEl) {
     Atlas.setNav();  
-    new Atlas.Routers.CommonAppRouter({
+    new Atlas.Routers.ProfileRouter({
       rootEl: rootEl
     });
     Backbone.history.start()

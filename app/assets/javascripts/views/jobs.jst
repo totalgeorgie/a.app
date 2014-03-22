@@ -1,11 +1,10 @@
-Atlas.Views.Navbar = Backbone.View.extend({
-  template: JST["nav"],
-  
+Atlas.Views.JobsView = Backbone.View.extend({
+  template: JST["jobs/show"],
+
   render: function() {
     var content = this.template();
 
     this.$el.html(content);
-
-    return this
+    return this;
   }
 });

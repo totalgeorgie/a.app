@@ -61,6 +61,10 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def first_name
+    self.name.split(" ").first
+  end
+  
   def generate_token(column) 
     begin
       self[column] = SecureRandom.urlsafe_base64
