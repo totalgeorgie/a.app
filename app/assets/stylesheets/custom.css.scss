@@ -52,6 +52,7 @@ $link-color: $atlasred;
 .alert-error {
   @extend .alert-danger
 }
+
 html, body{
   background-color:$atlaswhite;
   height:100%;
@@ -854,4 +855,8 @@ input[type="submit"] {
       }
     }
   }
+}
+
+.has-feedback .form-control-feedback{
+  top:28px;
 }
