@@ -53,12 +53,12 @@ class User < ActiveRecord::Base
       .includes(:jobs)
   end
 
-  def self.new_remember_token
-    SecureRandom.urlsafe_base64
-  end
-
   def self.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def self.new_remember_token
+    SecureRandom.urlsafe_base64
   end
 
   def first_name

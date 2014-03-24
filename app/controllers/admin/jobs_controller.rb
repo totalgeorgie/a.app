@@ -1,6 +1,5 @@
 class Admin::JobsController < ApplicationController
   before_action :admin_user
-  before_action :set_job 
 
   def index
     @jobs = Job.with_info.all
@@ -50,9 +49,9 @@ class Admin::JobsController < ApplicationController
     params.require(:job).permit(:job_title, :job_summary, :qualifications,
       bullets_attributes: [:id, :bullet, :_destroy],
       roles_attributes: [:id, :role_title,:role_desc, :_destroy],
-      questions_attributes: [:id, :content, :_destroy]
+      questions_attributes: [:id, :content, :_destroy],
       industry_ids: [],
       city_ids: [],
-      position_ids: [],)
+      position_ids: [])
   end
 end

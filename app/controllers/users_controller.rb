@@ -1,16 +1,13 @@
 class UsersController < ApplicationController
   before_action :signed_in_user, except: [:new, :create]
   before_action :correct_user,   except: [:new, :create]
-  
+  before_action :load_data, only: :show
   def new
     redirect_to current_user if current_user
     @user = User.new
   end
 
   def show
-    @common_app = @user.common_app
-    @applications = @user.applications
-    @video = @user.video
   end
 
   def create
@@ -41,5 +38,11 @@ class UsersController < ApplicationController
   def correct_user 
     @user = User.with_dependents.find(params[:id])
     redirect_to current_user unless current_user?(@user) || current_user.admin?
+  end
+
+  def load_data
+    @common_app = @user.common_app
+    @applications = @user.applications
+    @video = @user.video
   end
 end

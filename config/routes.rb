@@ -13,9 +13,9 @@ Atlas::Application.routes.draw do
   resources :password_resets, except: [:show, :index]
   
   namespace :admin do 
-    get '', to: 'users#index', as: '/'
-    resources :users, only: :show
-    resources :jobs,  except: :show
+    get '', to: 'jobs#index', as: '/'
+    resources :users, only: [:index, :show]
+    resources :jobs
   end
 
   root  "jobs#index"

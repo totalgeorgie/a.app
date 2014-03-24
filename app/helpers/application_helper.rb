@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def thinstripe(stripe_class, text)
-    stripe = <<-Q
+    stripe = <<-HTML
       <div class="#{stripe_class}">
         <div class="overlay">
           <div class="container">
@@ -19,7 +19,7 @@ module ApplicationHelper
           </div>
         </div>
       </div>
-    Q
+    HTML
     stripe.html_safe
   end
 end

@@ -1,9 +1,0 @@
-tr
-  td
-    == link_to job.job_title, admin_job_path(job)
-  td
-    == link_to (job.applications_count ||= "—") , admin_job_path(job)
-  td
-    == link_to "Edit", admin_job_path(job)
-  td
-    == link_to "Delete", admin_job_path(job), method: :delete, data: { confirm: "Are you sure you would like to delete this job. This action can not be undone" } 

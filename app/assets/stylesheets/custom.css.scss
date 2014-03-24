@@ -46,7 +46,7 @@ $link-color: $atlasred;
   }
 }
 @import "bootstrap";
-@import "fancy-select";
+@import "fancy-custom";
 @import "chosen-custom";
 
 .alert-error {
@@ -207,6 +207,7 @@ footer{
   }
 }
 .atlas_button{
+  cursor:pointer;
   font-size:22px;
   background:$atlasred;
   -webkit-box-shadow: inset 1px 1px 17px 1px rgb(116, 30, 30);
@@ -217,15 +218,16 @@ footer{
   @include transition(all 1s ease);
   display:inline-block;
   border:none;
-
-  &:hover{
-    color:$purewhite;
-    text-decoration: none;
-    background:#762019;
-    -webkit-box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
-    box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
-  }
 }
+
+.atlas_button:hover, .selected-button{
+  color:$purewhite;
+  text-decoration: none;
+  background:#762019;
+  -webkit-box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
+  box-shadow: inset 3px 3px 17px 3px rgb(116, 30, 30);
+}
+
 .light_gray{
   font-family:$condensed;
   float: left;
@@ -242,6 +244,23 @@ footer{
     box-shadow:none;
   }
 }
+.blue_button{
+  font-family:$condensed;
+  float: left;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  background-color:$atlasblue;
+  box-shadow: none;
+  color:$atlaswhite;
+  &:hover{
+    background-color:darken($atlasblue, 10%);
+    color:$atlaswhite;
+    text-decoration: none;
+    box-shadow:none;
+  }
+}
+
 
 .scful {
   background-color:$atlassuccess;
@@ -860,3 +879,5 @@ input[type="submit"] {
 .has-feedback .form-control-feedback{
   top:28px;
 }
+
+@import 'admin';

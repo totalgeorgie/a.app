@@ -1,0 +1,51 @@
+- provide(:title, "Manage Jobs")
+
+.thinstripe_career
+  .darken.admin_darken
+  	.container
+  	  .row
+  	    .span12
+  	      .jobs_header.admin_header
+  	        .row
+  	          .span8
+  	  	        h2 
+                  == link_to "Welcome, #{current_user.first_name}", admin_path
+                  span You are managing #{pluralize(Job.all.length, "job")}, and #{pluralize(User.all.length, "applicant")}
+  	  	      .span2
+  	  	        == link_to "Manage Users", admin_users_path, :class => "button"
+              .span2
+                == link_to "Create a Job", new_admin_job_path, :class => "button"
+
+.search_header
+  .container
+    .row
+      .span4
+        #full_text
+          == form_tag admin_jobs_path, :method => :get do
+            h2 Search Jobs
+            == hidden_field_tag :sort, params[:sort]
+            == hidden_field_tag :direction, params[:direction]
+            == hidden_field_tag :city_id, params[:city_id]
+            == hidden_field_tag :position_id, params[:position_id]
+            == text_field_tag :search, params[:search]
+            == submit_tag "Search", :name => nil, class: "button search_button", id: "filter_search_button"
+      .span8
+        .user_search
+          == form_tag admin_jobs_path, :method => 'get', :id => "jobs_filter" do
+            h2 Filter Jobs by
+            == hidden_field_tag :sort, params[:sort]
+            == hidden_field_tag :direction, params[:direction]
+            == hidden_field_tag :search, params[:search]
+            == render 'shared/filter_cats'
+            .filter_sect.filter_search
+              == submit_tag "filter", :class => "button search_button button_black", :name => nil     
+.search_results
+  .container
+    .row
+      .span12
+          - if @jobs.any?
+            == render 'jobs'
+          - else
+            .not_found
+              h2 No Jobs found.
+              p We found no jobs matching these combinations

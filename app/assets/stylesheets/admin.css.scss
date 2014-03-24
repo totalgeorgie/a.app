@@ -1,0 +1,99 @@
+.thinstripe-light {
+  height:initial;
+  .overlay{
+    background-color: rgba(255,255,255,0.9);
+  }
+
+  .profile_header{
+    h2{
+      color:$atlasblack;
+      border-bottom:1px solid $atlasblack;
+    }
+    a{
+      color:$atlasblack;
+      &:hover{
+        color:darken($atlasblack, 10%);
+      }
+    }
+  }
+}
+
+.manage_buttons{
+  width:500px;
+  margin:0 auto;
+  .box_button{
+    width:50%;
+  }
+}
+
+#main-menu .admin-link {
+  color: $atlasred;
+}
+
+.admin-jobs-list{
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  li{
+    margin:0;
+    padding:0;
+    
+    .admin-job-container {
+      float:left;
+      display:block;
+      width:100%;
+      background:$purewhite;
+      padding:10px 0;
+      margin: 10px 0;
+      @include transition(background-color 1s ease);
+
+      &:hover{
+        background-color:darken($purewhite, 10%);
+      }
+
+      span {
+        cursor:pointer;
+        display:block;
+      }
+
+      .num-applicaants{
+        float:left;
+        border:2px solid $atlasred;
+        width:100%;
+        padding:5px 0;
+        span {
+          font-family:$condensed;
+          font-size:12px;
+          text-align:center;
+        }
+        .num {
+          font-family: $light;
+          font-size:32px;
+        }
+      }  
+
+      .main-body{
+        .heading{
+          font-family:$condensed;
+          font-size:25px;
+          margin-bottom:10px;
+        }
+        .content{
+          color:lighten($atlasblack, 10%);
+        }
+      }
+
+      .buttons{
+        .atlas_button{
+          padding:5px 0;
+        }
+        .bigger{
+          margin-top:10px;
+          padding:20px 0;
+        }
+      }
+
+    }
+  }
+}
+
