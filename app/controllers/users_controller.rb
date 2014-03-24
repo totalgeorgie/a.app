@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @common_app = @user.common_app
+    @applications = @user.applications
   end
 
   def create

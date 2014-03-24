@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319210153) do
+ActiveRecord::Schema.define(version: 20140324014033) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -79,16 +79,16 @@ ActiveRecord::Schema.define(version: 20140319210153) do
     t.integer  "user_id"
     t.string   "current_city"
     t.integer  "grad_year"
-    t.string   "read_type"
-    t.string   "listen_speak"
-    t.integer  "time_in_china"
-    t.string   "cover_letter"
     t.string   "resume"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "industries_count", default: 0, null: false
-    t.integer  "cities_count",     default: 0, null: false
-    t.integer  "positions_count",  default: 0, null: false
+    t.integer  "industries_count",              default: 0, null: false
+    t.integer  "cities_count",                  default: 0, null: false
+    t.integer  "positions_count",               default: 0, null: false
+    t.string   "nationality"
+    t.integer  "ideal_salary"
+    t.string   "chinese_ability"
+    t.text     "bonus_question",   limit: 1000
   end
 
   add_index "common_apps", ["user_id"], name: "common_app_users_idx"
@@ -204,7 +204,6 @@ ActiveRecord::Schema.define(version: 20140319210153) do
   create_table "videos", force: true do |t|
     t.integer  "user_id"
     t.string   "video_uuid"
-    t.string   "question"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
