@@ -1,29 +1,50 @@
-<div class="form-group">
-  <label for="chinese-ability">Chinese Ability</label>
-  <select id="chinese-ability" class="common-app-field form-control chosen-select" data-placeholder="e.g Working Proficiency">
-    <option value="0">No Speaking Skills</option>
-    <option value="1">Basic Proficiency</option>
-    <option value="2">Working Proficiency</option>
-    <option value="3">Complete professional fluency</option>
+<% var idealSalary = user.commonApp().escape('ideal_salary') %>
+<div class="form-group <%= idealSalary ? 'has-success has-feedback' : null %>">
+  <label for="ideal_salary">Ideal Salary</label>
+  <select id="ideal_salary" name="ideal_salary" class="common-app-field form-control chosen-select"> 
+    <% _.each(Atlas.salaryOptions, function(salary){ %>
+      <option value="<%= salary %>" <%= idealSalary === salary ? selected : null %> ><%= salary %> Yuan / Month</option>
+    <% }) %>
   </select>
+
+  <% if (idealSalary) { %>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  <% } %>
 </div>
 
-<div class="form-group">
-  <label for="preferred-cities">Preferred Cities</label>
-  <select id="preferred-cities" multiple class="common-app-field form-control chosen-select" data-placeholder="e.g Guanzhou">
-    <option value="Beijing">Beijing</option>
-    <option value="Shanghai">Shanghai</option>
-    <option value="Guangzhou">Guangzhou</option>
-    <option value="Shenzhen">Shenzhen</option>
+<% var prefCities = user.commonApp().escape('cities') %>
+<% var cityIds = _.map(Atlas.cities, function(city) {
+    return city.name
+  }); %>
+
+<div class="form-group <%= prefCities ? 'has-success has-feedback' : null %>">
+  <label for="cities">Preferred Cities</label>
+  <select id="cities" name="cities" class="common-app-field form-control chosen-select" multiple> 
+    <% _.each(Atlas.cities, function(city){ %>
+      <option value="<%= city.id %>" <%= _.contains(cityIds, city.id) ? selected : null %> ><%= city.name %></option>
+    <% }) %>
   </select>
+
+  <% if (prefCities) { %>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  <% } %>
 </div>
 
-<div class="form-group">
-  <label for="preferred-industries">Preferred Industries</label>
-  <select id="preferred-industries" multiple class="common-app-field form-control chosen-select" data-placeholder="e.g Construction">
-    <option value="Construction">Construction</option>
-    <option value="Hospitality">Hospitality</option>
-    <option value="Design">Design</option>
-    <option value="Architecture">Architecture</option>
+
+<% var prefIndustries = user.commonApp().escape('cities') %>
+<% var industryIds = _.map(Atlas.industries, function(industry) {
+    return industry.name
+  }); %>
+
+<div class="form-group <%= prefCities ? 'has-success has-feedback' : null %>">
+  <label for="industries">Preferred Industries</label>
+  <select id="industries" name="industries" class="common-app-field form-control chosen-select" multiple> 
+    <% _.each(Atlas.industries, function(industry){ %>
+      <option value="<%= industry.id %>" <%= _.contains(industryIds, industry.id) ? selected : null %> ><%= industry.name %></option>
+    <% }) %>
   </select>
+
+  <% if (prefIndustries) { %>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  <% } %>
 </div>

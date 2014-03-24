@@ -3,16 +3,42 @@ window.Atlas = {
   Collections: {},
   Views: {},
   Routers: {},
-  setNav: function() {
+  
+  initialize: function(options) {
+    Atlas.user = new Atlas.Models.User({ 'id': options.userId });
+    Atlas.setNav(options.navEl); 
+    Atlas.setProgress(options.progressEl);
+    Atlas.setConstants(options.data);
+
+    Atlas.user.fetch({
+      success: function() {
+        new Atlas.Routers.ProfileRouter({
+          rootEl: options.rootEl
+        });
+
+        Backbone.history.start()
+      }
+    });
+  },
+  
+  setNav: function(el) {
     var newView = new Atlas.Views.Navbar();
 
-    $('.top-navigation').html(newView.render().$el);
+    el.html(newView.render().$el);
   },
-  initialize: function(rootEl) {
-    Atlas.setNav();  
-    new Atlas.Routers.ProfileRouter({
-      rootEl: rootEl
+  
+  setProgress: function(el) {
+    var progressView = new Atlas.Views.Progress({
+      model: Atlas.user
     });
-    Backbone.history.start()
+    el.html(progressView.render().$el);
+  },
+
+  setConstants: function(options) {
+    Atlas.cities = options.cities;
+    Atlas.industries = options.industries;
+    Atlas.gradOptions = options.grad_options;
+    Atlas.salaryOptions = options.salary_options;
+    Atlas.countries = options.countries
   }
 };

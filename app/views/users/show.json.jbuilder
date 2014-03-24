@@ -1,5 +1,6 @@
 json.name @user.name
 json.email @user.email
+json.progress @user.progress
 
 json.common_app do 
   json.id @common_app.id
@@ -12,14 +13,18 @@ json.common_app do
   json.bonus_question @common_app.bonus_question
 end
 
+has_video = @user.video.present?
+
 json.video do 
-  json.id @user.video.id
-  json.user_id @user.video.user_id
-  json.video_uuid @video.video_uuid
+  json.id has_video ? @video.id : nil
+  json.user_id has_video ? @video.user_id : nil
+  json.video_uuid has_video ? @video.video_uuid : nil
 end
 
-json.jobs do 
-  json.array!(@user.applications) do |application|
-    json.name application.name
+json.applications do 
+  json.array!(@applications) do |application|
+    json.id application.id
+    json.user_id application.user_id
+    json.job_id application.id
   end
 end

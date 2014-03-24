@@ -84,6 +84,9 @@ GEM
       sass (~> 3.1)
     compass-rails (1.1.2)
       compass (>= 0.12.2)
+    countries (0.9.3)
+      currencies (~> 0.4.2)
+    currencies (0.4.2)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     eco (1.0.0)
@@ -231,6 +234,7 @@ DEPENDENCIES
   carrierwave
   chosen-rails
   coffee-rails (~> 4.0.0)
+  countries
   customerio!
   faker (= 1.1.2)
   fancy_select-rails

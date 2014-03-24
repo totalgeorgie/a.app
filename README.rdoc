@@ -8,6 +8,12 @@ This will automatically create their common app, and associate them to a job
 
 
 
+== Stuff to think about on backbone
+Answer the question that makes you look best
+
+Right now, because we are serving assets and json on the same controller action, we are basically hitting the database twice for no reason... perhaps move the json to a different namespace or leave the controller before it all happens. 
+
+On Profile, make way to bootstrap in city, position data, etc. Go through each and get the selected one
 
 == What has been done 
 

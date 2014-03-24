@@ -1,0 +1,11 @@
+<% var bonus = user.commonApp().escape('bonus_question') %>
+
+<div class="form-group <%= bonus ? 'has-success has-feedback' : null %>">
+  <label for="bonus_question">What’s the biggest professional challenge you have successfully surmounted? </label>
+  <textarea id="bonus_question" class="form-control common-app-field" type="text" name="bonus_question">
+    <%= bonus %>
+  </textarea>
+  <% if (bonus) { %>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  <% } %>
+</div>

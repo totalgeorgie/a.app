@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @common_app = @user.common_app
     @applications = @user.applications
+    @video = @user.video
   end
 
   def create

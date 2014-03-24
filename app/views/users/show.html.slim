@@ -1,21 +1,27 @@
 == provide(:title, "Edit My Profile")
-  
-.thinstripe
-  .overlay
-    .container
-      .profile_header.no-border
-        h2 Your Profile is #{ @user.progress } % complete
-      .progress
-          .progress-bar role="progressbar" style="width: #{ @user.progress }%"
 
+.profile_progress  
 .first_container
   .top-navigation         
   .container
     .common-app-container
 
+script#data
+  == {  cities: City.select(:id, :name).all, 
+        industries: Industry.select(:id, :name).all,
+        grad_options: CommonApp::GRAD_OPTIONS,
+        salary_options: CommonApp::SALARY_OPTIONS,
+        countries: Country::Names }.to_json
 
 javascript:
   $(function(){
     Atlas.url = "#{root_url}";
-    Atlas.initialize($('.common-app-container'));  
+    
+    Atlas.initialize({
+      rootEl: $('.common-app-container'),
+      progressEl: $('.profile_progress'),
+      navEl: $('.top-navigation'),
+      userId: #{ @user.id },
+      data: JSON.parse($('#data').html())
+    });  
   });

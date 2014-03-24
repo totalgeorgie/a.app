@@ -1,40 +1,47 @@
-<div class="form-group has-success has-feedback">
+<% var userName = user.escape('name') %>
+
+<div class="form-group <%= userName ? 'has-success has-feedback' : null %>">
   <label for="full_name">Full Name</label>
-  <input id="full_name" class="form-control user-field" type="text" name="user[name]" value="Stepan Parunashvili">
-  <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  <input id="full_name" class="form-control user-field" type="text" name="user[name]" value="<%= userName%>">
+  <% if (userName) { %>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  <% } %>
 </div>
 
-<div class="form-group">
+<% var userCountry = user.commonApp().escape('nationality') %>
+<div class="form-group <%= userCountry ? 'has-success has-feedback' : null %>">
   <label for="nationality">Nationality</label>
-  <select id="nationality" class="common-app-field form-control chosen-select"> 
-    <option value="Canadian"> Canadian</option>
-    <option value="United States"> United States</option>
-    <option value="Mexico"> Mexico</option>
-    <option value="Germany"> Germany</option>
+  <select id="nationality" name="nationality" class="common-app-field form-control chosen-select"> 
+    <% _.each(Atlas.countries, function(country){ %>
+      <option value="<%= country[1] %>" <%= userCountry === country[1] ? selected : null %> ><%= country[0] %></option>
+    <% }) %>
   </select>
+
+  <% if (userCountry) { %>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  <% } %>
 </div>
 
-<div class="form-group">
-  <label for="current-city">Current City</label>
-  <input id="current-city" class="form-control common-app-field" type="text" name="common_app[current-city]" value="" placeholder="e.g Toronto">
+<% var userCity = user.commonApp().escape('city') %>
+<div class="form-group <%= userCity ? 'has-success has-feedback' : null %>">
+  <label for="full_name">Current City</label>
+  <input id="full_name" class="form-control user-field" type="text" name="name" placeholder="e.g Toronto" value="<%= userCity %>">
+  <% if (userCity) { %>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  <% } %>
 </div>
 
-<div class="form-group">
-  <label for="graduation">Graduation Year</label>
-  <select id="graduation" class="common-app-field form-control chosen-select"> 
-    <option value="2008">2008</option>
-    <option value="2009">2009</option>
-    <option value="2010">2010</option>
-    <option value="2011">2011</option>
-  </select>
-</div>
 
-<div class="form-group">
-  <label for="graduation">Ideal Salary</label>
-  <select id="graduation" class="common-app-field form-control chosen-select"> 
-    <option value="10000">10000 Yuan/month</option>
-    <option value="20000">20000 Yuan/month</option>
-    <option value="40000">40000 Yuan/month</option>
-    <option value="80000">80000 Yuan/month</option>
+<% var gradYear = user.commonApp().escape('grad_year') %>
+<div class="form-group <%= gradYear ? 'has-success has-feedback' : null %>">
+  <label for="grad_year">Graduation Year</label>
+  <select id="grad_year" name="grad_year" class="common-app-field form-control chosen-select"> 
+    <% _.each(Atlas.gradOptions, function(year){ %>
+      <option value="<%= year %>" <%= gradYear === year ? selected : null %> ><%= year %></option>
+    <% }) %>
   </select>
+
+  <% if (gradYear) { %>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  <% } %>
 </div>

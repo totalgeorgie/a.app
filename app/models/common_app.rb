@@ -19,6 +19,8 @@
 #
 
 class CommonApp < ActiveRecord::Base
+  GRAD_OPTIONS = (1993..Time.now.strftime('%Y').to_i).to_a
+  SALARY_OPTIONS = (10000..80000).select{ |salary| salary % 10000 == 0 }
   VIDEOS_POINTS = 2
   NOT_INCLUDED = 4 # id, created_at, updated_at, user_id
   

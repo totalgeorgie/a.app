@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140324014033) do
+ActiveRecord::Schema.define(version: 20140324042032) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -187,12 +187,12 @@ ActiveRecord::Schema.define(version: 20140324014033) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",                  default: false
+    t.boolean  "admin",                              default: false
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.integer  "heat_id",                default: 2
-    t.string   "admin_note"
-    t.integer  "progress",               default: 5
+    t.integer  "heat_id",                            default: 2
+    t.text     "admin_note",             limit: 800
+    t.integer  "progress",                           default: 5
     t.integer  "applications_count"
     t.integer  "source_id"
   end
