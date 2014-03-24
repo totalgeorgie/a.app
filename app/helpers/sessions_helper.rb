@@ -48,58 +48,8 @@ module SessionsHelper
     current_job.users.any? { |user| user == current_user }
   end  
 
-
-
-
-
-
-
-
-
-  
-  
   def admin_user 
     redirect_to root_path unless (signed_in? && current_user.admin?)
-  end
-
-  def root_path_helper
-    if signed_in? 
-      current_user.admin ? admin_path : current_user
-    else
-      root_path
-    end
-  end
-
-  def cities
-    @cities ||= City.all
-  end
-
-  #sorting
-  def sort_user_column
-    all_columns = User.column_names + ["grad_year"]
-    all_columns.include?(params[:sort]) ? params[:sort] : "created_at"
-  end
-  
-  def sort_job_column
-    Job.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
-  end
-  
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
-
-  def sortable_user(column, title = nil)
-    title ||= column.titleize
-    css_class = column == sort_user_column ? "current #{sort_direction}" : nil
-    direction = column == sort_user_column && sort_direction == "desc" ? "asc" : "desc"
-    link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
-  end
-
-  def sortable_job(column, title = nil)
-    title ||= column.titleize
-    css_class = column == sort_job_column ? "current #{sort_direction}" : nil
-    direction = column == sort_job_column && sort_direction == "desc" ? "asc" : "desc"
-    link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
 
   private

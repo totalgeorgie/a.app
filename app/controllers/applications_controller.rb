@@ -3,12 +3,10 @@ class ApplicationsController < ApplicationController
   before_action :build_application, only: :create
   before_action :find_application, only: [:show, :edit, :update]
   
-  def edit
-  end
-
   def show
   end
 
+  
   def create
     if @application.save
       flash[:success] = "You've Successfully applied!"
@@ -17,6 +15,9 @@ class ApplicationsController < ApplicationController
       update_answers
       render 'jobs/show'
     end
+  end
+  
+  def edit
   end
 
   def update
@@ -37,7 +38,7 @@ class ApplicationsController < ApplicationController
 
   private
   def application_params 
-     params
+    params
       .require(:application)
       .permit(answers_attributes: [:question_id, :content, :id, :video_uuid])
   end
@@ -57,4 +58,3 @@ class ApplicationsController < ApplicationController
     @application = current_user.applications.with_dependents.find(params[:id])
   end
 end
-

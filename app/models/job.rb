@@ -67,5 +67,17 @@ class Job < ActiveRecord::Base
        .includes(:cities)
        .includes(:bullets)
        .includes(:roles)
-  end 
+  end
+
+  def self.build
+    job = Job.new
+    
+    2.times {
+      job.bullets.build
+      job.roles.build
+    }  
+
+    job.questions.build
+    job
+  end
 end
