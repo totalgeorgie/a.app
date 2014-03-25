@@ -24,10 +24,20 @@ $atlassuperlightwhite: #f9f9f9;
 $atlassuccess: #2ecc71;
 $atlasappheaderwhite: #ecf0f1;
 $atlasblue:#218ccb;
+$atlasorange: #e74c3c;
 
 $nav-link-hover-bg: transparent;
 $link-color: $atlasred;
 
+.blue {
+  color:$atlasblue;
+}
+.red {
+  color:$atlasred;
+}
+.orange{
+  color:$atlasorange;
+}
 .camera_tag a:hover{
   color:$atlaswhite;
   text-decoration:none;

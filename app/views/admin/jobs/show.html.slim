@@ -9,9 +9,55 @@
 
 .first_container
   .container
-    .col-sm-6.col-sm-offset-3
-      h2.container_header Coming Soon
-      p.pagination-centered In here, you will be able to see all of the candidates at a glance. You can sort them by tags you add on them, like "good", "maybe","contacted". At a glance, you will be able to see their video, their grad year, current city, and their profile progress percentage. When you click on them, you will see both their answers to this job app, alongside their common app stuff. 
+    .col-sm-12.col-md-8.col-md-offset-2
+      nav.candidate-opts
+        == link_to 'See Shortlisted', '#jobs', class: 'atlas_button blue_button'
+        == link_to 'All Candidates', '#candidates', class: 'atlas_button box_button'
+        == link_to 'Potential Candidates', '#potentials', class: 'atlas_button box_button'
+    
+    .col-sm-12
+      ul.admin-candidate-lists
+        - @applications.each do |app|
+          li 
+            .list-container
+              .col-sm-4
+                .candidate-info
+                  h3.heading == app.user.name
+                  span.content 
+                    == app.user.common_app.industries.try{ |ind| ind.any? ? ind.join(', ') + '.' : nil }
+                  span.content
+                    span.red == app.user.common_app.current_city
+                    == app.user.common_app.cities.try{ |cit| cit.any? ? '&rarr;' + cit.join(', ') : nil }
+                
+                .candidate-icons
+                  .row 
+                    .col-sm-12.col-md-6
+                      .icon-bubble
+                        - app.user.common_app.grad_year.try do |grad_yr|
+                          span.glyphicon.glyphicon-briefcase
+                          span == grad_yr
+                    .col-sm-12.col-md-6  
+                      .icon-bubble
+                        - app.user.source.try do |source|
+                          span.glyphicon.glyphicon-magnet
+                          span == source
+                    .col-sm-12.col-md-6
+                      .icon-bubble
+                        - app.user.video.try do |video|
+                          span.glyphicon.glyphicon-facetime-video
+                          span == link_to "View it!", admin_user_url(app.user)
+                    .col-sm-12.col-md-6
+                      .icon-bubble
+                        - app.user.common_app.nationality.try do | nat |
+                          span.glyphicon.glyphicon-user
+                          span.red == nat
 
-      p.pagination-centered Next to that, there will be an option to view potential candidates. You can see how much they fit, alongside if they have a video, their current city, etc.
-
+              .col-sm-8
+                a.shortlist.atlas_button.shortlist_button href="#" Shortlist
+                h3.heading Why would you be a good fit for this role asdasd asd asdsa asd ada?
+                .content-summary
+                  p This is a sample text to showcase an answer to a question.This is a sample text to showcase an answer to a question.This is a sample text to showcase an answer to a question.This is a sample text to showcase an answer to a question. 
+                a.more-icon.glyphicon.glyphicon-chevron-down href="#"
+      
+      .pagination-centered
+        == will_paginate(@applications)

@@ -108,3 +108,82 @@
   @extend .profile-body
 }
 
+.candidate-opts {
+  margin-top:20px;
+  a{
+    width:33%;
+    padding:7px 0;
+  }
+}
+
+.admin-candidate-lists {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  margin-top:20px;
+
+  span, li, div {
+    cursor: pointer;
+  }
+  span {
+    display:block;
+  }
+
+  .glyphicon{
+    color:$atlasorange;
+    font-size:17px;
+  }
+  li{
+    margin:0;
+    padding:0;
+    .list-container {
+      float:left;
+      display:block;
+      width:100%;
+      background:$purewhite;
+      padding:15px 0;
+      margin: 10px 0;
+      h3 {
+        color:$atlasred;
+      }
+    }
+  }
+  .content span {
+    display:inline;
+  }
+
+  .candidate-icons {
+    span {
+      display:inline;
+    }
+    .icon-bubble {
+      margin-top:10px;
+      .glyphicon{
+        margin-right:5px;
+        color:$atlasred;
+      }
+    }
+  }
+
+  .more-icon{
+    float:right;
+    margin-right:10px;
+    font-size:20px;
+    &:hover{
+      text-decoration:none;
+    }
+  }
+  .shortlist_button {
+    background-color:$atlasorange;
+    margin-top:-30px;
+    float:right;
+    font-size:17px;
+    width:initial; 
+    padding:10px 15px; 
+    box-shadow:none;
+    &:hover{
+      background-color:darken($atlasorange, 10%);
+      box-shadow:none;
+    }
+  }
+}

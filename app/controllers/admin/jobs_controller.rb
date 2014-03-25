@@ -9,7 +9,9 @@ class Admin::JobsController < ApplicationController
   end
 
   def show
-    @applications = Application.for_job(params[:id])
+    @applications = Application
+    .for_job(params[:id])
+    .paginate(page: params[:page], per_page: 10)
   end
   
   def new
