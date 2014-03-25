@@ -2,11 +2,12 @@
 #
 # Table name: applications
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  job_id     :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  job_id      :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  shortlisted :boolean          default(FALSE)
 #
 
 class Application < ActiveRecord::Base
@@ -29,12 +30,18 @@ class Application < ActiveRecord::Base
        .includes(:answers)
   end
 
-  scope :for_job, -> (job_id) do 
-    Application
+  scope :for_job, ->(job_id, shortlisted = false) do
+    app = Application
       .includes(:user)
       .includes(:questions)
       .includes(:answers)
       .where('applications.job_id = ?', job_id)
+
+    if shortlisted
+      app = app.where('applications.shortlisted = ?', true)
+    end
+
+    app
   end
 
   def self.build(job, appl = Application.new)

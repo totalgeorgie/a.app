@@ -9,7 +9,7 @@ class Admin::JobsController < ApplicationController
   end
 
   def show
-    @applications = Application.for_job(params[:job_id])
+    @applications = Application.for_job(params[:id])
   end
   
   def new
