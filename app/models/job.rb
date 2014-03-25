@@ -22,8 +22,6 @@ class Job < ActiveRecord::Base
   has_many :cities, through: :job_city_relations
   has_many :job_industry_relations, inverse_of: :job, dependent: :destroy
   has_many :industries, through: :job_industry_relations
-  has_many :job_position_relations, inverse_of: :job, dependent: :destroy
-  has_many :positions,  through: :job_position_relations
   has_many :applications, inverse_of: :job, dependent: :destroy
   has_many :users,  through: :applications
 
@@ -32,7 +30,6 @@ class Job < ActiveRecord::Base
     :job_summary,
     :qualifications,
     :industries,
-    :positions,
     :bullets, 
     :roles, 
     :questions, 
