@@ -54,10 +54,25 @@ class Job < ActiveRecord::Base
     job =  Job
       .includes(:industries)
       .includes(:cities)
+      .includes(:questions)
       .includes(:bullets)
       .includes(:roles)
     
     job = job.where(cities: { id: city })  if city 
+
+    job
+  end
+
+  scope :with_search, ->(search) do
+    job = Job.includes(:industries)
+      .includes(:cities)
+      .includes(:bullets)
+      .includes(:roles)
+      .includes(:questions)
+
+    if search
+      job = job.where('jobs.job_title LIKE ?', "%#{search}%")
+    end
 
     job
   end
@@ -67,6 +82,7 @@ class Job < ActiveRecord::Base
        .includes(:cities)
        .includes(:bullets)
        .includes(:roles)
+       .includes(:questions)
   end
 
   def self.build

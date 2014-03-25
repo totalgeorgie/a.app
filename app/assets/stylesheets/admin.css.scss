@@ -34,10 +34,15 @@
   list-style-type: none;
   margin:0;
   padding:0;
+  margin-top:20px;
   li{
     margin:0;
     padding:0;
-    
+    a {
+      &:hover{
+        text-decoration:none;
+      }
+    }
     .admin-job-container {
       float:left;
       display:block;
@@ -77,6 +82,7 @@
           font-family:$condensed;
           font-size:25px;
           margin-bottom:10px;
+
         }
         .content{
           color:lighten($atlasblack, 10%);
@@ -95,5 +101,9 @@
 
     }
   }
+}
+
+.admin-job-body {
+  @extend .profile-body
 }
 

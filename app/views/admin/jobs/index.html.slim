@@ -15,7 +15,7 @@
           == hidden_field_tag :sort, params[:sort]
           == hidden_field_tag :direction, params[:direction]
           == text_field_tag :search, params[:search], placeholder: 'search for a job..', class: 'form-control'
-    
+
     ul.admin-jobs-list
       - @jobs.each do |job|
         li
@@ -25,7 +25,7 @@
                 span.num == job.applications_count
                 span Applicants
             .span.col-sm-8.col-lg-9
-              span.main-body
+              == link_to admin_job_url(job), class: 'main-body' do
                 span.heading == job.job_title
                 span.content == job.cities.pluck(:name).join(", ")
                 span.content == job.industries.pluck(:name).join(", ")
@@ -33,3 +33,6 @@
               span.buttons
                 == link_to "Edit", edit_admin_job_url(job), class: 'atlas_button box_button'
                 == link_to "Candidates", admin_job_url(job), class: 'atlas_button bigger box_button'
+
+    .pagination-centered
+      == will_paginate

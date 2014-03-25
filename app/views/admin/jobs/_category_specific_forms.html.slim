@@ -1,8 +1,0 @@
-== f.label "What Industries does the Job belong to?" 
-== f.select :industry_ids, Industry.all.collect {|industry| [industry.name, industry.id]}, {}, :multiple => true, :class => "chosen-select"
-
-== f.label "What cities is the job in?" 
-== f.select :city_ids, City.all.collect {|city| [city.name, city.id]}, {}, :multiple => true, :class => "chosen-select"
-
-== f.label "What roles is this job suited for?"
-== f.select :position_ids, Position.all.collect {|city| [city.name, city.id]}, {}, :multiple => true, :class => "chosen-select"

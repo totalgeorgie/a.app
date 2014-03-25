@@ -1,25 +1,44 @@
-.row
-  .span12
-    #job_errors
-      == render 'shared/error_messages', object: f.object
-  .span6
-    .job_step
-      h3
-        span 1
-        | Job Description
-      == render 'job_description_form', f: f
-      h3
-        span 2
-        | Roles
-      == render 'roles_form', f: f
+== render '/shared/error_messages', object: f.object
+.admin-job-body
+  .col-sm-4
+    .info
+      h2 Job Description
+      p Job Title, quick summary, and the bullet points about the job.
+  .col-sm-8
+    .form_fields
+      == render '/admin/jobs/form/job_description', f: f
+.admin-job-body
+  .col-sm-4
+    .info
+      h2 More Details
+      p Detailed Summary and Desired Applicant Qualifications
+  .col-sm-8
+    .form_fields
+      == render '/admin/jobs/form/more_details', f: f
+  
+.admin-job-body
+  .col-sm-4
+    .info
+      h2 Roles
+      p The Roles, alongside role descriptions of what the candidate will be doing
+  .col-sm-8
+    .form_fields
+      == render '/admin/jobs/form/roles', f: f
 
-  .span6
-    .job_step
-      h3
-        span 3
-        | Categories
-      == render 'category_specific_forms', f: f
-      h3
-        span 4
-        | Application Questions
-      == render 'application_questions', f: f
+.admin-job-body
+  .col-sm-4
+    .info
+      h2 Job Categories
+      p Cities and  Industries related to this job
+  .col-sm-8
+    .form_fields    
+    == render '/admin/jobs/form/category_specific', f: f
+
+.admin-job-body
+  .col-sm-4
+    .info
+      h2 Applicant Questions
+      p Questions to ask applicants when they apply.
+  .col-sm-8
+    .form_fields    
+      == render '/admin/jobs/form/application_questions', f: f

@@ -1,12 +1,14 @@
 class Admin::JobsController < ApplicationController
   before_action :admin_user
+  before_action :load_data, except: [:index, :show, :destroy]
+  before_action :set_job, only: [:show, :edit, :update]
 
   def index
-    @jobs = Job.with_info.all
+    @jobs = Job.with_search(params[:search])
+      .paginate(page: params[:page], per_page: 5)
   end
 
   def show
-    @job = Job.with_info.find(params[:id])
   end
   
   def new
@@ -17,22 +19,19 @@ class Admin::JobsController < ApplicationController
     @job = Job.new(job_params)
     if @job.save
       flash[:success] = "Job Succesfuly created"
-      redirect_to @job
+      redirect_to admin_job_url(@job)
     else
       render :new
     end
   end
 
   def edit
-   @job = Job.with_info.find(params[:id])
   end
 
   def update
-    @job = Job.with_info.find(params[:id])
-    
     if @job.update_attributes(job_params)
       flash[:success] = "Successfully updated Job."
-      redirect_to @job
+      redirect_to admin_job_url(@job)
     else
       render :action => 'edit'
     end
@@ -53,5 +52,14 @@ class Admin::JobsController < ApplicationController
       industry_ids: [],
       city_ids: [],
       position_ids: [])
+  end
+
+  def load_data
+    @industries = Industry.all.collect { |industry| [industry.name, industry.id] }
+    @cities = City.all.collect { |city| [city.name, city.id] }
+  end
+
+  def set_job
+    @job = Job.with_info.find(params[:id])
   end
 end

@@ -1,0 +1,8 @@
+== f.fields_for :questions do |question_form|
+  .form-group
+    == question_form.label :content, "Question"
+    == question_form.text_field :content, class: 'form-control'
+  .form-group
+    == question_form.link_to_remove "Remove this question"
+
+== f.link_to_add "Add a Question", :questions, class: 'btn btn-danger'

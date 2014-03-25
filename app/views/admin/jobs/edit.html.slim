@@ -1,17 +1,10 @@
 - provide(:title, "Edit #{@job.job_title}") 
+== thinstripe('thinstripe', "Edit #{@job.job_title}")
 
-.thinstripe_career 
-  .darken
-  	.container
-  	  .row
-  	    .span12
-  	      .jobs_header
-  	  	        h2 Edit #{@job.job_title}
-
-.container
-  .row
-    .span12
-      .blog_container
-        == nested_form_for [:admin, @job]  do |f| 
-          == render 'fields', f: f
-          == f.submit "Update the Job", class: "button"
+.first_container
+  .container
+    == nested_form_for [:admin, @job]  do |f|
+      == render 'fields', f: f
+      .col-sm-8.col-sm-offset-4
+        hr
+        == f.submit "Update the Job", class: "atlas_button blue_button"

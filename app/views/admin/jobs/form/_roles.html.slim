@@ -1,0 +1,13 @@
+.form-group
+  == f.fields_for :roles do |role_form| 
+    .form-group
+      == role_form.label :role_title 
+      == role_form.text_field :role_title, class: 'form-control'
+    .form-group
+      == role_form.label :role_desc
+      == role_form.text_area :role_desc, class: 'form-control'
+  
+    .form-group
+      == role_form.link_to_remove "Remove this Role"
+
+  == f.link_to_add "Add a Role", :roles, class: 'btn btn-danger'
