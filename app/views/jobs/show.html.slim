@@ -9,7 +9,8 @@
       .apply_now.clearfix
         - if signed_in? 
           - if @user.admin?
-            == link_to "Edit this job", edit_admin_job_path(@job), :class => "atlas_button"
+            hr
+            == link_to "Edit this job", edit_admin_job_path(@job), :class => "atlas_button light_gray"
           - else
               == render has_job?(@user, @job) ? "jobs/already_applied" : "jobs/apply_to_job"
         - else

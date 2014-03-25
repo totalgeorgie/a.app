@@ -1,43 +1,11 @@
-.thinstripe_career
-  .darken.admin_darken
-  	.container
-  	  .row
-  	    .span12
-  	      .jobs_header.admin_header
-  	        .row
-  	          .span8
-  	  	        h2 
-                  == link_to "#{@job.job_title}"
-                  span  == pluralize( @job.applications.length, "applicant" )
-              .span2
-                == link_to "Edit Job Details", edit_admin_job_path(@job), class: "button"
-              .span2
-                == link_to "Back to Jobs", admin_jobs_path, :class => "button"
+- provide(:title, "Manage Jobs")
 
-.container
-  .row
-    .guide
-      .span12
-        .blog_container
-          .row
-            .profile_view  
-              .guide_header.user_header
-              .span12
-                .user_step
-                  p  ==@job.job_summary
-                == render 'associate_to_job'
-                .user_step
-                  ul.nav.nav-tabs#tabs
-                    li class="active"
-                      a href="#applicants" data-toggle="tab" Applicants
+.thinstripe.thinstripe-light.clearfix
+  .overlay
+    .container
+      .manage_buttons
+        == link_to 'Manage Jobs', admin_jobs_url, class: 'atlas_button box_button selected-button'
+        == link_to 'Manage Users', admin_users_url, class: 'atlas_button box_button'
 
-                  .tab-content
-                    .tab-pane.fade.in.active#applicants
-                      - if @applications
-                        == render 'applicants'
-                        == will_paginate(@applications)
-                      - else 
-                        .not_found
-                          h2 No Applicants found.
-                          p There are currently no applicants for this job.
-                    
+.first_container
+  h2.container_header Coming Soon

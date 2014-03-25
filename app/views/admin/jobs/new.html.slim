@@ -1,6 +1,11 @@
 - provide(:title, "Create a New Job") 
 == thinstripe('thinstripe', 'Create a Job')
-  	  	        
+.thinstripe.thinstripe-light.clearfix
+  .overlay
+    .container
+      .manage_buttons
+        == link_to 'Manage Jobs', admin_jobs_url, class: 'atlas_button box_button selected-button'
+        == link_to 'Manage Users', admin_users_url, class: 'atlas_button box_button'	  	        
 .first_container
   .container
     == nested_form_for [:admin, @job] do |f| 
