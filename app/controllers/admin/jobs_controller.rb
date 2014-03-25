@@ -1,7 +1,7 @@
 class Admin::JobsController < ApplicationController
   before_action :admin_user
   before_action :load_data, except: [:index, :show, :destroy]
-  before_action :set_job, only: [:show, :edit, :update]
+  before_action :set_job, only: [:edit, :update]
 
   def index
     @jobs = Job.with_search(params[:search])
@@ -9,6 +9,7 @@ class Admin::JobsController < ApplicationController
   end
 
   def show
+    @applications = Application.for_job(params[:job_id])
   end
   
   def new
