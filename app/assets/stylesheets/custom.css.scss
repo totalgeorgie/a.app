@@ -438,31 +438,26 @@ footer{
 }
 
 .opp{
-  margin:15px 0;
-  border-bottom:2px dotted $atlasdarkerwhite;
   .side_info{
     .side_title{
-      float:left;
-      width:100%;
-      background:image-url('pin.png') no-repeat right center;
-
       h4{
         font-family: $condensed;
-        color:$atlasblack;
-        
-        font-size:17px;
+        color:$atlasred;
+        background-color:darken($atlaslightblue, 3%);
+        font-size:16px;
+        margin:0;
+        padding:4px;
+        width:100%;
       }
     }
     .location{
-      float:left;
-      width:100%;
       .opp_location{
         list-style-type:none;
         margin:0;
         padding:0;
         li{
           font-family:$condensed;
-          background-color:$atlasblack;
+          background-color:$atlasred;
           color:white;
           padding:4px;
           a{
@@ -558,8 +553,9 @@ footer{
   width:100%;
   padding:20px;
   border-bottom:none;
-  p{
+  span, p{
     font-size:16px;
+    line-height:1.6;
   }
   .resp{
     list-style-type:none;
@@ -881,3 +877,9 @@ input[type="submit"] {
 }
 
 @import 'admin';
+
+.public-job-list {
+  @extend .admin-jobs-list;
+  padding:25px 0;
+  
+}

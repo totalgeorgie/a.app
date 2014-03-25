@@ -17,7 +17,7 @@
 .second_container
   .container
     .row
-      ul.jobs
+      ul.public-job-list
         - if @jobs.any?
           == render @jobs
           == will_paginate
@@ -30,3 +30,5 @@
             - else
               .center_button
                 == link_to "Sign up to get updated when we get new jobs", signup_url, class: "atlas_button"
+  .pagination-centered
+    == will_paginate

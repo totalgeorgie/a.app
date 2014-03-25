@@ -32,8 +32,6 @@ class CommonApp < ActiveRecord::Base
   has_many :industries, through: :common_app_industry_relations
   has_many :common_app_city_relations, dependent: :destroy 
   has_many :cities, through: :common_app_city_relations
-  has_many :common_app_position_relations, dependent: :destroy 
-  has_many :positions, through: :common_app_position_relations
 
   validates :user, presence: true
   mount_uploader :resume, ResumeUploader

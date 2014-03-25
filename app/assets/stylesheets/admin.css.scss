@@ -44,12 +44,12 @@
         text-decoration:none;
       }
     }
-    .admin-job-container {
+    .list-job-container {
       float:left;
       display:block;
       width:100%;
       background:$purewhite;
-      padding:10px 0;
+      padding:15px 0;
       margin: 10px 0;
       @include transition(background-color 1s ease);
 
