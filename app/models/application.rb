@@ -12,7 +12,7 @@
 class Application < ActiveRecord::Base
   has_many :questions, through: :job
   has_many :answers, inverse_of: :application, dependent: :destroy
-  belongs_to :heatable, polymorphic: true
+  belongs_to :heat
   belongs_to :job, counter_cache: true
   belongs_to :user, counter_cache: true
 

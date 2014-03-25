@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   after_create :create_common_app
 
-  belongs_to :heatable, polymorphic: true
+  belongs_to :heat
   belongs_to :source
   has_one :common_app, dependent: :destroy, inverse_of: :user
   has_one :video, inverse_of: :user, dependent: :destroy
