@@ -1,6 +1,12 @@
-Atlas.Views.AboutView = Backbone.View.extend({
+Atlas.Views.AboutView = Backbone.AppView.extend({
   template: JST["about/show"],
   fields: JST["about/fields"],
+  
+  events: {
+    'blur .user-field' : 'alterUserInfo',
+    'blur .common-app-field' : 'alterCommonAppInfo',
+    'change .chosen-select' : 'alterCommonAppInfo'
+  },
 
   render: function() {
     var content = this.template(),
@@ -11,5 +17,6 @@ Atlas.Views.AboutView = Backbone.View.extend({
     this.$el.html(content);
     this.$el.find('.first-fields').append(fields)
     return this;
-  }
+  },
+
 });

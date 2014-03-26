@@ -1,9 +1,10 @@
 <% var idealSalary = user.commonApp().escape('ideal_salary') %>
+
 <div class="form-group <%= idealSalary ? 'has-success has-feedback' : null %>">
   <label for="ideal_salary">Ideal Salary</label>
   <select id="ideal_salary" name="ideal_salary" class="common-app-field form-control chosen-select"> 
     <% _.each(Atlas.salaryOptions, function(salary){ %>
-      <option value="<%= salary %>" <%= idealSalary === salary ? selected : null %> ><%= salary %> Yuan / Month</option>
+      <option value="<%= salary %>" <%= idealSalary === salary ? 'selected' : null %> ><%= salary %> Yuan / Month</option>
     <% }) %>
   </select>
 
@@ -12,16 +13,15 @@
   <% } %>
 </div>
 
-<% var prefCities = user.commonApp().escape('cities') %>
-<% var cityIds = _.map(Atlas.cities, function(city) {
-    return city.name
+<% var prefCities = user.commonApp().get('cities') %>
+<% var cityIds = _.map(prefCities, function(city) {
+    return city.id
   }); %>
-
 <div class="form-group <%= prefCities ? 'has-success has-feedback' : null %>">
   <label for="cities">Preferred Cities</label>
-  <select id="cities" name="cities" class="common-app-field form-control chosen-select" multiple> 
+  <select id="cities" name="city_ids" class="common-app-field form-control chosen-select" multiple> 
     <% _.each(Atlas.cities, function(city){ %>
-      <option value="<%= city.id %>" <%= _.contains(cityIds, city.id) ? selected : null %> ><%= city.name %></option>
+      <option value="<%= city.id %>" <%= _.contains(cityIds, city.id) ? 'selected' : null %> ><%= city.name %></option>
     <% }) %>
   </select>
 
@@ -30,17 +30,16 @@
   <% } %>
 </div>
 
-
-<% var prefIndustries = user.commonApp().escape('cities') %>
-<% var industryIds = _.map(Atlas.industries, function(industry) {
-    return industry.name
+<% var prefIndustries = user.commonApp().get('industries') %>
+<% var industryIds = _.map(prefIndustries, function(industry) {
+    return industry.id
   }); %>
 
-<div class="form-group <%= prefCities ? 'has-success has-feedback' : null %>">
+<div class="form-group <%= prefIndustries ? 'has-success has-feedback' : null %>">
   <label for="industries">Preferred Industries</label>
-  <select id="industries" name="industries" class="common-app-field form-control chosen-select" multiple> 
+  <select id="industries" name="industry_ids" class="common-app-field form-control chosen-select" multiple> 
     <% _.each(Atlas.industries, function(industry){ %>
-      <option value="<%= industry.id %>" <%= _.contains(industryIds, industry.id) ? selected : null %> ><%= industry.name %></option>
+      <option value="<%= industry.id %>" <%= _.contains(industryIds, industry.id) ? 'selected' : null %> ><%= industry.name %></option>
     <% }) %>
   </select>
 

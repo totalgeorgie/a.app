@@ -6,7 +6,11 @@ A user is going to be able to sign up by applying. They will be able to enter th
 
 This will automatically create their common app, and associate them to a job 
 
+On Jobs Show for admin, make ability to search with start. 
 
+Also, don't forget to add the ability to say how many stars the person has, what the traffic source is. 
+
+Make the profile turn into a document on the "download button" -- 
 
 == Stuff to think about on backbone
 Answer the question that makes you look best
@@ -207,3 +211,9 @@ Fix N+1 query when admin sees jobs/show
  
 Fix queries when viewing a list of users 
 
+-----
+[2014-03-25 6:40:13 PM] Abraham Sorock: VA entering people's resume info OR people submitting their own resume info into database
+[2014-03-25 6:40:34 PM] Abraham Sorock: THEN, search function that is able to find key words and key conditions / tags in database to auto-populate short list.
+[2014-03-25 6:40:39 PM] Abraham Sorock: if we have THAT, that is the key function.
+[2014-03-25 6:41:11 PM] Abraham Sorock: the other cool thing would be do generate cool looking candidate profiles, the way we just talked about, with an embedded video and some text information, maybe on a file or maybe on a unique web link.
+-----

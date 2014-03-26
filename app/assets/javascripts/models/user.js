@@ -23,9 +23,7 @@ Atlas.Models.User = Backbone.Model.extend({
   
   video: function() {
     if (!this._video) {
-      this._video = new Atlas.Models.Video({
-        user : this
-      });
+      this._video = new Atlas.Models.Video();
     }
 
     return this._video

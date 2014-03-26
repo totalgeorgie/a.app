@@ -53,6 +53,12 @@ class User < ActiveRecord::Base
       .includes(:jobs)
   end
 
+  scope :for_profile, -> do 
+      User.includes(applications: :job)
+      .includes(:video)
+      .includes(common_app: [:cities, :industries])
+  end
+
   def self.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
   end

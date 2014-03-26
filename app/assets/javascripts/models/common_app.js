@@ -1,5 +1,15 @@
 Atlas.Models.CommonApp = Backbone.Model.extend({
-  url: function() {
-    Atlas.url + "common_apps"
+  urlRoot: function() {
+    return Atlas.url + "common_apps"
+  },
+
+  toJSON: function() {
+    var data = Backbone.Model.prototype.toJSON.apply(this)
+    
+    delete data.id
+    delete data.created_at
+    delete data.updated_at
+    
+    return { common_app: data };
   }
 });

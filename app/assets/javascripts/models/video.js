@@ -1,5 +1,5 @@
 Atlas.Models.Video = Backbone.Model.extend({
-  url: function() {
+  urlRoot: function() {
    return Atlas.url + "videos"  
   }
 });

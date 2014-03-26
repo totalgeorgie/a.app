@@ -31,8 +31,7 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
 
     this._swapView(videoView);
     this._addSelects();
-    this._changeNav('.video-nav');  
-    CameraTag.setup();
+    this._changeNav('.video-nav');
   },
 
   jobs: function() {

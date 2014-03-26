@@ -9,24 +9,18 @@ class VideosController < ApplicationController
   def create 
     @video = current_user.build_video(video_params)
     if @video.save
-      flash[:success] = "Video successfully added"
-      redirect_to current_user
+      render json: @video
     else
-      render :new
+      render json: { errors: @video.errors }, status: 400
     end
-  end
-
-  def edit
-    @video = current_user.video
   end
   
   def update
     @video = current_user.video
     if @video.update_attributes(video_params)
-      flash[:success] = "Video successfully updated"
-      redirect_to current_user
+      render json: @video
     else
-      render :edit
+      render json: { errors: @video.errors }, status: 400
     end
   end
 

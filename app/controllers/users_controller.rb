@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :signed_in_user, except: [:new, :create]
   before_action :correct_user,   except: [:new, :create]
   before_action :load_data, only: :show
+  
   def new
     redirect_to current_user if current_user
     @user = User.new
@@ -24,9 +25,9 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Your settings are updated"
-      redirect_to @user
+      render json: @user
     else
-      render :edit
+      render json: { errors: @user.errors}, status: 400
     end
   end
 
@@ -36,12 +37,12 @@ class UsersController < ApplicationController
   end
 
   def correct_user 
-    @user = User.with_dependents.find(params[:id])
+    @user = User.for_profile.find(params[:id])
     redirect_to current_user unless current_user?(@user) || current_user.admin?
   end
 
   def load_data
-    @common_app = @user.common_app
+     @common_app = @user.common_app
     @applications = @user.applications
     @video = @user.video
   end

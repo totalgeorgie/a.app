@@ -1,17 +1,23 @@
+<% var hasVideo = !!video.get('id') %>
+
 <div class="profile-body">
   <div class="col-sm-4">
     <div class="info">
       <h2>Your Introductory Video</h2>
       <p>A 30 second video to introduce yourself, and your chinese ability.</p>
+      <% if (hasVideo) { %>
+      <% } %>
     </div>
   </div>
   <div class="col-sm-8">
     <div class="first-fields form_fields">
-      <p>For 30 Seconds, introduce yourself in Mandarin and let us know what your goals are.</p>
+      <% if (hasVideo) { %>
+        <p class="alert alert-success">You have recorded your video! If you wish to record again, you can do so below</p> 
+      <% } else { %>
+        <p>For 30 Seconds, introduce yourself in Mandarin and let us know what your goals are.</p>
+      <% } %>
       <form class="video_submit">
-        <camera id="AtlasApp" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="video"></camera>
-        <hr>
-          <input type="submit" class="atlas_button" value="Create My Video">
+        <camera id="AtlasApp" class="atlas-vid" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="video"></camera>
       </form>
     </div>
   </div>

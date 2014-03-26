@@ -2,7 +2,7 @@
 
 <div class="form-group <%= userName ? 'has-success has-feedback' : null %>">
   <label for="full_name">Full Name</label>
-  <input id="full_name" class="form-control user-field" type="text" name="user[name]" value="<%= userName%>">
+  <input id="full_name" class="form-control user-field" type="text" name="name" value="<%= userName%>">
   <% if (userName) { %>
       <span class="glyphicon glyphicon-ok form-control-feedback"></span>
   <% } %>
@@ -13,7 +13,7 @@
   <label for="nationality">Nationality</label>
   <select id="nationality" name="nationality" class="common-app-field form-control chosen-select"> 
     <% _.each(Atlas.countries, function(country){ %>
-      <option value="<%= country[1] %>" <%= userCountry === country[1] ? selected : null %> ><%= country[0] %></option>
+      <option value="<%= country[1] %>" <%= userCountry === country[1] ? 'selected' : null %> ><%= country[0] %></option>
     <% }) %>
   </select>
 
@@ -22,10 +22,10 @@
   <% } %>
 </div>
 
-<% var userCity = user.commonApp().escape('city') %>
+<% var userCity = user.commonApp().escape('current_city') %>
 <div class="form-group <%= userCity ? 'has-success has-feedback' : null %>">
   <label for="full_name">Current City</label>
-  <input id="full_name" class="form-control user-field" type="text" name="name" placeholder="e.g Toronto" value="<%= userCity %>">
+  <input id="full_name" class="form-control common-app-field" type="text" name="current_city" placeholder="e.g Toronto" value="<%= userCity %>">
   <% if (userCity) { %>
       <span class="glyphicon glyphicon-ok form-control-feedback"></span>
   <% } %>
@@ -37,7 +37,7 @@
   <label for="grad_year">Graduation Year</label>
   <select id="grad_year" name="grad_year" class="common-app-field form-control chosen-select"> 
     <% _.each(Atlas.gradOptions, function(year){ %>
-      <option value="<%= year %>" <%= gradYear === year ? selected : null %> ><%= year %></option>
+      <option value="<%= year %>" <%= gradYear === year ? 'selected' : null %> ><%= year %></option>
     <% }) %>
   </select>
 

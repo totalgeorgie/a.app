@@ -19,7 +19,7 @@ class CommonAppsController < ApplicationController
       :nationality,
       :ideal_salary,
       :chinese_ability,
-      :bonus_questions, 
+      :bonus_question, 
       industry_ids: [], 
       city_ids: [], 
       position_ids: [])
