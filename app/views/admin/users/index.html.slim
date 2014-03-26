@@ -9,8 +9,54 @@
 
 .first_container
   .container
-    .col-sm-6.col-sm-offset-3
-      h2.container_header Coming Soon
-      p In here, you will see a comprehensive search for users, based on cities, industries, their grad year, whether they have a video or not. You will also be able to sort them, and assign them tags, like "high" "medium", "low", "lost cause" etc. 
+    .search_area
+      .row
+        .col-sm-3
+          input.form-control type="text" placeholder="Enter a Name Here"
+        .col-sm-3
+          select.form-control.chosen-select
+            option Beijing
+            option Shanghai 
+        .col-sm-2
+          select.form-control.chosen-select
+            option Technology
+            option Sales
+        .col-sm-2
+          select.form-control.chosen-select
+            option 2008
+            option 2000
+        .col-sm-1
+          .btn-group data-toggle="buttons"
+            label.btn.btn-primary
+              input type="checkbox" Video?
+        .col-sm-1
+          a.btn.btn-danger Search
+    
+    .users-table
+      table.table
+        tbody
+        - @users.each do |user|
+          tr 
+            td 
+              == link_to user.name, admin_users_url(user)
+            td 
+              span.glyphicon.glyphicon-briefcase
+              span.content == user.common_app.grad_year ? user.common_app.grad_year : 'N/A' 
+            td 
+              span.glyphicon.glyphicon-user
+              span.content == user.common_app.nationality ? user.common_app.nationality : 'N/A' 
+            td 
+              span.glyphicon.glyphicon-facetime-video
+              span.content == user.video ? user.video : 'N/A' 
+            td 
+              span.blue San Francisco, 
+              span.content Beijing, Shanghai
+            td
+              span.content Hospitality, Sales, Marketing
+            td 
+              span.glyphicon.glyphicon-download-alt
+            td
+              span.glyphicon.glyphicon-circle-arrow-right
 
-      p At a glance, you'll see their city, nationality, and any notes you've made on them, as well as their job applications. You will be able to click further to see more
+      .pagination-centered
+        == will_paginate
