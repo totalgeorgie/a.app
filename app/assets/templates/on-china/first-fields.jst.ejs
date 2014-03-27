@@ -1,23 +1,20 @@
 <% var idealSalary = user.commonApp().escape('ideal_salary') %>
 
-<div class="form-group <%= idealSalary ? 'has-success has-feedback' : null %>">
+<div class="form-group has-feedback <%= idealSalary ? 'has-success' : null %>">
   <label for="ideal_salary">Ideal Salary</label>
   <select id="ideal_salary" name="ideal_salary" class="common-app-field form-control chosen-select"> 
     <% _.each(Atlas.salaryOptions, function(salary){ %>
       <option value="<%= salary %>" <%= idealSalary === salary ? 'selected' : null %> ><%= salary %> Yuan / Month</option>
     <% }) %>
   </select>
-
-  <% if (idealSalary) { %>
-      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-  <% } %>
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= idealSalary ? null : 'no-show' %>"></span>
 </div>
 
 <% var prefCities = user.commonApp().get('cities') %>
 <% var cityIds = _.map(prefCities, function(city) {
     return city.id
   }); %>
-<div class="form-group <%= prefCities ? 'has-success has-feedback' : null %>">
+<div class="form-group has-feedback <%= prefCities ? 'has-success' : null %>">
   <label for="cities">Preferred Cities</label>
   <select id="cities" name="city_ids" class="common-app-field form-control chosen-select" multiple> 
     <% _.each(Atlas.cities, function(city){ %>
@@ -25,9 +22,7 @@
     <% }) %>
   </select>
 
-  <% if (prefCities) { %>
-      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-  <% } %>
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= prefCities ? null : 'no-show' %>"></span>
 </div>
 
 <% var prefIndustries = user.commonApp().get('industries') %>
@@ -35,15 +30,13 @@
     return industry.id
   }); %>
 
-<div class="form-group <%= prefIndustries ? 'has-success has-feedback' : null %>">
+<div class="form-group has-feedback <%= prefIndustries ? 'has-success' : null %>">
   <label for="industries">Preferred Industries</label>
   <select id="industries" name="industry_ids" class="common-app-field form-control chosen-select" multiple> 
     <% _.each(Atlas.industries, function(industry){ %>
       <option value="<%= industry.id %>" <%= _.contains(industryIds, industry.id) ? 'selected' : null %> ><%= industry.name %></option>
     <% }) %>
   </select>
-
-  <% if (prefIndustries) { %>
-      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-  <% } %>
+  
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= prefIndustries ? null : 'no-show' %>"></span>
 </div>

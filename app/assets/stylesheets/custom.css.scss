@@ -836,6 +836,11 @@ input[type="submit"] {
       color: lighten($atlasblack, 10%);
       margin-bottom:10px;
     }
+    .form-group{
+      .glyphicon {
+        color: $atlassuccess;
+      }
+    }
     textarea{
       min-height:100px;
     }
@@ -886,10 +891,14 @@ input[type="submit"] {
   top:28px;
 }
 
+.no-show {
+  visibility:hidden;
+  opacity:0;
+}
+
 @import 'admin';
 
 .public-job-list {
   @extend .admin-jobs-list;
   padding:25px 0;
-  
 }

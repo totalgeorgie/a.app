@@ -13,7 +13,7 @@ Backbone.AppView = Backbone.View.extend({
     var $input = $(e.target);
     var attr = $input.attr('name'),
         value = $input.val();
-    debugger
+
     Atlas.user.commonApp().set(attr, value).save();
 
     this.fadeCheckmark($input);
@@ -22,6 +22,8 @@ Backbone.AppView = Backbone.View.extend({
   fadeCheckmark: function(input) {
     var $span = input.parent().find('.glyphicon');
     $span.fadeOut();
+    $span.removeClass('no-show')
     $span.fadeIn();
+
   }
 });

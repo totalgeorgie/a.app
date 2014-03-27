@@ -4,6 +4,9 @@
     
     <table class="table">
       <tbody>
+        <% if (jobApps.length === 0) { %>
+          <h3 class="pagination-centered"> You haven't applied to any jobs. click below to apply now!</h3>
+        <% } %>
         <% jobApps.each(function(jobApp) { %>
           <tr>
               <td><a href="<%= jobApp.url() %>"><%= jobApp.escape('job_title') %></a></td>
