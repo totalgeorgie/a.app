@@ -1,9 +1,9 @@
 json.name @user.name
 json.email @user.email
-json.progress @user.progress
 
 json.common_app do 
   json.id @common_app.id
+  json.progress @common_app.progress
   json.user_id @user.id
   json.nationality @common_app.nationality
   json.current_city @common_app.current_city

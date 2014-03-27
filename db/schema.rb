@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327005350) do
+ActiveRecord::Schema.define(version: 20140327220256) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140327005350) do
     t.string   "nationality"
     t.integer  "ideal_salary"
     t.text     "bonus_question",   limit: 1000
+    t.integer  "progress",                      default: 5
   end
 
   add_index "common_apps", ["user_id"], name: "common_app_users_idx"
@@ -192,7 +193,6 @@ ActiveRecord::Schema.define(version: 20140327005350) do
     t.datetime "password_reset_sent_at"
     t.integer  "heat_id",                            default: 2
     t.text     "admin_note",             limit: 800
-    t.integer  "progress",                           default: 5
     t.integer  "applications_count"
     t.integer  "source_id"
   end

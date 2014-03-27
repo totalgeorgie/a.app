@@ -14,7 +14,6 @@
 #  password_reset_sent_at :datetime
 #  heat_id                :integer          default(2)
 #  admin_note             :text(800)
-#  progress               :integer          default(5)
 #  applications_count     :integer
 #  source_id              :integer
 #

@@ -13,8 +13,8 @@
 #  cities_count     :integer          default(0), not null
 #  nationality      :string(255)
 #  ideal_salary     :integer
-#  chinese_ability  :string(255)
 #  bonus_question   :text(1000)
+#  progress         :integer          default(5)
 #
 
 require 'spec_helper'

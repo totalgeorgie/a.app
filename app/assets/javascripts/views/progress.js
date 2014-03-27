@@ -9,7 +9,7 @@ Atlas.Views.Progress = Backbone.View.extend({
 
   render: function() {
     var content = this.template({
-      user: this.model
+      user: Atlas.user
     });
 
     this.$el.html(content);

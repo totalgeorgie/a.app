@@ -13,8 +13,8 @@
 #  cities_count     :integer          default(0), not null
 #  nationality      :string(255)
 #  ideal_salary     :integer
-#  chinese_ability  :string(255)
 #  bonus_question   :text(1000)
+#  progress         :integer          default(5)
 #
 
 class CommonApp < ActiveRecord::Base
@@ -23,7 +23,7 @@ class CommonApp < ActiveRecord::Base
   VIDEOS_POINTS = 2
   NOT_INCLUDED = 4 # id, created_at, updated_at, user_id
   
-  after_update :set_progress 
+  before_update :set_progress 
 
   belongs_to :user
   has_one  :video, through: :user
@@ -41,7 +41,7 @@ class CommonApp < ActiveRecord::Base
       .includes(:cities)
   end 
 
-  def progress
+  def calculate_progress
     total_questions = self.attribute_names.count + VIDEOS_POINTS - NOT_INCLUDED
     total_completed = 0 - NOT_INCLUDED
 
@@ -54,10 +54,9 @@ class CommonApp < ActiveRecord::Base
 
   private
   def set_progress
-    current_progress = self.progress
-    unless self.user.progress == current_progress 
-      self.user.progress = current_progress
-      self.user.save!
+    current_progress = self.calculate_progress
+    unless self.progress == current_progress 
+      self.progress = current_progress
     end
   end
 
