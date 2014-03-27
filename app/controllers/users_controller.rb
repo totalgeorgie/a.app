@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, common_app: :resume)
+    params.require(:user).permit(:name, :email, :password, { common_app_attributes: [:resume] } )
   end
 
   def correct_user 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def load_data
-     @common_app = @user.common_app
+    @common_app = @user.common_app
     @applications = @user.applications
     @video = @user.video
   end

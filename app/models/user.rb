@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   
   before_save { self.email = email.downcase }
   before_create :create_remember_token
-  after_create :create_common_app
+  before_create :ensure_common_app
 
   belongs_to :heat
   belongs_to :source
@@ -88,9 +88,9 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
   
-  private   
-  def create_common_app
-    self.build_common_app
+  private
+  def ensure_common_app 
+    self.common_app || self.build_common_app
   end
   
   def create_remember_token

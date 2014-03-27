@@ -6,7 +6,7 @@
   == f.text_field :name, placeholder: "Your Full Name", class: "name"
   == f.text_field :email, placeholder: "Your Email Address", class: "email"
   == f.password_field :password, placeholder: "Create Password", class: "pass"
-  == fields_for :common_app do |c|
+  == f.fields_for :common_app_attributes, @user.common_app do |c|
     .form-group
       == c.file_field :resume, class: 'btn btn-primary'
   == f.submit "Create my account", class: "atlas_button box_button"
