@@ -23,6 +23,7 @@ group :test do
   gem 'capybara', '2.1.0'
 end
 
+gem "animate-rails"
 gem 'backbone-on-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -42,6 +43,7 @@ gem 'nested_form'
 gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel
 gem 'sass-rails', '~> 4.0.0.rc2'
 gem 'slim'
+gem 'thin'
 gem 'uglifier', '>= 1.3.0' # compresses js
 gem 'will_paginate', '3.0.4'
 

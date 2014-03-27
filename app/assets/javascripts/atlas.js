@@ -28,9 +28,7 @@ window.Atlas = {
   },
   
   setProgress: function(el) {
-    var progressView = new Atlas.Views.Progress({
-      model: Atlas.user
-    });
+    var progressView = new Atlas.Views.Progress();
     el.html(progressView.render().$el);
   },
 

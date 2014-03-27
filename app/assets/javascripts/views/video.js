@@ -1,5 +1,6 @@
 Atlas.Views.VideoView = Backbone.View.extend({
   template: JST["video/show"],
+  
   initialize: function(options) {
     window.setTimeout(this.manageCamera.bind(this), 0);
   },
@@ -16,14 +17,14 @@ Atlas.Views.VideoView = Backbone.View.extend({
 
   manageCamera: function() {
     CameraTag.setup();
-    CameraTag.observe('AtlasApp', 'published', this.publishVid);
+    CameraTag.observe('AtlasApp', 'published', this.publishVid.bind(this));
   },
 
   remove: function(){
-    CameraTag.cameras.AtlasApp.destroy();
-    // _.each(CameraTag.cameras, function(camera){
-    //   camera.destroy();
-    // });
+    if (CameraTag.cameras.AtlasApp) {
+      CameraTag.cameras.AtlasApp.destroy();
+    }
+    
     Backbone.View.prototype.remove.apply(this);
   },
 

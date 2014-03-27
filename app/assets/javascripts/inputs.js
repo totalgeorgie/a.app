@@ -14,4 +14,13 @@ $(function(){
     classButton: 'btn btn-danger',
     buttonText: 'Upload Resume'
   });
+
+  $(":file").on('change', function(e){
+    var $fileContainer = $(e.currentTarget).parent(),
+        $icon = $fileContainer.find('.icon-white'),
+        $button = $fileContainer.find('label');
+
+    $button.html('<i class="glyphicon glyphicon-ok"></i> Resume Chosen');
+    $button.removeClass('btn-danger').addClass('btn-success animate ');
+  });
 });
