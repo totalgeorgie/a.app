@@ -21,6 +21,6 @@ $(function(){
         $button = $fileContainer.find('label');
 
     $button.html('<i class="glyphicon glyphicon-ok"></i> Resume Chosen');
-    $button.removeClass('btn-danger').addClass('btn-success animate ');
+    $button.removeClass('btn-danger').addClass('btn-success');
   });
 });
