@@ -9,7 +9,6 @@ json.common_app do
   json.current_city @common_app.current_city
   json.grad_year @common_app.grad_year
   json.ideal_salary @common_app.ideal_salary
-  json.chinese_ability @common_app.chinese_ability
   json.bonus_question @common_app.bonus_question
 
   if @common_app.cities.length > 0

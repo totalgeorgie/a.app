@@ -46,6 +46,10 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, allow_blank: true
   validates :password, presence: true, on: :create
 
+  accepts_nested_attributes_for :common_app, 
+    reject_if:  :all_blank, 
+    allow_destroy:  true
+
   scope :with_dependents, -> do
     User.includes(:common_app)
       .includes(:video)
