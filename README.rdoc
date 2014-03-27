@@ -12,6 +12,11 @@ Also, don't forget to add the ability to say how many stars the person has, what
 
 Make the profile turn into a document on the "download button" -- 
 
+Progress auto update
+
+Video auto refresh 
+
+
 == Stuff to think about on backbone
 Answer the question that makes you look best
 
