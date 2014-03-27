@@ -2,6 +2,10 @@ class CommonAppsController < ApplicationController
   before_action :signed_in_user 
   before_action :correct_applicant
 
+  def show
+    render json: @common_app
+  end
+  
   def update
     if @common_app.update_attributes(common_app_params)
       render json: @common_app

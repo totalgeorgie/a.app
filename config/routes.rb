@@ -1,7 +1,7 @@
 Atlas::Application.routes.draw do
   resources :users
   resources :videos, only: [:create, :update]
-  resources :common_apps, only: :update
+  resources :common_apps, only: [:update, :show]
 
   resources :jobs, only: [:index, :show] do 
     resources :applications, only: [:create]

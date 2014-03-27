@@ -7,7 +7,6 @@ window.Atlas = {
   initialize: function(options) {
     Atlas.user = new Atlas.Models.User({ 'id': options.userId });
     Atlas.setNav(options.navEl); 
-    Atlas.setProgress(options.progressEl);
     Atlas.setConstants(options.data);
 
     Atlas.user.fetch({
@@ -15,8 +14,8 @@ window.Atlas = {
         new Atlas.Routers.ProfileRouter({
           rootEl: options.rootEl
         });
-
         Backbone.history.start()
+        Atlas.setProgress(options.progressEl);
       }
     });
   },

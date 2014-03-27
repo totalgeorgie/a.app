@@ -6,8 +6,13 @@ Atlas.Views.VideoView = Backbone.View.extend({
   },
 
   publishVid: function(vid) {
-    Atlas.user.video().set('video_uuid', vid.uuid).save();
-    this.render();
+    var that = this;
+    Atlas.user.video().set('video_uuid', vid.uuid).save({}, {
+      success: function() {
+        that.refresh();
+        Atlas.user.commonApp().fetch();
+      }
+    });
   },
   
   refresh: function() {

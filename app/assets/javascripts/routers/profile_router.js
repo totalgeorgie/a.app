@@ -15,6 +15,7 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
 
     this._swapView(aboutView);
     this._addSelects();
+    this._setFileInput();
     this._changeNav('.personal-info-nav');
   },
 
@@ -62,6 +63,14 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
       width: '100%',
       disable_search_threshold: 3
     });
-  }
+  },
 
+  _setFileInput: function(){
+    $(":file").filestyle({
+      input:false,
+      icon: true,
+      classButton: 'btn btn-danger',
+      buttonText: 'Upload Resume'
+    });
+  }
 });

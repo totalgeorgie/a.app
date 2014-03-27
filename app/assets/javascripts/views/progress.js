@@ -1,15 +1,17 @@
 Atlas.Views.Progress = Backbone.View.extend({
   initialize: function(options) {
-    this.listenTo(Atlas.user, "sync", this.render);
     this.listenTo(Atlas.user.commonApp(), "sync", this.render);
-    CameraTag.observe('AtlasApp', 'published', this.render.bind(this));
   },
 
   template: JST['progress'],
 
+  calculateProgress: function() {
+    return Atlas.user.commonApp().escape('progress');
+  },
+
   render: function() {
     var content = this.template({
-      user: Atlas.user
+      progress: this.calculateProgress()
     });
 
     this.$el.html(content);

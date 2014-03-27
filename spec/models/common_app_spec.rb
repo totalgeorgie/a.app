@@ -15,6 +15,7 @@
 #  ideal_salary     :integer
 #  bonus_question   :text(1000)
 #  progress         :integer          default(5)
+#  has_video        :boolean          default(FALSE)
 #
 
 require 'spec_helper'

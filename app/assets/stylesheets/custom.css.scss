@@ -853,6 +853,11 @@ input[type="submit"] {
     input[type="submit"] {
       width:auto;
     }
+    .bootstrap-filestyle{
+      .icon-white, .glyphicon, label {
+        color: white;
+      }
+    }
   }
 }
 .top-navigation{
@@ -912,6 +917,7 @@ input[type="submit"] {
 .icon-white{
   @extend .glyphicon
 }
+
 .icon-folder-open {
   @extend .glyphicon-folder-open;
   margin-right:4px;
