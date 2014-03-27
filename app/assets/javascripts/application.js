@@ -4,6 +4,7 @@
 //= require chosen-jquery
 //= require fancy_select
 //= require bootstrap
+//= require bootstrap-filestyle
 //= require underscore
 //= require backbone
 //= require atlas

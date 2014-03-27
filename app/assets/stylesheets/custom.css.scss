@@ -902,3 +902,16 @@ input[type="submit"] {
   @extend .admin-jobs-list;
   padding:25px 0;
 }
+.bootstrap-filestyle{
+  .input-large{
+    padding:5px;
+  }
+}
+
+.icon-white{
+  @extend .glyphicon
+}
+.icon-folder-open {
+  @extend .glyphicon-folder-open;
+  margin-right:4px;
+}
