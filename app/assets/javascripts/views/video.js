@@ -5,7 +5,8 @@ Atlas.Views.VideoView = Backbone.View.extend({
   },
 
   publishVid: function(vid) {
-    Atlas.user.video().set('video_uuid', vid.uuid).save()
+    Atlas.user.video().set('video_uuid', vid.uuid).save();
+    this.render();
   },
   
   refresh: function() {
@@ -16,7 +17,6 @@ Atlas.Views.VideoView = Backbone.View.extend({
   manageCamera: function() {
     CameraTag.setup();
     CameraTag.observe('AtlasApp', 'published', this.publishVid);
-    CameraTag.observe('AtlasApp', 'processed', this.refresh);
   },
 
   remove: function(){

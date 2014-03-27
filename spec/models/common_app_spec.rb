@@ -11,7 +11,6 @@
 #  updated_at       :datetime
 #  industries_count :integer          default(0), not null
 #  cities_count     :integer          default(0), not null
-#  positions_count  :integer          default(0), not null
 #  nationality      :string(255)
 #  ideal_salary     :integer
 #  chinese_ability  :string(255)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325172504) do
+ActiveRecord::Schema.define(version: 20140327002743) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -86,7 +86,6 @@ ActiveRecord::Schema.define(version: 20140325172504) do
     t.datetime "updated_at"
     t.integer  "industries_count",              default: 0, null: false
     t.integer  "cities_count",                  default: 0, null: false
-    t.integer  "positions_count",               default: 0, null: false
     t.string   "nationality"
     t.integer  "ideal_salary"
     t.string   "chinese_ability"

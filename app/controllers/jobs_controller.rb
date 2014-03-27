@@ -17,7 +17,6 @@ class JobsController < ApplicationController
   private
   def load_data
     @cities = City.all
-    @positions = Position.all
   end
 
   def city
