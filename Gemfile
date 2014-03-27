@@ -26,6 +26,7 @@ end
 gem 'backbone-on-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-filestyle-rails'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'carrierwave' # for uploading 
 gem 'countries'
@@ -43,5 +44,6 @@ gem 'sass-rails', '~> 4.0.0.rc2'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0' # compresses js
 gem 'will_paginate', '3.0.4'
+
 # For delayed job, and making this cheaper for abe, use https://github.com/meskyanichi/hirefire
 # For advanced search, try http://railscasts.com/episodes/111-advanced-search-form-revised  // very cool way to filter
