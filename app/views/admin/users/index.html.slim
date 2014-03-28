@@ -25,13 +25,13 @@
               span.content == user.common_app.grad_year ? user.common_app.grad_year : 'N/A' 
             td 
               span.glyphicon.glyphicon-user
-              span.content == user.common_app.nationality ? user.common_app.nationality : 'N/A' 
+              span.content == user.common_app.nationality ? user.common_app.country_name : 'N/A' 
             td 
               span.glyphicon.glyphicon-facetime-video
               span.content == user.common_app.has_video ? 'Yes' : 'N/A' 
             td 
-              span.blue == user.common_app.try(:current_city)
-              span.content == user.common_app.cities.try{ |city| city.any? ? city.pluck(:name).join(', ') : 'No cities' }
+              span.blue == user.common_app.current_city
+              span.content == user.common_app.cities.try{ |city| city.any? ? ' &rarr; ' + city.pluck(:name).join(', ') : 'No cities' }
             td
               span.content == user.common_app.industries.try{ |ind| ind.any? ? ind.pluck(:name).join(', ') : 'No industries' }
             td 

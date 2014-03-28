@@ -66,13 +66,13 @@ class User < ActiveRecord::Base
     !param.blank?
   end
   
-  def self.search(params)
+  def self.search(opts)
     users = User.includes(common_app: [:cities, :industries])
-    users = users.where('users.name LIKE ?', "%#{params[:name]}%") if works(params[:name])
-    users = users.where('cities.id = ?', params[:city_id]) if works(params[:city_id])
-    users = users.where('industries.id = ?', params[:industry_id]) if works(params[:industry_id])
-    users = users.where('common_apps.grad_year > ?', params[:grad_year].to_i) if works(params[:grad_year])
-    users = users.where('common_apps.has_video = ?', true) if works(params[:has_video])
+    users = users.where('users.name LIKE ?', "%#{opts[:name]}%") if works(opts[:name])
+    users = users.where('cities.id = ?', opts[:city_id]) if works(opts[:city_id])
+    users = users.where('industries.id = ?', opts[:industry_id]) if works(opts[:industry_id])
+    users = users.where('common_apps.grad_year > ?', opts[:grad_year].to_i) if works(opts[:grad_year])
+    users = users.where('common_apps.has_video = ?', true) if works(opts[:has_video])
     
     users
   end

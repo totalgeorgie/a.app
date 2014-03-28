@@ -39,8 +39,13 @@ class CommonApp < ActiveRecord::Base
     CommonApp.includes(:video)
       .includes(:industries)
       .includes(:cities)
-  end 
+  end
 
+  def self.countries
+    countries = Country::Data.map {|k,v| [k, v['name']]}.sort_by { |d| d[0] }
+    Hash[*countries.flatten]
+  end
+  
   def calculate_progress
     total_questions = self.attribute_names.count - NOT_INCLUDED
     total_completed = 0 - NOT_INCLUDED
@@ -50,6 +55,10 @@ class CommonApp < ActiveRecord::Base
     end
     
     (100.0*total_completed/total_questions).round
+  end
+
+  def country_name
+    self.class.countries[self.nationality]
   end
 
   private
