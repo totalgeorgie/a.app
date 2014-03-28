@@ -22,10 +22,10 @@
               == link_to user.name, admin_user_url(user)
             td 
               span.glyphicon.glyphicon-briefcase
-              span.content == user.common_app.grad_year ? user.common_app.grad_year : 'N/A' 
+              span.content == user.common_app.grad_year.try{ |yr| yr ? yr : 'N/A' }
             td 
               span.glyphicon.glyphicon-user
-              span.content == user.common_app.nationality ? user.common_app.country_name : 'N/A' 
+              span.content == user.common_app.nationality.try{ |nat| nat ? nat : 'N/A'}
             td 
               span.glyphicon.glyphicon-facetime-video
               span.content == user.common_app.has_video ? 'Yes' : 'N/A' 

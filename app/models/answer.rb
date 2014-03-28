@@ -14,4 +14,10 @@
 class Answer < ActiveRecord::Base
 	belongs_to :question
 	belongs_to :application
+  validate :has_correct_question
+
+  private
+  def has_correct_question
+    self.application.question_ids.include?(self.question_id)
+  end
 end

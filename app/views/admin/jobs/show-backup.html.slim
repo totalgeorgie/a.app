@@ -47,7 +47,7 @@
                       .col-sm-12.col-md-6
                         .icon-bubble
                           span.glyphicon.glyphicon-user
-                          span.red == app.user.common_app.grad_year ? app.user.common_app.grad_year : 'N/A'
+                          span.red == app.user.common_app.grad_year.try{ |yr| yr ? yr : 'N/A'}
 
                 .col-sm-8
                   a.shortlist.atlas_button.shortlist_button href="#" Shortlist

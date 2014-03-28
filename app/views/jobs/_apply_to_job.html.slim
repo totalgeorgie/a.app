@@ -8,6 +8,7 @@
       == f.fields_for :answers do |a|
         - i = a.options[:child_index]
         - question = @job.questions[i]
+        == a.hidden_field :question_id, value: question.id
         == a.label :content, question.content, class: "question_label"
         ul.nav.nav-tabs#tabs
           li class="active"

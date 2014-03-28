@@ -32,9 +32,8 @@ class Application < ActiveRecord::Base
 
   scope :for_job, ->(job_id, shortlisted = false) do
     app = Application
-      .includes(:user => [:common_app, :video, :source, :heat])
-      .includes(:questions)
-      .includes(:answers)
+      .includes(:user => [:source, :heat, common_app: [:cities, :industries]])
+      .includes(questions: :answer)
       .where('applications.job_id = ?', job_id)
 
     if shortlisted

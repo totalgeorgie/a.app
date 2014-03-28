@@ -9,10 +9,10 @@ AtlasJob.Routers.JobRouter = Backbone.Router.extend({
   },
 
   all: function() {
-    var aboutView = new Atlas.Views.AboutView();
+    var allView = new Atlas.Views.allView();
 
-    this._swapView(aboutView);
-    this._changeNav('.personal-info-nav');
+    this._swapView(allView);
+    this._changeNav('.all-nav');
   },
 
   shortlisted: function() {
