@@ -799,7 +799,11 @@ input[type="submit"] {
   text-align:center;
   width:100%;
 }
-
+.common-app-container{
+  select.form-control + .chosen-container-single b {
+    margin-left:-20px;
+  }
+}
 .common-app-header{
   background:$atlasappheaderwhite;
   padding:30px 0;

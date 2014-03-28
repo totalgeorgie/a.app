@@ -11,26 +11,7 @@
   .container
     form.search_area
       .row
-        .col-sm-3
-          input.form-control type="text" name="name" placeholder="Enter a Name Here"
-        .col-sm-3
-          select.form-control.chosen-select name="city_id"
-            option value="1" Beijing
-            option value="2" Shanghai 
-        .col-sm-2
-          select.form-control.chosen-select name="industry_id"
-            option value="1" Technology
-            option value="2" Sales
-        .col-sm-2
-          select.form-control.chosen-select name="grad_year"
-            option value="2008" 2008
-            option value="2000" 2000
-        .col-sm-1
-          .btn-group data-toggle="buttons"
-            label.btn.btn-primary
-              input type="checkbox" name="has_video" Video?
-        .col-sm-1
-          button.btn.btn-danger Search
+        == render 'advanced_search'
     
     .users-table
       table.table
