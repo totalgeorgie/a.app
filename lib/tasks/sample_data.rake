@@ -20,18 +20,11 @@ namespace :db do
     City.create!(name: "Nanjing")
     City.create!(name: "Guangzhou")
 
-    Position.create!(name: "Sales")
-    Position.create!(name: "I.T")
-    Position.create!(name: "Accounting")
-    Position.create!(name: "Management")
     User.create!(name: "Example User",
                  email: "example@atlas-china.com",
                  password: "foobar",
                  password_confirmation: "foobar",
                  admin: true)
-    Video.create!(user_id: 1, 
-                  video_uuid: "samplecid123",
-                  question: "SampleQuestion")
 
     50.times do |n|
       name  = Faker::Name.name

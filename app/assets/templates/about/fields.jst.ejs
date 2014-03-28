@@ -41,9 +41,9 @@
 <% var resume = user.commonApp().get('resume').url %>
 
 <div class="form-group">
-  <label>Resume</label>
+  <label class="d-block">Resume</label>
   <% if (resume) { %>
-    <p class="green">
+    <p class="alert alert-success">
     You have uploaded your resume! You can view it <a href="<%= resume %>">here</a>, or upload another one below.</p>
   <% } %>
   <input class="file-upload" type="file" name="common_app[resume]">

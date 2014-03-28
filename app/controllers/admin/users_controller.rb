@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   respond_to :html, :json
 
   def index
-    @users = User.with_dependents.paginate(page: params[:page], per_page: 30)
+    @users = User.search(params).paginate(page: params[:page], per_page: 30)
   end
 
   def update

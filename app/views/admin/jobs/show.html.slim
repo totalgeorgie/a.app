@@ -24,10 +24,10 @@
                 .candidate-info
                   h3.heading == app.user.name
                   span.content 
-                    == app.user.common_app.industries.try{ |ind| ind.any? ? ind.join(', ') + '.' : nil }
+                    == app.user.common_app.industries.try{ |ind| ind.any? ? ind.pluck(:name).join(', ') + '.' : nil }
                   span.content
                     span.red == app.user.common_app.current_city
-                    == app.user.common_app.cities.try{ |cit| cit.any? ? '&rarr;' + cit.join(', ') : nil }
+                    == app.user.common_app.cities.try{ |cit| cit.any? ? '&rarr;' + cit.pluck(:name).join(', ') : nil }
                 
                 .candidate-icons
                   .row 

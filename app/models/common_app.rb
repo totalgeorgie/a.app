@@ -21,7 +21,6 @@
 class CommonApp < ActiveRecord::Base
   GRAD_OPTIONS = (1993..Time.now.strftime('%Y').to_i).map(&:to_s)
   SALARY_OPTIONS = (10000..80000).select{ |salary| salary % 10000 == 0 }.map(&:to_s)
-  VIDEOS_POINTS = 2
   NOT_INCLUDED = 4 # id, created_at, updated_at, user_id
   
   before_update :set_progress 
@@ -43,7 +42,7 @@ class CommonApp < ActiveRecord::Base
   end 
 
   def calculate_progress
-    total_questions = self.attribute_names.count + VIDEOS_POINTS - NOT_INCLUDED
+    total_questions = self.attribute_names.count - NOT_INCLUDED
     total_completed = 0 - NOT_INCLUDED
 
     attribute_names.each do |attr|

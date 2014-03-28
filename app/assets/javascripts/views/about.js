@@ -13,7 +13,6 @@ Atlas.Views.AboutView = Backbone.AppView.extend({
     var that = this,
         formData = new FormData(),
         $input = $('.file-upload');
-    debugger
     formData.append('common_app[resume]', $input[0].files[0]);
     
     $.ajax({
@@ -24,11 +23,13 @@ Atlas.Views.AboutView = Backbone.AppView.extend({
       processData: false,
       type: 'PUT',
       success: function() {
-        that.render();
-        Atlas.user.commonApp().fetch();
+        Atlas.user.commonApp().fetch({
+          success: function() {
+            that.render();
+          }
+        });
       }
     });
-
   },
 
   render: function() {
@@ -38,8 +39,8 @@ Atlas.Views.AboutView = Backbone.AppView.extend({
         });
 
     this.$el.html(content);
-    this.$el.find('.first-fields').append(fields)
+    this.$el.find('.first-fields').append(fields);
+    window.setTimeout(this._addSelects.bind(this), 0);
     return this;
-  },
-
+  }
 });

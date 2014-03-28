@@ -22,6 +22,7 @@ Atlas.Views.OnChinaView = Backbone.AppView.extend({
     this.$el.html(content);
     this.$el.find('.first-fields').append(firstFields)
     this.$el.find('.second-fields').append(secondFields)
+    window.setTimeout(this._addSelects.bind(this), 0);
     return this;
   }
 

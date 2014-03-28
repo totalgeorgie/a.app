@@ -15,7 +15,16 @@ Atlas.Views.Progress = Backbone.View.extend({
     });
 
     this.$el.html(content);
-
+    this._setFileInput();
     return this
+  },
+  
+  _setFileInput: function(){
+    $(":file").filestyle({
+      input:false,
+      icon: true,
+      classButton: 'btn btn-danger',
+      buttonText: 'Upload Resume'
+    });
   }
 });

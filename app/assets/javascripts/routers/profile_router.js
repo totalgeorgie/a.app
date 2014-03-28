@@ -14,8 +14,6 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
     var aboutView = new Atlas.Views.AboutView();
 
     this._swapView(aboutView);
-    this._addSelects();
-    this._setFileInput();
     this._changeNav('.personal-info-nav');
   },
 
@@ -23,7 +21,6 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
     var onChinaView = new Atlas.Views.OnChinaView();
 
     this._swapView(onChinaView);
-    this._addSelects();
     this._changeNav('.on-china-nav');  
   },
 
@@ -31,7 +28,6 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
     var videoView = new Atlas.Views.VideoView();
 
     this._swapView(videoView);
-    this._addSelects();
     this._changeNav('.video-nav');
   },
 
@@ -39,7 +35,6 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
     var jobsView = new Atlas.Views.JobsView();
 
     this._swapView(jobsView);
-    this._addSelects();
     this._changeNav('.jobs-nav');  
   },
 
@@ -54,23 +49,5 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
     }
     this._swap = view;
     this.$rootEl.html(this._swap.render().$el);
-  },
-
-  _addSelects: function() {
-    $('.chosen-select').chosen({
-      allow_single_deselect: true,
-      no_results_text: 'No results matched',
-      width: '100%',
-      disable_search_threshold: 3
-    });
-  },
-
-  _setFileInput: function(){
-    $(":file").filestyle({
-      input:false,
-      icon: true,
-      classButton: 'btn btn-danger',
-      buttonText: 'Upload Resume'
-    });
   }
 });

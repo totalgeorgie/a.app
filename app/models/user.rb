@@ -62,6 +62,17 @@ class User < ActiveRecord::Base
       .includes(common_app: [:cities, :industries])
   end
 
+  def self.search(params)
+    users = User.includes(common_app: [:cities, :industries])
+    users = users.where('users.name LIKE ?', "%#{params[:name]}%") if params[:name]
+    users = users.where('cities.id = ?', params[:city_id]) if params[:city_id]
+    users = users.where('industries.id = ?', params[:industry_id]) if params[:industry_id]
+    users = users.where('common_apps.grad_year > ?', params[:grad_year].to_i) if params[:grad_year]
+    users = users.where('common_apps.has_video = ?', true) if params[:has_video]
+    
+    users
+  end
+
   def self.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
   end

@@ -25,5 +25,14 @@ Backbone.AppView = Backbone.View.extend({
     $span.removeClass('no-show')
     $span.fadeIn();
 
-  }
+  },
+  
+  _addSelects: function() {
+    $('.chosen-select').chosen({
+      allow_single_deselect: true,
+      no_results_text: 'No results matched',
+      width: '100%',
+      disable_search_threshold: 3
+    });
+  },
 });
