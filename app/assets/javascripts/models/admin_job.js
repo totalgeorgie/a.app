@@ -5,9 +5,7 @@ AtlasJob.Models.Job = Backbone.Model.extend({
 
   jobApps: function() {
     if (!this._jobApps) {
-      this._jobApps = new AtlasJob.Collections.jobApps({
-        job: this
-      });
+      this._jobApps = new AtlasJob.Collections.jobApps();
     }
 
     return this._jobApps
@@ -15,7 +13,11 @@ AtlasJob.Models.Job = Backbone.Model.extend({
 
   parse: function(jsonResp) {
     if (jsonResp.applications) {
-      this._jobApps.add()
+      debugger
+      this.jobApps().add(jsonResp.applications)
+      delete jsonResp.applications
     }
+
+    return jsonResp
   }
 });
