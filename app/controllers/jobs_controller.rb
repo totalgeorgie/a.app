@@ -11,7 +11,9 @@ class JobsController < ApplicationController
     @job = Job.with_info.find(params[:id])    
     @user = current_user || User.new
     @user.common_app ? nil : @user.build_common_app 
-    @application = Application.build(@job) 
+    @application = Application.build(@job)
+    render :show
+    record_hit
   end
 
   private
@@ -21,5 +23,12 @@ class JobsController < ApplicationController
 
   def city
     @city ||= City.find(params[:city_id]) unless params[:city_id].blank?
+  end
+  
+  def record_hit
+    unless current_user && current_user.admin
+      @job.hit_count += 1
+      @job.save!
+    end
   end
 end
