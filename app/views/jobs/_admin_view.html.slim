@@ -1,14 +1,17 @@
-.col-sm-6
-  .count-container
-    h2 
-      == @job.hit_count
-      span  Visitors
-.col-sm-6
-  .count-container
-    h2 
-      == @job.applications_count
-      span  Applicants
-.col-sm-6
-  == link_to "Edit this job", edit_admin_job_path(@job), :class => "atlas_button box_button"
-.col-sm-6
-  == link_to "Candidates", admin_job_path(@job), :class => "atlas_button box_button"
+.row
+  .col-sm-6
+    .count-container
+      h2 
+        == @job.hit_count
+        span  Visitors
+  .col-sm-6
+    .count-container
+      h2 
+        == @job.applications_count
+        span  Applicants
+  .col-sm-12
+    hr
+  .col-sm-6
+    == link_to "Edit this job", edit_admin_job_path(@job), :class => "atlas_button box_button"
+  .col-sm-6
+    == link_to "Candidates", admin_job_path(@job), :class => "atlas_button box_button"
