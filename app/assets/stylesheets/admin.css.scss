@@ -222,3 +222,17 @@
     margin-right:10px;
   }
 }
+
+.count-container{
+  border:1px solid $atlasdarkerwhite;
+  padding:10px;
+  margin:10px 0;
+  h2{
+    margin:0;
+    color:$atlasblue;
+    span{
+      color:$atlasblack;
+      font-size:17px;
+    }
+  }
+}
