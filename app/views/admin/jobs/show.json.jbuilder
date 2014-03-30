@@ -8,7 +8,7 @@ json.applications do
       json.name app.user.name
       json.source app.user.source ? app.user.source.from : 'N/A'
       json.common_app do 
-        json.nationality app.user.common_app.nationality ? app.user.common_app.nationality : 'N/A'
+        json.nationality app.user.common_app.nationality ? app.user.common_app.country_name : 'N/A'
         json.cities app.user.common_app.cities.try{ |cit| cit.any? ? '&rarr; ' + cit.map(&:name).join(', ') : 'No cities' }
         json.industries app.user.common_app.industries.try{ |ind| ind.any? ? ind.map(&:name).join(', ') : nil }
         json.grad_year app.user.common_app.grad_year ? app.user.common_app.grad_year : 'N/A'

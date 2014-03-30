@@ -1,23 +1,23 @@
 <form action="admin/users" method="get">
-  <div class="col-sm-3">
+  <div class="col-sm-2">
     <input class="form-control" type="text"
      name="name" placeholder="Enter a name here" value="<%= params[:name]%>">
   </div>
   <div class="col-sm-3">
-    <select class="form-control chosen-select" name="city_id" data-placeholder="City">
+    <select class="form-control chosen-select" name="city_ids[]" multiple data-placeholder="City">
       <option></option>
       <% City.all.each do |city| %>
-        <option value="<%= city.id %>"<%= city.id.to_s == params[:city_id] ? "selected" : nil %>>
+        <option value="<%= city.id %>"<%= params[:city_ids] && params[:city_ids].include?(city.id.to_s) ? "selected" : nil %>>
           <%= city.name %>
         </option>
       <% end %>
     </select>
   </div>
-  <div class="col-sm-2">
-    <select class="form-control chosen-select" name="industry_id" data-placeholder="Industry">
+  <div class="col-sm-3">
+    <select class="form-control chosen-select" name="industry_ids[]" multiple data-placeholder="Industry">
       <option></option>
       <% Industry.all.each do |industry| %>
-        <option value="<%= industry.id %>"<%= industry.id.to_s == params[:industry_id] ? "selected" : nil %>>
+        <option value="<%= industry.id %>"<%= params[:industry_ids] && params[:industry_ids].include?(industry.id.to_s) ? "selected" : nil %>>
           <%= industry.name %>
         </option>
       <% end %>

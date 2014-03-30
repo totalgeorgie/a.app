@@ -99,6 +99,7 @@ class Job < ActiveRecord::Base
     User.includes(:source, :heat, :jobs, common_app: [:cities, :industries]) 
       .where('cities.id IN (?)', self.city_ids)
       .where('industries.id IN (?)', self.industry_ids)
+      .where('applications.id NOT IN (?) OR ? = 0', self.applications.map(&:id), self.applications.length)
       .order('common_apps.progress DESC')
   end
 end

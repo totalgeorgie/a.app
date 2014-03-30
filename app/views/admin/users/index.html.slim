@@ -25,15 +25,16 @@
               span.content == user.common_app.grad_year.try{ |yr| yr ? yr : 'N/A' }
             td 
               span.glyphicon.glyphicon-user
-              span.content == user.common_app.nationality.try{ |nat| nat ? nat : 'N/A'}
+              span.content == user.common_app.country_name.try{ |nat| nat ? nat : 'N/A'}
             td 
               span.glyphicon.glyphicon-facetime-video
               span.content == user.common_app.has_video ? 'Yes' : 'N/A' 
             td 
               span.blue == user.common_app.current_city.try{ |c_city| c_city + ' ' }
-              span.content == user.common_app.cities.try{ |city| city.any? ? ' &rarr; ' + city.pluck(:name).join(', ') : 'No cities' }
+              - fail
+              span.content == user.common_app.cities.try{ |cits| cits.any? ? ' &rarr; ' + cits.map(&:name).join(', ') : 'No cities' }
             td
-              span.content == user.common_app.industries.try{ |ind| ind.any? ? ind.pluck(:name).join(', ') : 'No industries' }
+              span.content == user.common_app.industries.try{ |inds| inds.any? ? inds.map(&:name).join(', ') : 'No industries' }
             td 
               span.glyphicon.glyphicon-download-alt
             td

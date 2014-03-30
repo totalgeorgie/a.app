@@ -61,20 +61,25 @@ class User < ActiveRecord::Base
       .includes(:video)
       .includes(common_app: [:cities, :industries])
   end
-
-  def self.works(param)
-    !param.blank?
-  end
   
-  def self.search(opts)
+  scope :search, ->(opts) do
     users = User.includes(common_app: [:cities, :industries])
     users = users.where('users.name LIKE ?', "%#{opts[:name]}%") if works(opts[:name])
-    users = users.where('cities.id = ?', opts[:city_id]) if works(opts[:city_id])
-    users = users.where('industries.id = ?', opts[:industry_id]) if works(opts[:industry_id])
+    users = users.where('cities.id IN (?)', opts[:city_ids]) if works(opts[:city_ids])
+    users = users.where('industries.id IN (?)', opts[:industry_ids]) if works(opts[:industry_ids])
     users = users.where('common_apps.grad_year > ?', opts[:grad_year].to_i) if works(opts[:grad_year])
     users = users.where('common_apps.has_video = ?', true) if works(opts[:has_video])
     
     users
+  end
+
+  def potential_jobs
+    Job.includes(:applications, :cities, :industries)
+      .where('cities.id IN (?) AND industries.id IN (?)', self.city_ids, self.industry_ids)
+  end
+
+  def self.works(param)
+    !param.blank?
   end
 
   def self.encrypt(token)
