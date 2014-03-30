@@ -8,6 +8,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  shortlisted :boolean          default(FALSE)
+#  status      :string(255)      default("SENT")
 #
 
 require 'spec_helper'

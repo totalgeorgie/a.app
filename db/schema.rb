@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327223937) do
+ActiveRecord::Schema.define(version: 20140330203231) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140327223937) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "shortlisted", default: false
+    t.string   "status",      default: "SENT"
   end
 
   add_index "applications", ["shortlisted"], name: "index_applications_on_shortlisted"
@@ -141,6 +142,7 @@ ActiveRecord::Schema.define(version: 20140327223937) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "applications_count"
+    t.integer  "hit_count",                       default: 0
   end
 
   create_table "positions", force: true do |t|

@@ -9,6 +9,7 @@
 #  created_at         :datetime
 #  updated_at         :datetime
 #  applications_count :integer
+#  hit_count          :integer          default(0)
 #
 
 require 'spec_helper'

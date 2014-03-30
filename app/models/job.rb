@@ -9,6 +9,7 @@
 #  created_at         :datetime
 #  updated_at         :datetime
 #  applications_count :integer
+#  hit_count          :integer          default(0)
 #
 
 class Job < ActiveRecord::Base
@@ -92,5 +93,12 @@ class Job < ActiveRecord::Base
 
     job.questions.build
     job
+  end
+
+  def potentials
+    User.includes(:source, :heat, :jobs, common_app: [:cities, :industries]) 
+      .where('cities.id IN (?)', self.city_ids)
+      .where('industries.id IN (?)', self.industry_ids)
+      .order('common_apps.progress DESC')
   end
 end

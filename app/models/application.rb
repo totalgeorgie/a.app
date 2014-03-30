@@ -8,6 +8,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  shortlisted :boolean          default(FALSE)
+#  status      :string(255)      default("SENT")
 #
 
 class Application < ActiveRecord::Base
@@ -30,17 +31,11 @@ class Application < ActiveRecord::Base
        .includes(:answers)
   end
 
-  scope :for_job, ->(job_id, shortlisted = false) do
-    app = Application
-      .includes(:user => [:source, :heat, common_app: [:cities, :industries]])
+  scope :for_job, ->(job_id) do
+    Application
+      .includes(user: [:source, :heat, common_app: [:cities, :industries]])
       .includes(questions: :answer)
       .where('applications.job_id = ?', job_id)
-
-    if shortlisted
-      app = app.where('applications.shortlisted = ?', true)
-    end
-
-    app
   end
 
   def self.build(job, appl = Application.new)
