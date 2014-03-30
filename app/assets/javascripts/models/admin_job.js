@@ -13,7 +13,6 @@ AtlasJob.Models.Job = Backbone.Model.extend({
 
   parse: function(jsonResp) {
     if (jsonResp.applications) {
-      debugger
       this.jobApps().add(jsonResp.applications)
       delete jsonResp.applications
     }

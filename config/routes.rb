@@ -15,6 +15,7 @@ Atlas::Application.routes.draw do
     get '', to: 'jobs#index', as: '/'
     resources :users, only: [:index, :show]
     resources :jobs
+    resources :applications, only: :update
   end
 
   root  "jobs#index"

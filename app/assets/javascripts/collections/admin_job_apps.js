@@ -3,5 +3,5 @@ AtlasJob.Collections.jobApps = Backbone.Collection.extend({
     return Atlas.url() + 'admin/applications'
   },
 
-  model: AtlasJob.Models.jobApp
+  model: AtlasJob.Models.JobApp
 });

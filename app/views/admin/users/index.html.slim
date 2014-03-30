@@ -30,7 +30,7 @@
               span.glyphicon.glyphicon-facetime-video
               span.content == user.common_app.has_video ? 'Yes' : 'N/A' 
             td 
-              span.blue == user.common_app.current_city + ' '
+              span.blue == user.common_app.current_city.try{ |c_city| c_city + ' ' }
               span.content == user.common_app.cities.try{ |city| city.any? ? ' &rarr; ' + city.pluck(:name).join(', ') : 'No cities' }
             td
               span.content == user.common_app.industries.try{ |ind| ind.any? ? ind.pluck(:name).join(', ') : 'No industries' }

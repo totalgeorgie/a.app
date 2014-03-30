@@ -186,6 +186,12 @@
       box-shadow:none;
     }
   }
+  .active{
+    background-color:$atlasblue;
+    &:hover{
+      background-color:darken($atlasblue, 10%);
+    }
+  }
 }
 
 .search_area{

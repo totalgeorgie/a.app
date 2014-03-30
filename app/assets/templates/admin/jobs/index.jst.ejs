@@ -1,0 +1,70 @@
+<div class="col-sm-12">
+  <ul class="admin-candidate-lists">
+    <% jobApps.each(function(app){ %>
+      <% if (!shortlisted || app.get('shortlisted') == shortlisted) { %>
+        <li>
+          <div class="list-container">
+            <div class="col-sm-4">
+              <div class="candidate-info">
+                <h3 class="heading"><%= app.get('user').name %></h3>
+                <span class="content">
+                  <%= app.get('user').common_app.industries %> 
+                  <span class="red"><%= app.get('user').common_app.current_city %></span>
+                  <%= app.get('user').common_app.cities %>
+                </span>
+                <div class="candidate-icons">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                      <div class="icon-bubble">
+                        <span class="glyphicon glyphicon-briefcase"></span>
+                        <span class="red"><%= app.get('user').common_app.grad_year %></span>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                      <div class="icon-bubble">
+                        <span class="glyphicon glyphicon-magnet"></span>
+                        <span class="red"><%= app.get('user').source %></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                      <div class="icon-bubble">
+                        <span class="glyphicon glyphicon-facetime-video"></span>
+                        <span class="red"><%= app.get('user').common_app.has_video %></span>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                      <div class="icon-bubble">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span class="red"><%= app.get('user').common_app.nationality %></span>
+                      </div>
+                    </div>
+                  </div>
+                </div><!--candidate icons-->
+              </div><!--candidate info-->
+            </div><!--col-sm-4-->
+            <div class="col-sm-8">
+              <% if (!app.get('shortlisted')) { %>
+                <a href="#" data-app-id="<%= app.id %>" class="shortlist atlas_button shortlist_button">Shortlist</a>
+              <% } else { %>
+               <a href="#" data-app-id="<%= app.id %>" class="shortlist active atlas_button shortlist_button">Shortlisted</a>
+              <% } %>
+
+              <% _.each(app.get('questions'), function(question){ %>
+                <h3 class="heading"><%= question.question_title %></h3>
+                <% if (question.video_uuid) { %>
+                  <camera id="<%= question.id %>" data-uuid="<%= question.video_uuid %>"></camera>
+                <% } %>
+
+                <% if (question.answer_content) { %>
+                  <p><%= question.answer_content %></p>
+                <% } %>
+              <%  }) %>
+            </div><!--col-sm-8-->
+          </div><!--list-container-->
+        </li>
+    <% }; %>
+    <% }); %>
+  </ul>
+</div>

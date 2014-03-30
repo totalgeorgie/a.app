@@ -5,21 +5,25 @@ AtlasJob.Routers.JobRouter = Backbone.Router.extend({
 
   routes: {
     "": "all",
-    "/shotlisted" : "shortlisted"
+    "shortlisted" : "shortlisted"
   },
 
   all: function() {
-    var allView = new Atlas.Views.allView();
+    var allView = new AtlasJob.Views.Job({
+      shortlisted: false
+    });
 
     this._swapView(allView);
     this._changeNav('.all-nav');
   },
 
   shortlisted: function() {
-    var onChinaView = new Atlas.Views.OnChinaView();
+    var shortView = new AtlasJob.Views.Job({
+      shortlisted: true
+    });
 
-    this._swapView(onChinaView);
-    this._changeNav('.on-china-nav');  
+    this._swapView(shortView);
+    this._changeNav('.short-list-nav');  
   },
 
   _changeNav: function(selector) {
