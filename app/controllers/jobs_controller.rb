@@ -12,7 +12,6 @@ class JobsController < ApplicationController
     @user = current_user || User.new
     @user.common_app ? nil : @user.build_common_app 
     @application = Application.build(@job)
-    render :show
     record_hit
   end
 
