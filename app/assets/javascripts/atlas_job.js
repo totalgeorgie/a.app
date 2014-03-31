@@ -13,6 +13,7 @@ window.AtlasJob = {
         new AtlasJob.Routers.JobRouter({
           rootEl: options.rootEl
         });
+        AtlasJob.job.potentials().fetch();
         Backbone.history.start()
       }
     });

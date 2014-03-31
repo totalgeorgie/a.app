@@ -5,7 +5,8 @@ AtlasJob.Routers.JobRouter = Backbone.Router.extend({
 
   routes: {
     "": "all",
-    "shortlisted" : "shortlisted"
+    "shortlisted": "shortlisted",
+    "potentials": "potentials"
   },
 
   all: function() {
@@ -24,6 +25,12 @@ AtlasJob.Routers.JobRouter = Backbone.Router.extend({
 
     this._swapView(shortView);
     this._changeNav('.short-list-nav');  
+  },
+
+  potentials: function() {
+    var potView = new AtlasJob.Views.Potential();
+    this._swapView(potView);
+    this._changeNav('.potential-nav');
   },
 
   _changeNav: function(selector) {

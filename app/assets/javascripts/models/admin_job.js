@@ -5,10 +5,18 @@ AtlasJob.Models.Job = Backbone.Model.extend({
 
   jobApps: function() {
     if (!this._jobApps) {
-      this._jobApps = new AtlasJob.Collections.jobApps();
+      this._jobApps = new AtlasJob.Collections.JobApps();
     }
 
     return this._jobApps
+  },
+  
+  potentials: function() {
+    if(!this._potentials) {
+      this._potentials = new AtlasJob.Collections.Potentials();
+    }
+
+    return this._potentials
   },
 
   parse: function(jsonResp) {

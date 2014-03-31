@@ -31,6 +31,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def potentials
+    @potentials = @user.potentials
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, { common_app_attributes: [:resume] } )

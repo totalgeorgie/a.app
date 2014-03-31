@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-12">
+    <% if (users.length > 0) { %>
+      <div class="users-table">
+        <table class="table">
+          <tbody>
+            <% users.each(function(user){ %>
+              <tr>
+                <td><a href="/admin/users/<%= user.id %>"><%= user.escape('name') %></a></td>
+                <td>
+                  <span class="glyphicon glyphicon-briefcase"></span>
+                  <span class="content"> <%= user.get('common_app').grad_year %></span>
+                </td>
+                <td>
+                  <span class="glyphicon glyphicon-user"></span>
+                  <span class="content"><%= user.get('common_app').nationality %></span>
+                </td>
+                <td>
+                  <span class="glyphicon glyphicon-facetime-video"></span>
+                  <span class="content"><%= user.get('common_app').has_video %></span>
+                </td>
+                <td>
+                  <span class="blue"><%= user.get('common_app').current_city %></span>
+                  <span class="content"><%= user.get('common_app').cities %></span>
+                </td>
+                <td>
+                  <span class="content"><%= user.get('common_app').industries %></span>
+                </td>
+                <td><span class="glyphicon glyphicon-download-alt"></span></td>
+                <td><span class="glyphicon glyphicon-circle-arrow-right"></span></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div><!--users table-->
+    <% } else { %>
+      <div class="pagination-centered">
+      <h2 class="container_header"> No Potential Applicants Found </h2>
+      <p>We weren't able to find potential applicants for this job. Refresh in a bit and see if that's still the case!</p>
+    <% } %>
+  </div>
+</div>
