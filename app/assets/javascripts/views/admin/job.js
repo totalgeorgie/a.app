@@ -1,4 +1,4 @@
-AtlasJob.Views.Job = Backbone.View.extend({
+AtlasJob.Views.Job = Backbone.AppView.extend({
   initialize: function(options) {
     this.shortlisted = options.shortlisted;
     window.setTimeout(CameraTag.setup, 0);
@@ -7,7 +7,22 @@ AtlasJob.Views.Job = Backbone.View.extend({
   template: JST['admin/jobs/index'],
   
   events: {
-    "click .shortlist" : "shortlist"
+    "click .shortlist" : "shortlist",
+    "change .chosen-select" : "alterApp"
+  },
+
+  alterApp: function(e) {
+    var $input = $(e.target),
+        attr = $input.attr('name'),
+        appId = $input.data('app-id'),
+        value = $input.val(),
+        model = AtlasJob.job.jobApps().get(appId);
+    model.set(attr, value)
+    model.save();
+    
+    this.fadeCheckmark($input, function(input){
+      input.fadeOut();
+    });
   },
 
   shortlist: function(e) {
@@ -39,7 +54,7 @@ AtlasJob.Views.Job = Backbone.View.extend({
     });
 
     this.$el.html(content);
-
+    window.setTimeout(this._addSelects.bind(this), 0);
     return this
   }
 });

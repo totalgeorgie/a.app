@@ -4,6 +4,7 @@ json.applications do
     json.user_id app.user_id
     json.job_id app.job_id
     json.shortlisted app.shortlisted
+    json.status app.status
     json.user do 
       json.name app.user.name
       json.source app.user.source ? app.user.source.from : 'N/A'

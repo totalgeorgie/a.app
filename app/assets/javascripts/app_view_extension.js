@@ -19,12 +19,15 @@ Backbone.AppView = Backbone.View.extend({
     this.fadeCheckmark($input);
   },
 
-  fadeCheckmark: function(input) {
+  fadeCheckmark: function(input, callback) {
     var $span = input.parent().find('.glyphicon');
     $span.fadeOut();
     $span.removeClass('no-show')
     $span.fadeIn();
 
+    if (callback) {
+      callback($span);
+    }
   },
   
   _addSelects: function() {

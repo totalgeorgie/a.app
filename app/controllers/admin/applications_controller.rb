@@ -12,6 +12,6 @@ class Admin::ApplicationsController < ApplicationController
 
   private
   def application_params 
-    params.require(:application).permit(:shortlisted)
+    params.require(:application).permit(:shortlisted, :status)
   end
 end
