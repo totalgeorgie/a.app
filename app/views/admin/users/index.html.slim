@@ -31,7 +31,6 @@
               span.content == user.common_app.has_video ? 'Yes' : 'N/A' 
             td 
               span.blue == user.common_app.current_city.try{ |c_city| c_city + ' ' }
-              - fail
               span.content == user.common_app.cities.try{ |cits| cits.any? ? ' &rarr; ' + cits.map(&:name).join(', ') : 'No cities' }
             td
               span.content == user.common_app.industries.try{ |inds| inds.any? ? inds.map(&:name).join(', ') : 'No industries' }
