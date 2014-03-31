@@ -11,7 +11,12 @@
 #  status      :string(255)      default("SENT")
 #
 
-class Application < ActiveRecord::Base
+class Application < ActiveRecord::Base  
+  STATUS_OPTIONS = ["Application Complete",
+    "Materials Submitted",
+    "Pending Interview",
+    "Second Interview"]
+
   belongs_to :job, counter_cache: true
   belongs_to :user, counter_cache: true
   has_many :questions, through: :job

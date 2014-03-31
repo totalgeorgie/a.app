@@ -114,6 +114,13 @@
     width:33%;
     padding:7px 0;
   }
+  .atlas_button{
+    transition: none;
+  }
+  .active{
+    background:$atlasblue;
+    box-shadow: none;
+  }
 }
 
 .admin-candidate-lists {

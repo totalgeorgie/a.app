@@ -12,6 +12,9 @@
     .candidate-opts
     .candidate-container
 
+script#data
+  == { statusOptions: Application::STATUS_OPTIONS }.to_json
+
 javascript:
   $(function(){
     Atlas.url = "#{root_url}";
@@ -19,6 +22,7 @@ javascript:
     AtlasJob.initialize({
       rootEl: $('.candidate-container'),
       navEl: $('.candidate-opts'),
-      jobId: #{ params[:id] }
+      jobId: #{ params[:id] },
+      data: JSON.parse($('#data').html())
     });
   });

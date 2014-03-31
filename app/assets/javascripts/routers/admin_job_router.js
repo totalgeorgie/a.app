@@ -24,7 +24,7 @@ AtlasJob.Routers.JobRouter = Backbone.Router.extend({
     });
 
     this._swapView(shortView);
-    this._changeNav('.short-list-nav');  
+    this._changeNav('.shorlisted-nav');  
   },
 
   potentials: function() {
