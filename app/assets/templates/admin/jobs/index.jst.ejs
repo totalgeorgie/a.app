@@ -45,6 +45,7 @@
                 <div class="status">
                   <% appStatus = app.get('status') %>
                   <div class="form-group has-feedback has-success">
+                    <span class="glyphicon glyphicon-ok form-control-feedback no-show"></span>
                     <select id="status" name="status" class="form-control chosen-select" 
                     data-placeholder="Choose Status" data-app-id="<%= app.id %>"> 
                       <% _.each(AtlasJob.statusOptions, function(status){ %>
@@ -54,10 +55,11 @@
                         </option>
                       <% }); %>
                     </select>
-
-                    <span class="glyphicon glyphicon-ok form-control-feedback no-show"></span>
                   </div>
                 </div><!--status-->
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= app.get('user').common_app.progress %>%"></div>
+                </div>
               </div><!--candidate info-->
             </div><!--col-sm-4-->
             <div class="col-sm-8">
