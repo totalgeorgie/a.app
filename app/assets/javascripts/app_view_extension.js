@@ -1,7 +1,7 @@
 Backbone.AppView = Backbone.View.extend({
   alterUserInfo: function(e) {
-    var $input = $(e.target);
-    var attr = $input.attr('name'),
+    var $input = $(e.target),
+        attr = $input.attr('name'),
         value = $input.val();
 
     Atlas.user.set(attr, value).save();
@@ -10,17 +10,18 @@ Backbone.AppView = Backbone.View.extend({
   },
 
   alterCommonAppInfo: function(e) {
-    var $input = $(e.target);
-    var attr = $input.attr('name'),
+    var $input = $(e.target),
+        attr = $input.attr('name'),
         value = $input.val();
 
     Atlas.user.commonApp().set(attr, value).save();
-
     this.fadeCheckmark($input);
+    Atlas.user.potentials().fetch();
   },
 
   fadeCheckmark: function(input, callback) {
     var $span = input.parent().find('.glyphicon');
+    
     $span.fadeOut();
     $span.removeClass('no-show')
     $span.fadeIn();

@@ -11,17 +11,11 @@ json.common_app do
   json.ideal_salary @common_app.ideal_salary
   json.bonus_question @common_app.bonus_question
 
+  json.city_ids @common_app.city_ids.map(&:to_s)
+  json.industry_ids @common_app.industry_ids.map(&:to_s)
+
   json.resume do 
     json.url @common_app.resume.url
-  end
-
-  if @common_app.cities.length > 0
-    json.cities do 
-      json.array! @common_app.cities do |city|
-        json.id city.id
-        json.name city.name
-      end
-    end
   end
 
   if @common_app.industries.length > 0

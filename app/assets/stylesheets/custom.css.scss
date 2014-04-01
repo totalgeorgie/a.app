@@ -102,7 +102,7 @@ p{
     height: 100%;
     width: 100%;
 }
-/*Initialize*/
+
 #main-menu {
   li {
     ul {
@@ -928,4 +928,31 @@ input[type="submit"] {
 .icon-folder-open {
   @extend .glyphicon-folder-open;
   margin-right:4px;
+}
+
+.potential-jobs {
+  background-color:$purewhite;
+  padding:10px;
+  margin:10px 0;
+  .public-job-list {
+    margin-top:0;
+    padding:0;
+  }
+  h2 {
+    background:darken($purewhite, 5%);
+    text-align:center;
+    color:$atlasblue;
+    padding:10px 0;
+    font-size:24px;
+    margin:0;
+  }
+  .job {
+    h4{
+      font-family:$condensed;
+      font-size:21px;
+    }
+    .blue_button{
+      padding:5px 0;
+    }
+  }
 }

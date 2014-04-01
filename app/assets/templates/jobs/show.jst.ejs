@@ -17,6 +17,33 @@
       </tbody>
     </table>
 
+    <% if (potentialJobs.length > 0) { %>
+      <div class="potential-jobs clearfix">
+        <h2>We have <%= potentialJobs.length %> <%= potentialJobs.length > 1 ? "jobs" : "job" %> that might be of interest to you!</h2>
+        <ul class="public-job-list">
+          <% potentialJobs.each(function(job) { %>
+            <li>
+
+              <div class="list-job-container opp">
+                <div class="col-sm-10">
+                  <div class="main_info">
+                    <h3><a href="<%= job.url() %>"><%= job.escape('title') %></a></h3>
+                    <p><%= job.escape('summary') %></p>
+                  </div>
+                </div><!--col-sm-10-->
+                <div class="col-sm-2">
+                  <div class="apply">
+                    <a href="<%= job.url() %>" class="atlas_button box_button">Apply Now</a>
+                    <p class="full_desc"><a href="<%= job.url() %>">See full description</a></p>
+                  </div>
+                </div><!--col-sm-2-->
+              </div>
+            </li>
+          <% }); %>
+        </ul>
+      </div>
+    <% } %>
+
     <div class="center_button">
       <a href="<%= Atlas.url %>" class="atlas_button">Apply to more jobs!</a>
     </div>

@@ -20,6 +20,14 @@ Atlas.Models.User = Backbone.Model.extend({
 
     return this._jobApps
   },
+
+  potentials: function() {
+    if(!this._potentials) {
+      this._potentials = new Atlas.Collections.PotentialJobs();
+    }
+
+    return this._potentials
+  },
   
   video: function() {
     if (!this._video) {

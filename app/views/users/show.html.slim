@@ -7,8 +7,8 @@
     .common-app-container
 
 script#data
-  == {  cities: City.select(:id, :name).all, 
-        industries: Industry.select(:id, :name).all,
+  == {  cities: City.preload, 
+        industries: Industry.preload,
         grad_options: CommonApp::GRAD_OPTIONS,
         salary_options: CommonApp::SALARY_OPTIONS,
         countries: Country::Names }.to_json

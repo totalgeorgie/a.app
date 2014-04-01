@@ -10,27 +10,22 @@
   <span class="glyphicon glyphicon-ok form-control-feedback <%= idealSalary ? null : 'no-show' %>"></span>
 </div>
 
-<% var prefCities = user.commonApp().get('cities') %>
-<% var cityIds = _.map(prefCities, function(city) {
-    return city.id
-  }); %>
-<div class="form-group has-feedback <%= prefCities ? 'has-success' : null %>">
+
+<% var cityIds = user.commonApp().get('city_ids') %>
+<div class="form-group has-feedback <%= cityIds.length > 0 ? 'has-success' : null %>">
   <label for="cities">Preferred Cities</label>
   <select id="cities" name="city_ids" class="common-app-field form-control chosen-select" multiple> 
     <% _.each(Atlas.cities, function(city){ %>
+      <% debugger %>
       <option value="<%= city.id %>" <%= _.contains(cityIds, city.id) ? 'selected' : null %> ><%= city.name %></option>
     <% }) %>
   </select>
 
-  <span class="glyphicon glyphicon-ok form-control-feedback <%= prefCities ? null : 'no-show' %>"></span>
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= cityIds.length > 0 ? null : 'no-show' %>"></span>
 </div>
 
-<% var prefIndustries = user.commonApp().get('industries') %>
-<% var industryIds = _.map(prefIndustries, function(industry) {
-    return industry.id
-  }); %>
-
-<div class="form-group has-feedback <%= prefIndustries ? 'has-success' : null %>">
+<% var industryIds = user.commonApp().get('industry_ids') %>
+<div class="form-group has-feedback <%= industryIds.length > 0 ? 'has-success' : null %>">
   <label for="industries">Preferred Industries</label>
   <select id="industries" name="industry_ids" class="common-app-field form-control chosen-select" multiple> 
     <% _.each(Atlas.industries, function(industry){ %>
@@ -38,5 +33,5 @@
     <% }) %>
   </select>
   
-  <span class="glyphicon glyphicon-ok form-control-feedback <%= prefIndustries ? null : 'no-show' %>"></span>
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= industryIds.length > 0 ? null : 'no-show' %>"></span>
 </div>

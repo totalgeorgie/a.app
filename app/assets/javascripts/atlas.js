@@ -15,6 +15,7 @@ window.Atlas = {
           rootEl: options.rootEl
         });
         Backbone.history.start()
+        Atlas.user.potentials().fetch();
         Atlas.setProgress(options.progressEl);
       }
     });

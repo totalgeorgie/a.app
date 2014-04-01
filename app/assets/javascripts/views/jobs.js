@@ -1,16 +1,15 @@
 Atlas.Views.JobsView = Backbone.View.extend({
   template: JST["jobs/show"],
-  potentials: JST["jobs/potentials"],
+
+  initialize: function() {
+    this.listenTo(Atlas.user.potentials(), "sync", this.render);
+  },
 
   render: function() {
     var content = this.template({
-      jobApps: Atlas.user.jobApps()
+      jobApps: Atlas.user.jobApps(),
+      potentialJobs: Atlas.user.potentials()
     });
-    
-    var potentials = this.potentials({
-      potentials: Atlas.user.potentials()
-    });
-
     this.$el.html(content);
     return this;
   }
