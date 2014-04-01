@@ -74,8 +74,10 @@ class User < ActiveRecord::Base
   end
 
   def potential_jobs
-    Job.includes(:applications, :cities, :industries)
-      .where('cities.id IN (?) AND industries.id IN (?)', self.city_ids, self.industry_ids)
+    Job.includes(:cities, :industries)
+      .where('cities.id IN (?)', self.common_app.city_ids)
+      .where('industries.id IN (?)', self.common_app.industry_ids)
+      .where('jobs.id NOT IN (?)', self.jobs.map(&:id).concat([0]))
   end
 
   def self.works(param)

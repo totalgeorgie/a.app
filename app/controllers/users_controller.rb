@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def potentials
-    @potentials = @user.potentials
+    @potentials = @user.potential_jobs
   end
 
   private
