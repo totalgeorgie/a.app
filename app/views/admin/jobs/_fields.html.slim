@@ -1,4 +1,6 @@
-== render '/shared/error_messages', object: f.object
+.form-group
+  == render '/shared/error_messages', object: f.object
+
 .admin-job-body
   .col-sm-4
     .info
@@ -32,7 +34,7 @@
       p Cities and  Industries related to this job
   .col-sm-8
     .form_fields    
-    == render '/admin/jobs/form/category_specific', f: f
+      == render '/admin/jobs/form/category_specific', f: f
 
 .admin-job-body
   .col-sm-4

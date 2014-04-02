@@ -108,6 +108,10 @@
   @extend .profile-body
 }
 
+.admin-user-body {
+  @extend .profile-body
+}
+
 .candidate-opts {
   margin-top:20px;
   a{

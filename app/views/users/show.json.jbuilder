@@ -17,15 +17,6 @@ json.common_app do
   json.resume do 
     json.url @common_app.resume.url
   end
-
-  if @common_app.industries.length > 0
-    json.industries do 
-      json.array! @common_app.industries do |industry|
-        json.id industry.id
-        json.name industry.name
-      end
-    end
-  end
 end
 
 if @video

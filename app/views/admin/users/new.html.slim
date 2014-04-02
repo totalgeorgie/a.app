@@ -1,0 +1,52 @@
+== provide(:title, "Make a new Profile")
+.thinstripe.thinstripe-light.clearfix
+  .overlay
+    .container
+      .manage_buttons
+        == link_to 'Manage Jobs', admin_jobs_url, class: 'atlas_button box_button'
+        == link_to 'Manage Users', admin_users_url, class: 'atlas_button box_button selected-button'
+
+.first_container
+  .container
+    == nested_form_for [:admin, @new_user] do |f|
+      .form-group
+        == render 'shared/error_messages', object: @new_user 
+      .admin-user-body
+        .col-sm-4
+          .info
+            h2 User Info
+            p Basic User Info.
+        .col-sm-8
+          .form_fields
+            .form-group
+              == f.label :name, "Full Name"
+              == f.text_field :name, class: 'form-control', placeholder: "John Doe"
+            .form-group
+              == f.label :email, placeholder: "Email Address"
+              == f.text_field :email, class: "form-control"
+            .form-group 
+              == f.label "Choose Random Password"
+              == f.password_field :password, placeholder: "Create Password", class: "form-control"
+      .admin-user-body
+        .col-sm-4
+          h2 Basic Info
+          p Resume, graduation year, etc
+        .col-sm-8
+          .form_fields
+            == f.fields_for :common_app_attributes, @new_user.common_app do |c|
+              .form-group
+                == c.label :current_city, "Current City"
+                == c.text_field :current_city, placeholder: 'i.e Toronto', class: 'form-control'
+              .form-group
+                == c.file_field :resume, class: 'btn btn-primary'
+              .form-group
+                == c.label :grad_year, "Graduation Year"
+                == c.select :grad_year, CommonApp::GRAD_OPTIONS, {},
+                   class: 'form-control chosen-select'
+              .form-group
+                == c.label :industries, "Industries"
+                == c.select :industry_ids, @industries, {}, multiple: true,
+                  class: 'form-control chosen-select'
+      .col-sm-8.col-sm-offset-2
+        hr
+        == f.submit "Create User Profile", class: "atlas_button blue_button"

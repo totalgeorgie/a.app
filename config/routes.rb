@@ -16,8 +16,8 @@ Atlas::Application.routes.draw do
   
   namespace :admin do 
     get '', to: 'jobs#index', as: '/'
-    resources :users, only: [:index, :show]
-
+    resources :users
+    
     resources :jobs do
       get 'potentials', to: 'jobs#potentials', on: :member
     end
