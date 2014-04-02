@@ -265,3 +265,21 @@
     }
   }
 }
+
+.import-data {
+  text-align:right;
+  margin-top:5px;
+  a{
+    padding:6px;
+    color:$atlaswhite;
+    background:$atlasblue;
+    border-radius:50px;
+    @include transition(background 1s ease);
+    &:hover{
+      text-decoration:none;
+      &:hover{
+        background: darken($atlasblue, 20%);
+      }
+    }
+  }
+}
