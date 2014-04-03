@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402004645) do
+ActiveRecord::Schema.define(version: 20140403004135) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 20140402004645) do
     t.integer  "progress",                      default: 5
     t.boolean  "has_video",                     default: false
     t.string   "linkedin_link"
+    t.text     "bonus_choice"
+    t.integer  "china_time"
   end
 
   add_index "common_apps", ["user_id"], name: "common_app_users_idx"

@@ -1,12 +1,13 @@
 Atlas.Views.AboutView = Backbone.AppView.extend({
   template: JST["about/show"],
-  fields: JST["about/fields"],
+  firstFields: JST["about/first-fields"],
+  secondFields: JST["about/second-fields"],
 
   events: {
     'blur .user-field' : 'alterUserInfo',
     'blur .common-app-field' : 'alterCommonAppInfo',
     'change .chosen-select' : 'alterCommonAppInfo',
-    'change .file-upload' : 'submitFile'
+    'change .file-upload' : 'submitFile',
   },
 
   submitFile: function(e) {
@@ -34,12 +35,17 @@ Atlas.Views.AboutView = Backbone.AppView.extend({
 
   render: function() {
     var content = this.template(),
-        fields = this.fields({
+        firstFields = this.firstFields({
           user: Atlas.user
-        });
+        }),
+        secondFields = this.secondFields({
+          user: Atlas.user
+        })
 
     this.$el.html(content);
-    this.$el.find('.first-fields').append(fields);
+    this.$el.find('.first-fields').append(firstFields);
+    this.$el.find('.second-fields').append(secondFields)
+
     window.setTimeout(this._addSelects.bind(this), 0);
     return this;
   }

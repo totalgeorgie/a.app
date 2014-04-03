@@ -1,15 +1,15 @@
-<% var idealSalary = user.commonApp().escape('ideal_salary') %>
-
-<div class="form-group has-feedback <%= idealSalary ? 'has-success' : null %>">
-  <label for="ideal_salary">Ideal Salary</label>
-  <select id="ideal_salary" name="ideal_salary" class="common-app-field form-control chosen-select"> 
-    <% _.each(Atlas.salaryOptions, function(salary){ %>
-      <option value="<%= salary %>" <%= idealSalary === salary ? 'selected' : null %> ><%= salary %> Yuan / Month</option>
+<% var chinaTime = user.commonApp().escape('china_time') %>
+<div class="form-group has-feedback <%= chinaTime ? 'has-success' : null %>">
+  <label for="china_time">Graduation Year</label>
+  <select id="china_time" name="china_time" class="common-app-field form-control chosen-select"> 
+    <% _.each(_.range(1, 5), function(time){ %>
+      <option value="<%= time %>" <%= chinaTime === time ? 'selected' : null %> >
+        <%= time %> <%= time > 1 ? "years" : "year" %>
+      </option>
     <% }) %>
   </select>
-  <span class="glyphicon glyphicon-ok form-control-feedback <%= idealSalary ? null : 'no-show' %>"></span>
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= chinaTime ? null : 'no-show' %>"></span>
 </div>
-
 
 <% var cityIds = user.commonApp().get('city_ids') %>
 <div class="form-group has-feedback <%= cityIds.length > 0 ? 'has-success' : null %>">

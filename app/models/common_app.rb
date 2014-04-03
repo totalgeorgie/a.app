@@ -16,6 +16,8 @@
 #  bonus_question   :text(1000)
 #  progress         :integer          default(5)
 #  has_video        :boolean          default(FALSE)
+#  linkedin_link    :string(255)
+#  bonus_choice     :text
 #
 
 class CommonApp < ActiveRecord::Base
@@ -23,6 +25,10 @@ class CommonApp < ActiveRecord::Base
   SALARY_OPTIONS = (10000..80000).select{ |salary| salary % 10000 == 0 }.map(&:to_s)
   NOT_INCLUDED = 4 # id, created_at, updated_at, user_id
   
+  BONUS_CHOICES = [
+    ""
+  ]
+
   before_update :set_progress 
 
   belongs_to :user
