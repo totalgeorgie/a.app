@@ -5,7 +5,7 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
 
   routes: {
     "": "aboutMe",
-    "on-china" : "onChina",
+    "career" : "career",
     "video" : "video",
     "jobs" : "jobs"
   },
@@ -17,11 +17,11 @@ Atlas.Routers.ProfileRouter = Backbone.Router.extend({
     this._changeNav('.personal-info-nav');
   },
 
-  onChina: function() {
-    var onChinaView = new Atlas.Views.OnChinaView();
+  career: function() {
+    var careerView = new Atlas.Views.CareerView();
 
-    this._swapView(onChinaView);
-    this._changeNav('.on-china-nav');  
+    this._swapView(careerView);
+    this._changeNav('.career-nav');  
   },
 
   video: function() {

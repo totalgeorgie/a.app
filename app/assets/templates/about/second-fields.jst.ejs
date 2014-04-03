@@ -1,9 +1,9 @@
 <% var chinaTime = user.commonApp().escape('china_time') %>
 <div class="form-group has-feedback <%= chinaTime ? 'has-success' : null %>">
-  <label for="china_time">Graduation Year</label>
+  <label for="china_time">How long do you plan on staying in China?</label>
   <select id="china_time" name="china_time" class="common-app-field form-control chosen-select"> 
     <% _.each(_.range(1, 5), function(time){ %>
-      <option value="<%= time %>" <%= chinaTime === time ? 'selected' : null %> >
+      <option value="<%= time %>" <%= "" + chinaTime === "" + time ? 'selected' : null %> >
         <%= time %> <%= time > 1 ? "years" : "year" %>
       </option>
     <% }) %>
@@ -13,7 +13,7 @@
 
 <% var cityIds = user.commonApp().get('city_ids') %>
 <div class="form-group has-feedback <%= cityIds.length > 0 ? 'has-success' : null %>">
-  <label for="cities">Preferred Cities</label>
+  <label for="cities">If you got a job offer, which cities would you consider moving to?</label>
   <select id="cities" name="city_ids" class="common-app-field form-control chosen-select" multiple> 
     <% _.each(Atlas.cities, function(city){ %>
       <% debugger %>
@@ -26,7 +26,7 @@
 
 <% var industryIds = user.commonApp().get('industry_ids') %>
 <div class="form-group has-feedback <%= industryIds.length > 0 ? 'has-success' : null %>">
-  <label for="industries">Preferred Industries</label>
+  <label for="industries">Which industries would you like to work in?</label>
   <select id="industries" name="industry_ids" class="common-app-field form-control chosen-select" multiple> 
     <% _.each(Atlas.industries, function(industry){ %>
       <option value="<%= industry.id %>" <%= _.contains(industryIds, industry.id) ? 'selected' : null %> ><%= industry.name %></option>

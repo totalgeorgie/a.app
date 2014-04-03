@@ -21,7 +21,7 @@
 
 <% var userCity = user.commonApp().escape('current_city') %>
 <div class="form-group has-feedback <%= userCity ? 'has-success' : null %>">
-  <label for="full_name">Current City</label>
+  <label for="full_name">What city do you live in now?</label>
   <input id="full_name" class="form-control common-app-field" type="text" name="current_city" placeholder="e.g Toronto" value="<%= userCity %>">
   <span class="glyphicon glyphicon-ok form-control-feedback <%= userCity ? null : 'no-show' %>"></span>
 </div>
@@ -29,7 +29,7 @@
 
 <% var gradYear = user.commonApp().escape('grad_year') %>
 <div class="form-group has-feedback <%= gradYear ? 'has-success' : null %>">
-  <label for="grad_year">Graduation Year</label>
+  <label for="grad_year">When did you graduate?</label>
   <select id="grad_year" name="grad_year" class="common-app-field form-control chosen-select"> 
     <% _.each(Atlas.gradOptions, function(year){ %>
       <option value="<%= year %>" <%= gradYear === year ? 'selected' : null %> ><%= year %></option>
@@ -41,7 +41,7 @@
 <% var resume = user.commonApp().get('resume').url %>
 
 <div class="form-group">
-  <label class="d-block">Resume</label>
+  <label class="d-block">Upload your resume</label>
   <% if (resume) { %>
     <p class="alert alert-success">
     You have uploaded your resume! You can view it <a href="<%= resume %>">here</a>, or upload another one below.</p>

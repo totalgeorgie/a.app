@@ -1,8 +1,7 @@
-
-Atlas.Views.OnChinaView = Backbone.AppView.extend({
-  template: JST["on-china/show"],
-  firstFields: JST["on-china/first-fields"],
-  secondFields: JST["on-china/second-fields"],
+Atlas.Views.CareerView = Backbone.AppView.extend({
+  template: JST["career/show"],
+  firstFields: JST["career/first-fields"],
+  secondFields: JST["career/second-fields"],
 
   events: {
     'blur .user-field' : 'alterUserInfo',
