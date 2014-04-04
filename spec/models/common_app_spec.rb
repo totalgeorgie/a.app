@@ -19,6 +19,8 @@
 #  linkedin_link    :string(255)
 #  bonus_choice     :text
 #  china_time       :integer
+#  job_interest     :string(255)
+#  china_goals      :string(255)
 #
 
 require 'spec_helper'

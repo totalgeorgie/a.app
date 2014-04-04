@@ -21,6 +21,7 @@ class CommonAppsController < ApplicationController
       :grad_year,
       :resume,
       :job_interest,
+      :china_goals,
       :bonus_choice,
       :china_time,
       :nationality,

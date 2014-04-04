@@ -841,7 +841,8 @@ input[type="submit"] {
   .form_fields{
     label{
       font-weight:normal;
-      color: lighten($atlasblack, 10%);
+      font-size:15px;
+      color: lighten($atlasblack, 15%);
       margin-bottom:10px;
     }
     .form-group{
@@ -864,6 +865,9 @@ input[type="submit"] {
       .icon-white, .glyphicon, label {
         color: white;
       }
+    }
+    #bonus_question {
+      margin-top:20px;
     }
   }
 }

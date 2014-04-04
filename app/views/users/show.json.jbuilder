@@ -6,6 +6,7 @@ json.common_app do
   json.progress @common_app.progress
   json.user_id @user.id
   json.job_interest @common_app.job_interest
+  json.china_goals @common_app.china_goals
   json.bonus_choice @common_app.bonus_choice
   json.china_time @common_app.china_time(&:to_s)
   json.nationality @common_app.nationality

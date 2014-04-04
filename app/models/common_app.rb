@@ -19,6 +19,8 @@
 #  linkedin_link    :string(255)
 #  bonus_choice     :text
 #  china_time       :integer
+#  job_interest     :string(255)
+#  china_goals      :string(255)
 #
 
 class CommonApp < ActiveRecord::Base
@@ -34,12 +36,10 @@ class CommonApp < ActiveRecord::Base
     "Just want to see what's out there",
     "Not in the market"]
 
-
-
   NOT_INCLUDED = 5 # id, created_at, updated_at, user_id, linkedin_link
   
   BONUS_CHOICES = [
-    ""
+    "What's the biggest professional challenge you have successfully surmounted?"
   ]
 
   before_update :set_progress 
