@@ -10,3 +10,16 @@
   </select>
   <span class="glyphicon glyphicon-ok form-control-feedback <%= idealSalary ? null : 'no-show' %>"></span>
 </div>
+
+<% var jobInterest = user.commonApp().escape('jobInterest') %>
+
+<div class="form-group has-feedback <%= jobInterest ? 'has-success' : null %>">
+  <label for="job_interest">What's your interest in new jobs right now?</label>
+  <select id="job_interest" name="job_interest" class="common-app-field form-control chosen-select"> 
+    <% _.each(Atlas.jobInterests, function(interest){ %>
+      <% debugger %>
+      <option value="<%= interest %>" <%= jobInterest === _.escape(interest) ? 'selected' : null %> ><%= interest %></option>
+    <% }) %>
+  </select>
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= jobInterest ? null : 'no-show' %>"></span>
+</div>
