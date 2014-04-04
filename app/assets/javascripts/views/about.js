@@ -2,6 +2,7 @@ Atlas.Views.AboutView = Backbone.AppView.extend({
   template: JST["about/show"],
   firstFields: JST["about/first-fields"],
   secondFields: JST["about/second-fields"],
+  
 
   events: {
     'blur .user-field' : 'alterUserInfo',
@@ -33,6 +34,15 @@ Atlas.Views.AboutView = Backbone.AppView.extend({
     });
   },
 
+  _addFilestyle: function() {
+    $(":file").filestyle({
+      input:false,
+      icon: true,
+      classButton: 'btn btn-danger',
+      buttonText: 'Upload Resume'
+    });
+  },
+
   render: function() {
     var content = this.template(),
         firstFields = this.firstFields({
@@ -47,6 +57,7 @@ Atlas.Views.AboutView = Backbone.AppView.extend({
     this.$el.find('.second-fields').append(secondFields)
 
     window.setTimeout(this._addSelects.bind(this), 0);
+    window.setTimeout(this._addFilestyle.bind(this), 0);
     return this;
   }
 });
