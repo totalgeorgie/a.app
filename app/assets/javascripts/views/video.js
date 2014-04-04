@@ -34,6 +34,7 @@ Atlas.Views.VideoView = Backbone.View.extend({
   },
 
   render: function() {
+    this.remove();
     var content = this.template({
       video: Atlas.user.video()
     });
