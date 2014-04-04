@@ -12,12 +12,13 @@
 #  industries_count :integer          default(0), not null
 #  cities_count     :integer          default(0), not null
 #  nationality      :string(255)
-#  ideal_salary     :integer
+#  ideal_salary     :string(255)
 #  bonus_question   :text(1000)
 #  progress         :integer          default(5)
 #  has_video        :boolean          default(FALSE)
 #  linkedin_link    :string(255)
 #  bonus_choice     :text
+#  china_time       :integer
 #
 
 require 'spec_helper'

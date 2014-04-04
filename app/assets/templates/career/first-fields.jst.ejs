@@ -1,10 +1,11 @@
 <% var idealSalary = user.commonApp().escape('ideal_salary') %>
 
 <div class="form-group has-feedback <%= idealSalary ? 'has-success' : null %>">
-  <label for="ideal_salary">Ideal Salary</label>
+  <label for="ideal_salary">How much of your determination is based on Salary?</label>
   <select id="ideal_salary" name="ideal_salary" class="common-app-field form-control chosen-select"> 
     <% _.each(Atlas.salaryOptions, function(salary){ %>
-      <option value="<%= salary %>" <%= idealSalary === salary ? 'selected' : null %> ><%= salary %> Yuan / Month</option>
+      <% debugger %>
+      <option value="<%= salary %>" <%= idealSalary === _.escape(salary) ? 'selected' : null %> ><%= salary %></option>
     <% }) %>
   </select>
   <span class="glyphicon glyphicon-ok form-control-feedback <%= idealSalary ? null : 'no-show' %>"></span>

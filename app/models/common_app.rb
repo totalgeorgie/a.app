@@ -12,17 +12,22 @@
 #  industries_count :integer          default(0), not null
 #  cities_count     :integer          default(0), not null
 #  nationality      :string(255)
-#  ideal_salary     :integer
+#  ideal_salary     :string(255)
 #  bonus_question   :text(1000)
 #  progress         :integer          default(5)
 #  has_video        :boolean          default(FALSE)
 #  linkedin_link    :string(255)
 #  bonus_choice     :text
+#  china_time       :integer
 #
 
 class CommonApp < ActiveRecord::Base
   GRAD_OPTIONS = (1993..Time.now.strftime('%Y').to_i).map(&:to_s)
-  SALARY_OPTIONS = (10000..80000).select{ |salary| salary % 10000 == 0 }.map(&:to_s)
+  SALARY_OPTIONS = ["A high salary is my primary motivator",
+    "Salary is important, but not my main consideration",
+    "I'm not as on concerned with salary as with other factors of the job",
+    "Salary is not a big issue for me right now"]
+
   NOT_INCLUDED = 5 # id, created_at, updated_at, user_id, linkedin_link
   
   BONUS_CHOICES = [

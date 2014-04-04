@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403004135) do
+ActiveRecord::Schema.define(version: 20140404190326) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20140403004135) do
     t.integer  "industries_count",              default: 0,     null: false
     t.integer  "cities_count",                  default: 0,     null: false
     t.string   "nationality"
-    t.integer  "ideal_salary"
+    t.string   "ideal_salary"
     t.text     "bonus_question",   limit: 1000
     t.integer  "progress",                      default: 5
     t.boolean  "has_video",                     default: false
