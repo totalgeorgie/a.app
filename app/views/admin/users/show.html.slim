@@ -1,51 +1,43 @@
 - provide(:title, @user.name)
-.thinstripe_career 
-  .darken
-    .edit_profile
-      .container
+.thinstripe.thinstripe-light.clearfix
+  .overlay
+    .container
+      .manage_buttons
+        == link_to 'Manage Jobs', admin_jobs_url, class: 'atlas_button box_button'
+        == link_to 'Manage Users', admin_users_url, class: 'atlas_button box_button selected-button'
+.first_container
+  .container
+    .row
+      == render 'advanced_search'
+
+    .admin-profile-container.clearfix
+      .admin-profile-header.clearfix
+        .col-sm-12.col-md-10
+          .title
+            h3
+              == @user.name + " "
+              == link_to @user.email, "mailto:#{@user.email}"
+        .col-sm-12.col-md-2
           .row
-            .span12
-              .profile_header
-                h2.progress_title #{@user.name}'s profile is #{@user.progress}% completed
-              span.progress 
-                span.bar style="width:#{@user.progress}%"
-                span.bar_percent 
-
-
-.container
-  .row
-    .guide
-      .span12
-        .blog_container
-          .row
-            .profile_view  
-              .guide_header.user_header
-              .span6
-                .user_step  
-                  == render 'general_info'
-              .span6
-                .user_step
-                  h4
-                    | Source:
-                    == link_to "", "#", class: "editSource" 
-                  - sources = Source.all.map{ | source | {value: source.id, text: source.from} }
-                  - source_value = @user.source.blank? ? "Sources" : @user.source.from
-                  == editable @user, :source_id, url: admin_user_path(@user), type: "select", value: source_value, source: sources, class: "source"
-                  h4
-                    | Admin Notes:
-                    == link_to "", "#", class: "editAdminNote" 
-                  == editable @user, :admin_note, url: admin_user_path(@user), value: @user.admin_note, type: "textarea", class: "adminNote"
-
-              == render "common_app"
-              .span12
-                == render 'associate_to_job'
-              .span12  
-                - if @user.applications.any?
-                    ul.jobs_list
-                          - @user.applications.each do |application| 
-                           li
-                             span#title == link_to application.job.job_title, job_application_path(:id => application.id, :job_id => application.job_id)
-                             span#edit_app == link_to "Edit Application", edit_job_application_path(:id => application.id, :job_id => application.job_id) 
-                             span#delete_app == link_to "Cancel Application", job_application_path(:id => application, :job_id => application.job_id), method: :delete, data: { confirm: "Are you sure you would like to delete your application?" }
-
-
+            .col-sm-6
+              == link_to "Link &rarr;".html_safe, "#", class: "btn btn-danger"
+            .col-sm-6
+              == link_to "Resume", "#{ @user.common_app.resume.url }", class: 'btn btn-danger'
+      / .admin-profile-answer
+      /   .col-sm-4
+      /     .candidate-info
+      /       span.content == @user.common_app.industries.join(', ')
+      /       span.content 
+      /         span.red == @user.common_app.current_city.try{ |c| c + '&rarr; '}
+      /       .candidate-icons
+      /         .row
+      /           .col-sm-12.col-md-6
+      /             .icon-bubble
+      /               span.glyphicon.glyphicon-briefcase
+      /               span.red == @user.common_app.grad_year || "N/A"
+      /           .col-sm-12.col-md-6
+      /             .icon-bubble
+      /               glyphicon.glyphicon-world
+      /               span.red == @user.common_app.china_time || "N/A"
+      /         .row
+      /           .col-sm-12.col-md-6
