@@ -29,8 +29,6 @@ Atlas.Views.VideoView = Backbone.View.extend({
     if (CameraTag.cameras.AtlasApp) {
       CameraTag.cameras.AtlasApp.destroy();
     }
-    
-    Backbone.View.prototype.remove.apply(this);
   },
 
   render: function() {

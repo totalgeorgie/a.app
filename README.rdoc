@@ -1,3 +1,7 @@
+// Video currently broken. Need to test potential jobs
+// need to add question choice to video 
+
+
 // Use questions from final video on Application
 <option value="Why would you be effective in a sales/business development role in China?">Why would you be effective in a sales/business development role in China? </option>
 <option value="Why would you be a valuable addition to an international team in China? ">Why would you be a valuable addition to an international team in China? </option>

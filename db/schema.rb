@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404200604) do
+ActiveRecord::Schema.define(version: 20140407190934) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -214,6 +214,7 @@ ActiveRecord::Schema.define(version: 20140404200604) do
     t.string   "video_uuid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "question_choice"
   end
 
   add_index "videos", ["user_id"], name: "videos_user_idx"

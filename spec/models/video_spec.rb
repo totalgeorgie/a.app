@@ -2,11 +2,12 @@
 #
 # Table name: videos
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  video_uuid :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  video_uuid      :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  question_choice :string(255)
 #
 
 require 'spec_helper'
