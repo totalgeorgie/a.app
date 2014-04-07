@@ -6,7 +6,7 @@
           <div class="list-container">
             <div class="col-sm-4">
               <div class="candidate-info">
-                <h3 class="heading"><%= app.get('user').name %></h3>
+                <h3 class="heading"><a href="/admin/users/<%= app.get('user_id') %>"><%= app.get('user').name %></a></h3>
                 <span class="content">
                   <%= app.get('user').common_app.industries %> 
                 </span>
