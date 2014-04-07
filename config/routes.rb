@@ -1,10 +1,5 @@
 Atlas::Application.routes.draw do
-  resources :users do 
-    get 'potentials', to: 'users#potentials', on: :member
-  end
-  
-  resources :videos, only: [:create, :update]
-  resources :common_apps, only: [:update, :show]
+  resources :users, only: [:new, :show, :create]
 
   resources :jobs, only: [:index, :show] do 
     resources :applications, only: [:create]
@@ -23,6 +18,15 @@ Atlas::Application.routes.draw do
     end
     
     resources :applications, only: :update
+  end
+  
+  namespace :api do
+    resources :users, only: [:show, :update] do
+        get 'potentials', to: 'users#potentials', on: :member
+    end
+    
+    resources :common_apps, only: :update
+    resources :videos, only: [:create, :update]
   end
 
   root  "jobs#index"

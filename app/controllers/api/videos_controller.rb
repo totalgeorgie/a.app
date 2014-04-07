@@ -1,4 +1,4 @@
-class VideosController < ApplicationController
+class Api::VideosController < ApplicationController
   before_action :signed_in_user
 
   def new
