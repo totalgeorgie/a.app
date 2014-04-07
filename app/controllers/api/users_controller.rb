@@ -8,7 +8,6 @@ class Api::UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      flash[:success] = "Your settings are updated"
       render json: @user
     else
       render json: { errors: @user.errors}, status: 400

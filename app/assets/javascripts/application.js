@@ -10,6 +10,7 @@
 //= require atlas
 //= require atlas_job
 //= require app_view_extension
+//= require user_model_extension
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./views
