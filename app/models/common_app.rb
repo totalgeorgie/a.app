@@ -39,7 +39,9 @@ class CommonApp < ActiveRecord::Base
   NOT_INCLUDED = 5 # id, created_at, updated_at, user_id, linkedin_link
   
   BONUS_CHOICES = [
-    "What's the biggest professional challenge you have successfully surmounted?"
+    "What's the biggest professional challenge you have successfully surmounted?",
+    "When have you over-delivered in a professional setting?",
+    "For your industry of choice, what are the biggest trends in China business and how are you qualified to help?"
   ]
 
   before_update :set_progress 

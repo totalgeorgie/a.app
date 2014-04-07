@@ -1,6 +1,6 @@
 Atlas.Models.User = Backbone.Model.extend({
   urlRoot: function() {
-    return Atlas.url + "users"
+    return Atlas.url + "api/users"
   },
 
   commonApp: function() {
