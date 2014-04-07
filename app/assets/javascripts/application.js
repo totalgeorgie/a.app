@@ -9,6 +9,7 @@
 //= require backbone
 //= require atlas
 //= require atlas_job
+//= require atlas_user
 //= require app_view_extension
 //= require user_model_extension
 //= require_tree ../templates

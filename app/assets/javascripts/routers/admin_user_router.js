@@ -1,4 +1,4 @@
-AtlasJob.Routers.JobRouter = Backbone.Router.extend({
+AtlasUser.Routers.UserRouter = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.rootEl
   },
@@ -7,8 +7,8 @@ AtlasJob.Routers.JobRouter = Backbone.Router.extend({
     "": "show"
   },
 
-  all: function() {
-    var userView = new AtlasJob.Views.UserShow();
+  show: function() {
+    var userView = new AtlasUser.Views.UserShow();
     this._swapView(userView);
   },
 

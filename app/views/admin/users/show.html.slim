@@ -10,34 +10,13 @@
     .row
       == render 'advanced_search'
 
-    .admin-profile-container.clearfix
-      .admin-profile-header.clearfix
-        .col-sm-12.col-md-10
-          .title
-            h3
-              == @user.name + " "
-              == link_to @user.email, "mailto:#{@user.email}"
-        .col-sm-12.col-md-2
-          .row
-            .col-sm-6
-              == link_to "Link &rarr;".html_safe, "#", class: "btn btn-danger"
-            .col-sm-6
-              == link_to "Resume", "#{ @user.common_app.resume.url }", class: 'btn btn-danger'
-      / .admin-profile-answer
-      /   .col-sm-4
-      /     .candidate-info
-      /       span.content == @user.common_app.industries.join(', ')
-      /       span.content 
-      /         span.red == @user.common_app.current_city.try{ |c| c + '&rarr; '}
-      /       .candidate-icons
-      /         .row
-      /           .col-sm-12.col-md-6
-      /             .icon-bubble
-      /               span.glyphicon.glyphicon-briefcase
-      /               span.red == @user.common_app.grad_year || "N/A"
-      /           .col-sm-12.col-md-6
-      /             .icon-bubble
-      /               glyphicon.glyphicon-world
-      /               span.red == @user.common_app.china_time || "N/A"
-      /         .row
-      /           .col-sm-12.col-md-6
+javascript: 
+  $(function(){
+    debugger
+    Atlas.url = "#{root_url}";
+  
+    AtlasUser.initialize({
+      rootEl: $('.candidate-container'),
+      userId: #{ params[:id] }
+    });
+  });

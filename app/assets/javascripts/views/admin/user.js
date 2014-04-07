@@ -1,5 +1,7 @@
-AtlasJob.Models.User = Backbone.UserModel.extend({
-  urlRoot: function() {
-    return Atlas.url + 'api/admin/users' 
+AtlasUser.Views.UserShow = Backbone.View.extend({
+  template: JST['admin/users/show'],
+  
+  render: function() {
+    var content = this.template({ user: AtlasJob.user })
   }
 });
