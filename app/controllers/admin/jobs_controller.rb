@@ -9,9 +9,6 @@ class Admin::JobsController < ApplicationController
   end
 
   def show
-    @applications = Application
-    .for_job(params[:id])
-    .paginate(page: params[:page], per_page: 10)
   end
   
   def new
@@ -46,10 +43,6 @@ class Admin::JobsController < ApplicationController
     redirect_to admin_jobs_url 
   end
 
-  def potentials
-    @users = Job.find(params[:id]).potentials
-  end
-  
   private
   def job_params 
     params.require(:job).permit(:job_title, :job_summary, :qualifications,

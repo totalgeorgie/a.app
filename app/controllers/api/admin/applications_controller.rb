@@ -1,4 +1,4 @@
-class Admin::ApplicationsController < ApplicationController
+class Api::Admin::ApplicationsController < ApplicationController
   before_action :admin_user
 
   def update

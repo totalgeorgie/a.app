@@ -1,6 +1,6 @@
 AtlasJob.Models.Job = Backbone.Model.extend({
   urlRoot: function() {
-    return Atlas.url + '/api/admin/jobs'
+    return Atlas.url + 'api/admin/jobs'
   },
 
   jobApps: function() {
