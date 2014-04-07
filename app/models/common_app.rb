@@ -24,6 +24,8 @@
 #
 
 class CommonApp < ActiveRecord::Base
+  NOT_INCLUDED = 5 # id, created_at, updated_at, user_id, linkedin_link
+  
   GRAD_OPTIONS = (1993..Time.now.strftime('%Y').to_i).map(&:to_s)
   
   SALARY_OPTIONS = ["A high salary is my primary motivator",
@@ -35,8 +37,6 @@ class CommonApp < ActiveRecord::Base
     "Open to the right opportunity",
     "Just want to see what's out there",
     "Not in the market"]
-
-  NOT_INCLUDED = 5 # id, created_at, updated_at, user_id, linkedin_link
   
   BONUS_CHOICES = [
     "What's the biggest professional challenge you have successfully surmounted?",
@@ -68,8 +68,8 @@ class CommonApp < ActiveRecord::Base
   end
   
   def calculate_progress
-    total_questions = self.attribute_names.count - NOT_INCLUDED
-    total_completed = 0 - NOT_INCLUDED
+    total_questions = self.attribute_names.length - 1
+    total_completed = 0
 
     attribute_names.each do |attr|
      total_completed += 1 if is_complete?(self[attr])
