@@ -9,14 +9,14 @@
   .container
     .row
       == render 'advanced_search'
-
+    .admin-profile-container.clearfix
+      
 javascript: 
   $(function(){
-    debugger
     Atlas.url = "#{root_url}";
   
     AtlasUser.initialize({
-      rootEl: $('.candidate-container'),
+      rootEl: $('.admin-profile-container'),
       userId: #{ params[:id] }
     });
   });

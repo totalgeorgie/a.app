@@ -304,3 +304,22 @@
     border-bottom:1px solid $atlasdarkerwhite;
   }
 }
+
+.admin-profile-answer {
+  .content {
+    display: block;
+    margin: 10px 0;
+  }
+  .candidate-icons {
+    span {
+      display:inline;
+    }
+    .icon-bubble {
+      margin-top:10px;
+      .glyphicon{
+        margin-right:5px;
+        color:$atlasred;
+      }
+    }
+  }
+}
