@@ -76,6 +76,7 @@
 </div>
 <div class="col-sm-12">
   <div class="row">
+  <hr>
   <div class="col-sm-12 col-md-6">
     <label>Salary Determination</label>
     <p><%= user.commonApp().escape('ideal_salary') %></p>
@@ -83,8 +84,45 @@
     <p><%= user.commonApp().escape('ideal_salary') %></p>
   </div>
   <div class="col-sm-12 col-md-6">
-    <label><%= user.commonApp().escape('bonus_choice') %></label>
+    <label><%= user.commonApp().escape('bonus_choice') || 'Bonus question not chosen' %></label>
     <p><%= user.commonApp().escape('ideal_salary') %></p>
   </div>
   </div> 
 </div>
+<div class="col-sm-12">
+  <div class="row">
+    <hr>
+    <div class="col-sm-12 col-md-6">
+      <div class="applications">
+        <table class="table">
+          <tbody>
+            <% if (user.jobApps().length === 0) { %>
+              <h3 class="pagination-centered"> <%= user.escape('name') %> hasn't applied to any jobs.</h3>
+            <% } %>
+            <% user.jobApps().each(function(jobApp) { %>
+              <tr>
+                  <td><a href="<%= Atlas.url + 'applications/' + jobApp.id %>"><%= jobApp.escape('job_title') %></a></td>
+              </tr>
+             <% }) %>
+          </tbody>
+        </table>
+      </div><!--applications-->
+    </div><!--col-6-->
+    <div class="col-sm-12 col-md-6">
+      <div class="applications">
+        <table class="table">
+          <tbody>
+            <% if (user.potentials().length === 0) { %>
+              <h3 class="pagination-centered"> <%= user.escape('name') %> doesn't have any good fits'</h3>
+            <% } %>
+            <% user.jobApps().each(function(jobApp) { %>
+              <tr>
+                  <td><a href="<%= Atlas.url + 'applications/' + jobApp.id %>"><%= jobApp.escape('job_title') %></a></td>
+              </tr>
+             <% }) %>
+          </tbody>
+        </table>  
+      </div><!-- applications -->
+    </div><!--col 6-->
+  </div><!--row-->
+</div><!--col-12>

@@ -1,5 +1,5 @@
 - provide(:title, "Show My Application to #{@application.job.job_title}")
-== thinstripe("thinstripe", "#{current_user.name}'s application to #{@application.job.job_title}")
+== thinstripe("thinstripe", "#{@application.user.name}'s application to #{@application.job.job_title}")
 
 .container.edit_appl
   .row

@@ -55,6 +55,7 @@ class ApplicationsController < ApplicationController
   end
 
   def find_application
-    @application = current_user.applications.with_dependents.find(params[:id])
+    @application = Application.with_dependents.find(params[:id])
+    redirect_to root_url unless @application.user_id === current_user.id || current_user.admin
   end
 end

@@ -9,8 +9,8 @@
         <% } %>
         <% jobApps.each(function(jobApp) { %>
           <tr>
-              <td><a href="<%= jobApp.url() %>"><%= jobApp.escape('job_title') %></a></td>
-              <td><a href="<%= jobApp.url() %>/edit">Edit My Application</a></td>
+              <td><a href="<%= Atlas.url + 'applications/' + jobApp.id %>"><%= jobApp.escape('job_title') %></a></td>
+              <td><a href="<%= Atlas.url + 'applications/' + jobApp.id + '/edit' %>">Edit My Application</a></td>
               <td><a href="#" class="cancel">Cancel My Application</a>
           </tr>
          <% }) %>
