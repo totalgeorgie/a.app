@@ -28,6 +28,7 @@ if @video
     json.id @video.id
     json.user_id @video.user_id
     json.video_uuid @video.video_uuid
+    json.question_choice @video.question_choice
   end
 end
 

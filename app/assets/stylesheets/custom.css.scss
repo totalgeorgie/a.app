@@ -776,8 +776,8 @@ input[type="submit"] {
 }
 
 .sign_up_box{
-  input[type="text"], input[type="password"] {
-    padding:20px 10px;
+  .form-control {
+    height:46px;
   }
   .help-block{
     padding: 10px 0;

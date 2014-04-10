@@ -1,8 +1,12 @@
-Atlas.Views.VideoView = Backbone.View.extend({
+Atlas.Views.VideoView = Backbone.AppView.extend({
   template: JST["video/show"],
   
   initialize: function(options) {
     window.setTimeout(this.manageCamera.bind(this), 0);
+  },
+  
+  events: {
+    'change .chosen-select' : 'alterVideoInfo'
   },
 
   publishVid: function(vid) {
@@ -38,6 +42,7 @@ Atlas.Views.VideoView = Backbone.View.extend({
     });
 
     this.$el.html(content);
+    window.setTimeout(this._addSelects.bind(this), 0);
     return this;
   }
 });

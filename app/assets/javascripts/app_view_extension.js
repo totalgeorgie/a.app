@@ -13,12 +13,20 @@ Backbone.AppView = Backbone.View.extend({
     var $input = $(e.target),
         attr = $input.attr('name'),
         value = $input.val();
-        debugger
+        
     Atlas.user.commonApp().set(attr, value).save();
     this.fadeCheckmark($input);
     Atlas.user.potentials().fetch();
   },
 
+  alterVideoInfo: function(e) {
+    var $input = $(e.target),
+        attr = $input.attr('name'),
+        value = $input.val();
+        
+    Atlas.user.video().set(attr, value)
+  },
+  
   fadeCheckmark: function(input, callback) {
     var $span = input.parent().find('.glyphicon');
     

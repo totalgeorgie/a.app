@@ -41,9 +41,8 @@ class CommonApp < ActiveRecord::Base
   BONUS_CHOICES = [
     "What's the biggest professional challenge you have successfully surmounted?",
     "When have you over-delivered in a professional setting?",
-    "For your industry of choice, what are the biggest trends in China business and how are you qualified to help?"
-  ]
-
+    "For your industry of choice, what are the biggest trends in China business and how are you qualified to help?"]
+  
   before_update :set_progress 
 
   belongs_to :user

@@ -37,8 +37,9 @@ window.Atlas = {
     Atlas.industries = options.industries;
     Atlas.gradOptions = options.grad_options;
     Atlas.salaryOptions = options.salary_options;
-    Atlas.countries = options.countries
-    Atlas.jobInterests = options.job_interests
-    Atlas.bonusChoices = options.bonus_choices
+    Atlas.countries = options.countries;
+    Atlas.jobInterests = options.job_interests;
+    Atlas.bonusChoices = options.bonus_choices;
+    Atlas.videoChoices = options.video_choices;
   }
 };
