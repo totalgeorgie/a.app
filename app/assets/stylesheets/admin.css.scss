@@ -337,13 +337,20 @@
 
 .admin-note-icon{
   float:right;
+  padding:10px;
   color: $atlasred;
 }
 
 .admin-note {
+  background:$atlassuperlightwhite;
   border:none;
   box-shadow:none;
   &:hover, &:focus {
-    border:none
+    outline:none;
+    border:none;
+    box-shadow:none;
+  }
+  &:focus {
+    background:darken($atlassuperlightwhite, 5%)
   }
 }

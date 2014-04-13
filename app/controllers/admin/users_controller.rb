@@ -15,7 +15,7 @@ class Admin::UsersController < ApplicationController
     @new_user = User.new(user_params)
     if @new_user.save
       flash[:success] = "User created!"
-      redirect_back_or admin_users_url
+      redirect_to admin_users_url
     else
       render :new
     end
@@ -25,11 +25,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)      
       respond_to do |format|
-        format.html do
-          flash[:success] = "User successfully updated"
-          redirect_to admin_user_path(@user)
-        end
-        
+        format.html { redirect_to admin_user_path @user }
         format.json { render json: @user }
       end
     else
