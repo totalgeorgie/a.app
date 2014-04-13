@@ -1,0 +1,7 @@
+== thinstripe("thinstripe", "Use the link below to change #{@user.name}'s Password")
+
+.first_container
+  .container
+    .col-sm-12.col-md-8.col-md-offset-2
+      .form-group
+        textarea class="form-control reset-link" == edit_password_reset_url(@user.password_reset_token)

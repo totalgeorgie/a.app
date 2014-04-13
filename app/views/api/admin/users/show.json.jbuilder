@@ -21,9 +21,7 @@ json.common_app do
   json.city_ids @common_app.city_ids.map(&:to_s)
   json.industry_ids @common_app.industry_ids.map(&:to_s)
 
-  json.resume do 
-    json.url @common_app.resume.url
-  end
+  json.resume @common_app.resume.url
 end
 
 if @video

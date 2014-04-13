@@ -1,17 +1,16 @@
-<div class="col-sm-12 col-md-10">
+<div class="col-sm-12 col-md-9">
   <div class="title">
     <h3><%= user.escape('name') %>
        <a href="mailto:<%= user.escape('email')%>" ><%= user.escape('email')%></a>
     </h3>
   </div><!-- title-->
 </div><!--col-sm-12-->
-<div class="col-sm-12 col-md-2">
-  <div class="row">
-    <div class="col-sm-6">
-      <a href="<%= user.get('admin_link') %>" class="btn btn-danger">Link &rarr;</a>
-    </div>
-    <div class="col-sm-6">
-      <a href="#" class="btn btn-danger">Resume</a>
-    </div>
+<div class="col-sm-12 col-md-3">
+    <% var resumeUrl = user.commonApp().escape('resume_url')   %>
+    <% if (resumeUrl) { %>
+        <a href="<%= user.commonApp().escape('resume_url')  %>" class="btn btn-danger">Resume</a>
+    <% } %>
+    <a href="<%= user.id %>/reset_token" class="btn btn-danger">Reset &rarr;</a>
+    <a href="<%= user.get('admin_link') %>" class="btn btn-danger">Link &rarr;</a>
   </div>
 </div><!--buttons on right-->
