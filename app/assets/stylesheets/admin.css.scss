@@ -345,6 +345,7 @@
   background:$atlassuperlightwhite;
   border:none;
   box-shadow:none;
+  border-radius:0;
   &:hover, &:focus {
     outline:none;
     border:none;
@@ -352,5 +353,11 @@
   }
   &:focus {
     background:darken($atlassuperlightwhite, 5%)
+  }
+}
+
+.admin-common-app-deeper {
+  label, p {
+    font-size: 14px;
   }
 }

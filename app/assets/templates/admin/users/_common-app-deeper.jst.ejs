@@ -1,0 +1,13 @@
+<hr>
+<div class="col-sm-12 col-md-6">
+  <label>Job Interest</label>
+  <p><%= user.commonApp().escape('job_interest') %></p>
+  <label>Salary Determination</label>
+  <p><%= user.commonApp().escape('ideal_salary') %></p>
+  <label>China Work Force Goals</label>
+  <p><%= user.commonApp().escape('china_goals') %></p>
+</div>
+<div class="col-sm-12 col-md-6">
+  <label><%= user.commonApp().escape('bonus_choice') || 'Bonus question not chosen' %></label>
+  <p><%= user.commonApp().escape('bonus_question') %></p>
+</div>
