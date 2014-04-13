@@ -10,8 +10,7 @@ class Api::Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "User successfully updated"
-      redirect_to admin_user_path(@user)
+      render json: @user
     else
       render :index
     end

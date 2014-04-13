@@ -19,7 +19,9 @@ Backbone.UserModel = Backbone.Model.extend({
 
   potentials: function() {
     if(!this._potentials) {
-      this._potentials = new Atlas.Collections.PotentialJobs();
+      this._potentials = new Atlas.Collections.PotentialJobs({}, {
+        user: this
+      });
     }
 
     return this._potentials

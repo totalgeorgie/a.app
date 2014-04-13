@@ -21,18 +21,6 @@ class Admin::UsersController < ApplicationController
     end
   end
 
-  def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)      
-      respond_to do |format|
-        format.html { redirect_to admin_user_path @user }
-        format.json { render json: @user }
-      end
-    else
-      render :index
-    end
-  end
-
   def show
     @user = User.find(params[:id])
   end

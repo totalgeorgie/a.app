@@ -8,8 +8,14 @@ AtlasUser.Routers.UserRouter = Backbone.Router.extend({
   },
 
   show: function() {
-    var userView = new AtlasUser.Views.UserShow();
-    this._swapView(userView);
+    var router = this,
+        userView = new AtlasUser.Views.UserShow();
+    
+    AtlasUser.user.potentials().fetch({
+      success: function() {
+        router._swapView(userView);
+      }
+    });
   },
 
   _swapView: function(view){
