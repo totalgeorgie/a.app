@@ -120,6 +120,6 @@ class User < ActiveRecord::Base
   end
 
   def ensure_admin_link
-    self.admin_link = User.new_remember_token
+    self.admin_link = self.generate_token(:admin_link)
   end
 end

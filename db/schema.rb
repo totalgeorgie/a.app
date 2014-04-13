@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413120556) do
+ActiveRecord::Schema.define(version: 20140413122246) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -215,6 +215,7 @@ ActiveRecord::Schema.define(version: 20140413120556) do
 
   add_index "users", ["admin_link"], name: "index_users_on_admin_link"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["password_reset_token"], name: "index_users_on_password_reset_token"
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "videos", force: true do |t|
