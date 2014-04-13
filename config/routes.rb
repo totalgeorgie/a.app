@@ -17,6 +17,8 @@ Atlas::Application.routes.draw do
     resources :users do 
       get 'reset_token', to: 'users#reset_token', on: :member
     end
+
+    resources :applications, only: [:create, :update]
   end
   
   namespace :api do

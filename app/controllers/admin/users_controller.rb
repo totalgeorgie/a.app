@@ -23,6 +23,8 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @application = Application.new(user_id: @user.id)
+    @jobs = Job.all.collect { |job| [job.job_title, job.id] }
   end
 
   def reset_token
