@@ -23,9 +23,15 @@ class Admin::UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:success] = "User successfully updated"
-      redirect_to admin_user_path(@user)
+    if @user.update_attributes(user_params)      
+      respond_to do |format|
+        format.html do
+          flash[:success] = "User successfully updated"
+          redirect_to admin_user_path(@user)
+        end
+        
+        format.json { render json: @user }
+      end
     else
       render :index
     end

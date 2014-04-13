@@ -1,5 +1,6 @@
 json.name @user.name
 json.email @user.email
+json.admin_note @user.admin_note
 
 json.common_app do
   json.id @common_app.id

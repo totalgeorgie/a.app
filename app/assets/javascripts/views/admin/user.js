@@ -9,7 +9,7 @@ AtlasUser.Views.UserShow = Backbone.AppView.extend({
   },
 
   events: {
-    'blur .common-app-field' : 'alterCommonAppByAdmin',
+    'blur .user-info-field' : 'alterUserInfo',
   },
   
   render: function() {
