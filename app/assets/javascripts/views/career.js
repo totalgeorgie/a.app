@@ -2,7 +2,11 @@ Atlas.Views.CareerView = Backbone.AppView.extend({
   template: JST["career/show"],
   firstFields: JST["career/first-fields"],
   secondFields: JST["career/second-fields"],
-
+  
+  initialize: function() {
+    this.user = Atlas.user
+  },
+  
   events: {
     'blur .user-field' : 'alterUserInfo',
     'blur .common-app-field' : 'alterCommonAppInfo',

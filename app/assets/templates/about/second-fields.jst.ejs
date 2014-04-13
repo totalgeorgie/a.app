@@ -16,7 +16,6 @@
   <label for="cities">If you got a job offer, which cities would you consider moving to?</label>
   <select id="cities" name="city_ids" class="common-app-field form-control chosen-select" multiple> 
     <% _.each(Atlas.cities, function(city){ %>
-      <% debugger %>
       <option value="<%= city.id %>" <%= _.contains(cityIds, city.id) ? 'selected' : null %> ><%= city.name %></option>
     <% }) %>
   </select>

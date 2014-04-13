@@ -3,6 +3,7 @@ Atlas.Views.VideoView = Backbone.AppView.extend({
   
   initialize: function(options) {
     window.setTimeout(this.manageCamera.bind(this), 0);
+    this.user = Atlas.user
   },
   
   events: {

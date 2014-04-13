@@ -4,7 +4,7 @@ Backbone.AppView = Backbone.View.extend({
         attr = $input.attr('name'),
         value = $input.val();
 
-    Atlas.user.set(attr, value).save();
+    this.user.set(attr, value).save();
 
     this.fadeCheckmark($input);
   },
@@ -14,7 +14,7 @@ Backbone.AppView = Backbone.View.extend({
         attr = $input.attr('name'),
         value = $input.val();
 
-      Atlas.user.commonApp().set(attr, value).save();
+    this.user.commonApp().set(attr, value).save();
 
     this.fadeCheckmark($input);
     Atlas.user.potentials().fetch();
@@ -25,7 +25,7 @@ Backbone.AppView = Backbone.View.extend({
         attr = $input.attr('name'),
         value = $input.val();
         
-    Atlas.user.video().set(attr, value)
+    this.user.video().set(attr, value)
   },
   
   fadeCheckmark: function(input, callback) {

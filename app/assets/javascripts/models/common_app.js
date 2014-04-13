@@ -1,6 +1,6 @@
 Atlas.Models.CommonApp = Backbone.Model.extend({
   urlRoot: function() {
-    return Atlas.url + this.endingUrl
+    return Atlas.url + 'api/common_apps'
   },
 
   toJSON: function() {

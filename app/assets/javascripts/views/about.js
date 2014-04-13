@@ -3,6 +3,9 @@ Atlas.Views.AboutView = Backbone.AppView.extend({
   firstFields: JST["about/first-fields"],
   secondFields: JST["about/second-fields"],
   
+  initialize: function() {
+    this.user = Atlas.user;
+  },
 
   events: {
     'blur .user-field' : 'alterUserInfo',

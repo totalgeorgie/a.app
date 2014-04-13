@@ -4,20 +4,12 @@ AtlasUser.Views.UserShow = Backbone.AppView.extend({
   _short_answers: JST['admin/users/_short_answers'],
 
   initialize: function() {
+    this.user = AtlasUser.user;
     window.setTimeout(CameraTag.setup, 0)
   },
 
   events: {
     'blur .common-app-field' : 'alterCommonAppByAdmin',
-  },
-
-  alterCommonAppByAdmin: function(e) {
-    var $input = $(e.target),
-        attr = $input.attr('name'),
-        value = $input.val();
-    AtlasUser.user.commonApp().set(attr, value).save();
-
-    this.fadeCheckmark($input);
   },
   
   render: function() {
