@@ -10,6 +10,10 @@ class UsersController < ApplicationController
   def show
   end
 
+  def share
+    @user = User.find_by(admin_link: params[:admin_link])
+  end
+  
   def create
     @user = User.new(user_params)
     if @user.save
