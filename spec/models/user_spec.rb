@@ -16,6 +16,7 @@
 #  admin_note             :text(800)
 #  applications_count     :integer
 #  source_id              :integer
+#  admin_link             :string(255)
 #
 
 require 'spec_helper'

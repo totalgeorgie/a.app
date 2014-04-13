@@ -1,24 +1,7 @@
 <div class="admin-profile-header clearfix">
-  <div class="col-sm-12 col-md-10">
-    <div class="title">
-      <h3><%= user.escape('name') %>
-         <a href="mailto:<%= user.escape('email')%>" ><%= user.escape('email')%></a>
-      </h3>
-    </div><!-- title-->
-  </div><!--col-sm-12-->
-  <div class="col-sm-12 col-md-2">
-    <div class="row">
-      <div class="col-sm-6">
-        <a herf="#" class="btn btn-danger">Link &rarr;</a>
-      </div>
-      <div class="col-sm-6">
-        <a href="#" class="btn btn-danger">Resume</a>
-      </div>
-    </div>
-  </div><!--buttons on right-->
 </div><!--header-->
-<% var videoCode = user.video().get('video_uuid') %>
 
+<% var videoCode = user.video().get('video_uuid'); %>
 <% if (videoCode) { %>
   <div class="col-md-3 col-lg-2 profile-video">
     <video id='video-<%= user.id %>' data-uuid='<%= videoCode %>'></video>
@@ -27,50 +10,16 @@
   
 <div class="col-sm-12 col-md-4">
   <div class="admin-profile-answer">
-    <div class="candidate-info">
-      <span class="content">
-        <%= user.commonApp().escape('industries') %> 
-      </span>
-      
-      <span class="content">
-        <span class="red"><%= user.commonApp().escape('current_city') %></span>
-        <%= user.commonApp().get('cities') %>
-      </span>
-      
-        <div class="candidate-icons">
-          <div class="row">
-            <div class="col-sm-12 col-md-6">
-              <div class="icon-bubble">
-                <span class="glyphicon glyphicon-briefcase"></span>
-                <span class="red"><%= user.commonApp().escape('grad_year') %></span>
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-              <div class="icon-bubble">
-                <span class="glyphicon glyphicon-magnet"></span>
-                <span class="red"><%= user.commonApp().escape('china_time') %></span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="icon-bubble">
-                <span class="glyphicon glyphicon-user"></span>
-                <span class="red"><%= user.commonApp().escape('nationality') %></span>
-              </div>
-            </div>
-          </div>
-        </div><!--candidate icons-->
-    </div><!-- candidate info-->
   </div><!--admin-profile-answer-->
 </div>
 
-<div class="<%= videoCode ? 'col-md-7 col-lg-6' : 'col-md-8' %>">
+<div class="<%= videoCode ? 'col-md-7 col-lg-6' : 'col-md-7 col-md-offset-1' %>">
+  <% var adminNote = user.commonApp().escape('admin_note'); %>
   <div class="admin-note">
     <div class="form-group">
-      <textarea name="admin_note" 
-        class="common-app-field form-control"><%= user.commonApp().escape('admin_note') %>
-      </textarea>
+      <label for="admin_note" class="glyphicon glyphicon-pencil admin-note-icon"></label>
+      <textarea name="admin_note" id="admin_note"
+        class="common-app-field form-control admin-note" placeholder="Admin Notes"><%= adminNote %></textarea>
     </div>
   </div>
 </div>
@@ -78,6 +27,8 @@
   <div class="row">
   <hr>
   <div class="col-sm-12 col-md-6">
+    <label>Job Interest</label>
+    <p><%= user.commonApp().escape('job_interest') %></p>
     <label>Salary Determination</label>
     <p><%= user.commonApp().escape('ideal_salary') %></p>
     <label>China Work Force Goals</label>

@@ -9,12 +9,13 @@ Backbone.AppView = Backbone.View.extend({
     this.fadeCheckmark($input);
   },
 
-  alterCommonAppInfo: function(e) {
+  alterCommonAppInfo: function(e, settor) {
     var $input = $(e.target),
         attr = $input.attr('name'),
         value = $input.val();
-        
-    Atlas.user.commonApp().set(attr, value).save();
+
+      Atlas.user.commonApp().set(attr, value).save();
+
     this.fadeCheckmark($input);
     Atlas.user.potentials().fetch();
   },

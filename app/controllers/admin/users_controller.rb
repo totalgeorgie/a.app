@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :admin_user
+  before_action :admin_user, except: :share
   before_action :load_data, only: [:new, :create]
   respond_to :html, :json
 
@@ -33,6 +33,10 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def share
+    @user = User.find(admin_link: params[:admin_link])
   end
 
   private

@@ -16,16 +16,17 @@
 #  admin_note             :text(800)
 #  applications_count     :integer
 #  source_id              :integer
+#  admin_link             :string(255)
 #
 
 class User < ActiveRecord::Base
-  #remove has_video
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   default_scope { order('users.id DESC') } 
   
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   before_create :ensure_common_app
+  before_create :ensure_admin_link
 
   belongs_to :heat
   belongs_to :source
@@ -116,5 +117,9 @@ class User < ActiveRecord::Base
   
   def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)
+  end
+
+  def ensure_admin_link
+    self.admin_link = SecureRandom.urlsafe_base64
   end
 end

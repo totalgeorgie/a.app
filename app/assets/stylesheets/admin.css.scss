@@ -334,3 +334,16 @@
 .profile-video {
   margin-top:10px;
 }
+
+.admin-note-icon{
+  float:right;
+  color: $atlasred;
+}
+
+.admin-note {
+  border:none;
+  box-shadow:none;
+  &:hover, &:focus {
+    border:none
+  }
+}
