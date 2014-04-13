@@ -35,7 +35,7 @@
             td
               span.content == user.common_app.industries.try{ |inds| inds.any? ? inds.map(&:name).join(', ') : 'No industries' }
             td 
-              a href="#{admin_share_link(user)}" class="glyphicon glyphicon-circle-arrow-right"
+              a href="#{admin_share_link(user)}" class="glyphicon glyphicon-link"
 
       .pagination-centered
         == will_paginate

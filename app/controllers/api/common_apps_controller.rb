@@ -35,6 +35,6 @@ class Api::CommonAppsController < ApplicationController
 
   def correct_applicant
     @common_app = CommonApp.with_dependents.find(params[:id])
-    redirect_to root_url unless @common_app.user_id == current_user.id
+    redirect_to root_url unless @common_app.user_id == current_user.id || current_user.admin
   end
 end

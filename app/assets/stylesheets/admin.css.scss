@@ -297,9 +297,18 @@
         color:$atlasblue;
       }
     }
+    .btn-danger{
+      background: $atlasgray;
+      border:none;
+      @include transition(background 0.5s ease);
+      
+      &:hover{
+        background: $atlasred
+      }
+    }
     .btn {
         float:right;
-        margin:10px 10px 10px 10px;
+        margin:10px 5px;
         border-radius:0;
     }
     border-bottom:1px solid $atlasdarkerwhite;
