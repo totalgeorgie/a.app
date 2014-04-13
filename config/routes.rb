@@ -2,7 +2,7 @@ Atlas::Application.routes.draw do
   resources :users, only: [:new, :show, :create] do 
     get 'share/:admin_link', to: 'users#share', on: :collection
   end
-  
+
   resources :jobs, only: [:index, :show] do 
     resources :applications, only: [:create]
   end
@@ -12,8 +12,11 @@ Atlas::Application.routes.draw do
   
   namespace :admin do 
     get '', to: 'jobs#index', as: '/'
-    resources :users
     resources :jobs
+
+    resources :users do 
+      get 'reset_token', to: 'users#reset_token', on: :member
+    end
   end
   
   namespace :api do

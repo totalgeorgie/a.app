@@ -35,6 +35,11 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def reset_token
+    @user = User.find(params[:id])
+    render json: @user.generate_password_reset
+  end
+
   private
   def user_params
     params
