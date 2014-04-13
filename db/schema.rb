@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407190934) do
+ActiveRecord::Schema.define(version: 20140412215731) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -22,7 +22,8 @@ ActiveRecord::Schema.define(version: 20140407190934) do
     t.string   "video_uuid"
   end
 
-  add_index "answers", ["application_id", "question_id"], name: "answers_idx"
+  add_index "answers", ["application_id"], name: "index_answers_on_application_id"
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "applications", force: true do |t|
     t.integer  "user_id"
@@ -33,8 +34,8 @@ ActiveRecord::Schema.define(version: 20140407190934) do
     t.string   "status",      default: "SENT"
   end
 
-  add_index "applications", ["shortlisted"], name: "index_applications_on_shortlisted"
-  add_index "applications", ["user_id", "job_id"], name: "applications_idx"
+  add_index "applications", ["job_id"], name: "index_applications_on_job_id"
+  add_index "applications", ["user_id"], name: "index_applications_on_user_id"
 
   create_table "bullets", force: true do |t|
     t.integer  "job_id"
@@ -58,7 +59,8 @@ ActiveRecord::Schema.define(version: 20140407190934) do
     t.datetime "updated_at"
   end
 
-  add_index "common_app_city_relations", ["common_app_id", "city_id"], name: "app_city_idx"
+  add_index "common_app_city_relations", ["city_id"], name: "index_common_app_city_relations_on_city_id"
+  add_index "common_app_city_relations", ["common_app_id"], name: "index_common_app_city_relations_on_common_app_id"
 
   create_table "common_app_industry_relations", force: true do |t|
     t.integer  "common_app_id"
@@ -67,7 +69,8 @@ ActiveRecord::Schema.define(version: 20140407190934) do
     t.datetime "updated_at"
   end
 
-  add_index "common_app_industry_relations", ["common_app_id", "industry_id"], name: "app_industry_idx"
+  add_index "common_app_industry_relations", ["common_app_id"], name: "index_common_app_industry_relations_on_common_app_id"
+  add_index "common_app_industry_relations", ["industry_id"], name: "index_common_app_industry_relations_on_industry_id"
 
   create_table "common_app_position_relations", force: true do |t|
     t.integer  "common_app_id"
@@ -76,7 +79,8 @@ ActiveRecord::Schema.define(version: 20140407190934) do
     t.datetime "updated_at"
   end
 
-  add_index "common_app_position_relations", ["common_app_id", "position_id"], name: "app_pos_idx"
+  add_index "common_app_position_relations", ["common_app_id"], name: "index_common_app_position_relations_on_common_app_id"
+  add_index "common_app_position_relations", ["position_id"], name: "index_common_app_position_relations_on_position_id"
 
   create_table "common_apps", force: true do |t|
     t.integer  "user_id"
@@ -120,7 +124,8 @@ ActiveRecord::Schema.define(version: 20140407190934) do
     t.datetime "updated_at"
   end
 
-  add_index "job_city_relations", ["job_id", "city_id"], name: "job_city_idx"
+  add_index "job_city_relations", ["city_id"], name: "index_job_city_relations_on_city_id"
+  add_index "job_city_relations", ["job_id"], name: "index_job_city_relations_on_job_id"
 
   create_table "job_industry_relations", force: true do |t|
     t.integer  "job_id"
@@ -129,7 +134,8 @@ ActiveRecord::Schema.define(version: 20140407190934) do
     t.datetime "updated_at"
   end
 
-  add_index "job_industry_relations", ["job_id", "industry_id"], name: "job_industry_idx"
+  add_index "job_industry_relations", ["industry_id"], name: "index_job_industry_relations_on_industry_id"
+  add_index "job_industry_relations", ["job_id"], name: "index_job_industry_relations_on_job_id"
 
   create_table "job_position_relations", force: true do |t|
     t.integer  "job_id"
@@ -138,7 +144,8 @@ ActiveRecord::Schema.define(version: 20140407190934) do
     t.datetime "updated_at"
   end
 
-  add_index "job_position_relations", ["job_id", "position_id"], name: "job_pos_idx"
+  add_index "job_position_relations", ["job_id"], name: "index_job_position_relations_on_job_id"
+  add_index "job_position_relations", ["position_id"], name: "index_job_position_relations_on_position_id"
 
   create_table "jobs", force: true do |t|
     t.string   "job_title"
@@ -206,7 +213,6 @@ ActiveRecord::Schema.define(version: 20140407190934) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["heat_id", "source_id"], name: "users_idx"
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "videos", force: true do |t|
