@@ -35,9 +35,7 @@
             td
               span.content == user.common_app.industries.try{ |inds| inds.any? ? inds.map(&:name).join(', ') : 'No industries' }
             td 
-              span.glyphicon.glyphicon-download-alt
-            td
-              span.glyphicon.glyphicon-circle-arrow-right
+              a href="#{admin_share_link(user)}" class="glyphicon glyphicon-circle-arrow-right"
 
       .pagination-centered
         == will_paginate
