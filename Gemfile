@@ -30,23 +30,23 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootstrap-filestyle-rails'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
-gem 'carrierwave' # for uploading 
+gem 'carrierwave'
 gem 'countries'
 gem 'chosen-rails'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'customerio', :git => 'https://github.com/customerio/customerio-ruby' # http://customer.io/docs/rails-customerio.html
+gem 'customerio', git: 'https://github.com/customerio/customerio-ruby' # http://customer.io/docs/rails-customerio.html
 gem 'faker', '1.1.2'
 gem 'fancy_select-rails'
 gem 'figaro'
-gem 'jbuilder', '~> 1.2' # json apis https://github.com/rails/jbuilder
+gem 'fog'
+gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'nested_form'
 gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel
 gem 'sass-rails', '~> 4.0.0.rc2'
 gem 'slim'
-gem 'uglifier', '>= 1.3.0' # compresses js
+gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate', '3.0.4'
 
 # gem 'memcachier' for caching queries
 # For delayed job, and making this cheaper for abe, use https://github.com/meskyanichi/hirefire
-# For advanced search, try http://railscasts.com/episodes/111-advanced-search-form-revised  // very cool way to filter
