@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   end
 
   def share
-    @user = User.find_by(admin_link: params[:admin_link])
+    @user = User.includes(:common_app, :video)
+      .find_by(admin_link: params[:admin_link])
   end
   
   def create

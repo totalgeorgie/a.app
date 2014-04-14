@@ -1,1 +1,46 @@
-h2 == @user.name + '!'
+- provide(:title, @user.name)
+== thinstripe('thinstripe', @user.name)
+
+.first_container
+  .container
+    .col-md-10.col-md-offset-1
+      .admin-profile-container.clearfix
+        .col-md-3.clearfix.pagination-centered
+          .profile-video
+            - if @user.video
+              video id='video-#{@user.id}' data-uuid='#{@user.video.video_uuid}'
+        .col-md-9
+          h3 
+            == @user.name  
+            span.sharable-city == ' ' + @user.common_app.current_city
+          .admin-candidate-lists 
+            .candidate-icons
+              .row
+                - if @user.common_app.grad_year
+                  .col-sm-4
+                    .icon-bubble
+                      span.glyphicon.glyphicon-briefcase
+                      span.red == @user.common_app.grad_year
+                - if @user.common_app.china_time
+                  .col-sm-4
+                    .icon-bubble
+                      span.glyphicon.glyphicon-magnet
+                      span.red == @user.common_app.china_time.to_s + ' years'
+                - if @user.common_app.country_name  
+                  .col-sm-4
+                    .icon-bubble
+                      span.glyphicon.glyphicon-user
+                      span.red == @user.common_app.country_name
+        .col-md-12
+          hr
+          - if @user.common_app.bonus_choice && @user.common_app.bonus_question
+            h3
+              span.red Q: 
+              == @user.common_app.bonus_choice
+            p == @user.common_app.bonus_question
+          - if @user.common_app.china_goals
+            hr
+            h3
+              span.red Q: 
+              | What's the most important thing you want out of your time in the china workforce?
+            p == @user.common_app.china_goals

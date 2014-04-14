@@ -19,7 +19,7 @@ class Admin::JobsController < ApplicationController
     @job = Job.new(job_params)
     if @job.save
       flash[:success] = "Job Succesfuly created"
-      redirect_to admin_job_url(@job)
+      redirect_to admin_jobs_url
     else
       render :new
     end

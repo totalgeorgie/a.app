@@ -50,4 +50,17 @@ class Application < ActiveRecord::Base
 
     appl
   end
+
+  def self.make_by_admin(params)
+    app = Application.new
+    app.user_id = params[:user_id]
+    app.job_id = params[:job_id]
+    
+    app.questions.each do |question|
+      app.answers.new(question_id: question.id, content: 'N/A')
+    end
+
+    fail
+    app
+  end
 end
