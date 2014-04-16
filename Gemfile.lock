@@ -165,7 +165,6 @@ GEM
     pry-rails (0.3.2)
       pry (>= 0.9.10)
     rack (1.5.2)
-    rack-ssl-enforcer (0.2.6)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.0.rc2)
@@ -279,7 +278,6 @@ DEPENDENCIES
   nested_form
   pg (= 0.15.1)
   pry-rails
-  rack-ssl-enforcer
   rails (= 4.0.0.rc2)
   rails_12factor (= 0.0.2)
   roo
