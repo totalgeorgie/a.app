@@ -65,6 +65,10 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    carrierwave_direct (0.0.13)
+      carrierwave
+      fog
+      uuidtools
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     chosen-rails (1.0.2)
@@ -244,6 +248,7 @@ GEM
     uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uuidtools (2.1.4)
     websocket (1.0.7)
     will_paginate (3.0.4)
     xpath (2.0.0)
@@ -264,6 +269,7 @@ DEPENDENCIES
   bootstrap-will_paginate (~> 0.0.10)
   capybara (= 2.1.0)
   carrierwave
+  carrierwave_direct
   chosen-rails
   coffee-rails (~> 4.0.0)
   countries
