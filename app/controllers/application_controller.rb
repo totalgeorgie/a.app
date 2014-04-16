@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  before_action :expire_hsts
   protect_from_forgery with: :exception
   include SessionsHelper
 
@@ -8,10 +7,15 @@ class ApplicationController < ActionController::Base
     xeditable = params[:denied] ? false : true
     can?(:edit, object) and xeditable ? true : false
   end
+
   helper_method :xeditable?
 
   def can? edit, model
     true
   end
-  helper_method :can?
+
+  private
+  def expire_hsts
+    response.headers['Strict-Transport-Security'] = 'max-age=0'
+  end
 end

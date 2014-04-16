@@ -42,7 +42,6 @@ gem 'fog'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'nested_form'
-gem 'rack-ssl-enforcer'
 gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel
 gem 'sass-rails', '~> 4.0.0.rc2'
 gem 'slim'
