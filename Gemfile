@@ -40,6 +40,7 @@ gem 'figaro'
 gem 'fog'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
+gem 'jquery-nouislider-rails'
 gem 'nested_form'
 gem 'passenger'
 gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel

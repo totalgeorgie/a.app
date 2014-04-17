@@ -1,10 +1,10 @@
 <form action="<%= admin_users_url %>" class="search_area" method="get">
-  <div class="col-sm-2">
-    <input class="form-control" type="text"
+  <div class="col-sm-6 col-md-2">
+    <input class="form-control search-input" type="text"
      name="name" placeholder="Enter a name here" value="<%= params[:name]%>">
   </div>
-  <div class="col-sm-3">
-    <select class="form-control chosen-select" name="city_ids[]" multiple data-placeholder="City">
+  <div class="col-sm-6 col-md-3">
+    <select class="form-control chosen-select search-input" name="city_ids[]" multiple data-placeholder="City">
       <option></option>
       <% City.all.each do |city| %>
         <option value="<%= city.id %>"<%= params[:city_ids] && params[:city_ids].include?(city.id.to_s) ? "selected" : nil %>>
@@ -13,8 +13,8 @@
       <% end %>
     </select>
   </div>
-  <div class="col-sm-3">
-    <select class="form-control chosen-select" name="industry_ids[]" multiple data-placeholder="Industry">
+  <div class="col-sm-6 col-md-3">
+    <select class="form-control chosen-select search-input" name="industry_ids[]" multiple data-placeholder="Industry">
       <option></option>
       <% Industry.all.each do |industry| %>
         <option value="<%= industry.id %>"<%= params[:industry_ids] && params[:industry_ids].include?(industry.id.to_s) ? "selected" : nil %>>
@@ -23,24 +23,32 @@
       <% end %>
     </select>
   </div>
-  <div class="col-sm-2">
-    <select class="form-control chosen-select" name="grad_year" data-placeholder="Grad Year">
+  <div class="col-sm-3 col-md-2">
+    <select class="form-control chosen-select grad-year-input" name="grad_year_start" data-placeholder="Year &rarr;">
       <option></option>
       <% CommonApp::GRAD_OPTIONS.each do |yr| %>
-        <option value="<%= yr %>"<%= yr.to_s == params[:grad_year] ? "selected" : nil %>>
+        <option value="<%= yr %>"<%= yr.to_s == params[:grad_year_start] ? "selected" : nil %>>
+          <%= yr %>
+        </option>
+      <% end %>
+    </select>
+    <select class="form-control chosen-select grad-year-input" name="grad_year_end" data-placeholder="&larr; Year">
+      <option></option>
+      <% CommonApp::GRAD_OPTIONS.each do |yr| %>
+        <option value="<%= yr %>"<%= yr.to_s == params[:grad_year_end] ? "selected" : nil %>>
           <%= yr %>
         </option>
       <% end %>
     </select>
   </div>
-  <div class="col-sm-1">
-    <div class="btn-group" data-toggle="buttons">
+  <div class="col-sm-1 col-md-1">
+    <div class="btn-group search-input" data-toggle="buttons">
       <label class="btn btn-primary">
         <input type="checkbox" name="has_video"> Video?
       </label>
     </div>
   </div>
-  <div class="col-sm-1">
-    <button class="btn btn-danger">Search</button>
+  <div class="col-sm-1 col-md-1">
+    <button class="btn btn-danger search-input">Search</button>
   </div>
 </form>

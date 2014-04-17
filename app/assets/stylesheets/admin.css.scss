@@ -397,3 +397,11 @@
   font-size:18px;
   color:$atlasblue;
 }
+
+.grad-year-input + .chosen-container{
+  margin-bottom:10px;
+}
+
+.search-input + .chosen-container, .search-input{
+  margin-top:20px;
+}
