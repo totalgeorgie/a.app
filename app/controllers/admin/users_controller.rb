@@ -47,5 +47,6 @@ class Admin::UsersController < ApplicationController
 
   def load_data
     @industries = Industry.all.collect { |industry| [industry.name, industry.id] }
+    @cities = City.all.collect { |city| [city.name, city.id] }
   end
 end

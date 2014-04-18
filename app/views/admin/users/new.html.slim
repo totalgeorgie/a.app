@@ -44,6 +44,10 @@
                 == c.select :grad_year, CommonApp::GRAD_OPTIONS, {},
                    class: 'form-control chosen-select'
               .form-group
+                == c.label :cities, "Preferred Cities"
+                == c.select :city_ids, @cities, {}, multiple: true,
+                  class: 'form-control chosen-select'
+              .form-group
                 == c.label :industries, "Industries"
                 == c.select :industry_ids, @industries, {}, multiple: true,
                   class: 'form-control chosen-select'
