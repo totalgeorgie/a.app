@@ -42,7 +42,7 @@ class Admin::UsersController < ApplicationController
        :heat_id,
        :admin_note,
        :source_id,
-       common_app_attributes: [:resume, :grad_year, :current_city, industry_ids: []])
+       common_app_attributes: [:resume, :grad_year, :current_city, industry_ids: [], city_ids: []])
   end
 
   def load_data
