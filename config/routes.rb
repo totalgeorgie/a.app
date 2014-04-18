@@ -4,8 +4,10 @@ Atlas::Application.routes.draw do
   end
 
   resources :jobs, only: [:index, :show] do 
+    get 'blurb', to: 'jobs#blurb', on: :collection
     resources :applications, only: [:create]
   end
+  
   resources :applications, except: [:new, :create, :index]
   resources :sessions, only: [:new, :create, :destroy]
   resources :password_resets, except: [:show, :index]

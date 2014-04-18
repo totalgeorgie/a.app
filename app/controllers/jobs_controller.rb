@@ -16,6 +16,11 @@ class JobsController < ApplicationController
     record_hit
   end
 
+  def blurb
+    render json: Job.take(2)
+
+  end
+  
   private
   def load_data
     @cities = City.all
