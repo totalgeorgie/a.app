@@ -12,7 +12,8 @@ class Admin::UsersController < ApplicationController
   end
   
   def create
-    @new_user = User.new(user_params)
+    @new_user = User.new(user_params).generate_email!
+
     if @new_user.save
       flash[:success] = "User created!"
       redirect_to admin_users_url
@@ -37,7 +38,7 @@ class Admin::UsersController < ApplicationController
     params
       .require(:user)
       .permit(:name,
-       :email,
+       :admin_note,
        :password,
        :heat_id,
        :admin_note,

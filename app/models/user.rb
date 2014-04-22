@@ -97,6 +97,16 @@ class User < ActiveRecord::Base
   def first_name
     self.name.split(" ").first
   end
+
+  def last_name
+    self.name.split(" ").last
+  end
+  
+  def generate_email!
+    self.email = "#{self.first_name}-#{self.last_name}-gen@atlas-china.com"
+  
+    self
+  end
   
   def generate_token(column) 
     begin
