@@ -17,8 +17,7 @@ class JobsController < ApplicationController
   end
 
   def blurb
-    render json: Job.take(2)
-
+    @jobs = Job.includes(:industries).includes(:cities).take(2)
   end
   
   private
