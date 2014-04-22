@@ -35,7 +35,7 @@ namespace :db do
     City.create!(name: 'Shanghai')
     City.create!(name: 'Tianjin')
     City.create!(name: 'Wuhan')
-    City.create!(name: 'Wux')
+    City.create!(name: 'Wuxi')
 
     User.create!(name: "Example User",
                  email: "example@atlas-china.com",

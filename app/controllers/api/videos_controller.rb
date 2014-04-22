@@ -1,13 +1,9 @@
 class Api::VideosController < ApplicationController
   before_action :signed_in_user
-
-  def new
-    current_user.video ? redirect_to(current_user) : false
-    @video = current_user.build_video
-  end
+  before_action :correct_user, only: [:create, :update]
 
   def create 
-    @video = current_user.build_video(video_params)
+    @video = @user.build_video(video_params)
     if @video.save
       render json: @video
     else
@@ -16,7 +12,7 @@ class Api::VideosController < ApplicationController
   end
   
   def update
-    @video = current_user.video
+    @video = @user.video
     if @video.update_attributes(video_params)
       render json: @video
     else
@@ -25,6 +21,11 @@ class Api::VideosController < ApplicationController
   end
 
   private
+  def correct_user
+    @user = User.find(params[:user_id])
+    redirect_to current_user unless current_user?(@user) || current_user.admin
+  end
+
   def video_params
     params.require(:video).permit(:video_uuid, :question_choice)
   end
