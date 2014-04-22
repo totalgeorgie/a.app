@@ -22,11 +22,9 @@
               == f.label :name, "Full Name"
               == f.text_field :name, class: 'form-control', placeholder: "John Doe"
             .form-group
-              == f.label :admin_note, placeholder: "Email Address"
-              == f.text_field :admin_note, class: "form-control"
-            .form-group 
-              == f.label "Choose Random Password"
-              == f.password_field :password, placeholder: "Create Password", class: "form-control"
+              == f.label :admin_note, "Email Address"
+              == f.text_field :admin_note, class: "form-control", placeholder: "john.doe@gmail.com"
+      
       .admin-user-body
         .col-sm-4
           h2 Basic Info

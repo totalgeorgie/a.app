@@ -38,7 +38,7 @@ class Application < ActiveRecord::Base
 
   scope :for_job, ->(job_id) do
     Application
-      .includes(user: [:source, :heat, common_app: [:cities, :industries]])
+      .includes(user: [common_app: [:cities, :industries]])
       .includes(questions: :answer)
       .where('applications.job_id = ?', job_id)
   end

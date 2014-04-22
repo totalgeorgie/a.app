@@ -30,9 +30,7 @@ class Api::Admin::UsersController < ApplicationController
       .permit(:name,
        :email,
        :password,
-       :heat_id,
        :admin_note,
-       :source_id,
        common_app_attributes: [:resume, :grad_year, :current_city, industry_ids: []])
   end
 end

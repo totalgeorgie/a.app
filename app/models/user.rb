@@ -28,8 +28,6 @@ class User < ActiveRecord::Base
   before_create :ensure_common_app
   before_create :ensure_admin_link
 
-  belongs_to :heat
-  belongs_to :source
   has_one :common_app, dependent: :destroy, inverse_of: :user
   has_one :video, inverse_of: :user, dependent: :destroy
   has_many :cities, through: :common_app
@@ -102,12 +100,19 @@ class User < ActiveRecord::Base
     self.name.split(" ").last
   end
   
-  def generate_email!
-    self.email = "#{self.first_name}-#{self.last_name}-gen@atlas-china.com"
-  
+  def generate_email
+    email_tag = "#{self.first_name}-#{self.last_name}-#{Time.now.day}"
+    self.email = "#{email_tag}@atlas-china.com"
+
     self
   end
   
+  def generate_pass
+    self.password = ("a".."z").to_a.sample(8).join("")
+
+    self
+  end
+
   def generate_token(column) 
     begin
       self[column] = SecureRandom.urlsafe_base64

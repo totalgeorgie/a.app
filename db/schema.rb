@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414163219) do
+ActiveRecord::Schema.define(version: 20140422155744) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -105,12 +105,6 @@ ActiveRecord::Schema.define(version: 20140414163219) do
 
   add_index "common_apps", ["user_id"], name: "common_app_users_idx"
 
-  create_table "heats", force: true do |t|
-    t.string   "level"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "industries", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -190,12 +184,6 @@ ActiveRecord::Schema.define(version: 20140414163219) do
 
   add_index "roles", ["job_id"], name: "roles_job_idx"
 
-  create_table "sources", force: true do |t|
-    t.string   "from"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -206,10 +194,8 @@ ActiveRecord::Schema.define(version: 20140414163219) do
     t.boolean  "admin",                              default: false
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.integer  "heat_id",                            default: 2
     t.text     "admin_note",             limit: 800
     t.integer  "applications_count"
-    t.integer  "source_id"
     t.string   "admin_link"
   end
 

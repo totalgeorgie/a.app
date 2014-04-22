@@ -12,7 +12,7 @@ class Admin::UsersController < ApplicationController
   end
   
   def create
-    @new_user = User.new(user_params).generate_email!
+    @new_user = User.new(user_params).generate_email.generate_pass
 
     if @new_user.save
       flash[:success] = "User created!"
@@ -40,9 +40,7 @@ class Admin::UsersController < ApplicationController
       .permit(:name,
        :admin_note,
        :password,
-       :heat_id,
        :admin_note,
-       :source_id,
        common_app_attributes: [:resume, :grad_year, :current_city, industry_ids: [], city_ids: []])
   end
 

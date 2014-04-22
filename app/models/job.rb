@@ -96,7 +96,7 @@ class Job < ActiveRecord::Base
   end
 
   def potentials
-    good_fits = User.includes(:source, :heat, :applications, common_app: [:cities, :industries]) 
+    good_fits = User.includes(:applications, common_app: [:cities, :industries]) 
       .where('cities.id IN (?)', self.city_ids)
       .where('industries.id IN (?)', self.industry_ids)
       .where('users.id NOT IN (?)', self.users.map(&:id))
