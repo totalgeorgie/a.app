@@ -7,7 +7,6 @@ json.applications do
     json.status app.status
     json.user do 
       json.name app.user.name
-      json.source app.user.source ? app.user.source.from : 'N/A'
       json.common_app do 
         json.progress app.user.common_app.progress
         json.nationality app.user.common_app.nationality ? app.user.common_app.country_name : 'N/A'
