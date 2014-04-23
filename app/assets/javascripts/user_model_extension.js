@@ -29,7 +29,6 @@ Backbone.UserModel = Backbone.Model.extend({
   
   video: function() {
     if (!this._video) {
-      debugger
       this._video = new Atlas.Models.Video({user_id: this.id});
     }
 
