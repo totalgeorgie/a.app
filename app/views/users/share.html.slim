@@ -12,7 +12,7 @@
         .col-md-9
           h3 
             == @user.name  
-            span.sharable-city == ' ' + @user.common_app.current_city
+            span.sharable-city == ' ' + (@user.common_app.current_city || ' ')
           .admin-candidate-lists 
             .candidate-icons
               .row
