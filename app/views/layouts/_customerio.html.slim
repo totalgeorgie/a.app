@@ -17,7 +17,7 @@ javascript:
   _cio.identify({
     id: "#{@user.id}",
     email: "#{@user.email}",
-    created_at: "#{@user.created_at}",
+    created_at: "#{@user.created_at.to_i}",
     full_name: "#{@user.name}",
     jobs_applied: "#{@user.applications_count}"
   });
