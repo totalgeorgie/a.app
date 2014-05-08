@@ -11,6 +11,7 @@ Atlas.Views.Progress = Backbone.View.extend({
       percent: this.calculateProgress()
     });
   },
+  
   calculateProgress: function() {
     return Atlas.user.commonApp().escape('progress');
   },
