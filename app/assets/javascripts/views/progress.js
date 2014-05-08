@@ -1,10 +1,16 @@
 Atlas.Views.Progress = Backbone.View.extend({
   initialize: function(options) {
-    this.listenTo(Atlas.user.commonApp(), "sync", this.render);
+    this.listenTo(Atlas.user.commonApp(), "sync", this.updateProgress);
   },
 
   template: JST['progress'],
 
+  updateProgress: function() {
+    this.render();
+    _cio.track('progress',{ 
+      percent: this.calculateProgress()
+    });
+  },
   calculateProgress: function() {
     return Atlas.user.commonApp().escape('progress');
   },
