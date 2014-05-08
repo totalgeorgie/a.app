@@ -1,0 +1,23 @@
+javascript:
+  var _cio = _cio || [];
+  (function() {
+    var a,b,c;a=function(f){return function(){_cio.push([f].
+    concat(Array.prototype.slice.call(arguments,0)))}};b=["load","identify",
+    "sidentify","track","page"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])};
+    var t = document.createElement('script'),
+        s = document.getElementsByTagName('script')[0];
+    t.async = true;
+    t.id    = 'cio-tracker';
+    t.setAttribute('data-site-id', 'c8866ecd6d4a6194a249');
+    t.src = 'https://assets.customer.io/assets/track.js';
+    s.parentNode.insertBefore(t, s);
+  })();
+
+javascript:
+  _cio.identify({
+    id: "#{@user.id}",
+    email: "#{@user.email}",
+    created_at: "#{@user.created_at}",
+    full_name: "#{@user.name}",
+    jobs_applied: "#{@user.applications_count}"
+  });
