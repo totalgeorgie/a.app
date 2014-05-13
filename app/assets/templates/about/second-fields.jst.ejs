@@ -7,6 +7,12 @@
         <%= time %> <%= time > 1 ? "years" : "year" %>
       </option>
     <% }) %>
+    <option value="Not sure" <%= chinaTime === "Not sure" ? 'selected' : null %> >
+      Not sure
+    </option>
+    <option value="More then 5 years" <%= chinaTime === "More then 5 years" ? 'selected' : null %> >
+      More then 5 years
+    </option>
   </select>
   <span class="glyphicon glyphicon-ok form-control-feedback <%= chinaTime ? null : 'no-show' %>"></span>
 </div>

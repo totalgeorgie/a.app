@@ -12,10 +12,8 @@
 #  admin                  :boolean          default(FALSE)
 #  password_reset_token   :string(255)
 #  password_reset_sent_at :datetime
-#  heat_id                :integer          default(2)
 #  admin_note             :text(800)
 #  applications_count     :integer
-#  source_id              :integer
 #  admin_link             :string(255)
 #
 
