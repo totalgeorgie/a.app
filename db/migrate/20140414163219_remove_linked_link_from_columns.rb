@@ -1,5 +1,5 @@
 class RemoveLinkedLinkFromColumns < ActiveRecord::Migration
   def change
-  	remove_column :common_apps, :linked_link
+  	remove_column :common_apps, :linkedin_link
   end
 end
