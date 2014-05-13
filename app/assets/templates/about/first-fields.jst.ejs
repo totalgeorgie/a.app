@@ -22,7 +22,7 @@
 <% var userCity = user.commonApp().escape('current_city') %>
 <div class="form-group has-feedback <%= userCity ? 'has-success' : null %>">
   <label for="full_name">What city do you live in now?</label>
-  <input id="full_name" class="form-control common-app-field" type="text" name="current_city" placeholder="e.g Toronto" value="<%= userCity %>">
+  <input id="full_name" class="form-control common-app-field" type="text" name="current_city" placeholder="Enter your current city" value="<%= userCity %>">
   <span class="glyphicon glyphicon-ok form-control-feedback <%= userCity ? null : 'no-show' %>"></span>
 </div>
 

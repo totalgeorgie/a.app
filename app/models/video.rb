@@ -14,8 +14,7 @@ class Video < ActiveRecord::Base
   CHOICES = [
     "Why would you be effective in a sales/business development role in China?",
     "Why would you be a valuable addition to an international team in China?",
-    "What is your most significant accomplishment or the best example of your leadership skills in China?",
-    "How would you help solve the biggest challenges Chinese companies face when doing business abroad?"]
+    "What is your most significant accomplishment or the best example of your leadership skills in China?"]
   
   after_create :tell_common_app
   belongs_to :user

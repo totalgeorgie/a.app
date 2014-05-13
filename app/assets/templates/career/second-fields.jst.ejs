@@ -1,7 +1,7 @@
 <% var bonus = user.commonApp().escape('bonus_question') %>
 <% var bonusChoice = user.commonApp().escape('bonus_choice') %>
 <div class="form-group has-feedback <%= bonusChoice ? 'has-success' : null %>">
-  <label for="bonus_question"><strong>Pick The Question that allows you to present yourself the best</strong></label> 
+  <label for="bonus_question">Select and answer that allows you to present yourself the best</strong></label> 
   <select id="bonus_choice" name="bonus_choice" class="common-app-field form-control chosen-select"> 
     <% _.each(Atlas.bonusChoices, function(choice){ %>
       <option value="<%= choice %>" <%= bonusChoice === _.escape(choice) ? 'selected' : null %> >

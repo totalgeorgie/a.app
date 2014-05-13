@@ -4,7 +4,7 @@
   <div class="col-sm-4">
     <div class="info">
       <h2>Create a 90-second introduction for hiring managers.</h2>
-      <p>For about 90 seconds, show your personality, and let us know what makes you sound best.</p>
+      <p>Pick the one that gets you most excited, and record a 90 second video to introduce yourself.</p>
     </div>
   </div>
   <div class="col-sm-8">
@@ -14,8 +14,7 @@
       <% } %>
       <form class="video_submit">
         <div class="form-group has-feedback <%= videoChoice ? 'has-success' : null %>">
-          <label>Please choose one of the question prompts below, and answer it in the video. 
-            Pick the one that gets you most excited</label>
+          <label>Please choose one of the question prompts below, and answer it in the video.</label>
           <select id="video_choice" name="question_choice" class="video-app-field form-control chosen-select"> 
             <% _.each(Atlas.videoChoices, function(choice){ %>
               <option value="<%= choice %>" <%= _(choice).escape() === videoChoice ? 'selected' : null %> >

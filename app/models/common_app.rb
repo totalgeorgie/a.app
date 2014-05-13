@@ -30,7 +30,7 @@ class CommonApp < ActiveRecord::Base
   
   SALARY_OPTIONS = ["A high salary is my primary motivator",
     "Salary is important, but not my main consideration",
-    "I'm not as on concerned with salary as with other factors of the job",
+    "I'm not as concerned with salary as with other factors of the job",
     "Salary is not a big issue for me right now"]
   
   JOB_INTERESTS = ["Actively searching",
