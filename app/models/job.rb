@@ -3,7 +3,7 @@
 # Table name: jobs
 #
 #  id                 :integer          not null, primary key
-#  job_title          :string(255)
+#  job_title          :text(500)
 #  job_summary        :text(500)
 #  qualifications     :text(1000)
 #  created_at         :datetime

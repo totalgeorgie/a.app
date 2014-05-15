@@ -1,3 +1,4 @@
+# == Schema Information
 #
 # Table name: questions
 #
@@ -5,9 +6,8 @@
 #  job_id     :integer
 #  created_at :datetime
 #  updated_at :datetime
-#  content    :string(255)
+#  content    :text(500)
 #
-
 class Question < ActiveRecord::Base
   belongs_to :job
   has_one :answer

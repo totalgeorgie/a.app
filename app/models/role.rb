@@ -4,8 +4,8 @@
 #
 #  id         :integer          not null, primary key
 #  job_id     :integer
-#  role_title :string(255)
-#  role_desc  :string(255)
+#  role_title :text(500)
+#  role_desc  :text(1000)
 #  created_at :datetime
 #  updated_at :datetime
 #
