@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513213808) do
+ActiveRecord::Schema.define(version: 20140515061951) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 20140513213808) do
   add_index "job_position_relations", ["position_id"], name: "index_job_position_relations_on_position_id"
 
   create_table "jobs", force: true do |t|
-    t.string   "job_title"
+    t.text     "job_title",          limit: 500
     t.text     "job_summary",        limit: 500
     t.text     "qualifications",     limit: 1000
     t.datetime "created_at"
