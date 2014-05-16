@@ -553,6 +553,9 @@ footer{
   }
   .resp{
     list-style-type:none;
+    float:left;
+    width:100%;
+    
     li:before { 
       content: "";
       border-color: transparent $atlasred;
@@ -564,7 +567,8 @@ footer{
       left: -1em;
       top: 1.0em;
       position: relative;
-    }    
+    }  
+
     li{
       margin-bottom:10px;
       
