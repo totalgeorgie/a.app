@@ -13,7 +13,7 @@
 #
 
 class Job < ActiveRecord::Base
-  default_scope { order('jobs.created_at DESC') }
+  default_scope { order('jobs.created_at ASC') }
   
   has_many :bullets, dependent: :destroy, inverse_of: :job
   has_many :roles, dependent: :destroy, inverse_of: :job
