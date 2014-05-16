@@ -76,7 +76,9 @@ html, body{
 }
 
 * {
+  -moz-font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
 h2,h3{
