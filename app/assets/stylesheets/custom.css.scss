@@ -75,7 +75,7 @@ html, body{
   height:100%;
 }
 
-h1, h2, h3, h4, p, li, span, a, input {
+h1, h2, h3, h4, p, li, span, a, input, label {
   -webkit-font-smoothing: antialiased;
 }
 
@@ -555,7 +555,7 @@ footer{
     list-style-type:none;
     float:left;
     width:100%;
-    
+
     li:before { 
       content: "";
       border-color: transparent $atlasred;
