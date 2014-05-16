@@ -20,7 +20,6 @@
       ul.public-job-list
         - if @jobs.any?
           == render @jobs
-          == will_paginate
         - else
           li.not_found
             h2.container_header No jobs found.
