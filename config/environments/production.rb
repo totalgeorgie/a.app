@@ -1,6 +1,8 @@
 Atlas::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.font_assets.origin = 'http://jobs.atlas-china.com'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -23,7 +25,7 @@ Atlas::Application.configure do
   config.serve_static_assets = true
   config.static_cache_control = 'public, max-age=31536000'
   config.action_controller.asset_host = ENV['CLOUDFRONT_URL']
-  
+
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
@@ -43,7 +45,7 @@ Atlas::Application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = false
-  
+
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
@@ -53,7 +55,7 @@ Atlas::Application.configure do
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
   config.logger = Logger.new(STDOUT)
-  
+
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
