@@ -33,7 +33,6 @@ gem 'carrierwave'
 gem 'countries'
 gem 'chosen-rails'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'customerio', git: 'https://github.com/customerio/customerio-ruby' # http://customer.io/docs/rails-customerio.html
 gem 'faker', '1.1.2'
 gem 'fancy_select-rails'
 gem 'figaro'
@@ -44,11 +43,8 @@ gem 'jquery-rails'
 gem 'jquery-nouislider-rails'
 gem 'nested_form'
 gem 'passenger'
-gem 'roo' # for importing old users http://railscasts.com/episodes/396-importing-csv-and-excel
+gem 'roo' # for importing old users, see railscasts
 gem 'sass-rails', '~> 4.0.0.rc2'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 gem 'will_paginate', '3.0.4'
-
-# gem 'memcachier' for caching queries
-# For delayed job, and making this cheaper for abe, use https://github.com/meskyanichi/hirefire
