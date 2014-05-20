@@ -184,7 +184,7 @@ ul#main-menu li {
   padding-top:15px;
 }
 
-/*  */ 
+/*  */
 
 .overlay{
   float:left;
@@ -212,9 +212,14 @@ ul#main-menu li {
   color:$purewhite;
   font-family:$condensed;
   padding:5px 19px;
-  @include transition(all 1s ease);
+  @include transition(all 0.5s ease);
   display:inline-block;
   border:none;
+
+  &:focus {
+    color:$purewhite;
+    text-decoration:none;
+  }
 }
 
 .atlas_button:hover, .selected-button{
@@ -264,7 +269,7 @@ ul#main-menu li {
   color:$atlaswhite;
   &:hover{
     background-color:darken($atlassuccess, 10%);
-    color:$atlaswhite; 
+    color:$atlaswhite;
   }
 }
 
@@ -272,7 +277,7 @@ ul#main-menu li {
 .thinstripe, .thinstripe_advisor, .thinstripe_about, .thinstripe_company{
   width:100%;
   height:125px;
-  background: image-url('career_header.jpg') no-repeat center; 
+  background: image-url('career_header.jpg') no-repeat center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -306,15 +311,15 @@ ul#main-menu li {
 }
 
 .thinstripe_advisor{
-  background: image-url('advisor_header.jpg') no-repeat center; 
+  background: image-url('advisor_header.jpg') no-repeat center;
 }
 
 .thinstripe_about{
-  background: image-url('about_header.jpg') no-repeat center; 
+  background: image-url('about_header.jpg') no-repeat center;
 }
 
 .thinstripe_company{
-  background: image-url('pro_header.jpg') no-repeat center; 
+  background: image-url('pro_header.jpg') no-repeat center;
 }
 
 .job_search{
@@ -326,7 +331,7 @@ ul#main-menu li {
 
 #jobs_filter{
   width: 486px;
-  margin: 0 auto;    
+  margin: 0 auto;
   h3{
     float:left;
   }
@@ -347,7 +352,7 @@ ul#main-menu li {
   float:left;
   width:100%;
   background-color:$atlassuperlightwhite;
-  
+
   .how_it_works{
     float: left;
     width: 90%;
@@ -524,11 +529,11 @@ footer{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  
+
   .overlay{
     background-color:rgba(21, 21, 21, 0.85);
   }
-  
+
   ul{
     min-height:200px;
     padding:30px 0;
@@ -559,7 +564,7 @@ footer{
     float:left;
     width:100%;
 
-    li:before { 
+    li:before {
       content: "";
       border-color: transparent $atlasred;
       border-style: solid;
@@ -570,11 +575,11 @@ footer{
       left: -1em;
       top: 1.0em;
       position: relative;
-    }  
+    }
 
     li{
       margin-bottom:10px;
-      
+
       font-family:$condensed;
       padding-left:20px;
       font-size:16px;
@@ -584,7 +589,7 @@ footer{
 
   .opp_header{
     h2{
-      
+
       font-family:$condensed;
       font-size:18px;
       color:$atlasred;
@@ -601,7 +606,7 @@ footer{
   }
 
   h4{
-    
+
     font-family:$condensed;
     font-size:17px;
     color:$atlasblack;
@@ -613,10 +618,10 @@ footer{
 
     li{
       margin-bottom:10px;
-      
+
       background:image-url('arrow.png') left center no-repeat;
       padding-left:20px;
-      font-size:16px;     
+      font-size:16px;
     }
   }
 
@@ -923,7 +928,7 @@ input[type="submit"] {
   background-color:$purewhite;
   padding:10px;
   margin:10px 0;
-  
+
   .public-job-list {
     margin-top:0;
     padding:0;
@@ -937,14 +942,14 @@ input[type="submit"] {
     font-size:24px;
     margin:0;
   }
-  
+
   .job {
-  
+
     h4{
       font-family:$condensed;
       font-size:21px;
     }
-  
+
     .blue_button{
       padding:5px 0;
     }

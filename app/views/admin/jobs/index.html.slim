@@ -23,6 +23,8 @@
               span.num-applicaants
                 span.num == job.applications_count
                 span Applicants
+              == link_to "Delete", admin_job_url(@job), method: :delete,
+                 class: 'light_gray delete'
             .span.col-sm-8.col-lg-9
               == link_to admin_job_url(job), class: 'main-body' do
                 span.heading == job.job_title
