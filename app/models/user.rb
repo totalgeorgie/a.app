@@ -26,8 +26,9 @@ class User < ActiveRecord::Base
   before_create :ensure_common_app
   before_create :ensure_admin_link
 
-  has_one :common_app, dependent: :destroy, inverse_of: :user
-  has_one :video, inverse_of: :user, dependent: :destroy
+  has_one  :common_app, dependent: :destroy, inverse_of: :user
+  has_one  :video, inverse_of: :user, dependent: :destroy
+  has_one  :extra_info, inverse_of: :user, dependent: :destroy
   has_many :cities, through: :common_app
   has_many :industries, through: :common_app
   has_many :applications, dependent: :destroy

@@ -17,4 +17,5 @@
 #
 
 class ExtraInfo < ActiveRecord::Base
+  belongs_to :user
 end
