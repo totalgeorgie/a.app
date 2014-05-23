@@ -35,15 +35,22 @@ class User < ActiveRecord::Base
   has_many :jobs, through: :applications
 
   has_secure_password validations: false
+  
   validates :name, presence: true,
    length: { maximum: 50 }
+  
   validates :email, presence: true, 
     format: { with: VALID_EMAIL_REGEX },
     uniqueness: { case_sensitive: false } 
+  
   validates :password, length: { minimum: 6 }, allow_blank: true
   validates :password, presence: true, on: :create
 
   accepts_nested_attributes_for :common_app, 
+    reject_if:  :all_blank, 
+    allow_destroy:  true
+
+  accepts_nested_attributes_for :extra_info, 
     reject_if:  :all_blank, 
     allow_destroy:  true
 
