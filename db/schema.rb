@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515062440) do
+ActiveRecord::Schema.define(version: 20140521231508) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -104,6 +104,22 @@ ActiveRecord::Schema.define(version: 20140515062440) do
   end
 
   add_index "common_apps", ["user_id"], name: "common_app_users_idx"
+
+  create_table "extra_infos", force: true do |t|
+    t.string   "linkedin_url"
+    t.string   "source_place"
+    t.string   "objective",    limit: 800
+    t.string   "experience_1", limit: 1000
+    t.string   "experience_2", limit: 1000
+    t.string   "education_1",  limit: 1000
+    t.string   "education_2",  limit: 1000
+    t.string   "other",        limit: 500
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "extra_infos", ["user_id"], name: "index_extra_infos_on_user_id"
 
   create_table "industries", force: true do |t|
     t.string   "name"
