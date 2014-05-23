@@ -20,6 +20,8 @@
           tr 
             td 
               == link_to user.name, admin_user_url(user)
+              - if user.sourced
+                span.glyphicon.glyphicon-import
             td 
               span.glyphicon.glyphicon-briefcase
               span.content == user.common_app.grad_year.try{ |yr| yr ? yr : 'N/A' }
