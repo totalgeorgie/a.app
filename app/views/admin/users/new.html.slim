@@ -68,11 +68,20 @@
                 == c.text_field :source_place, placeholder: 'Where did you find them?', class: 'form-control'
               .form-group
                 == c.label :objective, "Objective/Introduction"
-                == c.text_area :objective, class: 'form-control chosen-select'
+                == c.text_area :objective, class: 'form-control'
               .form-group
-                == c.label :industries, "Industries"
-                == c.select :industry_ids, @industries, {}, multiple: true,
-                  class: 'form-control chosen-select'
+                == c.label :education, "School / Major"
+                == c.text_field :education, placeholder: 'Which School or Major did they attend?',
+                  class: 'form-control'
+              .form-group
+                == c.label :experience_1, "Experience 1"
+                == c.text_area :experience_1, class: 'form-control', placeholder: 'Company/Experience Info'
+              .form-group
+                == c.label :experience_1, "Experience 2"
+                == c.text_area :experience_1, class: 'form-control', placeholder: 'Company/Experience Info'
+              .form-group
+                == c.label :other, "Other"
+                == c.text_area :other, class: 'form-control', placeholder: 'Enter anything else here'
 
       .col-sm-8.col-sm-offset-2
         hr

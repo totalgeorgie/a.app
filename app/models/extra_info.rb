@@ -8,8 +8,6 @@
 #  objective    :string(800)
 #  experience_1 :string(1000)
 #  experience_2 :string(1000)
-#  education_1  :string(1000)
-#  education_2  :string(1000)
 #  other        :string(500)
 #  user_id      :integer
 #  created_at   :datetime
