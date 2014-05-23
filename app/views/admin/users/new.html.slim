@@ -11,6 +11,9 @@
     == nested_form_for [:admin, @new_user] do |f|
       .form-group
         == render 'shared/error_messages', object: @new_user 
+      
+      == f.hidden_field :sourced, "true"
+
       .admin-user-body
         .col-sm-4
           .info
@@ -49,6 +52,28 @@
                 == c.label :industries, "Industries"
                 == c.select :industry_ids, @industries, {}, multiple: true,
                   class: 'form-control chosen-select'
+      
+      .admin-user-body
+        .col-sm-4
+          h2 Sourcing Info
+          p Where we found them, their job experiences, etc.
+        .col-sm-8
+          .form_fields
+            == f.fields_for :extra_info_attributes, @new_user.extra_info do |c|  
+              .form-group
+                == c.label :linkedin_url, "Link To Profile"
+                == c.text_field :linkedin_url, placeholder: 'linkedin url', class: 'form-control'
+              .form-group
+                == c.label :source_place, "Source Place"
+                == c.text_field :source_place, placeholder: 'Where did you find them?', class: 'form-control'
+              .form-group
+                == c.label :objective, "Objective/Introduction"
+                == c.text_area :objective, class: 'form-control chosen-select'
+              .form-group
+                == c.label :industries, "Industries"
+                == c.select :industry_ids, @industries, {}, multiple: true,
+                  class: 'form-control chosen-select'
+
       .col-sm-8.col-sm-offset-2
         hr
         == f.submit "Create User Profile", class: "atlas_button blue_button"
