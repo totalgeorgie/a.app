@@ -38,10 +38,25 @@ class Admin::UsersController < ApplicationController
     params
       .require(:user)
       .permit(:name,
-       :admin_note,
-       :password,
-       :admin_note,
-       common_app_attributes: [:resume, :grad_year, :current_city, industry_ids: [], city_ids: []])
+        :admin_note,
+        :password,
+        :admin_note,
+        
+        common_app_attributes: [:resume,
+         :grad_year,
+         :current_city,
+         industry_ids: [],
+         city_ids: []]
+        
+        extra_info_attributes: [:linkedin_url, 
+          :source_place, 
+          :objective,
+          :experience_1,
+          :experience_2,
+          :education_1,
+          :education_2,
+          :other,
+          :user_id])
   end
 
   def load_data
