@@ -48,7 +48,7 @@ class Admin::UsersController < ApplicationController
           :current_city,
           industry_ids: [],
           city_ids: []
-        ]
+        ],
         
         extra_info_attributes: [
           :linkedin_url, 

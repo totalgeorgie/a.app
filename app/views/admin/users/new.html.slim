@@ -12,7 +12,7 @@
       .form-group
         == render 'shared/error_messages', object: @new_user 
       
-      == f.hidden_field :sourced, "true"
+      == f.hidden_field :sourced, value: true
 
       .admin-user-body
         .col-sm-4
@@ -77,8 +77,8 @@
                 == c.label :experience_1, "Experience 1"
                 == c.text_area :experience_1, class: 'form-control', placeholder: 'Company/Experience Info'
               .form-group
-                == c.label :experience_1, "Experience 2"
-                == c.text_area :experience_1, class: 'form-control', placeholder: 'Company/Experience Info'
+                == c.label :experience_2, "Experience 2"
+                == c.text_area :experience_2, class: 'form-control', placeholder: 'Company/Experience Info'
               .form-group
                 == c.label :other, "Other"
                 == c.text_area :other, class: 'form-control', placeholder: 'Enter anything else here'
