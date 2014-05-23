@@ -2,6 +2,7 @@ json.name @user.name
 json.email @user.email
 json.admin_note @user.admin_note
 json.admin_link admin_share_link(@user)
+json.sourced @user.sourced
 
 json.common_app do
   json.id @common_app.id

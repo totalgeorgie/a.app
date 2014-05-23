@@ -41,6 +41,7 @@ class Admin::UsersController < ApplicationController
         :admin_note,
         :password,
         :admin_note,
+        :sourced,
         
         common_app_attributes: [
           :resume,
