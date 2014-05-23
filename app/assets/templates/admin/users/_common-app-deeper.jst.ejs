@@ -11,3 +11,32 @@
   <label><%= user.commonApp().escape('bonus_choice') || 'Bonus question not chosen' %></label>
   <p><%= user.commonApp().escape('bonus_question') %></p>
 </div>
+
+<% if ( user.get('extra_info').id ) { %>
+  <div class="col-sm-12">
+    <hr>
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <label>Profile Link</label>
+    <% debugger %>
+    <% if (!!user.get('extra_info').linkedin_url) { %>
+      <p><a href="<%= user.get('extra_info').linkedin_url %>"><%= user.get('extra_info').linkedin_url %></a></p>
+    <% } else { %>
+      <p>N/A</p>
+    <% } %>
+    <label>Objective</label>
+    <p><%= user.get('extra_info').objective %></p>
+    <label>Experience 1</label>
+    <p><%= user.get('extra_info').experience_1 %></p>
+  </div>
+
+  <div class="col-sm-12 col-md-6">
+    <label>School/Major</label>
+    <p><%= user.get('extra_info').education %></p>
+    <label>Exerience 2</label>
+    <p><%= user.get('extra_info').experience_2 %></p>
+    <label>Other</label>
+    <p><%= user.get('extra_info').other %></p>
+  </div>
+<% } %>

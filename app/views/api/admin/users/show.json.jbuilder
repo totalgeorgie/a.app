@@ -2,6 +2,7 @@ json.name @user.name
 json.email @user.email
 json.admin_note @user.admin_note
 json.admin_link admin_share_link(@user)
+
 json.common_app do
   json.id @common_app.id
   json.progress @common_app.progress
@@ -27,10 +28,11 @@ end
 if @extra_info
   json.extra_info do 
     json.id @extra_info.id
-    json.linkedin_url @extra_info.linkedin_url || "N/A"
+    json.linkedin_url @extra_info.linkedin_url
     json.objective @extra_info.objective || "N/A"
     json.experience_1 @extra_info.experience_1 || "N/A"
     json.experience_2 @extra_info.experience_2 || "N/A"
+    json.education @extra_info.education || "N/A"
     json.other @extra_info.other || "N/A"
   end
 end
