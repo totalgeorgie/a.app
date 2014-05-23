@@ -24,6 +24,18 @@ json.common_app do
   json.resume @common_app.resume.url
 end
 
+if @extra_info
+  json.extra_info do 
+    json.id @extra_info.id
+    json.linkedin_url @extra_info.linkedin_url || "N/A"
+    json.objective @extra_info.objective || "N/A"
+    json.experience_1 @extra_info.experience_1 || "N/A"
+    json.experience_2 @extra_info.experience_2 || "N/A"
+    json.other @extra_info.other || "N/A"
+  end
+end
+
+
 if @video
   json.video do 
     json.id @video.id

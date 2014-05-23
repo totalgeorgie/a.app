@@ -20,6 +20,7 @@ class Api::Admin::UsersController < ApplicationController
   def load_data
     @user = User.with_dependents.find(params[:id])
     @common_app = @user.common_app
+    @extra_info = @user.extra_info
     @applications = @user.applications
     @video = @user.video
   end
