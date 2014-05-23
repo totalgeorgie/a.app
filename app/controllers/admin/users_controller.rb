@@ -42,21 +42,25 @@ class Admin::UsersController < ApplicationController
         :password,
         :admin_note,
         
-        common_app_attributes: [:resume,
-         :grad_year,
-         :current_city,
-         industry_ids: [],
-         city_ids: []]
+        common_app_attributes: [
+          :resume,
+          :grad_year,
+          :current_city,
+          industry_ids: [],
+          city_ids: []
+        ]
         
-        extra_info_attributes: [:linkedin_url, 
+        extra_info_attributes: [
+          :linkedin_url, 
           :source_place, 
           :objective,
           :experience_1,
           :experience_2,
-          :education_1,
-          :education_2,
+          :education,
           :other,
-          :user_id])
+          :user_id
+        ]
+      )
   end
 
   def load_data

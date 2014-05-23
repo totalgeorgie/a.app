@@ -15,6 +15,7 @@
 #  admin_note             :text(800)
 #  applications_count     :integer
 #  admin_link             :string(255)
+#  sourced                :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
