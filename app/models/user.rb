@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
     users = users.where('common_apps.grad_year >= ?', opts[:grad_year_start].to_i) if works(opts[:grad_year_start])
     users = users.where('common_apps.grad_year <= ?', opts[:grad_year_end].to_i) if works(opts[:grad_year_end])
     users = users.where('common_apps.has_video = ?', true) if works(opts[:has_video])
-    
+    users = users.where('users.sourced = ?', true) if works(opts[:sourced])
     users
   end
 
