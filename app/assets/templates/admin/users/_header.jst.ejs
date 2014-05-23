@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-md-9">
   <div class="title">
     <h3><%= user.escape('name') %>
-      <a href="mailto:<%= user.escape('email')%>" ><%= user.escape('email')%></a>
+      <a href="mailto:<%= user.escape('email')%>" > <%= user.escape('email')%></a>
       <% if ( user.get('sourced') ) { %>
         <span class="sourced">(sourced)</span>
       <% } %>

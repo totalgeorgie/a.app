@@ -7,6 +7,7 @@
 #  bullet     :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  future     :boolean          default(FALSE)
 #
 
 class Bullet < ActiveRecord::Base
