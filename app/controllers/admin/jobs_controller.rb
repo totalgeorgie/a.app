@@ -45,13 +45,19 @@ class Admin::JobsController < ApplicationController
 
   private
   def job_params 
-    params.require(:job).permit(:job_title, :job_summary, :qualifications,
-      bullets_attributes: [:id, :bullet, :_destroy],
-      roles_attributes: [:id, :role_title,:role_desc, :_destroy],
-      questions_attributes: [:id, :content, :_destroy],
+    params.require(:job).permit(
+      :job_title,
+      :job_summary,
+      :qualifications,
+      
       industry_ids: [],
       city_ids: [],
-      position_ids: [])
+      position_ids: [],    
+      
+      bullets_attributes: [:id, :bullet, :descriptive, :_destroy],
+      roles_attributes: [:id, :role_title,:role_desc, :_destroy],
+      questions_attributes: [:id, :content, :_destroy]
+    )
   end
 
   def load_data

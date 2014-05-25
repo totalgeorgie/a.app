@@ -1,3 +1,8 @@
 .form-group
   == f.label :job_title 
   == f.text_field :job_title, placeholder: "Enter the Job Title", class: 'form-control'
+
+.form-group
+  == f.label :job_summary
+  == f.text_area :job_summary, placeholder: "Write a one to two sentence job summary", 
+     class: 'form-control'
