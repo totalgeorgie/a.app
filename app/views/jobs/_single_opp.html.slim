@@ -14,11 +14,17 @@
           .main_info 
             p == @job.job_summary  
     
+
+    .opp_header
+      h2 You are 
+    ul.resp
+      - @job.bullets.descriptive.each do |point|
+        li == point.bullet
+
   	.opp_header
     	h2 You will 
-
     ul.resp
-      - @job.bullets.each do |point|
+      - @job.bullets.future.each do |point|
         li == point.bullet
     
     .opp_header

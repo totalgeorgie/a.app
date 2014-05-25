@@ -15,4 +15,5 @@ class Bullet < ActiveRecord::Base
   validates :bullet, presence: true
 
   scope :descriptive, -> { where(descriptive: true) }
+  scope :future, -> { where(descriptive: false) }
 end

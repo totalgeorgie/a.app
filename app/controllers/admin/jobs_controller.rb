@@ -55,7 +55,7 @@ class Admin::JobsController < ApplicationController
       position_ids: [],    
       
       bullets_attributes: [:id, :bullet, :descriptive, :_destroy],
-      roles_attributes: [:id, :role_title,:role_desc, :_destroy],
+      roles_attributes: [:id, :role_title, :role_desc, :_destroy],
       questions_attributes: [:id, :content, :_destroy]
     )
   end
