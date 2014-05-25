@@ -18,7 +18,7 @@
 #  has_video        :boolean          default(FALSE)
 #  linkedin_link    :string(255)
 #  bonus_choice     :text
-#  china_time       :string(255)
+#  china_time       :text(255)
 #  job_interest     :string(255)
 #  china_goals      :string(255)
 #

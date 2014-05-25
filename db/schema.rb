@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525121510) do
+ActiveRecord::Schema.define(version: 20140525223226) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20140525121510) do
     t.boolean  "has_video",                     default: false
     t.string   "linkedin_link"
     t.text     "bonus_choice"
-    t.string   "china_time"
+    t.text     "china_time",       limit: 255
     t.string   "job_interest"
     t.string   "china_goals"
   end
