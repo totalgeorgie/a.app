@@ -1,21 +1,10 @@
 <% var chinaTime = user.commonApp().escape('china_time') %>
 <div class="form-group has-feedback <%= chinaTime ? 'has-success' : null %>">
-  <label for="china_time">How long do you plan on staying in China?</label>
-  <select id="china_time" name="china_time" class="common-app-field form-control chosen-select"> 
-    <% _.each(_.range(1, 5), function(time){ %>
-      <option value="<%= time %>" <%= "" + chinaTime === "" + time ? 'selected' : null %> >
-        <%= time %> <%= time > 1 ? "years" : "year" %>
-      </option>
-    <% }) %>
-    <option value="Not sure" <%= chinaTime === "Not sure" ? 'selected' : null %> >
-      Not sure
-    </option>
-    <option value="More then 5 years" <%= chinaTime === "More then 5 years" ? 'selected' : null %> >
-      More then 5 years
-    </option>
-  </select>
+  <label for="china_time">In one sentence, what career opportunities are you looking for right now?</label>
+  <input id="china_time" class="form-control common-app-field" type="text" name="current_city" placeholder="Enter your current city" value="<%= chinaTime %>">
   <span class="glyphicon glyphicon-ok form-control-feedback <%= chinaTime ? null : 'no-show' %>"></span>
 </div>
+
 
 <% var cityIds = user.commonApp().get('city_ids') %>
 <div class="form-group has-feedback <%= cityIds.length > 0 ? 'has-success' : null %>">
