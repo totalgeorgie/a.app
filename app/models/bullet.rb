@@ -11,6 +11,8 @@
 #
 
 class Bullet < ActiveRecord::Base
-	belongs_to :job	
-	validates :bullet, presence: true
+  belongs_to :job	
+  validates :bullet, presence: true
+
+  scope :future, -> { where(future: true) }
 end
