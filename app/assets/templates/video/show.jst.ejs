@@ -3,8 +3,8 @@
 <div class="profile-body">
   <div class="col-sm-4">
     <div class="info">
-      <h2>Create a 90-second introduction for hiring managers.</h2>
-      <p>Pick the one that gets you most excited, and record a 90 second video to introduce yourself.</p>
+      <h2>Create a 70-90 second introduction for hiring managers.</h2>
+      <p>Over 90% of successfully placed candidates record a video. Videos let you demonstrate your language skills, personality and energy to hiring managers and give the chance to make a great first impression</p>
     </div>
   </div>
   <div class="col-sm-8">
@@ -14,7 +14,8 @@
       <% } %>
       <form class="video_submit">
         <div class="form-group has-feedback <%= videoChoice ? 'has-success' : null %>">
-          <label>Please choose one of the question prompts below, and answer it in the video.</label>
+          <p>Pick a question to answer below. Feel free to include your professional background, interests, and goals. The more specific the better.</p>
+
           <select id="video_choice" name="question_choice" class="video-app-field form-control chosen-select"> 
             <% _.each(Atlas.videoChoices, function(choice){ %>
               <option value="<%= choice %>" <%= _(choice).escape() === videoChoice ? 'selected' : null %> >
