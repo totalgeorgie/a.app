@@ -1,5 +1,6 @@
 Atlas::Application.routes.draw do
   resources :users, only: [:new, :show, :create] do 
+    get 'mainsignup', to: 'users#iframesignup', on: :collection
     get 'share/:admin_link', to: 'users#share', on: :collection
   end
 
