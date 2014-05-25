@@ -9,6 +9,25 @@
   .col-sm-8
     .form_fields
       == render '/admin/jobs/form/job_description', f: f
+
+.admin-job-body
+  .col-sm-4
+    .info
+      h2 "You Are" Fields
+      p Bullet points that describe the ideal candidate
+  .col-sm-8
+    .form_fields
+      == render '/admin/jobs/form/you_are', f: f
+
+.admin-job-body
+  .col-sm-4
+    .info
+      h2 "You Will" Fields
+      p Bullet points that describe what the applicant will do
+  .col-sm-8
+    .form_fields
+      == render '/admin/jobs/form/you_will', f: f
+
 .admin-job-body
   .col-sm-4
     .info
