@@ -93,6 +93,7 @@ class Job < ActiveRecord::Base
     job = Job.new
     
     2.times {
+      job.job_ideals.build
       job.bullets.build
       job.roles.build
     }  
