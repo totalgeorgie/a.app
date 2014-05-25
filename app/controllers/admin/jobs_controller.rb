@@ -54,7 +54,8 @@ class Admin::JobsController < ApplicationController
       city_ids: [],
       position_ids: [],    
       
-      bullets_attributes: [:id, :bullet, :descriptive, :_destroy],
+      bullets_attributes: [:id, :bullet, :_destroy],
+      job_ideals_attributes: [:id, :content, :_destroy]
       roles_attributes: [:id, :role_title, :role_desc, :_destroy],
       questions_attributes: [:id, :content, :_destroy]
     )

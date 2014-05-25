@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525114527) do
+ActiveRecord::Schema.define(version: 20140525121246) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20140525114527) do
     t.string   "bullet"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "descriptive", default: false
   end
 
   add_index "bullets", ["job_id"], name: "bullet_jobs_idx"
@@ -136,6 +135,13 @@ ActiveRecord::Schema.define(version: 20140525114527) do
 
   add_index "job_city_relations", ["city_id"], name: "index_job_city_relations_on_city_id"
   add_index "job_city_relations", ["job_id"], name: "index_job_city_relations_on_job_id"
+
+  create_table "job_ideals", force: true do |t|
+    t.string   "content"
+    t.string   "job_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "job_industry_relations", force: true do |t|
     t.integer  "job_id"

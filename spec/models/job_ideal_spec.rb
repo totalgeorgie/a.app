@@ -1,16 +1,16 @@
 # == Schema Information
 #
-# Table name: bullets
+# Table name: job_ideals
 #
 #  id         :integer          not null, primary key
-#  job_id     :integer
-#  bullet     :string(255)
+#  content    :string(255)
+#  job_id     :string(255)
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require 'spec_helper'
 
-describe Bullet do
+describe JobIdeal do
   pending "add some examples to (or delete) #{__FILE__}"
 end
