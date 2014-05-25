@@ -1,0 +1,10 @@
+.form-group
+  == label_tag "What will the candidate do on the job?"
+  == f.fields_for :bullets do |bullet_form| 
+    .form-group
+      == bullet_form.text_field :bullet, placeholder: "Write your bullet point here", 
+         class: 'form-control'
+      == bullet_form.hidden_field, :descriptive, value: false
+    .form-group
+      == bullet_form.link_to_remove "Remove this bullet"
+  == f.link_to_add "Add a Bullet", :bullets, class: 'btn btn-danger'

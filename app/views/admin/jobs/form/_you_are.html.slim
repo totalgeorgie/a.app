@@ -1,0 +1,11 @@
+.form-group
+  == label_tag "What traits does the ideal candidate have?"
+  == f.fields_for :bullets do |bullet_form| 
+    .form-group
+      == bullet_form.text_field :bullet, placeholder: "Write your trait here", 
+         class: 'form-control'
+      == bullet_form.hidden_field :descriptive, value: true
+    .form-group
+      == bullet_form.link_to_remove "Remove this bullet"
+
+  == f.link_to_add "Add a Trait", :bullets, class: 'btn btn-danger'

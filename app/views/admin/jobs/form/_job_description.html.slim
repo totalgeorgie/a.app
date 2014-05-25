@@ -1,25 +1,3 @@
 .form-group
   == f.label :job_title 
   == f.text_field :job_title, placeholder: "Enter the Job Title", class: 'form-control'
-
-.form-group
-  == label_tag "What will the applicant do?"
-  == f.fields_for :bullets do |bullet_form| 
-    .form-group
-      == bullet_form.text_field :bullet, placeholder: "Write your bullet point here", 
-         class: 'form-control'
-      == bullet_form.hidden_field :future, value: true
-    .form-group
-      == bullet_form.link_to_remove "Remove this bullet"
-
-  == f.link_to_add "Add a Bullet", :bullets, class: 'btn btn-danger'
-
-.form-group
-  == label_tag "Bullet points about the job"
-  == f.fields_for :bullets do |bullet_form| 
-    .form-group
-      == bullet_form.text_field :bullet, placeholder: "Write your bullet point here", 
-         class: 'form-control'
-    .form-group
-      == bullet_form.link_to_remove "Remove this bullet"
-  == f.link_to_add "Add a Bullet", :bullets, class: 'btn btn-danger'
