@@ -1,7 +1,7 @@
 <% var chinaTime = user.commonApp().escape('china_time') %>
 <div class="form-group has-feedback <%= chinaTime ? 'has-success' : null %>">
   <label for="china_time">In one sentence, what career opportunities are you looking for right now?</label>
-  <input id="china_time" class="form-control common-app-field" type="text" name="current_city" placeholder="Enter your current city" value="<%= chinaTime %>">
+  <input id="china_time" class="form-control common-app-field" type="text" name="china_time" value="<%= chinaTime %>">
   <span class="glyphicon glyphicon-ok form-control-feedback <%= chinaTime ? null : 'no-show' %>"></span>
 </div>
 

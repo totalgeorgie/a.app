@@ -22,7 +22,6 @@
 
   <div class="col-sm-12 col-md-6">
     <label>Profile Link</label>
-    <% debugger %>
     <% if (!!user.get('extra_info').linkedin_url) { %>
       <p><a href="<%= user.get('extra_info').linkedin_url %>"><%= user.get('extra_info').linkedin_url %></a></p>
     <% } else { %>
