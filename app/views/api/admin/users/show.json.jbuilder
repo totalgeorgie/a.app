@@ -11,7 +11,7 @@ json.common_app do
   json.job_interest @common_app.job_interest ? @common_app.job_interest : 'N/A'
   json.china_goals @common_app.china_goals ? @common_app.china_goals : 'N/A'
   json.bonus_choice @common_app.bonus_choice
-  json.china_time @common_app.china_time ? @common_app.china_time.to_s + ' years' : 'N/A'
+  json.china_time @common_app.china_time ? @common_app.china_time : 'N/A'
   json.nationality @common_app.nationality ? @common_app.country_name : 'N/A'
   json.current_city @common_app.current_city ? @common_app.current_city : 'N/A'
   json.grad_year @common_app.grad_year ? @common_app.grad_year : 'N/A'
