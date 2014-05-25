@@ -72,8 +72,11 @@ $link-color: $atlasred;
 }
 
 html, body{
-  background-color:$atlaswhite;
   height:100%;
+}
+
+body {
+  background-color:$atlaswhite;
 }
 
 * {
@@ -770,7 +773,7 @@ input[type="submit"] {
 
 .sign_up_box{
   .form-control {
-    height:46px;
+    height:39px;
   }
   .help-block{
     padding: 10px 0;
@@ -955,4 +958,8 @@ input[type="submit"] {
       padding:5px 0;
     }
   }
+}
+
+.users-iframe_signup {
+  background:transparent;
 }

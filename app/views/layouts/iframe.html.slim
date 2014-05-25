@@ -9,9 +9,4 @@ html
     == render 'layouts/shim'
 
 body class="#{controller_name}-#{action_name}"
-  #wrapper
-    == render 'layouts/notice'
-    == render 'layouts/header'
-    == yield
-    == render 'layouts/footer'
-  script src="//cameratag.com/2.0/cameratag.js" type="text/javascript"
+  == yield

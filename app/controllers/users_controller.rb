@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def iframe_signup
+    @user = User.new
+    render layout: 'iframe'
+  end
+
   def show
   end
 

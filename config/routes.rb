@@ -1,6 +1,5 @@
 Atlas::Application.routes.draw do
   resources :users, only: [:new, :show, :create] do 
-    get 'mainsignup', to: 'users#iframesignup', on: :collection
     get 'share/:admin_link', to: 'users#share', on: :collection
   end
 
@@ -46,8 +45,9 @@ Atlas::Application.routes.draw do
   end
 
   root  "jobs#index"
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
-  match '/blurb',   to: 'jobs#blurb',           via: 'get'
+  match 'mainsignup', to: 'users#iframe_signup',  via: 'get'
+  match '/signup',    to: 'users#new',            via: 'get'
+  match '/signin',    to: 'sessions#new',         via: 'get'
+  match '/signout',   to: 'sessions#destroy',     via: 'delete'
+  match '/blurb',     to: 'jobs#blurb',           via: 'get'
 end
