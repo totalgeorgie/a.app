@@ -7,13 +7,15 @@
         .blog_container.sign_up_page
           .sign_up_box
             h2.container_header Get Started Now 
-            
-            == form_for(@user) do |f| 
+            - if params[:iframe_error]
+              .clearfix
+                .alert.alert-error.iframe-error We had an error signin you up! Please try one more time, and we'll give you more details.
+            == form_for(@user) do |f|
               == render 'shared/error_messages', object: f.object 
               #full_name.col-sm-12.col-md-3
-                == f.text_field :name, placeholder: "John Doe", class: "form-control"
+                == f.text_field :name, placeholder: "Your Name", class: "form-control"
               #email.col-sm-12.col-md-3
-                == f.text_field :email, placeholder: "johndoe@gmail.com", class: "form-control"
+                == f.text_field :email, placeholder: "Your Email", class: "form-control"
               #pass.col-sm-12.col-md-3
                 == f.password_field :password, placeholder: "Password", class: "form-control"
               #submit.col-sm-12.col-md-3
