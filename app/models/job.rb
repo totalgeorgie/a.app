@@ -16,6 +16,7 @@ class Job < ActiveRecord::Base
   default_scope { order('jobs.created_at ASC') }
   
   has_many :bullets, dependent: :destroy, inverse_of: :job
+  has_many :job_ideals, dependent: :destroy, inverse_of: :job
   has_many :roles, dependent: :destroy, inverse_of: :job
   has_many :questions, dependent: :destroy, inverse_of: :job
   
@@ -31,12 +32,17 @@ class Job < ActiveRecord::Base
     :job_summary,
     :qualifications,
     :industries,
-    :bullets, 
+    :bullets,
+    :job_ideals, 
     :roles, 
     :questions, 
     presence: true
 
   accepts_nested_attributes_for :bullets, 
+    reject_if:  :all_blank, 
+    allow_destroy:  true
+
+  accepts_nested_attributes_for :job_ideals, 
     reject_if:  :all_blank, 
     allow_destroy:  true
 
