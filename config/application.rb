@@ -10,6 +10,8 @@ module Atlas
   class Application < Rails::Application
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
+	config.font_assets.origin = ENV['APP_URL']
+
     config.action_dispatch.default_headers = {
       'X-Frame-Options' => 'ALLOWALL',
       'X-XSS-Protection' => '1; mode=block',
