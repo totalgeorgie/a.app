@@ -10,17 +10,22 @@
         - question = @job.questions[i]
         == a.hidden_field :question_id, value: question.id
         == a.label :content, question.content, class: "question_label"
-        ul.nav.nav-tabs#tabs
-          li class="active"
-            a href="#video-#{i}" data-toggle="tab" Answer With Video
-          li
-            a href="#text-#{i}" data-toggle="tab" Answer With Text
         
-        .tab-content
-          .tab-pane.fade.in.active.pagination-centered id="video-#{i}"
-            camera id="AtlasApp-#{i}" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="#{i}" class="dataVid"
-          .tab-pane.fade.in id="text-#{i}"
-            == a.text_area :content, :rows => "3"
-            == a.hidden_field :video_uuid
-
+        - if i == 0
+          ul.nav.nav-tabs#tabs
+            li class="active"
+              a href="#video-#{i}" data-toggle="tab" Answer With Video
+            li
+              a href="#text-#{i}" data-toggle="tab" Answer With Text
+          
+          .tab-content
+            .tab-pane.fade.in.active.pagination-centered id="video-#{i}"
+              camera id="AtlasApp-#{i}" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="#{i}" class="dataVid"
+            .tab-pane.fade.in id="text-#{i}"
+              == a.text_area :content, :rows => "3"
+              == a.hidden_field :video_uuid
+        - else
+          == a.text_area :content, :rows => "3"
+          == a.hidden_field :video_uuid
+    
     == f.submit "Create My Application!", class: "atlas_button box_button",  id: "video_submit"
