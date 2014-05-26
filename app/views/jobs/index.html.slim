@@ -8,9 +8,12 @@
       h3 I'd like jobs in
       .filter_sect
         == select_tag :city_id,
-           options_from_collection_for_select(@cities, "id", "name"),
-           prompt: "All Cities",
-           :class => "basic" 
+           options_from_collection_for_select(@cities, :id, :name),
+           prompt: "All Cities", class: "basic"
+      .filter_sect
+        == select_tag :industry_id,
+           options_from_collection_for_select(@industries, :id, :name),
+           prompt: "All Industries", class: "basic"
       .filter_sect.filter_search
         == submit_tag "Search", :class => "atlas_button", :name => nil
 

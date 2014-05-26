@@ -23,6 +23,7 @@ class JobsController < ApplicationController
   private
   def load_data
     @cities = City.all
+    @industries = Industry.all
   end
 
   def city
