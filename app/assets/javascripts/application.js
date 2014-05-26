@@ -5,6 +5,7 @@
 //= require fancy_select
 //= require bootstrap
 //= require bootstrap-filestyle
+//= require bootstrap-slider
 //= require underscore
 //= require backbone
 //= require atlas
