@@ -12,7 +12,8 @@ json.common_app do
   json.nationality @common_app.nationality
   json.current_city @common_app.current_city
   json.grad_year @common_app.grad_year
-  json.ideal_salary @common_app.ideal_salary
+  json.salary_pref @common_app.salary_pref
+  json.culture_pref @common_app.culture_pref
   json.bonus_question @common_app.bonus_question
 
   json.city_ids @common_app.city_ids.map(&:to_s)
