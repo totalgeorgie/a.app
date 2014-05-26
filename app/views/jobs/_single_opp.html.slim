@@ -18,13 +18,13 @@
     .opp_header
       h2 You are 
     ul.resp
-      - @job.job_ideals.each do |point|
+      - @job.job_ideals.try(:each) do |point|
         li == point.content
 
   	.opp_header
     	h2 You will 
     ul.resp
-      - @job.bullets.each do |point|
+      - @job.bullets.try(:each) do |point|
         li == point.bullet
     
     .opp_header
@@ -34,7 +34,7 @@
     .opp_header
       h2 Roles
     
-    - @job.roles.each do | role|
+    - @job.roles.try(:each) do |role|
         h4 == role.role_title
         ul.resp
           li == role.role_desc
