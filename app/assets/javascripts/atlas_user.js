@@ -6,7 +6,6 @@ window.AtlasUser = {
   
   initialize: function(options) {
     AtlasUser.user = new AtlasUser.Models.User({ 'id': options.userId });
-    //AtlasUser.user.potentials().fetch();
     AtlasUser.user.fetch({
       success: function() {
         new AtlasUser.Routers.UserRouter({
