@@ -33,7 +33,7 @@ class Job < ActiveRecord::Base
     :qualifications,
     :industries,
     :bullets,
-    :job_ideals, 
+    #:job_ideals, # Temporarily disable, because some jobs don't have this
     :roles, 
     :questions, 
     presence: true

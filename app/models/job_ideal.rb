@@ -11,5 +11,5 @@
 
 class JobIdeal < ActiveRecord::Base
   belongs_to :job	
-  #validates :content, presence: true // Temporarily disable, because some jobs don't have this
+  validates :content, presence: true
 end
