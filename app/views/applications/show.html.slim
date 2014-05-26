@@ -1,19 +1,37 @@
 - provide(:title, "Show My Application to #{@application.job.job_title}")
-== thinstripe("thinstripe", "#{@application.user.name}'s application to #{@application.job.job_title}")
+== thinstripe("thinstripe", "#{@user.name}'s application to #{@application.job.job_title}")
 
-.container.edit_appl
-  .row
-    - @application.questions.each_with_index do |question, index|
-      div class="#{ @application.questions.length > 1 ? "col-sm-12 col-md-6" : "col-sm-12" }"
-        .content-header
-          h3 == question.content
-        - answer = @application.answers[index]
-        p == answer.content unless answer.content.blank?
-        hr
-        - unless answer.video_uuid.blank?
-          video class="show_video" id='PlayVideo-#{index}' data-uuid='#{ answer.video_uuid }'
-  
-    .span12
-      hr
-      .center_button
-        == link_to "Edit Application", edit_application_url(@application), class: "atlas_button"
+
+.first_container
+  .container
+    .col-md-10.col-md-offset-1
+      .admin-profile-container.clearfix
+        .col-md-12
+          h3
+            == @user.name  
+            span.sharable-city == ' ' + (@user.common_app.current_city || ' ')
+          .admin-candidate-lists 
+            .candidate-icons
+              .row
+                - if @user.common_app.grad_year
+                  .col-sm-6
+                    .icon-bubble
+                      span.glyphicon.glyphicon-briefcase
+                      span.red == @user.common_app.grad_year
+                - if @user.common_app.country_name  
+                  .col-sm-6
+                    .icon-bubble
+                      span.glyphicon.glyphicon-user
+                      span.red == @user.common_app.country_name
+          - @application.questions.each_with_index do |question, index|
+            - answer = @application.answers[index]
+            .content-header
+              h3 == question.content
+            .answer
+              - unless answer.content.blank? 
+                p == answer.content 
+              - unless answer.video_uuid.blank?
+                video class="show_video" id='PlayVideo-#{index}' data-uuid='#{ answer.video_uuid }'
+        
+        .col-sm-4.col-sm-offset-4
+          == link_to "Edit Application", edit_application_url(@application), class: "atlas_button box_button"

@@ -17,17 +17,12 @@
             .candidate-icons
               .row
                 - if @user.common_app.grad_year
-                  .col-sm-4
+                  .col-sm-6
                     .icon-bubble
                       span.glyphicon.glyphicon-briefcase
                       span.red == @user.common_app.grad_year
-                - if @user.common_app.china_time
-                  .col-sm-4
-                    .icon-bubble
-                      span.glyphicon.glyphicon-magnet
-                      span.red == @user.common_app.china_time.to_s + ' years'
                 - if @user.common_app.country_name  
-                  .col-sm-4
+                  .col-sm-6
                     .icon-bubble
                       span.glyphicon.glyphicon-user
                       span.red == @user.common_app.country_name

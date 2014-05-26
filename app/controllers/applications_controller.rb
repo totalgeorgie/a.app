@@ -56,6 +56,7 @@ class ApplicationsController < ApplicationController
 
   def find_application
     @application = Application.with_dependents.find(params[:id])
+    @user = User.includes(:common_app).find(@application.user_id)
     redirect_to root_url unless @application.user_id === current_user.id || current_user.admin
   end
 end
