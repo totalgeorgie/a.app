@@ -16,7 +16,6 @@
 #  bonus_question   :text(1000)
 #  progress         :integer          default(5)
 #  has_video        :boolean          default(FALSE)
-#  linkedin_link    :string(255)
 #  bonus_choice     :text
 #  china_time       :text(255)
 #  job_interest     :string(255)

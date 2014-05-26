@@ -16,7 +16,6 @@
 #  bonus_question   :text(1000)
 #  progress         :integer          default(5)
 #  has_video        :boolean          default(FALSE)
-#  linkedin_link    :string(255)
 #  bonus_choice     :text
 #  china_time       :text(255)
 #  job_interest     :string(255)
@@ -24,7 +23,7 @@
 #
 
 class CommonApp < ActiveRecord::Base
-  NOT_INCLUDED = 5 # id, created_at, updated_at, user_id, linkedin_link
+  NOT_INCLUDED = 4 # id, created_at, updated_at, user_id
   
   GRAD_OPTIONS = (1993..Time.now.strftime('%Y').to_i).map(&:to_s)
   
