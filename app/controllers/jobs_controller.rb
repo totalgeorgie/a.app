@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 
   def index    
     @jobs = Job
-      .with_cities(city)
+      .with_filters(city, industry)
       .paginate(page: params[:page], per_page: 5)
   end
 
@@ -27,7 +27,11 @@ class JobsController < ApplicationController
   end
 
   def city
-    @city ||= City.find(params[:city_id]) unless params[:city_id].blank?
+    params[:city_id].blank? ? nil : params[:city_id]
+  end
+
+  def industry
+    params[:industry_id].blank? ? nil : params[:industry_id]
   end
   
   def record_hit

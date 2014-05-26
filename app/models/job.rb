@@ -54,7 +54,7 @@ class Job < ActiveRecord::Base
     reject_if: :all_blank,
     allow_destroy:  true
 
-  scope :with_filters, ->(city, industry) do
+  scope :with_filters, ->(city_id, industry_id) do
     job =  Job
       .includes(:industries)
       .includes(:cities)
@@ -62,8 +62,8 @@ class Job < ActiveRecord::Base
       .includes(:bullets)
       .includes(:roles)
     
-    job = job.where(cities: { id: city })  if city
-    job = job.where(industries: { id: industry }) if industry
+    job = job.where(cities: { id: city_id })  if city_id
+    job = job.where(industries: { id: industry_id }) if industry_id
 
     job
   end
