@@ -1,38 +1,60 @@
 - provide(:title, "Edit My Application to #{@application.job.job_title}")
-== thinstripe("thinstripe", "#{current_user.name}'s application to #{@application.job.job_title}")
+== thinstripe("thinstripe", "#{@user.name}'s application to #{@application.job.job_title}")
 
-.container.edit_appl.apply_now
-  .row
-    == form_for @application, html: { class: "application_form" } do |f|
-      .col-sm-12
-        == render 'shared/error_messages', object: f.object
-        input type="hidden" name="questions_count" id="questions_count" value="#{@application.questions.length}"
+.first_container
+  .container
+    .col-md-10.col-md-offset-1
+      .admin-profile-container.clearfix
+        .col-md-12
+          h3
+            == @user.name  
+            span.sharable-city == ' ' + (@user.common_app.current_city || ' ')
+          .admin-candidate-lists 
+            .candidate-icons
+              .row
+                - if @user.common_app.grad_year
+                  .col-sm-6
+                    .icon-bubble
+                      span.glyphicon.glyphicon-briefcase
+                      span.red == @user.common_app.grad_year
+                - if @user.common_app.country_name  
+                  .col-sm-6
+                    .icon-bubble
+                      span.glyphicon.glyphicon-user
+                      span.red == @user.common_app.country_name
 
-      .question_fields
-        == f.fields_for :answers do |a|
-          div class="#{ @application.answers.length > 1 ? "col-sm-12 col-md-6" : "col-sm-12" }"
-            - i = a.options[:child_index]
-            - question = @application.questions[i]
-            == a.hidden_field :question_id
-            .content-header
-              h3 == question.content
-          
-            - if i == 0
-              ul.nav.nav-tabs#tabs
-                li class="active"
-                  a href="#video-#{i}" data-toggle="tab" Answer With Video
-                li
-                  a href="#text-#{i}" data-toggle="tab" Answer With Text
-                
-              .tab-content
-                .tab-pane.fade.in.active.pagination-centered id="video-#{i}"
-                  camera id="AtlasApp-#{i}" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="#{i}" class="dataVid"
-                .tab-pane.fade.in id="text-#{i}"
-                  == a.text_area :content, :rows => "3"
+
+          == form_for @application do |f|
+            == render 'shared/error_messages', object: f.object
+            
+            input type="hidden" name="questions_count" id="questions_count" value="#{@application.questions.length}"
+
+            == f.fields_for :answers do |a|
+              - i = a.options[:child_index]
+              - question = @application.questions[i]
+              == a.hidden_field :question_id
+              
+              .content-header
+                h3 == question.content
+              
+              .answer            
+                - if i == 0
+                  ul.nav.nav-tabs#tabs
+                    li class="active"
+                      a href="#video-#{i}" data-toggle="tab" Answer With Video
+                    li
+                      a href="#text-#{i}" data-toggle="tab" Answer With Text
+                    
+                  .tab-content
+                    .tab-pane.fade.in.active.pagination-centered id="video-#{i}"
+                      camera id="AtlasApp-#{i}" data-uuid="d28a0470-53fb-0131-ffc4-22000a499ea4" name="#{i}" class="dataVid"
+                    .tab-pane.fade.in id="text-#{i}"
+                      == a.text_area :content, :rows => "3", class: 'form-control'
+                      == a.hidden_field :video_uuid
+                - else
+                  == a.text_area :content, :rows => "3", class: 'form-control'
                   == a.hidden_field :video_uuid
-            - else
-              == a.text_area :content, :rows => "3"
-              == a.hidden_field :video_uuid
-      .col-sm-12
-        .center_button
-          == f.submit "Edit My Application", class: "atlas_button",  id: "video_submit"
+                
+            .col-sm-4.col-sm-offset-4
+              hr
+              = f.submit "Edit My Application", class: "atlas_button",  id: "video_submit"
