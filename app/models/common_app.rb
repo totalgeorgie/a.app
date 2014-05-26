@@ -27,11 +27,6 @@ class CommonApp < ActiveRecord::Base
   
   GRAD_OPTIONS = (1993..Time.now.strftime('%Y').to_i).map(&:to_s)
   
-  SALARY_OPTIONS = ["A high salary is my primary motivator",
-    "Salary is important, but not my main consideration",
-    "I'm not as concerned with salary as with other factors of the job",
-    "Salary is not a big issue for me right now"]
-  
   JOB_INTERESTS = ["Actively searching",
     "Open to the right opportunity",
     "Just want to see what's out there",
