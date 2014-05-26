@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526230949) do
+ActiveRecord::Schema.define(version: 20140526231319) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20140526230949) do
     t.integer  "industries_count",              default: 0,     null: false
     t.integer  "cities_count",                  default: 0,     null: false
     t.string   "nationality"
-    t.string   "ideal_salary"
+    t.integer  "salary_pref",      limit: 255
     t.text     "bonus_question",   limit: 1000
     t.integer  "progress",                      default: 5
     t.boolean  "has_video",                     default: false
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20140526230949) do
     t.text     "china_time",       limit: 255
     t.string   "job_interest"
     t.string   "china_goals"
+    t.integer  "culture_pref"
   end
 
   add_index "common_apps", ["user_id"], name: "common_app_users_idx"
