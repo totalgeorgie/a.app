@@ -24,7 +24,7 @@
                       span.red == @user.common_app.country_name
 
 
-          == form_for @application do |f|
+          == form_for @application, html: { class: "application_form" } do |f|
             == render 'shared/error_messages', object: f.object
             
             input type="hidden" name="questions_count" id="questions_count" value="#{@application.questions.length}"

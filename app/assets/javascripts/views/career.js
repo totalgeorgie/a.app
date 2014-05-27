@@ -13,6 +13,10 @@ Atlas.Views.CareerView = Backbone.AppView.extend({
     'change .chosen-select' : 'alterCommonAppInfo'
   },
   
+  _addSlider: function() {
+    $('.atlas-slider').slider();
+  },
+
   render: function() {
     var content = this.template(),
         firstFields = this.firstFields({
@@ -26,6 +30,7 @@ Atlas.Views.CareerView = Backbone.AppView.extend({
     this.$el.find('.first-fields').append(firstFields)
     this.$el.find('.second-fields').append(secondFields)
     window.setTimeout(this._addSelects.bind(this), 0);
+    window.setTimeout(this._addSlider.bind(this), 0);
     return this;
   }
 
