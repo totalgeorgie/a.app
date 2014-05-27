@@ -3,7 +3,6 @@ Atlas.Views.Navbar = Backbone.View.extend({
   
   render: function() {
     var content = this.template();
-
     this.$el.html(content);
 
     return this

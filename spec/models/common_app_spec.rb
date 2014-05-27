@@ -12,7 +12,7 @@
 #  industries_count :integer          default(0), not null
 #  cities_count     :integer          default(0), not null
 #  nationality      :string(255)
-#  salary_pref      :integer
+#  salary_pref      :integer          default(0)
 #  bonus_question   :text(1000)
 #  progress         :integer          default(5)
 #  has_video        :boolean          default(FALSE)
@@ -20,7 +20,7 @@
 #  china_time       :text(255)
 #  job_interest     :string(255)
 #  china_goals      :string(255)
-#  culture_pref     :integer
+#  culture_pref     :integer          default(0)
 #
 
 require 'spec_helper'
