@@ -35,6 +35,14 @@ class UsersController < ApplicationController
   end
 
   def company_send_start
+    unless params[:email].blank?
+      flash[:success] = "We've gotten your your contact info! Thank you"
+      UserMailer.company_start(params).deliver
+      redirect_to root_url
+    else
+      flash[:error] = "Please enter your email address"
+      render :company_start
+    end
   end
 
   private

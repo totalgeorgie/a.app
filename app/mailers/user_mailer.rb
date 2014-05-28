@@ -7,7 +7,15 @@ class UserMailer < ActionMailer::Base
   end
   
   def send_refer(referer, referee)
-  	@referer = referer
-  	mail(to: referee, cc: "abe@atlas-china.com", subject: "You've been refered to Atlas China")
+    @referer = referer
+    mail(to: referee, cc: "abe@atlas-china.com", subject: "You've been refered to Atlas China")
+  end
+
+  def company_start(params)
+    @company_name = params[:company_name]
+    @email = params[:email]
+    @comment = params[:comment]
+
+    mail(to: "abe@atlas-china.com", subject: "Company Inquiry from #{@company_name || @email}")
   end
 end

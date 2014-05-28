@@ -1,0 +1,6 @@
+Hello Abe,
+
+<%= @email %> <%= @company_name ? "from #{@company_name}" : nil %> sent you an inquiry. 
+
+Here was his comment:
+<%= @comment || "#{@email} did not write a comment" %>
