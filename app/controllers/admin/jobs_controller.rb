@@ -4,6 +4,7 @@ class Admin::JobsController < ApplicationController
   before_action :set_job, only: [:edit, :update]
 
   def index
+    @key = SecretKey.new
     @jobs = Job.with_search(params[:search])
       .paginate(page: params[:page], per_page: 5)
   end
