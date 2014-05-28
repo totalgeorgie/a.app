@@ -1,2 +1,25 @@
 .refer-friend
-  a.atlas_button.light_gray Refer a Friend
+  button.atlas_button.light_gray data-toggle="modal" data-target="#referModal" Refer a friend to this job
+
+.modal.fade#referModal tabindex="-1" role="dialog" aria-labelledby="referModalLabel" aria-hidden="true"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close type="button" data-dismiss="modal" aria-hidden="true" &times;
+        h4#referModalLabel Refer a Friend
+      .modal-body.clearfix
+        - if current_user
+          p Enter your friend's email, and we'll get in touch with them. If we place them in a job, you get rewarded, and everyone wins.
+        - else 
+          p Enter your email, alongside your friend's email, and we'll get in touch with them. If we place them in a job, you get rewarded, and everyone wins.
+
+        == form_tag '/refer', class: 'refer-form' do
+          - if current_user
+            == hidden_field_tag :referer, current_user.email
+          - else
+            .form-group
+              == email_field_tag :referer, nil, placeholder: 'Enter your email', class: "form-control"
+          .form-group
+            == email_field_tag :referee, nil, placeholder: 'Enter your friend\'s email', class: "form-control"
+
+          == submit_tag "Refer your friend", class: 'atlas_button box_button'
