@@ -10,14 +10,13 @@ json.common_app do
   json.user_id @user.id
   json.job_interest @common_app.job_interest ? @common_app.job_interest : 'N/A'
   json.china_goals @common_app.china_goals ? @common_app.china_goals : 'N/A'
-  json.bonus_choice @common_app.bonus_choice
   json.china_time @common_app.china_time ? @common_app.china_time : 'N/A'
   json.nationality @common_app.nationality ? @common_app.country_name : 'N/A'
   json.current_city @common_app.current_city ? @common_app.current_city : 'N/A'
   json.grad_year @common_app.grad_year ? @common_app.grad_year : 'N/A'
   json.salary_pref @common_app.salary_pref
   json.culture_pref @common_app.culture_pref
-  json.bonus_question @common_app.bonus_question ? @common_app.bonus_question : 'N/A'
+  json.china_contrib @common_app.bonus_question ? @common_app.china_contrib : 'N/A'
   json.cities @common_app.cities.try{ |cit| cit.any? ? '&rarr; ' + cit.map(&:name).join(', ') : 'No cities' }
   json.industries @common_app.industries.try{ |ind| ind.any? ? ind.map(&:name).join(', ') : nil }
   

@@ -7,14 +7,13 @@ json.common_app do
   json.user_id @user.id
   json.job_interest @common_app.job_interest
   json.china_goals @common_app.china_goals
-  json.bonus_choice @common_app.bonus_choice
   json.china_time @common_app.china_time(&:to_s)
   json.nationality @common_app.nationality
   json.current_city @common_app.current_city
   json.grad_year @common_app.grad_year
   json.salary_pref @common_app.salary_pref
   json.culture_pref @common_app.culture_pref
-  json.bonus_question @common_app.bonus_question
+  json.china_contrib @common_app.china_contrib
 
   json.city_ids @common_app.city_ids.map(&:to_s)
   json.industry_ids @common_app.industry_ids.map(&:to_s)
