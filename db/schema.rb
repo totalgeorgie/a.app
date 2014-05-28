@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528041819) do
+ActiveRecord::Schema.define(version: 20140528074820) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -206,6 +206,15 @@ ActiveRecord::Schema.define(version: 20140528041819) do
   end
 
   add_index "roles", ["job_id"], name: "roles_job_idx"
+
+  create_table "secret_keys", force: true do |t|
+    t.string   "code"
+    t.boolean  "valid",      default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "secret_keys", ["code"], name: "index_secret_keys_on_code", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"
