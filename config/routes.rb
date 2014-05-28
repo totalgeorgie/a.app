@@ -45,10 +45,12 @@ Atlas::Application.routes.draw do
   end
 
   root  "jobs#index"
-  match 'mainsignup', to: 'users#iframe_signup',  via: 'get'
-  match '/signup',    to: 'users#new',            via: 'get'
-  match '/signin',    to: 'sessions#new',         via: 'get'
-  match '/signout',   to: 'sessions#destroy',     via: 'delete'
-  match '/blurb',     to: 'jobs#blurb',           via: 'get'
-  match '/refer',     to: 'jobs#refer',           via: 'post'
+  match 'mainsignup',             to: 'users#iframe_signup',      via: 'get'
+  match '/signup',                to: 'users#new',                via: 'get'
+  match '/signin',                to: 'sessions#new',             via: 'get'
+  match '/signout',               to: 'sessions#destroy',         via: 'delete'
+  match '/blurb',                 to: 'jobs#blurb',               via: 'get'
+  match '/refer',                 to: 'jobs#refer',               via: 'post'
+  match '/companies/get_started', to: 'users#company_start',      via: 'get'
+  match '/companies/send_start',  to: 'users#company_send_start', via: 'post'
 end

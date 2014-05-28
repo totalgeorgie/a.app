@@ -28,7 +28,7 @@ class JobsController < ApplicationController
       flash[:error] = "You haven't entered the proper emails, please try again"
     end
 
-    redirect_to job_url(job)
+    redirect_to job_url(params[:job_id])
   end
 
   private
