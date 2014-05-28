@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528074820) do
+ActiveRecord::Schema.define(version: 20140528083013) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -209,7 +209,7 @@ ActiveRecord::Schema.define(version: 20140528074820) do
 
   create_table "secret_keys", force: true do |t|
     t.string   "code"
-    t.boolean  "valid",      default: true
+    t.boolean  "still_valid", default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

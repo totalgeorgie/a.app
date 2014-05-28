@@ -1,5 +1,5 @@
 class SecretKeysController < ApplicationController
-  before_action :admin_user, only: :create
+  before_action :admin_user, only: [:create, :show]
   before_action :valid_key_holder, except: [:show, :create]
   
   def show
@@ -22,7 +22,7 @@ class SecretKeysController < ApplicationController
     if @job.save
       flash[:success] = "Job Succesfuly created"
       redirect_to admin_jobs_url
-      invalidate_key
+      @key.invalidate!
     else
       render 'jobs/new'
     end
@@ -36,10 +36,6 @@ class SecretKeysController < ApplicationController
   def valid_key_holder
     @key = SecretKey.find(code: params[:code])
     redirect_to root_url unless @key && @key.valid?
-  end
-
-  def invalidate_key
-    @key.toggle!(:valid)
   end
 
   def job_params 
