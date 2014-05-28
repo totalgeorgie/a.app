@@ -31,6 +31,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def company_start
+  end
+
+  def company_send_start
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, { common_app_attributes: [:resume] } )
