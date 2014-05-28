@@ -20,7 +20,19 @@ class JobsController < ApplicationController
     @jobs = Job.includes(:industries).includes(:cities).take(2)
   end
   
+  def refer
+    if valid_referral
+      flash[:success] = "We've sent your referral! Thank you"
+      UserMailer.send_refer(params[:referer], params[:referee]).deliver
+    else
+      flash[:error] = "You haven't entered the proper emails, please try again"
+    end
+
+    redirect_to job_url(job)
+  end
+
   private
+
   def load_data
     @cities = City.all
     @industries = Industry.all
@@ -39,5 +51,9 @@ class JobsController < ApplicationController
       @job.hit_count += 1
       @job.save!
     end
+  end
+
+  def valid_referral
+    !params[:referer].blank? && !params[:referee].blank?
   end
 end

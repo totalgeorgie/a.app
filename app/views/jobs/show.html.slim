@@ -14,4 +14,4 @@
               == render has_job?(@user, @job) ? "jobs/already_applied" : "jobs/apply_to_job"
         - else
             == render "new_user"
-        == render "refer_friend"
+        == render "refer_friend", job: @job

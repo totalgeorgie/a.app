@@ -14,6 +14,7 @@
           p Enter your email, alongside your friend's email, and we'll get in touch with them. If we place them in a job, you get rewarded, and everyone wins.
 
         == form_tag '/refer', class: 'refer-form' do
+          == hidden_field_tag :job_id, job.id
           - if current_user
             == hidden_field_tag :referer, current_user.email
           - else

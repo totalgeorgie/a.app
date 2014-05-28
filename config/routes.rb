@@ -50,4 +50,5 @@ Atlas::Application.routes.draw do
   match '/signin',    to: 'sessions#new',         via: 'get'
   match '/signout',   to: 'sessions#destroy',     via: 'delete'
   match '/blurb',     to: 'jobs#blurb',           via: 'get'
+  match '/refer',     to: 'jobs#refer',           via: 'post'
 end
