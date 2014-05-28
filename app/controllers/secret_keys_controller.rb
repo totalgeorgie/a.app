@@ -20,9 +20,9 @@ class SecretKeysController < ApplicationController
   def create_job
     @job = Job.new(job_params)
     if @job.save
+      @key.invalidate!
       flash[:success] = "Job Succesfuly created"
       redirect_to job_url(@job)
-      @key.invalidate!
     else
       render :new_job
     end
