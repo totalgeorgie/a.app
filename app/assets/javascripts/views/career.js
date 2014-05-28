@@ -18,7 +18,7 @@ Atlas.Views.CareerView = Backbone.AppView.extend({
   alterSliderInfo: function(e) {
     var fieldName = $(e.target).attr('name'),
         value = e.value;
-        
+
     this.user.commonApp().set(fieldName, value).save();
   },
 

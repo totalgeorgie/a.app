@@ -2,9 +2,36 @@
 <div class="col-sm-12 col-md-6">
   <label>Job Interest</label>
   <p><%= user.commonApp().escape('job_interest') %></p>
-  <!-- @TODO update salary here -->
-  <label>Salary Determination</label>
-  <p><%= user.commonApp().escape('ideal_salary') %></p>
+  <label> Mark where you priorities are right now</label>
+  
+  <div class="slider-opts">
+    <span>Maximize salary</span>
+    <div class="slider slider-horizontal" style="width: 150px">
+      <div class="slider-track">
+        <% var salaryPref = user.commonApp().escape('salary_pref') %>
+        <% var salaryPercent = (50 + +salaryPref) %>
+        <div class="slider-selection" style="left:0%; width:<%= salaryPercent %>%"></div>
+        <div class="slider-handle round" style="left: <%= salaryPercent %>%"></div>
+      </div>
+    </div><!--slider-->
+    <span>Gain experience</span>
+  </div>
+
+  <div class="slider-opts">
+    <span>Work in established systems</span>
+    <div class="slider slider-horizontal" style="width: 150px">
+      <div class="slider-track">
+        <% var culturePref = user.commonApp().escape('culture_pref') %>
+        <% var culturePercent = (50 + +culturePref) %>
+        <div class="slider-selection" style="left:0%; width:<%= culturePercent %>%"></div>
+        <div class="slider-handle round" style="left: <%= culturePercent %>%"></div>
+      </div>
+    </div><!--slider-->
+    <span>Develop new projects</span>
+  </div>
+  
+  <p>&nbsp;</p>
+
   <label>China Work Force Goals</label>
   <p><%= user.commonApp().escape('china_goals') %></p>
 </div>
