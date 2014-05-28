@@ -8,6 +8,8 @@ Atlas::Application.routes.draw do
     resources :applications, only: [:create]
   end
   
+  resources :secret_keys, only: [:show, :create]
+  
   resources :applications, except: [:new, :create, :index]
   resources :sessions, only: [:new, :create, :destroy]
   resources :password_resets, except: [:show, :index]

@@ -7,15 +7,9 @@ class SecretKeysController < ApplicationController
   end
 
   def create
-    @key = SecretKey.new(key_params)
-    
-    if @key.save
-      flash[:success] = "Send the link below and the client will be able to create a job!"
-      redirect_to secret_key_url(@key)
-    else
-      flash[:errors] = "Error with creating the key. Please try again or contact the programmer"
-      redirect_to admin_jobs_url
-    end
+    @key = SecretKey.generate_key!
+    flash[:success] = "Send the link below and the client will be able to create a job!"
+    redirect_to secret_key_url(@key)
   end
 
   def new_job
