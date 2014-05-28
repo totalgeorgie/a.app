@@ -16,7 +16,7 @@ json.common_app do
   json.grad_year @common_app.grad_year ? @common_app.grad_year : 'N/A'
   json.salary_pref @common_app.salary_pref
   json.culture_pref @common_app.culture_pref
-  json.china_contrib @common_app.bonus_question ? @common_app.china_contrib : 'N/A'
+  json.china_contrib @common_app.china_contrib ? @common_app.china_contrib : 'N/A'
   json.cities @common_app.cities.try{ |cit| cit.any? ? '&rarr; ' + cit.map(&:name).join(', ') : 'No cities' }
   json.industries @common_app.industries.try{ |ind| ind.any? ? ind.map(&:name).join(', ') : nil }
   
