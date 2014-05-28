@@ -13,4 +13,9 @@ class SecretKey < ActiveRecord::Base
   def self.generate_key!
   	SecretKey.create!(code: SecureRandom.urlsafe_base64)
   end
+
+  def invalidate!
+  	self.still_valid = false
+  	self.save!
+  end
 end

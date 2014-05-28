@@ -1,5 +1,5 @@
 class Admin::JobsController < ApplicationController
-  before_action :admin_or_company
+  before_action :admin_user
   before_action :load_data, except: [:index, :show, :destroy]
   before_action :set_job, only: [:edit, :update]
 
@@ -42,6 +42,8 @@ class Admin::JobsController < ApplicationController
     flash[:success] = "Job Deleted."
     redirect_to admin_jobs_url 
   end
+
+
 
   private
   def job_params 

@@ -55,4 +55,6 @@ Atlas::Application.routes.draw do
   match '/refer',                 to: 'jobs#refer',               via: 'post'
   match '/companies/get_started', to: 'users#company_start',      via: 'get'
   match '/companies/send_start',  to: 'users#company_send_start', via: 'post'
+  match '/companies/new_job',     to: 'secret_keys#new_job',      via: 'get'
+  match '/companies/create_job',  to: 'secret_keys#create_job',   via: 'post'
 end

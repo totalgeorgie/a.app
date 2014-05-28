@@ -1,0 +1,10 @@
+- provide(:title, "Create your New Job") 
+== thinstripe('thinstripe', 'Publish Your Job On The Atlas Platform')  	        
+.first_container
+  .container
+    == nested_form_for @job, url: companies_create_job_url do |f| 
+      == f.hidden_field :code, value: params[:code]
+      == render 'admin/jobs/fields', f: f
+      .col-sm-8.col-sm-offset-2
+        hr
+        == f.submit "Publish the Job", class: "atlas_button blue_button"
