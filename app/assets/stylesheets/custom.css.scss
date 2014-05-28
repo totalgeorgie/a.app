@@ -986,8 +986,10 @@ input[type="submit"] {
 }
 
 .refer-friend {
+  float:left;
+  width:100%;
   margin-top:20px;
   .light_gray{
-    padding:10px 0;
+    padding:5px 0;
   }
 }
