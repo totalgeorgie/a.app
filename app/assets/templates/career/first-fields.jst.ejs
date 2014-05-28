@@ -35,3 +35,10 @@
   <textarea id="china_goals" name="china_goals" class="form-control common-app-field"><%= chinaGoals %></textarea>
   <span class="glyphicon glyphicon-ok form-control-feedback <%= chinaGoals ? null : 'no-show' %>"></span>
 </div>
+
+<% var chinaContrib = user.commonApp().escape('china_contrib') %>
+<div class="form-group has-feedback <%= chinaContrib ? 'has-success' : null %>">
+  <label for="china_contrib">Where do you see yourself contributing the most value to a company in China?</label>
+  <textarea id="china_contrib" name="china_contrib" class="form-control common-app-field"><%= chinaContrib %></textarea>
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= chinaContrib ? null : 'no-show' %>"></span>
+</div>
