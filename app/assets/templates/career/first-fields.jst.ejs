@@ -1,11 +1,24 @@
-<% var salaryPref = user.commonApp().escape('salary_pref') %>
+<div class="form-group">
+  <% var salaryPref = user.commonApp().escape('salary_pref') %>
+  <label>Mark where you priorities are right now</label>
+  <div class="slider-opts">
+    <span>Maximize salary</span>
+    <input type="text" value="<%= salaryPref %>" data-slider-min="-50" data-slider-max="50" data-slider-step="1" data-slider-value="<%= salaryPref %>" class="atlas-slider">
+    <span>Gain experience</span>
+  </div>
+</div>
 
-<input type="text" value="<%= salaryPref %>" data-slider-min="-50" data-slider-max="50" data-slider-step="1" data-slider-value="<%= salaryPref %>" class="atlas-slider">
+<div class="form-group">
+  <% var culturePref = user.commonApp().escape('culture_pref') %>
+  <div class="slider-opts">
+    <span>Work in established systems</span>
+    <input type="text" value="<%= culturePref %>" data-slider-min="-50" data-slider-max="50" data-slider-step="1" data-slider-value="<%= culturePref %>" class="atlas-slider">
+    <span>Develop new projects</span>
+  </div>
+</div>
 
-<% var culturePref = user.commonApp().escape('culture_pref') %>
 
 <% var jobInterest = user.commonApp().escape('job_interest') %>
-
 <div class="form-group has-feedback <%= jobInterest ? 'has-success' : null %>">
   <label for="job_interest">What's your interest in new jobs right now?</label>
   <select id="job_interest" name="job_interest" class="common-app-field form-control chosen-select"> 
