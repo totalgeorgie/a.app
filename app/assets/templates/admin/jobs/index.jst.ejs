@@ -24,18 +24,12 @@
                     </div>
                     <div class="col-sm-12 col-md-6">
                       <div class="icon-bubble">
-                        <span class="glyphicon glyphicon-magnet"></span>
-                        <span class="red"><%= app.get('user').source %></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                      <div class="icon-bubble">
                         <span class="glyphicon glyphicon-facetime-video"></span>
                         <span class="red"><%= app.get('user').common_app.has_video %></span>
                       </div>
                     </div>
+                  </div>
+                  <div class="row">
                     <div class="col-sm-12 col-md-6">
                       <div class="icon-bubble">
                         <span class="glyphicon glyphicon-user"></span>
@@ -80,7 +74,13 @@
                 <% if (question.answer_content) { %>
                   <p><%= question.answer_content %></p>
                 <% } %>
-              <%  }) %>
+              <%  }); %>
+
+              <% if ( !!app.get('user').common_app.china_time) { %>
+                <hr>
+                <p><strong>In One Sentence, what career opportunities are you looking for right now?</strong></p>
+                <p><%= app.get('user').common_app.china_time %></p>
+              <% } %>
             </div><!--col-sm-8-->
           </div><!--list-container-->
         </li>

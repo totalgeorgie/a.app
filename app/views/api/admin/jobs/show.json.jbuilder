@@ -8,6 +8,7 @@ json.applications do
     json.user do 
       json.name app.user.name
       json.common_app do 
+        json.china_time app.user.common_app.try(:china_time) { |china_time| china_time }
         json.progress app.user.common_app.progress
         json.nationality app.user.common_app.nationality ? app.user.common_app.country_name : 'N/A'
         json.current_city app.user.common_app.current_city ? app.user.common_app.current_city : 'N/A'

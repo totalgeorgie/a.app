@@ -3,7 +3,7 @@
 
 <% var videoCode = user.video().get('video_uuid'); %>
 <% if (videoCode) { %>
-  <div class="col-md-3 col-lg-2 profile-video">
+  <div class="col-md-2 col-lg-2 profile-video">
     <video id='video-<%= user.id %>' data-uuid='<%= videoCode %>'></video>
   </div>
 <% } %>
