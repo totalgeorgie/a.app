@@ -28,12 +28,11 @@
                       span.red == @user.common_app.country_name
         .col-md-12
           hr
-          // @TODO change bonus choice to other here
-          - if @user.common_app.bonus_choice && @user.common_app.bonus_question
+          - if @user.common_app.china_contrib
             h3
               span.red Q: 
-              == @user.common_app.bonus_choice
-            p == @user.common_app.bonus_question
+              | Where do you see yourself contributing the most value to a company in China?
+            p == @user.common_app.china_contrib
           - if @user.common_app.china_goals
             hr
             h3
