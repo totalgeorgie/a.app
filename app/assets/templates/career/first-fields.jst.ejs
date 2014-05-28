@@ -1,9 +1,9 @@
 <div class="form-group">
   <% var salaryPref = user.commonApp().escape('salary_pref') %>
-  <label>Mark where you priorities are right now</label>
+  <label><strong>Mark where you priorities are right now</strong></label>
   <div class="slider-opts">
     <span>Maximize salary</span>
-    <input type="text" value="<%= salaryPref %>" data-slider-min="-50" data-slider-max="50" data-slider-step="1" data-slider-value="<%= salaryPref %>" class="atlas-slider">
+    <input type="text" value="<%= salaryPref %>" name="salary_pref" data-slider-min="-50" data-slider-max="50" data-slider-step="1" data-slider-value="<%= salaryPref %>" data-slider-tooltip="hide" class="salary-slider">
     <span>Gain experience</span>
   </div>
 </div>
@@ -12,7 +12,7 @@
   <% var culturePref = user.commonApp().escape('culture_pref') %>
   <div class="slider-opts">
     <span>Work in established systems</span>
-    <input type="text" value="<%= culturePref %>" data-slider-min="-50" data-slider-max="50" data-slider-step="1" data-slider-value="<%= culturePref %>" class="atlas-slider">
+    <input type="text" value="<%= culturePref %>" name="culture_pref" data-slider-min="-50" data-slider-max="50" data-slider-step="1" data-slider-value="<%= culturePref %>" data-slider-tooltip="hide" class="culture-slider">
     <span>Develop new projects</span>
   </div>
 </div>

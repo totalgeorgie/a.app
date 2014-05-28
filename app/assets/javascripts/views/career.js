@@ -10,11 +10,21 @@ Atlas.Views.CareerView = Backbone.AppView.extend({
   events: {
     'blur .user-field' : 'alterUserInfo',
     'blur .common-app-field' : 'alterCommonAppInfo',
-    'change .chosen-select' : 'alterCommonAppInfo'
+    'change .chosen-select' : 'alterCommonAppInfo',
+    'slideStop .salary-slider' : 'alterSliderInfo',
+    'slideStop .culture-slider' : 'alterSliderInfo'
   },
   
+  alterSliderInfo: function(e) {
+    var fieldName = $(e.target).attr('name'),
+        value = e.value;
+        
+    this.user.commonApp().set(fieldName, value).save();
+  },
+
   _addSlider: function() {
-    $('.atlas-slider').slider();
+    $('.salary-slider').slider();
+    $('.culture-slider').slider();
   },
 
   render: function() {

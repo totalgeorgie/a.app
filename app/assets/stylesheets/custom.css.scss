@@ -972,3 +972,15 @@ input[type="submit"] {
     width:100%;
   }
 }
+
+.slider-selection, .slider-track {
+  background-image:none;
+  background-color: $atlasdarkerwhite;
+}
+
+.slider-opts {
+  span {
+    width:100px;
+    text-align:center;
+  }
+}
