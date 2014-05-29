@@ -108,7 +108,7 @@ class User < ActiveRecord::Base
   end
   
   def generate_email
-    email_tag = "#{self.first_name}-#{self.last_name}-#{Time.now.day}"
+    email_tag = "#{self.first_name}-#{self.last_name}-#{Time.now.to_date.to_s}"
     self.email = "#{email_tag}@atlas-china.com"
 
     self

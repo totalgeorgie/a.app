@@ -43,8 +43,6 @@ class Admin::JobsController < ApplicationController
     redirect_to admin_jobs_url 
   end
 
-
-
   private
   def job_params 
     params.require(:job).permit(
