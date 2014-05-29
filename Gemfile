@@ -44,7 +44,6 @@ gem 'jquery-rails'
 gem 'jquery-nouislider-rails'
 gem 'nested_form'
 gem 'passenger'
-gem 'roo' # for importing old users, see railscasts
 gem 'sass-rails', '~> 4.0.0.rc2'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
