@@ -32,7 +32,6 @@ class JobsController < ApplicationController
   end
 
   private
-
   def load_data
     @cities = City.all
     @industries = Industry.all
