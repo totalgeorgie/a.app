@@ -24,7 +24,7 @@
         <% } %>
         <% user.potentials().each(function(jobApp) { %>
           <tr>
-              <td><a href="<%= Atlas.url + 'applications/' + jobApp.id %>"><%= jobApp.escape('title') %></a></td>
+              <td><a href="<%= Atlas.url + 'jobs/' + jobApp.id %>"><%= jobApp.escape('title') %></a></td>
           </tr>
          <% }) %>
       </tbody>
