@@ -17,7 +17,7 @@ class JobsController < ApplicationController
   end
 
   def blurb
-    @jobs = Job.includes(:industries).includes(:cities).pop(2)
+    @jobs = Job.includes(:industries).includes(:cities).take(2)
   end
   
   def refer
