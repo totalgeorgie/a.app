@@ -15,11 +15,12 @@
             p == @job.job_summary  
     
 
-    .opp_header
-      h2 You are 
-    ul.resp
-      - @job.job_ideals.try(:each) do |point|
-        li == point.content
+    - if @job.job_ideals
+      .opp_header
+        h2 You are
+      ul.resp
+        - @job.job_ideals.try(:each) do |point|
+          li == point.content
 
   	.opp_header
     	h2 You will 
