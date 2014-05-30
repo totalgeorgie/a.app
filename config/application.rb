@@ -15,7 +15,7 @@ module Atlas
       'X-Frame-Options' => 'ALLOWALL',
       'X-XSS-Protection' => '1; mode=block',
       'X-Content-Type-Options' => 'nosniff',
-      'Access-Control-Allow-Origin' = ENV['APP_URL']
+      'Access-Control-Allow-Origin' => ENV['APP_URL']
     }
   end
 end
