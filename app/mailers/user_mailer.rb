@@ -27,7 +27,7 @@ class UserMailer < ActionMailer::Base
       mail(
         to: "abe@atlas-china.com",
         cc: "stepan.p@gmail.com",
-        subject: "#{@users.length} New Applicants | Your Weekly Atlas China Digest"
+        subject: "#{@users.length} New Applicants | Your Weekly Atlas China Digest For #{DateTime.now.strftime("%m/%d/%Y")}"
       )
     end
   end
