@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: role_types
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class RoleType < ActiveRecord::Base
   has_many :common_app_role_type_relations, dependent: :destroy 
   has_many :common_apps, through: :common_app_role_type_relations

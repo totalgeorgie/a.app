@@ -9,8 +9,7 @@
 #  updated_at    :datetime
 #
 
-require 'spec_helper'
-
-describe CommonAppRoleTypeRelations do
-  pending "add some examples to (or delete) #{__FILE__}"
+class CommonAppRoleTypeRelation < ActiveRecord::Base
+  belongs_to :common_app
+  belongs_to :role_type
 end
