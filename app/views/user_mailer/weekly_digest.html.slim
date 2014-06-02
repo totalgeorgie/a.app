@@ -1,13 +1,15 @@
 - font_family = "font-family:'Helvetica', 'Verdana', serif"
 div style="text-align:center"
-  == image_tag("logo.png")
+  == image_url("logo.png")
   h2 style="#{font_family}" Atlas Weekly Digest
 
 div
   h2 style="#{font_family}" Newly Signed Up Users
   
   - @users.each do |user|
-    p style="#{font_family}" user.name, user.email, #{link_to "view profile", admin_user_url(user)}
+    p style="#{font_family}" #{user.name}, #{user.email}, #{link_to "view profile", admin_user_url(user)}
 
   - if @sourced_length > 1
-    p Your VA has added #{@sourced_length} new accounts. You can manage everyone #{link_to "here", admin_jobs_url}
+    p Your VA has added
+      strong #{@sourced_length}
+      | new accounts. You can manage everyone #{link_to "here", admin_jobs_url}
