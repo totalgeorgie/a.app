@@ -6,7 +6,7 @@ div style="text-align:center"
 div
   h2 style="#{font_family}" Newly Signed Up Users
   
-  @users.each do |user|
+  - @users.each do |user|
     p style="#{font_family}" user.name, user.email,
       == link_to "view profile", admin_user_url(user)
 
