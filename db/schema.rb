@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528083013) do
+ActiveRecord::Schema.define(version: 20140602025007) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -81,6 +81,16 @@ ActiveRecord::Schema.define(version: 20140528083013) do
 
   add_index "common_app_position_relations", ["common_app_id"], name: "index_common_app_position_relations_on_common_app_id"
   add_index "common_app_position_relations", ["position_id"], name: "index_common_app_position_relations_on_position_id"
+
+  create_table "common_app_role_type_relations", force: true do |t|
+    t.integer  "role_type_id"
+    t.integer  "common_app_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "common_app_role_type_relations", ["common_app_id"], name: "index_common_app_role_type_relations_on_common_app_id"
+  add_index "common_app_role_type_relations", ["role_type_id"], name: "index_common_app_role_type_relations_on_role_type_id"
 
   create_table "common_apps", force: true do |t|
     t.integer  "user_id"
@@ -164,6 +174,16 @@ ActiveRecord::Schema.define(version: 20140528083013) do
   add_index "job_position_relations", ["job_id"], name: "index_job_position_relations_on_job_id"
   add_index "job_position_relations", ["position_id"], name: "index_job_position_relations_on_position_id"
 
+  create_table "job_role_type_relations", force: true do |t|
+    t.integer  "role_type_id"
+    t.integer  "job_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "job_role_type_relations", ["job_id"], name: "index_job_role_type_relations_on_job_id"
+  add_index "job_role_type_relations", ["role_type_id"], name: "index_job_role_type_relations_on_role_type_id"
+
   create_table "jobs", force: true do |t|
     t.text     "job_title",          limit: 500
     t.text     "job_summary",        limit: 500
@@ -196,6 +216,12 @@ ActiveRecord::Schema.define(version: 20140528083013) do
   end
 
   add_index "questions", ["job_id"], name: "questions_job_idx"
+
+  create_table "role_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "roles", force: true do |t|
     t.integer  "job_id"
