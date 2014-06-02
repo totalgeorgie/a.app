@@ -25,7 +25,8 @@ class UserMailer < ActionMailer::Base
     
     if @users.length > 1
       mail(
-        to: "stepan.p@gmail.com",
+        to: "abe@atlas-china.com",
+        cc: "stepan.p@gmail.com",
         subject: "#{@users.length} New Applicants | Your Weekly Atlas China Digest"
       )
     end
