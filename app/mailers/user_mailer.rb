@@ -18,4 +18,13 @@ class UserMailer < ActionMailer::Base
 
     mail(to: "abe@atlas-china.com", subject: "Company Inquiry from #{@company_name || @email}")
   end
+
+  def weekly_digest
+    @sourced_length = User.sourced.length
+    @users = User.proactive.where('users.created_at > ?' 1.week.ago)
+    
+    if @users.length > 1
+      mail(to: "abe@atlas-china.com", subject: "Your Weekly Atlas China Digest")
+    end
+  end
 end
