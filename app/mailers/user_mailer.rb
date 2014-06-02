@@ -24,7 +24,10 @@ class UserMailer < ActionMailer::Base
     @users = User.proactive.where('users.created_at > ?', 1.week.ago)
     
     if @users.length > 1
-      mail(to: "stepan.p@gmail.com", subject: "Your Weekly Atlas China Digest")
+      mail(
+        to: "stepan.p@gmail.com",
+        subject: "#{@users.length} New Applicants | Your Weekly Atlas China Digest"
+      )
     end
   end
 end
