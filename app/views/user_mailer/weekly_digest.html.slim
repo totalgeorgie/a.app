@@ -8,7 +8,8 @@ div
   
   - @users.each do |user|
     p style="#{font_family}" #{user.name}, #{user.email}, #{link_to "view profile", admin_user_url(user)}
-
+      - if user.has_video
+      	strong Submitted Video
   - if @sourced_length > 1
     p Your VA has added
       strong #{@sourced_length}
