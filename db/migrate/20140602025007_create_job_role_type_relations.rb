@@ -7,6 +7,6 @@ class CreateJobRoleTypeRelations < ActiveRecord::Migration
       t.timestamps
     end
     add_index :job_role_type_relations, :role_type_id
-    add_index :job_role_type_relations, :common_app_id
+    add_index :job_role_type_relations, :job_id
   end
 end
