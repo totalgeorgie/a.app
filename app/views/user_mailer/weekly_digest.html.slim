@@ -9,5 +9,5 @@ div
   - @users.each do |user|
     p style="#{font_family}" user.name, user.email, #{link_to "view profile", admin_user_url(user)}
 
-  - if sourced_length > 1
-    p Your VA has added #{sourced_length} new accounts. You can manage everyone #{link_to "here", admin_jobs_url}
+  - if @sourced_length > 1
+    p Your VA has added #{@sourced_length} new accounts. You can manage everyone #{link_to "here", admin_jobs_url}
