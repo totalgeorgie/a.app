@@ -30,6 +30,7 @@
                 span.heading == job.job_title
                 span.content == job.cities.pluck(:name).join(", ")
                 span.content == job.industries.pluck(:name).join(", ")
+                span.content == job.role_types.pluck(:name).join(", ")
             span.col-sm-2
               span.buttons
                 == link_to "Edit", edit_admin_job_url(job), class: 'atlas_button box_button'
@@ -39,6 +40,6 @@
       == will_paginate
     .row
       .col-sm-4.col-sm-offset-4.admin-jobs-bottom-actions
-        == button_to "Create a Job", new_admin_job_url, class: "atlas_button box_button"
+        == button_to "Create a Job", new_admin_job_url, class: "atlas_button box_button", method: :get
         == button_to "Allow a company to add a job", secret_keys_url,
           class: 'atlas_button light_gray', method: :post

@@ -28,7 +28,7 @@ class Job < ActiveRecord::Base
   
   has_many :job_industry_relations, inverse_of: :job, dependent: :destroy
   has_many :industries, through: :job_industry_relations
-  
+
   has_many :applications, inverse_of: :job, dependent: :destroy
   has_many :users,  through: :applications
 
@@ -61,6 +61,7 @@ class Job < ActiveRecord::Base
 
   scope :with_filters, ->(city_id, industry_id) do
     job =  Job
+      .includes(:role_types)
       .includes(:industries)
       .includes(:cities)
       .includes(:questions)
@@ -75,6 +76,7 @@ class Job < ActiveRecord::Base
 
   scope :with_search, ->(search) do
     job = Job.includes(:industries)
+      .includes(:role_types)
       .includes(:cities)
       .includes(:bullets)
       .includes(:roles)
@@ -89,6 +91,7 @@ class Job < ActiveRecord::Base
 
   scope :with_info, -> do
     Job.includes(:industries)
+       .includes(:role_types)
        .includes(:cities)
        .includes(:bullets)
        .includes(:roles)
