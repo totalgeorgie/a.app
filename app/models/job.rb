@@ -22,8 +22,13 @@ class Job < ActiveRecord::Base
   
   has_many :job_city_relations, inverse_of: :job, dependent: :destroy 
   has_many :cities, through: :job_city_relations
+  
+  has_many :job_role_type_relations, inverse_of: :job, dependent: :destroy
+  has_many :role_types, through: :job_role_type_relations
+  
   has_many :job_industry_relations, inverse_of: :job, dependent: :destroy
   has_many :industries, through: :job_industry_relations
+  
   has_many :applications, inverse_of: :job, dependent: :destroy
   has_many :users,  through: :applications
 

@@ -52,7 +52,7 @@ class SecretKeysController < ApplicationController
       
       industry_ids: [],
       city_ids: [],
-      position_ids: [],    
+      role_type_ids: [],
       
       bullets_attributes: [:id, :bullet, :_destroy],
       job_ideals_attributes: [:id, :content, :_destroy],
