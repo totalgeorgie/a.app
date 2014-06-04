@@ -28,7 +28,8 @@ class Api::CommonAppsController < ApplicationController
       :culture_pref,
       :chinese_ability,
       :china_contrib,
-      industry_ids: [], 
+      industry_ids: [],
+      role_type_ids: [],
       city_ids: [], 
       position_ids: [])
   end
