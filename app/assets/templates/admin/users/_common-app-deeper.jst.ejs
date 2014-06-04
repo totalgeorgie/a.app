@@ -31,10 +31,11 @@
   </div>
   
   <p>&nbsp;</p>
-  <% if user.commonApp().get('resume') %>
+  <% if (user.commonApp().get('resume')) { %>
     <div class="alert alert-success"><%= user.get('name') %>
      submitted their resume! You can view it <a href="<%= user.commonApp().get('resume') %>">here</a>
    </div>  
+  <% } %>
   <label>China Work Force Goals</label>
   <p><%= user.commonApp().escape('china_goals') %></p>
 </div>
