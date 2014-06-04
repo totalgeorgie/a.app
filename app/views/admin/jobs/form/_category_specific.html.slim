@@ -2,9 +2,13 @@
   == f.label "What Industries does the Job belong to?" 
   == f.select :industry_ids, @industries, {}, multiple: true,
       :class => "form-control chosen-select"
-
+.form-group
+  == f.label "What roles does this job belong to?" 
+  == f.select :role_type_ids, 
+     @role_types, {}, multiple: true,
+     :class => "form-control chosen-select"
 .form-group
   == f.label "What cities is the job in?" 
   == f.select :city_ids, 
-     @cities, {}, :multiple => true,
+     @cities, {}, multiple: true,
      :class => "form-control chosen-select"
