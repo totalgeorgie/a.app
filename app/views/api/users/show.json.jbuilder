@@ -17,7 +17,7 @@ json.common_app do
 
   json.city_ids @common_app.city_ids.map(&:to_s)
   json.industry_ids @common_app.industry_ids.map(&:to_s)
-
+  json.role_type_ids @common_app.role_type_ids.map(&:to_s)
   json.resume do 
     json.url @common_app.resume.url
   end

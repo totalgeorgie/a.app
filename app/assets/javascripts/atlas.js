@@ -35,6 +35,7 @@ window.Atlas = {
   setConstants: function(options) {
     Atlas.cities = options.cities;
     Atlas.industries = options.industries;
+    Atlas.roleTypes = options.role_types
     Atlas.gradOptions = options.grad_options;
     Atlas.countries = options.countries;
     Atlas.jobInterests = options.job_interests;

@@ -1,4 +1,4 @@
-<% var chinaTime = user.commonApp().escape('china_time') %>
+<% var chinaTime = user.commonApp().escape('china_time'); %>
 <div class="form-group has-feedback <%= chinaTime ? 'has-success' : null %>">
   <label for="china_time">In one sentence, what career opportunities are you looking for right now?</label>
   <input id="china_time" class="form-control common-app-field" type="text" name="china_time" value="<%= chinaTime %>">
@@ -6,7 +6,7 @@
 </div>
 
 
-<% var cityIds = user.commonApp().get('city_ids') %>
+<% var cityIds = user.commonApp().get('city_ids'); %>
 <div class="form-group has-feedback <%= cityIds.length > 0 ? 'has-success' : null %>">
   <label for="cities">If you got a job offer, which cities would you consider moving to?</label>
   <select id="cities" name="city_ids" class="common-app-field form-control chosen-select" multiple> 
@@ -18,7 +18,7 @@
   <span class="glyphicon glyphicon-ok form-control-feedback <%= cityIds.length > 0 ? null : 'no-show' %>"></span>
 </div>
 
-<% var industryIds = user.commonApp().get('industry_ids') %>
+<% var industryIds = user.commonApp().get('industry_ids'); %>
 <div class="form-group has-feedback <%= industryIds.length > 0 ? 'has-success' : null %>">
   <label for="industries">Which industries would you like to work in?</label>
   <select id="industries" name="industry_ids" class="common-app-field form-control chosen-select" multiple> 
@@ -26,6 +26,15 @@
       <option value="<%= industry.id %>" <%= _.contains(industryIds, industry.id) ? 'selected' : null %> ><%= industry.name %></option>
     <% }) %>
   </select>
-  
-  <span class="glyphicon glyphicon-ok form-control-feedback <%= industryIds.length > 0 ? null : 'no-show' %>"></span>
+
+<% var roleTypeIds = user.commonApp().get('role_type_ids'); %>
+<div class="form-group has-feedback <%= roleTypeIds.length > 0 ? 'has-success' : null %>">
+  <label for="roles">Which Roles would you like to work in?</label>
+  <select id="roles" name="role_type_ids" class="common-app-field form-control chosen-select" multiple> 
+    <% _.each(Atlas.roleTypes, function(role){ %>
+      <option value="<%= role.id %>" <%= _.contains(roleTypeIds, role.id) ? 'selected' : null %> ><%= role.name %></option>
+    <% }) %>
+  </select>
+
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= roleTypeIds.length > 0 ? null : 'no-show' %>"></span>
 </div>

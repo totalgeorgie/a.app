@@ -36,8 +36,13 @@ class CommonApp < ActiveRecord::Base
 
   belongs_to :user
   has_one  :video, through: :user
+
+  has_many :common_app_role_type_relations, dependent: :destroy 
+  has_many :role_types, through: :common_app_role_type_relations
+
   has_many :common_app_industry_relations, dependent: :destroy 
   has_many :industries, through: :common_app_industry_relations
+
   has_many :common_app_city_relations, dependent: :destroy 
   has_many :cities, through: :common_app_city_relations
 
