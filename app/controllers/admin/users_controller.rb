@@ -48,6 +48,7 @@ class Admin::UsersController < ApplicationController
           :grad_year,
           :current_city,
           industry_ids: [],
+          role_type_ids: [],
           city_ids: []
         ],
         
@@ -67,5 +68,6 @@ class Admin::UsersController < ApplicationController
   def load_data
     @industries = Industry.all.collect { |industry| [industry.name, industry.id] }
     @cities = City.all.collect { |city| [city.name, city.id] }
+    @role_types = RoleType.all.collect { |role_type| [role_type.name, role_type.id] }
   end
 end

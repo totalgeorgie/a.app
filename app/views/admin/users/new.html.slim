@@ -52,6 +52,10 @@
                 == c.label :industries, "Industries"
                 == c.select :industry_ids, @industries, {}, multiple: true,
                   class: 'form-control chosen-select'
+              .form-group
+                == c.label :role_types, "Roles"
+                == c.select :role_type_ids, @role_types, {}, multiple: true,
+                  class: 'form-control chosen-select'
       
       .admin-user-body
         .col-sm-4
