@@ -125,7 +125,6 @@ GEM
       rack
     formatador (0.2.4)
     fssm (0.2.10)
-    highline (1.6.21)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -152,7 +151,6 @@ GEM
     newrelic_rpm (3.7.3.204)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    options (2.3.2)
     passenger (4.0.41)
       daemon_controller (>= 1.2.0)
       rack
@@ -160,9 +158,6 @@ GEM
     pg (0.15.1)
     polyglot (0.3.3)
     pr_geohash (1.0.0)
-    progress_bar (1.0.1)
-      highline (~> 1.6.1)
-      options (~> 2.3.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -285,7 +280,6 @@ DEPENDENCIES
   newrelic_rpm
   passenger
   pg (= 0.15.1)
-  progress_bar
   pry-rails
   rails (= 4.0.0.rc2)
   rails_12factor (= 0.0.2)
