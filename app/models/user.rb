@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   before_create :ensure_common_app
   before_create :ensure_admin_link
+  after_create :tell_admin
 
   has_one  :common_app, dependent: :destroy, inverse_of: :user
   has_one  :video, inverse_of: :user, dependent: :destroy
@@ -223,5 +224,9 @@ class User < ActiveRecord::Base
 
   def ensure_admin_link
     self.generate_token(:admin_link)
+  end
+
+  def tell_admin
+    UserMailer.tell_admin_about(self).seliver
   end
 end
