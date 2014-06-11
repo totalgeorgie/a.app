@@ -1,0 +1,10 @@
+- font_family = "font-family:'Helvetica', 'Verdana', serif"
+
+div style="text-align:center"
+  img src="#{ENV['CLOUDFRONT_URL']}#{image_url("logo.png")}" alt="Logo"
+  h3 style="#{font_family}" == @user.name
+
+div
+  p Hi Abe,
+
+  p @user.first_name just signed up for Atlas. To take a look more information, you can view their profile #{link_to "here", admin_user_url(@user)}
