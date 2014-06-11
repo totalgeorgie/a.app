@@ -74,6 +74,12 @@ class User < ActiveRecord::Base
   searchable do
     text :name, :email, :admin_note
     
+    boolean :sourced
+    
+    boolean :has_video do
+      common_app.try(:has_video)
+    end
+    
     text :current_city  do
       common_app.try(:current_city)
     end
@@ -114,10 +120,6 @@ class User < ActiveRecord::Base
       common_app.try(:role_type_ids)
     end
 
-    boolean :has_video do
-      common_app.try(:has_video)
-    end
-
     text :extra_info_education do
      extra_info.try(:education)
     end
@@ -140,7 +142,7 @@ class User < ActiveRecord::Base
       with(:has_video, true) if works(opts[:has_video])
       with(:sourced, true) if works(opts[:sourced])
 
-      paginate(page: ops[:page], per_page: 30)
+      paginate(page: opts[:page], per_page: 30)
     end
 
     search.results
@@ -177,7 +179,7 @@ class User < ActiveRecord::Base
       .where('industries.id IN (?)', common_app.industry_ids)
       .where('jobs.id NOT IN (?)', jobs.map(&:id).concat([0]))
   end
-    
+
   def generate_email
     email_tag = "#{self.first_name}-#{self.last_name}-#{Time.now.to_date.to_s}"
     self.email = "#{email_tag}@atlas-china.com"
