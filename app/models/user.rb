@@ -75,59 +75,59 @@ class User < ActiveRecord::Base
     text :name, :email, :admin_note
     
     text :current_city  do
-      common_app.current_city
+      common_app.try(:current_city)
     end
 
     text :nationality do
-      common_app.nationality
+      common_app.try(:nationality)
     end
 
     text :china_contrib do
-      common_app.china_contrib
+      common_app.try(:china_contrib)
     end
 
     text :china_time do
-      common_app.china_time
+      common_app.try(:china_time)
     end
 
     text :job_interest do
-      common_app.job_interest
+      common_app.try(:job_interest)
     end
 
     text :china_goals do
-      common_app.china_goals
+      common_app.try(:china_goals)
     end
 
     integer :grad_year do
-      common_app.grad_year
+      common_app.try(:grad_year)
     end
 
     integer :city_ids, multiple: true do
-      common_app.city_ids
+      common_app.try(:city_ids)
     end
 
     integer :industry_ids, multiple: true do
-      common_app.industry_ids
+      common_app.try(:industry_ids)
     end
 
     integer :role_type_ids, multiple: true do
-      common_app.role_type_ids
+      common_app.try(:role_type_ids)
     end
 
     boolean :has_video do
-      common_app.has_video
+      common_app.try(:has_video)
     end
 
     text :extra_info_education do
-     extra_info.education
+     extra_info.try(:education)
     end
 
     text :extra_info_experience_1 do
-     extra_info.experience_1
+     extra_info.try(:experience_1)
     end
 
     text :extra_info_experience_2 do
-     extra_info.experience_2
+     extra_info.try(:experience_2)
     end
   end
 
