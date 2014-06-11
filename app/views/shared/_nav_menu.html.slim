@@ -1,24 +1,28 @@
+- target_value = iframe ? "_blank" : "_self"
+
 .nav.collapse.navbar-collapse.bs-navbar-collapse
   ul#main-menu.navbar-right
-    li == link_to "Jobs", root_url
+    li == link_to "Jobs", root_url, target: target_value
     - if signed_in?
       - if current_user.admin?
-        li == link_to "Admin Dashboard", admin_url, class: 'admin-link'
+        li == link_to "Admin Dashboard", admin_url, class: 'admin-link', target: target_value
       - else
-        li == link_to "Profile", current_user
+        li == link_to "Profile", current_user, target: target_value
     - else
-      li == link_to "Apply Now!", signup_url
+      li == link_to "Apply Now!", signup_url, target: target_value
     li 
-      == link_to "About", "http://atlas-china.com/about/"
+      == link_to "About", "http://atlas-china.com/about/", target: target_value
       ul.sub-menu
-        li == link_to "Board of Advisors", "http://atlas-china.com/board-of-advisors/"
+        li == link_to "Board of Advisors", 
+            "http://atlas-china.com/board-of-advisors/", target: target_value
     li 
-      == link_to "Blog", "http://atlas-china.com/journal"
+      == link_to "Blog", "http://atlas-china.com/journal", target: target_value
       ul.sub-menu
-        li == link_to "Journal", "http://atlas-china.com/journal"
-        li == link_to "Contributors", "http://atlas-china.com/contributors/"
+        li == link_to "Journal", "http://atlas-china.com/journal", target: target_value
+        li == link_to "Contributors", "http://atlas-china.com/contributors/",
+            target: target_value
     - if signed_in?
-      li == link_to "Sign Out", signout_url, method: :delete
+      li == link_to "Sign Out", signout_url, method: :delete, target: target_value
     - else
-      li == link_to "Sign In", signin_url
-      li == link_to "For Employers"
+      li == link_to "Sign In", signin_url, target: target_value
+      li == link_to "For Employers", "http://atlas-china.com/companies", target: target_value
