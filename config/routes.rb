@@ -47,6 +47,7 @@ Atlas::Application.routes.draw do
   end
 
   root  "jobs#index"
+  match 'mainheader',             to: 'users#iframe_header',      via: 'get'
   match 'mainsignup',             to: 'users#iframe_signup',      via: 'get'
   match '/signup',                to: 'users#new',                via: 'get'
   match '/signin',                to: 'sessions#new',             via: 'get'

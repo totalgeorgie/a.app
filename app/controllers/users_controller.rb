@@ -12,6 +12,10 @@ class UsersController < ApplicationController
     render layout: 'iframe'
   end
 
+  def iframe_header
+    render layout: 'iframe'
+  end
+
   def show
   end
 

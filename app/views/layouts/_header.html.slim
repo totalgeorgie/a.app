@@ -5,27 +5,4 @@ header.navbar-static-top role="banner"
         span.atlas_button Navigation
       == link_to image_tag("logo.png", alt: "Atlas China"), root_url, class: "brand"
 
-    .nav.collapse.navbar-collapse.bs-navbar-collapse
-      ul#main-menu.navbar-right
-        li == link_to "Jobs", root_url
-        - if signed_in?
-          - if current_user.admin?
-            li == link_to "Admin Dashboard", admin_url, class: 'admin-link'
-          - else
-            li == link_to "Profile", current_user
-        - else
-          li == link_to "Apply Now!", signup_url
-        li 
-          == link_to "About", "http://atlas-china.com/about/"
-          ul.sub-menu
-            li == link_to "Board of Advisors", "http://atlas-china.com/board-of-advisors/"
-        li 
-          == link_to "Blog", "http://atlas-china.com/journal"
-          ul.sub-menu
-            li == link_to "Journal", "http://atlas-china.com/journal"
-            li == link_to "Contributors", "http://atlas-china.com/contributors/"
-        - if signed_in?
-          li == link_to "Sign Out", signout_url, method: :delete
-        - else
-          li == link_to "Sign In", signin_url
-          li == link_to "For Employers"
+    == render 'shared/nav_menu'
