@@ -44,7 +44,7 @@ class UserMailer < ActionMailer::Base
     mail(
       to: "abe@atlas-china.com",
       cc: "stepan.p@gmail.com",
-      subjet: "#{@user.name} signed up for Atlas China"
+      subject: "#{@user.name} signed up for Atlas China"
     )
   end
 end
