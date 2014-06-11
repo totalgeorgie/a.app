@@ -227,6 +227,6 @@ class User < ActiveRecord::Base
   end
 
   def tell_admin
-    UserMailer.tell_admin_about(self).seliver
+    UserMailer.tell_admin_about(self).seliver unless sourced
   end
 end
