@@ -2,9 +2,12 @@
 
 div style="text-align:center"
   img src="#{ENV['CLOUDFRONT_URL']}#{image_url("logo.png")}" alt="Logo"
-  h3 style="#{font_family}" == @user.name
+  h3 style="#{font_family}" Atlas Welcomes #{@user.first_name}
 
 div
-  p Hi Abe,
+  h3 Hi Abe,
 
-  p @user.first_name just signed up for Atlas. To take a look more information, you can view their profile #{link_to "here", admin_user_url(@user)}
+  p style="#{font_family}" #{@user.name} just signed up for Atlas.
+
+  p style="#{font_family}" Take a look at his profile #{link_to "here", admin_user_url(@user)}! 
+
