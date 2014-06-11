@@ -1,16 +1,19 @@
 .container 
   .row
     - if current_user
-    .col-sm-12
-      .blog_container.sign_up_page
-        .sign_up_box
-          == form_for(@user) do |f| 
-            == render 'shared/error_messages', object: f.object 
-            #full_name.col-sm-12.col-md-3
-              == f.text_field :name, placeholder: "Your Name", class: "form-control"
-            #email.col-sm-12.col-md-3
-              == f.text_field :email, placeholder: "Your Email", class: "form-control"
-            #pass.col-sm-12.col-md-3
-              == f.password_field :password, placeholder: "Password", class: "form-control"
-            #submit.col-sm-12.col-md-3
-              == f.submit "Get Hired", class: "atlas_button box_button"
+      .col-sm-4.col-sm-offset-4
+        == link_to "Manage Your Profile #{current_user.first_name}", current_user
+    - else
+      .col-sm-12
+        .blog_container.sign_up_page
+          .sign_up_box
+            == form_for(@user) do |f| 
+              == render 'shared/error_messages', object: f.object 
+              #full_name.col-sm-12.col-md-3
+                == f.text_field :name, placeholder: "Your Name", class: "form-control"
+              #email.col-sm-12.col-md-3
+                == f.text_field :email, placeholder: "Your Email", class: "form-control"
+              #pass.col-sm-12.col-md-3
+                == f.password_field :password, placeholder: "Password", class: "form-control"
+              #submit.col-sm-12.col-md-3
+                == f.submit "Get Hired", class: "atlas_button box_button"
