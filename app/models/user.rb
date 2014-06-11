@@ -131,7 +131,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  scope :admin_search, ->(opts) do
+  def self.admin_search(opts)
     search = User.search do
       keywords opts[:name] if works(opts[:name])
       with(:city_ids, opts[:city_ids]) if works(opts[:city_ids])
@@ -146,16 +146,9 @@ class User < ActiveRecord::Base
     search.results
   end
 
-  def grad_year_range(opts)
+  def self.grad_year_range(opts)
     year_start, year_end = opts[:grad_year_start], opts[:grad_year_end]
     works(year_start) && works(year_end) ? (year_start..year_end) : nil
-  end
-
-  def potential_jobs
-    Job.includes(:cities, :industries)
-      .where('cities.id IN (?)', self.common_app.city_ids)
-      .where('industries.id IN (?)', self.common_app.industry_ids)
-      .where('jobs.id NOT IN (?)', self.jobs.map(&:id).concat([0]))
   end
 
   def self.works(param)
@@ -177,7 +170,14 @@ class User < ActiveRecord::Base
   def last_name
     self.name.split(" ").last
   end
-  
+
+  def potential_jobs
+    Job.includes(:cities, :industries)
+      .where('cities.id IN (?)', common_app.city_ids)
+      .where('industries.id IN (?)', common_app.industry_ids)
+      .where('jobs.id NOT IN (?)', jobs.map(&:id).concat([0]))
+  end
+    
   def generate_email
     email_tag = "#{self.first_name}-#{self.last_name}-#{Time.now.to_date.to_s}"
     self.email = "#{email_tag}@atlas-china.com"
