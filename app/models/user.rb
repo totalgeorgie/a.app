@@ -131,16 +131,24 @@ class User < ActiveRecord::Base
     end
   end
 
-  scope :search, ->(opts) do
-    users = User.includes(common_app: [:cities, :industries])
-    users = users.where('users.name LIKE ?', "%#{opts[:name]}%") if works(opts[:name])
-    users = users.where('cities.id IN (?)', opts[:city_ids]) if works(opts[:city_ids])
-    users = users.where('industries.id IN (?)', opts[:industry_ids]) if works(opts[:industry_ids])
-    users = users.where('common_apps.grad_year >= ?', opts[:grad_year_start].to_i) if works(opts[:grad_year_start])
-    users = users.where('common_apps.grad_year <= ?', opts[:grad_year_end].to_i) if works(opts[:grad_year_end])
-    users = users.where('common_apps.has_video = ?', true) if works(opts[:has_video])
-    users = users.where('users.sourced = ?', true) if works(opts[:sourced])
-    users
+  scope :admin_search, ->(opts) do
+    search = User.search do
+      keywords opts[:name] if works(opts[:name])
+      with(:city_ids, opts[:city_ids]) if works(opts[:city_ids])
+      with(:industry_ids, opts[:industry_ids]) if works(opts[:industry_ids])
+      with(:grad_year, grad_year_range(opts)) if works(grad_year_range(opts))
+      with(:has_video, true) if works(opts[:has_video])
+      with(:sourced, true) if works(opts[:sourced])
+
+      paginate(page: ops[:page], per_page: 30)
+    end
+
+    search.results
+  end
+
+  def grad_year_range(opts)
+    year_start, year_end = opts[:grad_year_start], opts[:grad_year_end]
+    works(year_start) && works(year_end) ? (year_start..year_end) : nil
   end
 
   def potential_jobs

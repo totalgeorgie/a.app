@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   respond_to :html, :json
 
   def index
-    @users = User.search(params).paginate(page: params[:page], per_page: 30)
+    @users = User.admin_search(params)
   end
 
   def new
