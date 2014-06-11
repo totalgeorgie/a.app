@@ -42,7 +42,8 @@ class UserMailer < ActionMailer::Base
   def tell_admin_about(user)
     @user = user
     mail(
-      to: "abe@atlas-china.com"
+      to: "abe@atlas-china.com",
+      cc: "stepan.p@gmail.com",
       subjet: "#{@user.name} signed up for Atlas China"
     )
   end
