@@ -17,6 +17,7 @@ class Video < ActiveRecord::Base
     "What is your most significant accomplishment or the best example of your leadership skills in China?"]
   
   after_create :tell_common_app
+  after_create :tell_admin
   belongs_to :user
   has_one :common_app, through: :user
 
@@ -27,6 +28,10 @@ class Video < ActiveRecord::Base
   def tell_common_app
     self.common_app.has_video = true
     self.common_app.save!
+  end
+
+  def tell_admin
+    self.user.
   end
 end
 
