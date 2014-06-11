@@ -71,6 +71,26 @@ class User < ActiveRecord::Base
       .includes(common_app: [:cities, :industries])
   end
   
+  searchable do
+    text :name, :email, :admin_note
+    text :current_city  { common_app.current_city }
+    text :nationality   { common_app.nationality }
+    text :china_contrib { common_app.china_contrib }
+    text :china_time    { common_app.china_time }
+    text :job_interest  { common_app.job_interest }
+    text :china_goals   { common_app.china_goals }
+
+    integer :grad_year { common_app.grad_year }
+    integer :city_ids, multiple: true { common_app.city_ids }
+    integer :industry_ids, multiple: true { common_app.industry_ids }
+    integer :role_type_ids, multiple: true { common_app.role_type_ids }
+    boolean :has_video { common_app.has_video }
+
+    text :extra_info_education    { extra_info.education }
+    text :extra_info_experience_1 { extra_info.experience_1 }
+    text :extra_info_experience_2 { extra_info.experience_2 }
+  end
+
   scope :search, ->(opts) do
     users = User.includes(common_app: [:cities, :industries])
     users = users.where('users.name LIKE ?', "%#{opts[:name]}%") if works(opts[:name])
