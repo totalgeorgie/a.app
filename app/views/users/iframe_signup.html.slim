@@ -2,7 +2,8 @@
   .row
     - if current_user
       .col-sm-4.col-sm-offset-4
-        == link_to "Manage Your Profile #{current_user.first_name}", current_user
+        == link_to "Manage Your Profile #{current_user.first_name}", current_user,
+           class: 'atlas_button box_button'
     - else
       .col-sm-12
         .blog_container.sign_up_page
