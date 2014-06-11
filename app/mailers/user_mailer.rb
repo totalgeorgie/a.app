@@ -8,7 +8,11 @@ class UserMailer < ActionMailer::Base
   
   def send_refer(referer, referee)
     @referer = referer
-    mail(to: referee, cc: "abe@atlas-china.com", subject: "You've been refered to Atlas China")
+    mail(
+      to: referee,
+      cc: "abe@atlas-china.com",
+      subject: "You've been refered to Atlas China"
+    )
   end
 
   def company_start(params)
@@ -16,7 +20,10 @@ class UserMailer < ActionMailer::Base
     @email = params[:email]
     @comment = params[:comment]
 
-    mail(to: "abe@atlas-china.com", subject: "Company Inquiry from #{@company_name || @email}")
+    mail(
+      to: "abe@atlas-china.com",
+      subject: "Company Inquiry from #{@company_name || @email}"
+    )
   end
 
   def weekly_digest
