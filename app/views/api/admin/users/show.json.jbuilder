@@ -35,6 +35,7 @@ if @extra_info
     json.experience_2 @extra_info.experience_2 || "N/A"
     json.education @extra_info.education || "N/A"
     json.other @extra_info.other || "N/A"
+    json.email @extra_info.email || "N/A"
   end
 end
 
