@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602025007) do
+ActiveRecord::Schema.define(version: 20140612024110) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20140602025007) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "education",    limit: 1000
+    t.string   "email"
   end
 
   add_index "extra_infos", ["user_id"], name: "index_extra_infos_on_user_id"

@@ -13,6 +13,7 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  education    :text(1000)
+#  email        :string(255)
 #
 
 require 'spec_helper'
