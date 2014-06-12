@@ -24,10 +24,12 @@
             .form-group
               == f.label :name, "Full Name"
               == f.text_field :name, class: 'form-control', placeholder: "John Doe"
-            .form-group
-              == f.label :admin_note, "Email Address"
-              == f.text_field :admin_note, class: "form-control", placeholder: "john.doe@gmail.com"
-      
+            
+            == f.fields_for :extra_info_attributes, @new_user.extra_info do |c|  
+              .form-group
+                == c.label :email, "Email Address"
+                == c.text_field :email, class: "form-control", placeholder: "john.doe@gmail.com"
+        
       .admin-user-body
         .col-sm-4
           h2 Basic Info
