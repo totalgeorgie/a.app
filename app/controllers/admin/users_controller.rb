@@ -60,7 +60,7 @@ class Admin::UsersController < ApplicationController
           :experience_2,
           :education,
           :other,
-          :user_id
+          :email
         ]
       )
   end
