@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   before_create :ensure_common_app
   before_create :ensure_admin_link
-  after_create  :tell_admin
+  after_update  :tell_admin
 
   has_one  :common_app, dependent: :destroy, inverse_of: :user
   has_one  :video, inverse_of: :user, dependent: :destroy
@@ -228,6 +228,13 @@ class User < ActiveRecord::Base
   end
 
   def tell_admin
-    UserMailer.tell_admin_about(self).deliver unless sourced
+    if should_tell_admin?
+      UserMailer.tell_admin_about(self).deliver
+      self.toggle!(:told_admin)
+    end
+  end
+
+  def should_tell_admin?
+    !told_admin? && common_app.progress > 40% && !sourced?
   end
 end

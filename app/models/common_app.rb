@@ -32,7 +32,7 @@ class CommonApp < ActiveRecord::Base
     "Just want to see what's out there",
     "Not in the market"]
   
-  before_update :set_progress 
+  before_update :set_progress
 
   belongs_to :user
   has_one  :video, through: :user
