@@ -7,7 +7,7 @@
 #  question_id    :integer
 #  created_at     :datetime
 #  updated_at     :datetime
-#  content        :string(255)
+#  content        :text(1000)
 #  video_uuid     :string(255)
 #
 
