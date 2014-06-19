@@ -235,6 +235,6 @@ class User < ActiveRecord::Base
   end
 
   def should_tell_admin?
-    !told_admin? && common_app.progress > 40% && !sourced?
+    !self.told_admin? && !self.sourced? && self.common_app.progress > 40
   end
 end
