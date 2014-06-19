@@ -16,6 +16,7 @@
 #  applications_count     :integer
 #  admin_link             :string(255)
 #  sourced                :boolean          default(FALSE)
+#  told_admin             :boolean
 #
 
 require 'spec_helper'

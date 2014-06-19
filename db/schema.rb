@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619155838) do
+ActiveRecord::Schema.define(version: 20140619160249) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
@@ -257,6 +257,7 @@ ActiveRecord::Schema.define(version: 20140619155838) do
     t.integer  "applications_count"
     t.string   "admin_link"
     t.boolean  "sourced",                            default: false
+    t.boolean  "told_admin"
   end
 
   add_index "users", ["admin_link"], name: "index_users_on_admin_link"
