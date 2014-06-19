@@ -16,9 +16,9 @@
 #  china_contrib    :text(1000)
 #  progress         :integer          default(5)
 #  has_video        :boolean          default(FALSE)
-#  china_time       :text(255)
-#  job_interest     :string(255)
-#  china_goals      :string(255)
+#  china_time       :text(1000)
+#  job_interest     :text(1000)
+#  china_goals      :text(1000)
 #  culture_pref     :integer          default(0)
 #
 
