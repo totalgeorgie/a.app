@@ -142,7 +142,7 @@ class User < ActiveRecord::Base
       with(:grad_year, grad_year_range(opts)) if works(grad_year_range(opts))
       with(:has_video, true) if works(opts[:has_video])
       with(:sourced, true) if works(opts[:sourced])
-
+      order_by(:created_at, :desc)
       paginate(page: opts[:page], per_page: 30)
     end
 
