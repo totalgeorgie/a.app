@@ -21,8 +21,6 @@
         li == link_to "Journal", "http://atlas-china.com/journal", target: target_value
         li == link_to "Contributors", "http://atlas-china.com/contributors/",
             target: target_value
-    - if signed_in?
-      li == link_to "Sign Out", signout_url, method: :delete, target: target_value
-    - else
+    - unless signed_in?  
       li == link_to "Sign In", signin_url, target: target_value
       li == link_to "For Employers", "http://atlas-china.com/companies", target: target_value
