@@ -74,13 +74,13 @@ class User < ActiveRecord::Base
   
   searchable do
     text :name, :email, :admin_note
-    
+    date :created_at 
     boolean :sourced
     
     boolean :has_video do
       common_app.try(:has_video)
     end
-    
+
     text :current_city  do
       common_app.try(:current_city)
     end
