@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612024110) do
+ActiveRecord::Schema.define(version: 20140619155542) do
 
   create_table "answers", force: true do |t|
     t.integer  "application_id"
     t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "content"
+    t.text     "content",        limit: 1000
     t.string   "video_uuid"
   end
 

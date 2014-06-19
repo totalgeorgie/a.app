@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   before_create :ensure_common_app
   before_create :ensure_admin_link
-  after_create :tell_admin
+  after_create  :tell_admin
 
   has_one  :common_app, dependent: :destroy, inverse_of: :user
   has_one  :video, inverse_of: :user, dependent: :destroy
@@ -73,8 +73,8 @@ class User < ActiveRecord::Base
   end
   
   searchable do
-    text :name, :email, :admin_note
-    date :created_at 
+    text    :name, :email, :admin_note
+    date    :created_at 
     boolean :sourced
     
     boolean :has_video do
