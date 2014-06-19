@@ -6,7 +6,6 @@ class ApplicationsController < ApplicationController
   def show
   end
 
-  
   def create
     if @application.save
       flash[:success] = "You've Successfully applied!"
