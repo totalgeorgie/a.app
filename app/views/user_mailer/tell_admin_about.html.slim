@@ -10,51 +10,60 @@ div
   p style="#{font_family}" #{@user.name} just signed up for Atlas.
 
   p style="#{font_family}" Take a look at his profile #{link_to "here", admin_user_url(@user)}!
+  
+  div 
+    table 
+      tbody
+        tr
+          td style="#{font_family}" Name 
+          td style="#{font_family}" == @user.name
+        tr
+          td style="#{font_family}" Current City
+          td style="#{font_family}" == @common_app.current_city
+        tr
+          td style="#{font_family}" Nationality
+          td style="#{font_family}" == @common_app.nationality || "N/A"
+        tr
+          td style="#{font_family}" Grad Year
+          td style="#{font_family}" == @common_app.grad_year || "N/A"
+        tr
+          td style="#{font_family}" Resume
+          td style="#{font_family}" == @common_app.resume.url || "N/A"
+        tr
+          td style="#{font_family}" Pref. Cities
+          td style="#{font_family}" == @common_app.cities.try{ |cits| cits.any? ? cits.map(&:name).join(', ') : 'N/A' }
+        tr
+          td style="#{font_family}" Pref. Industries
+          td style="#{font_family}" == @common_app.industries.try{ |ind| ind.any? ? ind.map(&:name).join(', ') : 'N/A' }
+        tr
+          td style="#{font_family}" Pref. Roles
+          td style="#{font_family}" == @common_app.role_types.try{ |rls| rls.any? ? rls.map(&:name).join(', ') : 'N/A' }
+    hr
 
-  table 
-    tbody
-      tr
-        td style="#{font_family}" Name 
-        td style="#{font_family}" == @user.name
-      tr
-        td style="#{font_family}" Current City
-        td style="#{font_family}" == @common_app.current_city
-      tr
-        td style="#{font_family}" Nationality
-        td style="#{font_family}" == @common_app.nationality || "N/A"
-      tr
-        td style="#{font_family}" Grad Year
-        td style="#{font_family}" == @common_app.grad_year || "N/A"
-      tr
-        td style="#{font_family}" Resume
-        td style="#{font_family}" == @common_app.resume.url || "N/A"
-      tr
-        td style="#{font_family}" Pref. Cities
-        td style="#{font_family}" == @common_app.cities.try{ |cits| cits.any? ? cits.map(&:name).join(', ') : 'N/A' }
-      tr
-        td style="#{font_family}" Pref. Industries
-        td style="#{font_family}" == @common_app.industries.try{ |ind| ind.any? ? ind.map(&:name).join(', ') : 'N/A' }
-      tr
-        td style="#{font_family}" Pref. Roles
-        td style="#{font_family}" == @common_app.role_types.try{ |rls| rls.any? ? rls.map(&:name).join(', ') : 'N/A' }
+    div 
+      p style="#{font_family}"
+        strong In one sentence, what career opportunities are you looking for right now?
+      p style="#{font_family}" == @common_app.china_time || "N/A"
 
-    p style="#{font_family}" In one sentence, what career opportunities are you looking for right now?
-    p style="#{font_family}" == @common_app.china_time || "N/A"
+      p style="#{font_family}"
+        strong Salary Preference ( Salary -50 ------------------- 50 Gain Experience )
+      p style="#{font_family}" == @common_app.salary_pref || "N/A"
+      
+      p style="#{font_family}"
+        strong Culture Preference ( Established Systems -50 ------------------- 50 New Projects )
+      p style="#{font_family}" == @common_app.culture_pref || "N/A"
+      
+      p style="#{font_family}"
+        strong What is your interest in new jobs right now?
+      p style="#{font_family}" == @common_app.job_interest || "N/A"
 
-    p style="#{font_family}" Salary Preference ( Salary -50 ------------------- 50 Gain Experience )
-    p style="#{font_family}" == @common_app.salary_pref || "N/A"
-    
-    p style="#{font_family}" Culture Preference ( Established Systems -50 ------------------- 50 New Projects )
-    p style="#{font_family}" == @common_app.culture_pref || "N/A"
-    
-    p style="#{font_family}" What is your interest in new jobs right now?
-    p style="#{font_family}" == @common_app.job_interest || "N/A"
+      p style="#{font_family}"
+        strong What is the most important thing you want to gain out of working in China?
+      p style="#{font_family}" == @common_app.china_goals || "N/A"
 
-    p style="#{font_family}" What is the most important thing you want to gain out of working in China?
-    p style="#{font_family}" == @common_app.china_goals || "N/A"
-
-    p style="#{font_family}" Where do you see yourself contributing the most value to a company in China?
-    p style="#{font_family}" == @common_app.china_contrib || "N/a"
+      p style="#{font_family}"
+        strong Where do you see yourself contributing the most value to a company in China?
+      p style="#{font_family}" == @common_app.china_contrib || "N/A"
 
     hr
     
