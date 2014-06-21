@@ -41,7 +41,8 @@ class UserMailer < ActionMailer::Base
   end
 
   def tell_admin_about(user)
-    @user = User.includes(:common_app).find(user.id)
+    @user = user
+    @common_app = user.common_app
     
     mail(
       to: "abe@atlas-china.com",
