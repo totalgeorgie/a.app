@@ -214,6 +214,13 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
   
+  def tell_admin
+    if should_tell_admin?
+      UserMailer.tell_admin_about(self).deliver
+      self.toggle!(:told_admin)
+    end
+  end
+
   private
   def ensure_common_app 
     self.common_app || self.build_common_app
@@ -227,14 +234,7 @@ class User < ActiveRecord::Base
     self.generate_token(:admin_link)
   end
 
-  def tell_admin
-    if should_tell_admin?
-      UserMailer.tell_admin_about(self).deliver
-      self.toggle!(:told_admin)
-    end
-  end
-
   def should_tell_admin?
-    !self.told_admin && !self.sourced && self.common_app.progress > 45
+    !self.told_admin && !self.sourced && self.common_app.progress > 50
   end
 end

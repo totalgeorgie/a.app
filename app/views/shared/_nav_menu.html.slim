@@ -24,3 +24,5 @@
     - unless signed_in?  
       li == link_to "Sign In", signin_url, target: target_value
       li == link_to "For Employers", "http://atlas-china.com/companies", target: target_value
+    - if signed_in? && current_user.admin?
+      li == link_to "Sign Out", signout_url, method: :delete

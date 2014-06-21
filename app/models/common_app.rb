@@ -33,6 +33,7 @@ class CommonApp < ActiveRecord::Base
     "Not in the market"]
   
   before_update :set_progress
+  after_update  :tell_admin
 
   belongs_to :user
   has_one  :video, through: :user
@@ -76,6 +77,7 @@ class CommonApp < ActiveRecord::Base
   end
 
   private
+  
   def set_progress
     current_progress = self.calculate_progress
     unless self.progress == current_progress 
@@ -83,6 +85,10 @@ class CommonApp < ActiveRecord::Base
     end
   end
 
+  def tell_admin
+    user.tell_admin
+  end
+  
   def is_complete?(field)
     !field.blank? && field != 0
   end
