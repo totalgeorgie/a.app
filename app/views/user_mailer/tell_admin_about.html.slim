@@ -30,13 +30,13 @@ div
         td style="#{font_family}" == @common_app.resume.url || "N/A"
       tr
         td style="#{font_family}" Pref. Cities
-        td style="#{font_family}" == @common_app.cities.map(:name).join(', ')
+        td style="#{font_family}" == @common_app.cities.try{ |cits| cits.any? ? cits.map(&:name).join(', ') : 'N/A' }
       tr
         td style="#{font_family}" Pref. Industries
-        td style="#{font_family}" == @common_app.industries.map(:name).join(', ')
+        td style="#{font_family}" == @common_app.industries.try{ |ind| ind.any? ? ind.map(&:name).join(', ') : 'N/A' }
       tr
         td style="#{font_family}" Pref. Roles
-        td style="#{font_family}" == @common_app.role_types.map(:name).join(', ')
+        td style="#{font_family}" == @common_app.role_types.try{ |rls| rls.any? ? rls.map(&:name).join(', ') : 'N/A' }
 
     p style="#{font_family}" In one sentence, what career opportunities are you looking for right now?
     p style="#{font_family}" == @common_app.china_time || "N/A"
