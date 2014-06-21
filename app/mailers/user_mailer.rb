@@ -28,7 +28,10 @@ class UserMailer < ActionMailer::Base
 
   def weekly_digest
     @sourced_length = User.sourced.length
-    @users = User.proactive.where('users.created_at > ?', 1.week.ago)
+    @users = User
+      .includes(:common_app)
+      .proactive
+      .where('users.created_at > ?', 1.week.ago)
     
     if @users.length > 1
       mail(

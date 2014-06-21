@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
     reject_if:  :all_blank, 
     allow_destroy:  true
 
-  scope :proactive, -> { where(sourced: false) }
+  scope :proactive, -> { where(sourced: 'false') }
   scope :sourced, -> { where(sourced: true) }
 
   scope :with_dependents, -> do

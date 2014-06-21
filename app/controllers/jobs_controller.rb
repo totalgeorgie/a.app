@@ -1,7 +1,9 @@
 class JobsController < ApplicationController
   before_action :load_data, only: :index
 
-  def index    
+  def index
+    fail
+    UserMailer.weekly_digest.deliver!
     @jobs = Job
       .with_filters(city, industry)
       .paginate(page: params[:page], per_page: 5)

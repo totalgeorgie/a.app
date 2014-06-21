@@ -8,9 +8,7 @@ div
   
   - @users.each do |user|
     p style="#{font_family}" #{user.name}, #{user.email}, #{link_to "view profile", admin_user_url(user)}
-      - if user.has_video
-      	strong Submitted Video
+    - if user.common_app.has_video
+    	strong Submitted Video
   - if @sourced_length > 1
-    p Your VA has added
-      strong #{@sourced_length}
-      | new accounts. You can manage everyone #{link_to "here", admin_jobs_url}
+    p style="#{font_family}" Your VA has added #{@sourced_length} new accounts. You can manage everyone #{link_to "here", admin_jobs_url}
