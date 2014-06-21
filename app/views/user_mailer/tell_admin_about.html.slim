@@ -9,5 +9,11 @@ div
 
   p style="#{font_family}" #{@user.name} just signed up for Atlas.
 
-  p style="#{font_family}" Take a look at his profile #{link_to "here", admin_user_url(@user)}! 
+  p style="#{font_family}" Take a look at his profile #{link_to "here", admin_user_url(@user)}!
+
+  table 
+  	tbody
+  	  tr
+  	    td @user.name
+  	    td
 
