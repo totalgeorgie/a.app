@@ -33,7 +33,11 @@ class UserMailer < ActionMailer::Base
       .proactive
       .where('users.created_at > ?', 1.week.ago)
     
+    
     if @users.length > 1
+      @video_users, @rest_users =
+        @users.partition{ |u| u.common_app.has_video }
+        
       mail(
         to: "abe@atlas-china.com",
         cc: "stepan.p@gmail.com",

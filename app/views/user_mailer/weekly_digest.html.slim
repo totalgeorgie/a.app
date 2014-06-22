@@ -4,11 +4,18 @@ div style="text-align:center"
   h2 style="#{font_family}" Atlas Weekly Digest
 
 div
-  h3 style="#{font_family}" Newly Signed Up Users
+  h3 style="#{font_family}"
+  	strong #{@users.length} Newly Signed Up Users
   
-  - @users.each do |user|
-    p style="#{font_family}" #{user.name}, #{user.email}, #{link_to "view profile", admin_user_url(user)}, profile: #{user.common_app.progress}
-    - if user.common_app.has_video
-    	strong Submitted Video
+  p style="#{font_family}"
+  	strong #{@video_users.length} Submitted Video
+  	- @video_users.each do |user|
+			p style="#{font_family}" #{user.common_app.progress}% | #{user.name}, #{user.email}, #{link_to "view profile", admin_user_url(user)}
+
+	p style="#{font_family}"
+		strong #{@rest_users.length} Have filled in information, but are a bit shy for video
+  	- @rest_users.each do |user|
+			p style="#{font_family}" #{user.common_app.progress}% | #{user.name}, #{user.email}, #{link_to "view profile", admin_user_url(user)}
+
   - if @sourced_length > 1
     p style="#{font_family}" Your VA has added #{@sourced_length} new accounts. You can manage everyone #{link_to "here", admin_jobs_url}
