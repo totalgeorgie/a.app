@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
     reject_if:  :all_blank, 
     allow_destroy:  true
 
-  scope :proactive, -> { where(sourced: 'false') }
+  scope :proactive, -> { where(sourced: false) }
   scope :sourced, -> { where(sourced: true) }
 
   scope :with_dependents, -> do
@@ -219,6 +219,10 @@ class User < ActiveRecord::Base
       UserMailer.tell_admin_about(self).deliver
       self.toggle!(:told_admin)
     end
+  end
+
+  def signed_up_at
+    created_at.strftime("%d %b. %Y")
   end
 
   private

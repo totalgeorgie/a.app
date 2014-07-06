@@ -1,21 +1,61 @@
-- font_family = "font-family:'Helvetica', 'Verdana', serif"
+- font_family = "font-family:'Helvetica', 'Verdana', serif;"
+- td_style    = "border: 1px solid lightgrey; padding: 5px;"
+
 div style="text-align:center"
   img src="#{ENV['CLOUDFRONT_URL']}#{image_url("logo.png")}" alt="Logo"
   h2 style="#{font_family}" Atlas Weekly Digest
 
 div
   h3 style="#{font_family}"
-  	strong #{@users.length} Newly Signed Up Users
+    strong #{@users.length} Newly Signed Up Users
   
-  p style="#{font_family}"
-  	strong #{@video_users.length} Submitted Video
-  	- @video_users.each do |user|
-			p style="#{font_family}" #{user.common_app.progress}% | #{user.name}, #{user.email}, #{link_to "view profile", admin_user_url(user)}
+  h4 style="#{font_family}" #{@video_users.length} Applicants submitted video
+  table
+    tbody
+      - @video_users.each do |user|
+        tr
+          td style="#{td_style}"
+             p style="#{font_family} color: blue;" == link_to "#{user.common_app.progress}%", admin_user_url(user)
+          td style="#{td_style}"
+             p style="#{font_family}" == user.signed_up_at
+          td style="#{td_style}" 
+            p style="#{font_family}"  == link_to user.name, admin_user_url(user)
+          td style="#{td_style}"
+            p style="#{font_family}"  == user.common_app.grad_year || 'N/A Grad Year'
+          td style="#{td_style}" 
+            p style="#{font_family}"  == user.common_app.country_name || 'N/A Country'
+          td style="#{td_style}" 
+            p style="#{font_family}"  == user.common_app.current_city.try{ |c_city| c_city + ' ' }
+            p style="#{font_family}"  == user.common_app.cities.try{ |cits| cits.any? ? ' &rarr; ' + cits.map(&:name).join(', ') : 'No cities' }
+          td style="#{td_style}"
+            p style="#{font_family}"  == user.common_app.industries.try{ |inds| inds.any? ? inds.map(&:name).join(', ') : 'No industries' }
+          td style="#{td_style}" 
+            - if user.common_app.resume.url
+              == link_to "", user.common_app.resume.url, style: font_family
 
-	p style="#{font_family}"
-		strong #{@rest_users.length} Have filled in information, but are a bit shy for video
-  	- @rest_users.each do |user|
-			p style="#{font_family}" #{user.common_app.progress}% | #{user.name}, #{user.email}, #{link_to "view profile", admin_user_url(user)}
+  h4 style="#{font_family}" #{@rest_users.length} Have filled in information, but are a bit shy for video
+  table
+    tbody
+      - @rest_users.each do |user|
+        tr
+          td style="#{td_style}"
+             p style="#{font_family} color: blue;" == "#{user.common_app.progress}%"
+          td style="#{td_style}"
+             p style="#{font_family}" == user.signed_up_at
+          td style="#{td_style}" 
+            p style="#{font_family}"  == link_to user.name, admin_user_url(user)
+          td style="#{td_style}"
+            p style="#{font_family}"  == user.common_app.grad_year || 'N/A Grad Year'
+          td style="#{td_style}" 
+            p style="#{font_family}"  == user.common_app.country_name || 'N/A Country'
+          td style="#{td_style}" 
+            p style="#{font_family}"  == user.common_app.current_city.try{ |c_city| c_city + ' ' }
+            p style="#{font_family}"  == user.common_app.cities.try{ |cits| cits.any? ? ' &rarr; ' + cits.map(&:name).join(', ') : 'No cities' }
+          td style="#{td_style}"
+            p style="#{font_family}"  == user.common_app.industries.try{ |inds| inds.any? ? inds.map(&:name).join(', ') : 'No industries' }
+          td style="#{td_style}" 
+            - if user.common_app.resume.url
+              == link_to "", user.common_app.resume.url, style: font_family
 
   - if @sourced_length > 1
     p style="#{font_family}" Your VA has added #{@sourced_length} new accounts. You can manage everyone #{link_to "here", admin_jobs_url}

@@ -90,6 +90,6 @@ class CommonApp < ActiveRecord::Base
   end
   
   def is_complete?(field)
-    field.blank? || field == 0
+    !field.blank? && field != 0
   end
 end

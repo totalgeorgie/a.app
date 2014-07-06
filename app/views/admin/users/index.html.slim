@@ -20,7 +20,7 @@
         - @users.each do |user|
           tr 
             td
-              span.content == user.created_at.strftime("%d %b. %Y")
+              span.content == user.signed_up_at
             td 
               == link_to user.name, admin_user_url(user)
               - if user.sourced
