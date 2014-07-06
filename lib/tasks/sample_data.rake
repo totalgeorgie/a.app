@@ -2,13 +2,13 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     
-    Industry.create!('Sales')
-    Industry.create!('Business Development')
-    Industry.create!('Media')
-    Industry.create!('Operations')
-    Industry.create!('Customer Development')
-    Industry.create!('Marketing')
-    Industry.create!('Customer Service')
+    Industry.create!(name: 'Sales')
+    Industry.create!(name: 'Business Development')
+    Industry.create!(name: 'Media')
+    Industry.create!(name: 'Operations')
+    Industry.create!(name: 'Customer Development')
+    Industry.create!(name: 'Marketing')
+    Industry.create!(name: 'Customer Service')
     
     City.create!(name: 'Beijing')
     City.create!(name: 'Changsha')

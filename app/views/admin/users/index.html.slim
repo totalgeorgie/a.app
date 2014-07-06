@@ -19,6 +19,8 @@
         tbody
         - @users.each do |user|
           tr 
+            td
+              span.content == user.created_at.strftime("%d %b. %Y")
             td 
               == link_to user.name, admin_user_url(user)
               - if user.sourced
@@ -36,10 +38,10 @@
               span.content == user.common_app.cities.try{ |cits| cits.any? ? ' &rarr; ' + cits.map(&:name).join(', ') : 'No cities' }
             td
               span.content == user.common_app.industries.try{ |inds| inds.any? ? inds.map(&:name).join(', ') : 'No industries' }
-            td
-              link_to "", user.common_app.resume.file_url, class: "glyphicon glyphicon-file"
             td 
-              link_to "", admin_share_link(user), class: "glyphicon glyphicon-link"
+              - if user.common_app.resume.url
+                == link_to "", user.common_app.resume.url, class: "glyphicon glyphicon-file"
+            td == link_to "", admin_share_link(user), class: "glyphicon glyphicon-link"
 
       .pagination-centered
         == will_paginate
