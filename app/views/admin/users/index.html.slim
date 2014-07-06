@@ -1,15 +1,16 @@
 - provide(:title, "Manage Users")
+
 .thinstripe.thinstripe-light.clearfix
   .overlay
     .container
       .manage_buttons
         == link_to 'Manage Jobs', admin_jobs_url, class: 'atlas_button box_button'
         == link_to 'Manage Users', admin_users_url, class: 'atlas_button box_button selected-button'
+
 .first_container
   .container
     .row
       == render 'advanced_search'
-
 
     .users-table
       .import-data
@@ -22,8 +23,7 @@
               == link_to user.name, admin_user_url(user)
               - if user.sourced
                 span.glyphicon.glyphicon-import.sourced-icon
-            td 
-              span.glyphicon.glyphicon-briefcase
+            td
               span.content == user.common_app.grad_year.try{ |yr| yr ? yr : 'N/A' }
             td 
               span.glyphicon.glyphicon-user
@@ -36,8 +36,10 @@
               span.content == user.common_app.cities.try{ |cits| cits.any? ? ' &rarr; ' + cits.map(&:name).join(', ') : 'No cities' }
             td
               span.content == user.common_app.industries.try{ |inds| inds.any? ? inds.map(&:name).join(', ') : 'No industries' }
+            td
+              link_to "", user.common_app.resume.file_url, class: "glyphicon glyphicon-file"
             td 
-              a href="#{admin_share_link(user)}" class="glyphicon glyphicon-link"
+              link_to "", admin_share_link(user), class: "glyphicon glyphicon-link"
 
       .pagination-centered
         == will_paginate
