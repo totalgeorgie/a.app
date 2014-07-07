@@ -27,6 +27,8 @@
     <% }) %>
   </select>
 
+  <span class="glyphicon glyphicon-ok form-control-feedback <%= industryIds.length > 0 ? null : 'no-show' %>"></span>
+</div>
 <% var roleTypeIds = user.commonApp().get('role_type_ids'); %>
 <div class="form-group has-feedback <%= roleTypeIds.length > 0 ? 'has-success' : null %>">
   <label for="roles">Which Roles would you like to work in?</label>

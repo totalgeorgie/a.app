@@ -14,7 +14,7 @@ class Api::CommonAppsController < ApplicationController
     end
   end   
 
-  private    
+  private
   def common_app_params
     params.require(:common_app).permit(
       :current_city,
@@ -29,9 +29,9 @@ class Api::CommonAppsController < ApplicationController
       :chinese_ability,
       :china_contrib,
       industry_ids: [],
+      city_ids: [],
       role_type_ids: [],
-      city_ids: [], 
-      position_ids: [])
+    )
   end
 
   def correct_applicant

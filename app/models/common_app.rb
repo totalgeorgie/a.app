@@ -62,8 +62,8 @@ class CommonApp < ActiveRecord::Base
   end
   
   def calculate_progress
-    total_questions = self.attribute_names.length - 1
-    total_completed = 0
+    total_questions = self.attribute_names.length - (NOT_INCLUDED + 1)
+    total_completed = -NOT_INCLUDED
 
     attribute_names.each do |attr|
      total_completed += 1 if is_complete?(self[attr])
