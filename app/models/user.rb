@@ -21,8 +21,8 @@
 
 class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  default_scope { order('users.id DESC') } 
-  
+  default_scope { order('users.id DESC') }
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   before_create :ensure_common_app
@@ -38,23 +38,23 @@ class User < ActiveRecord::Base
   has_many :jobs, through: :applications
 
   has_secure_password validations: false
-  
+
   validates :name, presence: true,
    length: { maximum: 50 }
-  
-  validates :email, presence: true, 
+
+  validates :email, presence: true,
     format: { with: VALID_EMAIL_REGEX },
-    uniqueness: { case_sensitive: false } 
-  
+    uniqueness: { case_sensitive: false }
+
   validates :password, length: { minimum: 6 }, allow_blank: true
   validates :password, presence: true, on: :create
 
-  accepts_nested_attributes_for :common_app, 
-    reject_if:  :all_blank, 
+  accepts_nested_attributes_for :common_app,
+    reject_if:  :all_blank,
     allow_destroy:  true
 
-  accepts_nested_attributes_for :extra_info, 
-    reject_if:  :all_blank, 
+  accepts_nested_attributes_for :extra_info,
+    reject_if:  :all_blank,
     allow_destroy:  true
 
   scope :proactive, -> { where(sourced: false) }
@@ -67,17 +67,17 @@ class User < ActiveRecord::Base
       .includes(:jobs)
   end
 
-  scope :for_profile, -> do 
+  scope :for_profile, -> do
       User.includes(applications: :job)
       .includes(:video)
       .includes(common_app: [:cities, :industries])
   end
-  
+
   searchable do
     text    :name, :email, :admin_note
-    date    :created_at 
+    date    :created_at
     boolean :sourced
-    
+
     boolean :has_video do
       common_app.try(:has_video)
     end
@@ -143,6 +143,7 @@ class User < ActiveRecord::Base
       with(:grad_year, grad_year_range(opts)) if works(grad_year_range(opts))
       with(:has_video, true) if works(opts[:has_video])
       with(:sourced, true) if works(opts[:sourced])
+      with(:sourced, false) if works(opts[:proactive])
       order_by(:created_at, :desc)
       paginate(page: opts[:page], per_page: 30)
     end
@@ -188,14 +189,14 @@ class User < ActiveRecord::Base
 
     self
   end
-  
+
   def generate_pass
     self.password = ("a".."z").to_a.sample(8).join("")
 
     self
   end
 
-  def generate_token(column) 
+  def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
@@ -204,16 +205,16 @@ class User < ActiveRecord::Base
   def generate_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
-    save! 
+    save!
 
     self.password_reset_token
   end
-  
+
   def send_password_reset
     generate_password_reset
     UserMailer.password_reset(self).deliver
   end
-  
+
   def tell_admin
     if should_tell_admin?
       UserMailer.tell_admin_about(self).deliver
@@ -226,10 +227,10 @@ class User < ActiveRecord::Base
   end
 
   private
-  def ensure_common_app 
+  def ensure_common_app
     self.common_app || self.build_common_app
   end
-  
+
   def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)
   end

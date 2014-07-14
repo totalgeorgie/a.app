@@ -13,7 +13,7 @@
       <% end %>
     </select>
   </div>
-  <div class="col-sm-6 col-md-3">
+  <div class="col-sm-4 col-md-3">
     <select class="form-control chosen-select search-input" name="industry_ids[]" multiple data-placeholder="Industry">
       <option></option>
       <% Industry.all.each do |industry| %>
@@ -41,19 +41,25 @@
       <% end %>
     </select>
   </div>
-  <div class="col-sm-1 col-md-1">
+  <div class="col-sm-1">
     <div class="btn-group search-input toggle-input" data-toggle="buttons">
       <label class="btn btn-primary">
-        <input type="checkbox" name="has_video"> Video?
+        <input type="checkbox" name="sourced">&nbsp; y VA? &nbsp;</label>
       </label>
     </div>
     <div class="btn-group search-input toggle-input" data-toggle="buttons">
       <label class="btn btn-primary">
-        <input type="checkbox" name="sourced">&nbsp; VA? &nbsp;</label>
+        <input type="checkbox" name="proactive">&nbsp; n VA? &nbsp;</label>
       </label>
     </div>
   </div>
+
   <div class="col-sm-1 col-md-1">
-    <button class="btn btn-danger search-input">Search</button>
+    <div class="btn-group search-input toggle-input" data-toggle="buttons">
+      <label class="btn btn-primary">
+        <input type="checkbox" name="has_video"> Video?</label>
+      </label>
+    </div>
+    <button class="btn btn-danger">Search</button>
   </div>
 </form>
